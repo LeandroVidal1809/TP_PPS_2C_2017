@@ -1,0 +1,22 @@
+<table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Apellido</th>
+        <th>Nombre</th>
+        <th>Presente</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of listado">
+            <td style="border-top:0px; ">{{item.apellido}} </td>
+            <td style="border-top:0px; ">{{item.nombre}} </td>
+            <td class="checkbox" style="border-top:0px; ">
+                <label>
+                  <input type="checkbox" value="">
+                  <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                </label>
+              </td>
+          </tr>
+    </tbody>
+  </table>
+  <body></body>

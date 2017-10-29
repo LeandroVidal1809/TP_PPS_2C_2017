@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { RegistrarPage } from '../pages/registrar/registrar';
 import { TomarAsistenciaPage } from '../pages/tomar-asistencia/tomar-asistencia';
+import { ListaAsistenciaPage } from '../pages/lista-asistencia/lista-asistencia';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -20,7 +21,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListPage,
     LoginPage,
     RegistrarPage,
-    TomarAsistenciaPage
+    TomarAsistenciaPage,
+    ListaAsistenciaPage
     
   ],
   imports: [
@@ -34,7 +36,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListPage,
     LoginPage,
     RegistrarPage,
-    TomarAsistenciaPage
+    TomarAsistenciaPage,
+    ListaAsistenciaPage
 
   ],
   providers: [

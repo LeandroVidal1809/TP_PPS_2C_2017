@@ -1,35 +1,47 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 <div class="login-body">
   <article class="container-login center-block">
   <section>
-    <ul id="top-bar" class="nav nav-tabs nav-justified">
-      <li class="active"><a href="#login-access">Accesso</a></li>
-      <li><a href="#">Password dimenticata</a></li>
-    </ul>
     <div class="tab-content tabs-login col-lg-12 col-md-12 col-sm-12 cols-xs-12">
       <div id="login-access" class="tab-pane fade active in">
-        <h2><i class="glyphicon glyphicon-log-in"></i> Accesso</h2>						
+        <h2><i class="glyphicon glyphicon-log-in"></i> Filtros para asistencia</h2>						
+        <fieldset>
+            <legend>Seleccione un filtro para continuar...</legend>
+            <input type="radio" name="action" id="track" value="track" (click)="setOpcion(0)" /><label for="track">Aula</label><br />
+            <input type="radio" name="action" id="event" value="event"  (click)="setOpcion(1)" /><label for="event">Materia</label><br />
+            <input type="radio" name="action" id="message" value="message" (click)="setOpcion(2)" /><label for="message">Profesor</label><br />
+            <input type="radio" name="action" id="message" value="message" (click)="setOpcion(3)" /><label for="message">Alumno</label><br />
+            <input type="radio" name="action" id="message" value="message"(click)="setOpcion(4)" /><label for="message">Fecha</label><br />
+        </fieldset>
+        <br>
+        <select *ngIf="opcion==0"  class="selectpick">
+            <option>Aula...</option>
+            <option>200</option>
+            <option>201</option>
+            <option>202</option>
+          </select>
+          <select class="selectpick" *ngIf="opcion==1" >
+              <option>Materia...</option>
+              <option>Laboratorio 1</option>
+              <option>Programacion 1</option>
+              <option>Base de Datos</option>
+            </select>
+            <select class="selectpick" *ngIf="opcion==2" >
+              <option>Profesor...</option>
+              <option>Gomez,Luis</option>
+              <option>Ruiz,Monica</option>
+              <option>Rodriguez,Luis</option>
+            </select>
+            <input *ngIf="opcion==3"  id="msg"  [(ngModel)]="Alumno" type="text" class="form-control" name="msg" placeholder="Alumno"> 
+            <input *ngIf="opcion==4"  id="msg"  [(ngModel)]="Fecha" type="text" class="form-control" name="msg" placeholder="Fecha"> 
+    <br><br><br>
         <form method="post" accept-charset="utf-8" autocomplete="off" role="form" class="form-horizontal">
-          <div class="form-group ">
-            <label for="login" class="sr-only">Email</label>
-              <input type="text" class="form-control" name="login" id="login_value" 
-                placeholder="Email" tabindex="1" value="" />
-          </div>
-          <div class="form-group ">
-            <label for="password" class="sr-only">Password</label>
-              <input type="password" class="form-control" name="password" id="password"
-                placeholder="Password" value="" tabindex="2" />
-          </div>
-          <div class="checkbox">
-              <label class="control-label" for="remember_me">
-                <input type="checkbox" name="remember_me" id="remember_me" value="1" class="" tabindex="3" /> Ricordami
-              </label>
-          </div>
-          <br/>
-          <div class="form-group ">				
-              <button type="submit" name="log-me-in" id="submit" tabindex="5" class="btn btn-lg btn-primary">Entra</button>
+                  <div class="form-group ">				
+              <button type="submit" name="log-me-in" id="submit" tabindex="5" (click)="tomarAsistencia()" class="btn btn-lg btn-primary">Ingresar al aula</button>
           </div>
         </form>			
       </div>
@@ -37,3 +49,10 @@
   </section>
 </article>
 </div>
+
+<!-- 
+
+
+
+  -->
+
