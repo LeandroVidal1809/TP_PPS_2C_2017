@@ -3,21 +3,20 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>LectorQR</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+    <div padding align="center">
+
+        <h2  class="hcolor">Bienvenido --USUARIO--</h2>
+        <p class="hcolor">
+       En este lector QR podras obtener la informacion que necesitas!!
+        </p>
+
+  <button  (click)="CargarScann()" style="background-color: rgba(255, 255, 255, 0.5)" block >
+    <img width="230" height="230" src="assets/imgs/icon.png">
+
+</button> </div>
 </ion-content>

@@ -4,8 +4,9 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { QRPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
+import { GraficosPage } from '../pages/graficos/graficos';
 import { RegistrarPage } from '../pages/registrar/registrar';
 import { TomarAsistenciaPage } from '../pages/tomar-asistencia/tomar-asistencia';
 import { ListaAsistenciaPage } from '../pages/lista-asistencia/lista-asistencia';
@@ -13,13 +14,15 @@ import { ListaAsistenciaPage } from '../pages/lista-asistencia/lista-asistencia'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
+    QRPage,
     LoginPage,
+    GraficosPage,
     RegistrarPage,
     TomarAsistenciaPage,
     ListaAsistenciaPage
@@ -28,13 +31,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
+    QRPage,
     LoginPage,
+    GraficosPage,
     RegistrarPage,
     TomarAsistenciaPage,
     ListaAsistenciaPage
