@@ -5,11 +5,16 @@
     clear: both;
 }
 
+th{
+    
+    font-size: 22px;
+   
+}
 .checkbox .cr,
 .radio .cr {
     position: relative;
     display: inline-block;
-    border: 1px solid #a9a9a9;
+    border: 1px solid #000000;
     border-radius: .25em;
     width: 1.3em;
     height: 1.3em;
@@ -24,6 +29,8 @@
 .table .table-condensed{
     border-top:0px; 
     size: 100px;
+    color: black;
+    border: 1px solid #000000;
 }
 .checkbox .cr .cr-icon,
 .radio .cr .cr-icon {
@@ -60,7 +67,9 @@
 .radio label input[type="radio"]:disabled + .cr {
     opacity: .5;
 }
-body {
-    background-image: url('../assets/img/aula.jpg');
-  //  background-color: #cccccc;
+.body{
+    background-image: url('../assets/imgs/aulalista.jpg');
+    background-size: 170%;
+    width: 100%;
+    height: 100%;
 }

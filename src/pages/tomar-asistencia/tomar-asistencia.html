@@ -6,18 +6,36 @@
 <div class="login-body">
   <article class="container-login center-block">
   <section>
-    <div class="tab-content tabs-login col-lg-12 col-md-12 col-sm-12 cols-xs-12">
+    <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10">
       <div id="login-access" class="tab-pane fade active in">
         <h2><i class="glyphicon glyphicon-log-in"></i> Filtros para asistencia</h2>						
-        <fieldset>
-            <legend>Seleccione un filtro para continuar...</legend>
-            <input type="radio" name="action" id="track" value="track" (click)="setOpcion(0)" /><label for="track">Aula</label><br />
-            <input type="radio" name="action" id="event" value="event"  (click)="setOpcion(1)" /><label for="event">Materia</label><br />
-            <input type="radio" name="action" id="message" value="message" (click)="setOpcion(2)" /><label for="message">Profesor</label><br />
-            <input type="radio" name="action" id="message" value="message" (click)="setOpcion(3)" /><label for="message">Alumno</label><br />
-            <input type="radio" name="action" id="message" value="message"(click)="setOpcion(4)" /><label for="message">Fecha</label><br />
-        </fieldset>
-        <br>
+
+        <div class="col-md-7">
+    <div class="funkyradio">
+      <div class="funkyradio-danger">
+        <input type="radio" (click)="setOpcion(0)" name="radio" id="radio5" />
+        <label for="radio5">Aula</label>
+      </div>
+      <div class="funkyradio-danger">
+            <input type="radio" (click)="setOpcion(1)" name="radio" id="radio1" />
+            <label for="radio1">Materia</label>
+        </div>
+        <div class="funkyradio-danger">
+            <input type="radio" (click)="setOpcion(2)" name="radio" id="radio2" checked/>
+            <label for="radio2">Profesor</label>
+        </div>
+        <div class="funkyradio-danger">
+            <input type="radio" (click)="setOpcion(3)" name="radio" id="radio3" />
+            <label for="radio3">Alumno</label>
+        </div>
+        <div class="funkyradio-danger">
+            <input type="radio" (click)="setOpcion(4)" name="radio" id="radio4" />
+            <label for="radio4">Fecha</label>
+        </div>
+
+    </div>
+</div>
+<div class="col-md-6">  
         <select *ngIf="opcion==0"  class="selectpick">
             <option>Aula...</option>
             <option>200</option>
@@ -36,15 +54,13 @@
               <option>Ruiz,Monica</option>
               <option>Rodriguez,Luis</option>
             </select>
-            <input *ngIf="opcion==3"  id="msg"  [(ngModel)]="Alumno" type="text" class="form-control" name="msg" placeholder="Alumno"> 
-            <input *ngIf="opcion==4"  id="msg"  [(ngModel)]="Fecha" type="text" class="form-control" name="msg" placeholder="Fecha"> 
-    <br><br><br>
-        <form method="post" accept-charset="utf-8" autocomplete="off" role="form" class="form-horizontal">
-                  <div class="form-group ">				
-              <button type="submit" name="log-me-in" id="submit" tabindex="5" (click)="tomarAsistencia()" class="btn btn-lg btn-primary">Ingresar al aula</button>
-          </div>
-        </form>			
+            <input *ngIf="opcion==3"  id="msg"  [(ngModel)]="Alumno"  type="text" class="selectpick" name="msg" placeholder="Alumno"> 
+            <input *ngIf="opcion==4"  id="msg"  [(ngModel)]="Fecha"   type="text" class="selectpick" name="msg" placeholder="Fecha"> 
+            	
       </div>
+      </div>
+      
+      <button  (click)="tomarAsistencia()" class="btn btn-primary btn-md">Ingresar al aula</button>
     </div>
   </section>
 </article>
@@ -56,3 +72,11 @@
 
   -->
 
+        <!-- <fieldset>
+            <legend>Seleccione un filtro para continuar...</legend>
+            <input type="radio" class="radiob" name="action" id="track" value="track" (click)="setOpcion(0)" /><label for="track">Aula</label><br />
+            <input type="radio" name="action" id="event" value="event"  (click)="setOpcion(1)" /><label for="event">Materia</label><br />
+            <input type="radio" name="action" id="message" value="message" (click)="setOpcion(2)" /><label for="message">Profesor</label><br />
+            <input type="radio" name="action" id="message" value="message" (click)="setOpcion(3)" /><label for="message">Alumno</label><br />
+            <input type="radio" name="action" id="message" value="message"(click)="setOpcion(4)" /><label for="message">Fecha</label><br />
+        </fieldset> -->
