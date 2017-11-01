@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { TomarAsistenciaPage } from '../tomar-asistencia/tomar-asistencia';
+import { TomarFotoPage } from '../tomar-foto/tomar-foto';
 
 @Component({
   selector: 'page-home',
@@ -12,8 +12,8 @@ export class HomePage {
 
   }
 
-  Redirect(){
-    this.navCtrl.push(TomarAsistenciaPage);
+  redirect(){
+    this.navCtrl.push(TomarFotoPage);
     
   }
 }

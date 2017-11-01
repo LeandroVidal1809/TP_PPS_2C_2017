@@ -9,7 +9,9 @@ import { LoginPage } from '../pages/login/login';
 import { GraficosPage } from '../pages/graficos/graficos';
 import { RegistrarPage } from '../pages/registrar/registrar';
 import { TomarAsistenciaPage } from '../pages/tomar-asistencia/tomar-asistencia';
+import { TomarFotoPage } from '../pages/tomar-foto/tomar-foto';
 import { ListaAsistenciaPage } from '../pages/lista-asistencia/lista-asistencia';
+
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -25,7 +27,8 @@ import { ChartsModule } from 'ng2-charts';
     GraficosPage,
     RegistrarPage,
     TomarAsistenciaPage,
-    ListaAsistenciaPage
+    ListaAsistenciaPage,
+    TomarFotoPage
     
   ],
   imports: [
@@ -42,7 +45,8 @@ import { ChartsModule } from 'ng2-charts';
     GraficosPage,
     RegistrarPage,
     TomarAsistenciaPage,
-    ListaAsistenciaPage
+    ListaAsistenciaPage,
+    TomarFotoPage
 
   ],
   providers: [
