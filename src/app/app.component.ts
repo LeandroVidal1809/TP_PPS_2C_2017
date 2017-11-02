@@ -10,6 +10,9 @@ import { RegistrarPage } from '../pages/registrar/registrar';
 import { TomarAsistenciaPage } from '../pages/tomar-asistencia/tomar-asistencia';
 import { ListaAsistenciaPage } from '../pages/lista-asistencia/lista-asistencia';
 import { TomarFotoPage } from '../pages/tomar-foto/tomar-foto';
+import { ExcelPage } from '../pages/excel/excel';
+
+
 
 @Component({
   templateUrl: 'app.html'
@@ -27,10 +30,12 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },   
+      { title: 'Ingreso', component: LoginPage },  
       { title: 'Tomar Asistencia', component: TomarAsistenciaPage },
       { title: 'Tomar Fotos', component: TomarFotoPage },
       { title: 'LectorQR', component: QRPage },
-      { title: 'Graficos Estadisticos', component: GraficosPage }
+      { title: 'Graficos Estadisticos', component: GraficosPage },
+      { title: 'Importar Excels', component: ExcelPage }
    
     ];
     

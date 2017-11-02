@@ -11,7 +11,7 @@ import { RegistrarPage } from '../pages/registrar/registrar';
 import { TomarAsistenciaPage } from '../pages/tomar-asistencia/tomar-asistencia';
 import { TomarFotoPage } from '../pages/tomar-foto/tomar-foto';
 import { ListaAsistenciaPage } from '../pages/lista-asistencia/lista-asistencia';
-
+import { ExcelPage } from '../pages/excel/excel';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -28,7 +28,8 @@ import { ChartsModule } from 'ng2-charts';
     RegistrarPage,
     TomarAsistenciaPage,
     ListaAsistenciaPage,
-    TomarFotoPage
+    TomarFotoPage,
+    ExcelPage
     
   ],
   imports: [
@@ -46,7 +47,8 @@ import { ChartsModule } from 'ng2-charts';
     RegistrarPage,
     TomarAsistenciaPage,
     ListaAsistenciaPage,
-    TomarFotoPage
+    TomarFotoPage,
+    ExcelPage
 
   ],
   providers: [
