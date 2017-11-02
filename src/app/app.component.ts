@@ -20,8 +20,8 @@ import { ExcelPage } from '../pages/excel/excel';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
- rootPage: any = HomePage;
-  //rootPage: any = LoginPage;
+ //rootPage: any = HomePage;
+  rootPage: any = LoginPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
@@ -29,14 +29,13 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },   
-      { title: 'Ingreso', component: LoginPage },  
+    
       { title: 'Tomar Asistencia', component: TomarAsistenciaPage },
       { title: 'Tomar Fotos', component: TomarFotoPage },
       { title: 'LectorQR', component: QRPage },
       { title: 'Graficos Estadisticos', component: GraficosPage },
       { title: 'Importar Excels', component: ExcelPage }
-   
+ 
     ];
     
 
