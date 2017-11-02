@@ -1,18 +1,79 @@
-<!--
-  Generated template for the LoginPage page.
+<div class="container">
+	<div class="row">
+		<!-- <h2>Fancy Login / Registration form</h2> -->
+	</div>
+</div>
+<br>
+<br>
+<div class="container">
+<div class="row">
+<div class="col-md-4 col-md-offset-4">
+<div class="form-body">
+    <ul class="nav nav-tabs final-login">
+        <li class="active"><a data-toggle="tab" href="#sectionA">Iniciar Sesión</a></li>
+        <li><a data-toggle="tab" href="#sectionB">Registrar</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="sectionA" class="tab-pane fade in active">
+        <div class="innter-form">
+            <form class="sa-innate-form" method="post">
+            <label>Direccion de correo electronico</label>
+            <input type="text" name="username">
+            <label>Clave</label>
+            <input type="password" name="password">
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
+            <ion-list>
+              <ion-item >
+                <ion-label>Seleccione un Usuario...</ion-label>
+                <ion-select  name="firstField" >
+                  <ion-option value="usuario">Usuario</ion-option>
+                  <ion-option value="admin">Administrador</ion-option>
+                  <ion-option value="invitado">Invitado</ion-option>
+                  <ion-option value="jugador1">Jugador 1</ion-option>
+                  <ion-option value="jugador2">Jugador 2</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
 
-  <ion-navbar>
-    <ion-title>login</ion-title>
-  </ion-navbar>
 
-</ion-header>
-
-
-<ion-content padding>
-
-</ion-content>
+            <button type="submit">Entrar</button>
+            <!-- <a href="">Forgot Password?</a> -->
+            </form>
+          </div>
+            <div class="social-login">
+            <p>- - - - - - - - - - - - - Inicia sesión con - - - - - - - - - - - - - </p>
+    		<ul>
+            <li><a href=""><i class="fa fa-facebook"></i> Facebook</a></li>
+            <li><a href=""><i class="fa fa-google-plus"></i> Google+</a></li>
+            <li><a href=""><i class="fa fa-twitter"></i> Twitter</a></li>
+            </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div id="sectionB" class="tab-pane fade">
+			<div class="innter-form">
+            <form class="sa-innate-form" method="post">
+            <label>Name</label>
+            <input type="text" name="username">
+            <label>Email Address</label>
+            <input type="text" name="username">
+            <label>Password</label>
+            <input type="password" name="password">
+            <button type="submit">Join now</button>
+            <p>By clicking Join now, you agree to hifriends's User Agreement, Privacy Policy, and Cookie Policy.</p>
+            </form>
+            </div>
+            <div class="social-login">
+            <p>- - - - - - - - - - - - - Register With - - - - - - - - - - - - - </p>
+			<ul>
+            <li><a href=""><i class="fa fa-facebook"></i> Facebook</a></li>
+            <li><a href=""><i class="fa fa-google-plus"></i> Google+</a></li>
+            <li><a href=""><i class="fa fa-twitter"></i> Twitter</a></li>
+            </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
