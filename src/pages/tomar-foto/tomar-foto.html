@@ -1,7 +1,31 @@
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-                        
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   
+
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Camara</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding align="center">
+  <ion-fab  down right edge> 
+    <button ion-fab mini><ion-icon name="contact" ></ion-icon></button>
+     <ion-fab-list>
+       <button ion-fab  (click)="piano()"><ion-icon name="body"></ion-icon></button>
+       <button ion-fab  (click)="EnviarMensaje()" ><ion-icon name="thumbs-up"></ion-icon></button>
+       <button ion-fab  (click)="CerrarSesion()" ><ion-icon name="power"></ion-icon></button>
+     
+    
+     </ion-fab-list>
+  </ion-fab> 
+         
             <div class="login-body">
               <article class="container-login center-block">
               <section>
@@ -26,3 +50,4 @@
               </section>
             </article>
             </div>
+          </ion-content>

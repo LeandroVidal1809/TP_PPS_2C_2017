@@ -9,6 +9,7 @@ import { GraficosPage } from '../pages/graficos/graficos';
 import { RegistrarPage } from '../pages/registrar/registrar';
 import { TomarAsistenciaPage } from '../pages/tomar-asistencia/tomar-asistencia';
 import { ListaAsistenciaPage } from '../pages/lista-asistencia/lista-asistencia';
+import { TomarFotoPage } from '../pages/tomar-foto/tomar-foto';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,8 +17,8 @@ import { ListaAsistenciaPage } from '../pages/lista-asistencia/lista-asistencia'
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
-
+ rootPage: any = HomePage;
+  //rootPage: any = LoginPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
@@ -25,12 +26,14 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'LectorQR', component: QRPage },
-      { title: 'Graficos Estadisticos', component: GraficosPage },
+      { title: 'Home', component: HomePage },   
       { title: 'Tomar Asistencia', component: TomarAsistenciaPage },
-      { title: 'Listar Asistencia', component: ListaAsistenciaPage }
+      { title: 'Tomar Fotos', component: TomarFotoPage },
+      { title: 'LectorQR', component: QRPage },
+      { title: 'Graficos Estadisticos', component: GraficosPage }
+   
     ];
+    
 
   }
 
