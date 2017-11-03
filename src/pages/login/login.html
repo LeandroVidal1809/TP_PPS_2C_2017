@@ -36,11 +36,11 @@
 <div class="col-md-4 col-md-offset-4">
 <div class="form-body">
     <ul class="nav nav-tabs final-login">
-        <li class="active"><a data-toggle="tab" href="#sectionA">Iniciar Sesión</a></li>
-        <li><a data-toggle="tab" href="#sectionB">Registrar</a></li>
+      <li class={{claseLogin}}><a data-toggle="tab" (click)="mortrarA('A')"  >Iniciar Sesión</a></li>
+      <li class={{claseRegistrar}}><a data-toggle="tab" (click)="mortrarA('B')">Registrar</a></li>
     </ul>
     <div class="tab-content">
-        <div id="sectionA" class="tab-pane fade in active">
+      <div id="sectionA" [hidden]="seccionA" class="tab-pane fade in active">
         <div class="innter-form">
             <form class="sa-innate-form" method="post">
             <label>Direccion de correo electronico</label>
@@ -76,21 +76,23 @@
             </div>
             <div class="clearfix"></div>
         </div>
-        <div id="sectionB" class="tab-pane fade">
+        <div id="sectionB" [hidden]="seccionB">
 			<div class="innter-form">
             <form class="sa-innate-form" method="post">
-            <label>Name</label>
+            <label>Nombre</label>
             <input type="text" name="username">
-            <label>Email Address</label>
+            <label>Direccion de correo electronico</label>
             <input type="text" name="username">
-            <label>Password</label>
+            <label>Contraseña</label>
             <input type="password" name="password">
-            <button type="submit">Join now</button>
-            <p>By clicking Join now, you agree to hifriends's User Agreement, Privacy Policy, and Cookie Policy.</p>
+            <label>Repetir Contraseña</label>
+            <input type="password" name="password">
+            <button type="submit">Registrar</button>
+            <p>Acepta politicas bla blda blda etc.</p>
             </form>
             </div>
             <div class="social-login">
-            <p>- - - - - - - - - - - - - Register With - - - - - - - - - - - - - </p>
+            <p>- - - - - - - - - - - - - Registrar con - - - - - - - - - - - - - </p>
 			<ul>
             <li><a href=""><i class="fa fa-facebook"></i> Facebook</a></li>
             <li><a href=""><i class="fa fa-google-plus"></i> Google+</a></li>

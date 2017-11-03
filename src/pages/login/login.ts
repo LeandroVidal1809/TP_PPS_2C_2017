@@ -16,9 +16,15 @@ import { HomePage } from '../home/home';
 })
 export class LoginPage {
 
+  seccionA = false;
+  seccionB = true;
+  classactivo = "";
+  claseRegistrar:string;
+  claseLogin:string;
   constructor(public menuCtrl: MenuController,public navCtrl: NavController, public navParams: NavParams) {
 
-    
+    this.claseLogin="active";
+    this.claseRegistrar="";
   }
 
 refresh(){
@@ -34,6 +40,22 @@ console.log("se");
     console.log('ionViewDidLoad LoginPage');
 
     this.refresh();
+  }
+
+  mortrarA(boton){
+    console.log(this.seccionA);
+    if (boton == "A"){
+      this.seccionA = false;
+      this.seccionB = true;
+      this.claseLogin="active";
+      this.claseRegistrar="";
+    }
+    else{
+      this.seccionA = true;
+      this.seccionB = false;
+      this.claseLogin="";
+      this.claseRegistrar="active";
+    }
   }
 
 }
