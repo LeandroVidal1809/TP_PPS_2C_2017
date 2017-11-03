@@ -2,10 +2,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+  <ion-navbar swipeBackEnabled="false">
+   
     <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
@@ -23,7 +21,16 @@
            
             </ion-fab-list>
          </ion-fab> 
-
+         <section>
+          <div >
+            <div id="login-access" >
+              <h2><i class="glyphicon glyphicon-log-in"></i> Bienvenido!!!</h2>						
+            
+            </div>
+            
+         
+          </div>
+        </section>
 <!--
   <button ion-button secondary menuToggle>Toggle Menu</button>
   <button class="btn btn-lg btn-primary btn-block" (click)="Login()"  name="Submit" value="Login" type="Submit">Login</button>

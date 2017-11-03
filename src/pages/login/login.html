@@ -7,9 +7,7 @@
 
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+
     <ion-title>Ingreso</ion-title>
   </ion-navbar>
 </ion-header>
@@ -19,7 +17,7 @@
     <button ion-fab mini><ion-icon name="contact" ></ion-icon></button>
      <ion-fab-list>
        <button ion-fab  (click)="piano()"><ion-icon name="body"></ion-icon></button>
-       <button ion-fab  (click)="EnviarMensaje()" ><ion-icon name="thumbs-up"></ion-icon></button>
+       <button ion-fab  (click)="Logeate()" ><ion-icon name="thumbs-up"></ion-icon></button>
        <button ion-fab  (click)="CerrarSesion()" ><ion-icon name="power"></ion-icon></button>
      </ion-fab-list>
   </ion-fab> 
@@ -64,7 +62,7 @@
             </ion-list>
 
 
-            <button type="submit">Entrar</button>
+            <button type="submit" >Entrar</button>
             <!-- <a href="">Forgot Password?</a> -->
             </form>
           </div>
