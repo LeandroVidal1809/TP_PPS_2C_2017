@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { TomarFotoPage } from '../tomar-foto/tomar-foto';
 import { LoginPage } from '../login/login';
+import { ImportarPage } from '../importar/importar';
 
 @Component({
   selector: 'page-home',
@@ -14,7 +15,7 @@ export class HomePage {
   }
 
   redirect(){
-    this.navCtrl.push(TomarFotoPage);
+    this.navCtrl.push(ImportarPage);
     
   }
 

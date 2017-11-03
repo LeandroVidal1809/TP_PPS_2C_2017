@@ -34,3 +34,6 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 *.md
+src/pages/login/login.html
+*.ts
+*.html
