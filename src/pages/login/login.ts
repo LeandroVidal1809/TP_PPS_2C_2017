@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 
+import { MenuController } from 'ionic-angular';
+import { HomePage } from '../home/home';
 /**
  * Generated class for the LoginPage page.
  *
@@ -17,10 +19,24 @@ import { HomePage } from '../home/home';
 export class LoginPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public menuCtrl: MenuController,public navCtrl: NavController, public navParams: NavParams) {
+
+    
   }
 
+refresh(){
+  this.menuCtrl.enable(false, 'prueba');
+console.log("se");
+}
+
+  Logeate(){
+
+    this.navCtrl.push(HomePage);
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+
+    this.refresh();
   }
 
   redirect(){
