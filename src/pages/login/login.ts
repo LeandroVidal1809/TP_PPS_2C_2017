@@ -28,9 +28,7 @@ export class LoginPage {
     this.claseRegistrar="";
   }
 
-  ionViewDidLoad() {
-    this.menuCtrl.enable(false);
-  }
+
   ionViewDidLeave(){
     this.menuCtrl.enable(true);
   }
@@ -42,8 +40,8 @@ export class LoginPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
-
-    this.refresh();
+    this.menuCtrl.enable(false);
+    
   }
 
   mortrarA(boton){
@@ -67,3 +65,4 @@ export class LoginPage {
   ABMAlumnos(){
     this.navCtrl.push(AbmAlumnosPage);  
   }
+}
