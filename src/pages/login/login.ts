@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { MenuController } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { MenuController } from 'ionic-angular';
 import { AbmAlumnosPage } from '../abm-alumnos/abm-alumnos';
 import { AbmProfyAdminPage } from '../abm-profy-admin/abm-profy-admin';
 /**
@@ -29,19 +29,20 @@ export class LoginPage {
     this.claseRegistrar="";
   }
 
-refresh(){
-  this.menuCtrl.enable(false, 'prueba');
-console.log("se");
-}
 
-  Logeate(){
+  ionViewDidLeave(){
+    this.menuCtrl.enable(true);
+  }
 
+
+  redirect(){
     this.navCtrl.push(HomePage);
   }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
-
-    this.refresh();
+    this.menuCtrl.enable(false);
+    
   }
 
   mortrarA(boton){
@@ -65,5 +66,4 @@ console.log("se");
   ABMAlumnos(){
     this.navCtrl.push(AbmProfyAdminPage);  
   }
-
 }
