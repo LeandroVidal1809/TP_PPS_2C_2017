@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { MenuController } from 'ionic-angular';
 import { AbmAlumnosPage } from '../abm-alumnos/abm-alumnos';
+import { AbmProfyAdminPage } from '../abm-profy-admin/abm-profy-admin';
 /**
  * Generated class for the LoginPage page.
  *
@@ -59,6 +60,6 @@ export class LoginPage {
     }
   }
   ABMAlumnos(){
-    this.navCtrl.push(AbmAlumnosPage);  
+    this.navCtrl.push(AbmProfyAdminPage);  
   }
 }

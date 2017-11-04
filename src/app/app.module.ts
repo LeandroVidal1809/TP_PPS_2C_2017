@@ -14,6 +14,7 @@ import { ListaAsistenciaPage } from '../pages/lista-asistencia/lista-asistencia'
 import { ImportarPage } from '../pages/importar/importar';
 import { ExcelPage } from '../pages/excel/excel';
 import { AbmAlumnosPage } from '../pages/abm-alumnos/abm-alumnos';
+import { AbmProfyAdminPage } from '../pages/abm-profy-admin/abm-profy-admin';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -32,7 +33,8 @@ import { ChartsModule } from 'ng2-charts';
     ListaAsistenciaPage,
     TomarFotoPage,
     ExcelPage,
-    AbmAlumnosPage
+    AbmAlumnosPage,
+    AbmProfyAdminPage
     
   ],
   imports: [
@@ -52,7 +54,8 @@ import { ChartsModule } from 'ng2-charts';
     ListaAsistenciaPage,
     TomarFotoPage,
     ExcelPage,
-    AbmAlumnosPage
+    AbmAlumnosPage,
+    AbmProfyAdminPage
 
   ],
   providers: [
