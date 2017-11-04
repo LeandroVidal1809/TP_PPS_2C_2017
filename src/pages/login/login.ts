@@ -23,7 +23,6 @@ export class LoginPage {
   claseRegistrar:string;
   claseLogin:string;
   constructor(public menuCtrl: MenuController,public navCtrl: NavController, public navParams: NavParams) {
-
     this.claseLogin="active";
     this.claseRegistrar="";
   }
@@ -59,9 +58,6 @@ export class LoginPage {
       this.claseRegistrar="active";
     }
   }
-
-
-  
   ABMAlumnos(){
     this.navCtrl.push(AbmAlumnosPage);  
   }
