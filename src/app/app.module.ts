@@ -12,6 +12,7 @@ import { TomarAsistenciaPage } from '../pages/tomar-asistencia/tomar-asistencia'
 import { TomarFotoPage } from '../pages/tomar-foto/tomar-foto';
 import { ListaAsistenciaPage } from '../pages/lista-asistencia/lista-asistencia';
 import { ExcelPage } from '../pages/excel/excel';
+import { AbmAlumnosPage } from '../pages/abm-alumnos/abm-alumnos';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -29,7 +30,8 @@ import { ChartsModule } from 'ng2-charts';
     TomarAsistenciaPage,
     ListaAsistenciaPage,
     TomarFotoPage,
-    ExcelPage
+    ExcelPage,
+    AbmAlumnosPage
     
   ],
   imports: [
@@ -48,7 +50,8 @@ import { ChartsModule } from 'ng2-charts';
     TomarAsistenciaPage,
     ListaAsistenciaPage,
     TomarFotoPage,
-    ExcelPage
+    ExcelPage,
+    AbmAlumnosPage
 
   ],
   providers: [

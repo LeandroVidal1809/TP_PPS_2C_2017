@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MenuController } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { AbmAlumnosPage } from '../abm-alumnos/abm-alumnos';
 /**
  * Generated class for the LoginPage page.
  *
@@ -56,6 +57,12 @@ console.log("se");
       this.claseLogin="";
       this.claseRegistrar="active";
     }
+  }
+
+
+  
+  ABMAlumnos(){
+    this.navCtrl.push(AbmAlumnosPage);  
   }
 
 }
