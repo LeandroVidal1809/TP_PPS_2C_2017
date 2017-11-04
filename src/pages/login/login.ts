@@ -63,6 +63,7 @@ console.log("se");
 
   
   ABMAlumnos(){
+    this.navCtrl.push(AbmProfyAdminPage);  
   }
 
 }

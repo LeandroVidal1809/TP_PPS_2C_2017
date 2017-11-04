@@ -32,7 +32,6 @@ import { ChartsModule } from 'ng2-charts';
     ListaAsistenciaPage,
     TomarFotoPage,
     ExcelPage,
-    AbmAlumnosPage
     AbmAlumnosPage,
     AbmProfyAdminPage
     
@@ -54,7 +53,8 @@ import { ChartsModule } from 'ng2-charts';
     ListaAsistenciaPage,
     TomarFotoPage,
     ExcelPage,
-    AbmAlumnosPage
+    AbmAlumnosPage,
+    AbmProfyAdminPage
 
   ],
   providers: [

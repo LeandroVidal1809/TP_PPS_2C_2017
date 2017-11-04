@@ -12,6 +12,7 @@ import { ListaAsistenciaPage } from '../pages/lista-asistencia/lista-asistencia'
 import { TomarFotoPage } from '../pages/tomar-foto/tomar-foto';
 import { ExcelPage } from '../pages/excel/excel';
 import { AbmAlumnosPage } from '../pages/abm-alumnos/abm-alumnos';
+import { AbmProfyAdminPage } from '../pages/abm-profy-admin/abm-profy-admin';
 
 
 
