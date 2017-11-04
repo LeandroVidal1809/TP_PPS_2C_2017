@@ -3,6 +3,22 @@
     <ion-icon name="menu"></ion-icon>
     </button>
   </ion-header>
-   <ion-content>
-    <img width=100% height=100% src="assets/imgs/AulaWp.jpg">
+  <ion-content  padding align="center"  class="fondo">
+    <div class="centrar">
+      <div>						
+        <a (click)="redirect('Asistencia')">  <img class="foto"  width=150px; height=100px; src="assets/imgs/menuAsistencia.png"></a>
+						
+           <a (click)="redirect('Camara')"> <img class="foto" width=150px; height=100px; src="assets/imgs/menuCamara.png"></a>
+      </div>
+      <div>   						
+      <a (click)="redirect('Excel')"> <img class="foto" width=150px; height=100px; src="assets/imgs/menuExcel.png"></a>
+ 						
+      <a (click)="redirect('QR')">  <img class="foto" width=150px; height=100px; src="assets/imgs/menuQR.png"></a>
+      </div>     
+    </div>          
+    
   </ion-content>
+ 
+
+  
+    
