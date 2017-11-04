@@ -16,6 +16,7 @@ import { AbmProfyAdminPage } from '../pages/abm-profy-admin/abm-profy-admin';
 
 
 
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -24,21 +25,26 @@ export class MyApp {
 
  //rootPage: any = HomePage;
   rootPage: any = LoginPage;
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any,type:string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-    
-      { title: 'Tomar asistencia', component: TomarAsistenciaPage },
-      { title: 'Tomar foto del aula', component: TomarFotoPage },
-      { title: 'Graficos Estadisticos', component: GraficosPage },
-      { title: 'Importar Excel', component: ExcelPage },
-      { title: 'Seccion QR', component: QRPage },
-      { title: 'Seccion ABM', component: AbmAlumnosPage }
- 
+      { title: 'Home', component: HomePage,type:'button'},      
+      { title: 'Tomar asistencia', component: TomarAsistenciaPage,type:'button'},
+      { title: 'Tomar foto del aula', component: TomarFotoPage,type:'button'},
+      { title: 'Graficos Estadisticos', component: GraficosPage, type:'button'},
+      { title: 'Importar Excel', component: ExcelPage,type:'button'},
+      { title: '------------Sección QR------------', component: HomePage,type:'section'},
+      { title: 'Para Profesores', component:QRPage,type:'button'},
+      { title: 'Para Alumnos', component:QRPage,type:'button'},
+      { title: 'Para Encuestas', component:QRPage,type:'button'},
+      { title: '------------Sección ABM------------', component: HomePage,type:'section'},
+      { title: 'Administrativo', component:AbmProfyAdminPage,type:'button'},
+      { title: 'Alumno', component:AbmAlumnosPage,type:'button'},
+      { title: 'Profesores', component:AbmProfyAdminPage,type:'button'}
     ];
     
 
@@ -56,6 +62,9 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
+    if(page.type=='button'){
     this.nav.setRoot(page.component);
+    }
+
   }
 }
