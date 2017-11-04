@@ -29,6 +29,7 @@ page-login {
     }
     .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
         color: #fff;
+        font-size: 14px;
         background-color: #d14d42;
         border: none !important;
         border-bottom-color: transparent;
@@ -69,12 +70,15 @@ page-login {
     }
     .social-login ul li:nth-child(1) a{
         background:#3b5998;
+        margin-top: 5%;
     }
     .social-login ul li:nth-child(2) a{
+        margin-top: 5%;
         background:#e74c3d;
     }
     .social-login ul li:nth-child(3) a{
-        background:#3698d9;
+       margin-top: 5%;
+        background:#828C93;
     }
     .sa-innate-form input[type=text], input[type=password],
     input[type=select], input[type=file], textarea, select, email{
@@ -107,11 +111,12 @@ page-login {
         padding:10px 25px;
         font-size:14px;
         margin-top:5px;
+        width: 100%;
         }
         .sa-innate-form button:hover{
-        border:1px solid#db3b2b;
-        background:#db3b2b;
-        color:#fff;
+        border:1px solid#000000;
+        background:#db3b2b;    
+        color:#000000;
         }
         .sa-innate-form p{
             font-size:13px;

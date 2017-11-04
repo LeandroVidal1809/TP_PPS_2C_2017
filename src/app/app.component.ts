@@ -32,12 +32,12 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
     
-      { title: 'Tomar Asistencia', component: TomarAsistenciaPage },
-      { title: 'Tomar Fotos', component: TomarFotoPage },
-      { title: 'LectorQR', component: QRPage },
+      { title: 'Tomar asistencia', component: TomarAsistenciaPage },
+      { title: 'Tomar foto del aula', component: TomarFotoPage },
       { title: 'Graficos Estadisticos', component: GraficosPage },
-      { title: 'Importar Excels', component: ExcelPage },
-      { title: 'abmAlumnos', component: AbmAlumnosPage }
+      { title: 'Importar Excel', component: ExcelPage },
+      { title: 'Seccion QR', component: QRPage },
+      { title: 'Seccion ABM', component: AbmAlumnosPage }
  
     ];
     

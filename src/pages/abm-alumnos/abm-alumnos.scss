@@ -31,7 +31,7 @@ page-abm-alumnos {
         }
         .container-login {
             min-height: 0;
-            width: 480px;
+            width: 100%;
             color: #333333;
             margin-top: -10px;
             padding: 0;
@@ -114,7 +114,7 @@ page-abm-alumnos {
             line-height: 1.33;
             padding: 10px 16px;
             margin-top: 50px;
-            width: 70%;
+            width: 100%;
             
             border-radius: 10px;
         }
@@ -247,5 +247,7 @@ page-abm-alumnos {
           box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
           margin-bottom: 30px;
         }
+
+
     }
     

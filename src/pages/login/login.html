@@ -3,27 +3,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
 <ion-header>
   <ion-navbar>
 
     <ion-title>Ingreso</ion-title>
   </ion-navbar>
 </ion-header>
-
-<ion-content padding align="center">
-  <ion-fab  down right edge> 
-    <button ion-fab mini><ion-icon name="contact" ></ion-icon></button>
-     <ion-fab-list>
-       <button ion-fab  (click)="piano()"><ion-icon name="body"></ion-icon></button>
-       <button ion-fab  (click)="Logeate()" ><ion-icon name="thumbs-up"></ion-icon></button>
-       <button ion-fab  (click)="CerrarSesion()" ><ion-icon name="power"></ion-icon></button>
-     </ion-fab-list>
-  </ion-fab> 
-
-
-
 <div class="container">
 	<div class="row">
 		<!-- <h2>Fancy Login / Registration form</h2> -->
@@ -47,35 +32,16 @@
             <input type="text" name="username">
             <label>Clave</label>
             <input type="password" name="password">
-
-            <ion-list>
-              <ion-item >
-                <ion-label>Seleccione un Usuario...</ion-label>
-                <ion-select  name="firstField" >
-                  <ion-option value="usuario">Usuario</ion-option>
-                  <ion-option value="admin">Administrador</ion-option>
-                  <ion-option value="invitado">Invitado</ion-option>
-                  <ion-option value="jugador1">Jugador 1</ion-option>
-                  <ion-option value="jugador2">Jugador 2</ion-option>
-                </ion-select>
-              </ion-item>
-            </ion-list>
-<<<<<<< HEAD
-
-
+                      
             <button type="submit" (click)="ABMAlumnos()">Entrar</button>
-=======
-            <button (click)="redirect()" type="submit">Entrar</button>
->>>>>>> 76fb64501461e5d669d050387da6ed2c27f05844
             <!-- <a href="">Forgot Password?</a> -->
             </form>
           </div>
             <div class="social-login">
-            <p>- - - - - - - - - - - - - Inicia sesión con - - - - - - - - - - - - - </p>
     		<ul>
             <li><a href=""><i class="fa fa-facebook"></i> Facebook</a></li>
             <li><a href=""><i class="fa fa-google-plus"></i> Google+</a></li>
-            <li><a href=""><i class="fa fa-twitter"></i> Twitter</a></li>
+            <li><a href=""><i class="fa fa-github" aria-hidden="true"></i> Github</a></li>
             </ul>
             </div>
             <div class="clearfix"></div>
@@ -92,16 +58,10 @@
             <label>Repetir Contraseña</label>
             <input type="password" name="password">
             <button type="submit">Registrar</button>
-            <p>Acepta politicas bla blda blda etc.</p>
             </form>
             </div>
             <div class="social-login">
-            <p>- - - - - - - - - - - - - Registrar con - - - - - - - - - - - - - </p>
-			<ul>
-            <li><a href=""><i class="fa fa-facebook"></i> Facebook</a></li>
-            <li><a href=""><i class="fa fa-google-plus"></i> Google+</a></li>
-            <li><a href=""><i class="fa fa-twitter"></i> Twitter</a></li>
-            </ul>
+
             </div>
         </div>
     </div>
@@ -109,4 +69,18 @@
     </div>
     </div>
     </div>
-</ion-content>
+
+
+
+    <!-- <ion-list>
+      <ion-item >
+        <ion-label>Seleccione un Usuario...</ion-label>
+        <ion-select  name="firstField" >
+          <ion-option value="usuario">Usuario</ion-option>
+          <ion-option value="admin">Administrador</ion-option>
+          <ion-option value="invitado">Invitado</ion-option>
+          <ion-option value="jugador1">Jugador 1</ion-option>
+          <ion-option value="jugador2">Jugador 2</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list> -->

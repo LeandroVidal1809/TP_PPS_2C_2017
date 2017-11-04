@@ -14,27 +14,33 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Excels</ion-title>
+    <ion-title>Importación de planila excel</ion-title>
   </ion-navbar>
 </ion-header>
 
-  <div class="login-body">
-
-     <section>
-       <div >
-         <div id="login-access">
-           <h2><i class="glyphicon glyphicon-log-in"></i> Importar/Exportar Excels</h2>						
-           <button  (click)="CargarScann()" style="background-color: rgba(255, 255, 255, 0.5)" block >
-            <img width="150" height="150" src="assets/imgs/excel.jpg">
-        </button> 
-         </div>
-         
-      
-       </div>
-     </section>
-   
-   </div>
-
+<div class="login-body">
+    <article class="container-login center-block">            
+                <section>
+                  <div >
+                    <div id="login-access" >
+                      <h2><i class="glyphicon glyphicon-log-in"></i> Fotos de Aulas</h2>						
+                    </div>
+                  <div class="foto" style="float:right;">						
+                      <img width="150" height="150" src="assets/imgs/excel.jpg">
+                      <br><br>
+                  </div>
+  
+              <div style="margin-top:20px; ">                
+                    <input type="text" style="width: 80%;display: inline-block;height: 50px;" placeholder="Seleccione su planilla..."  class="selectpick">
+                    <button type="submit" style="width: 5%;margin-top:0px;align-text:right;" class="btn btn-warning"> ... </button>      
+              </div>
+                  </div>
+                </section>
+    </article>
+              </div>
+           <!-- <h2><i class="glyphicon glyphicon-log-in"></i> Importar/Exportar Excels</h2>						
+            <img width="150" height="150" src="assets/imgs/excel.jpg"> -->
+        
   
 
 

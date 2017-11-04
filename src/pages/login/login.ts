@@ -60,6 +60,6 @@ export class LoginPage {
     }
   }
   ABMAlumnos(){
-    this.navCtrl.push(AbmProfyAdminPage);  
+    this.navCtrl.push(HomePage);  
   }
 }
