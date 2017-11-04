@@ -13,25 +13,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController) {
 
-  }
   constructor(public menuCtrl: MenuController,public navCtrl: NavController) {
-
-  redirect(){
-    this.navCtrl.push(ImportarPage);
-    
   }
 
-refresh(){
-  this.menuCtrl.enable(true, 'prueba');
-
-}
-  Login()
-  {
-    this.navCtrl.push(LoginPage);  
-  }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-
-    this.refresh();
-  }
 }

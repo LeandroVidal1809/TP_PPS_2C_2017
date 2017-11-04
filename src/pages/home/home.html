@@ -1,41 +1,8 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <ion-header>
-  <ion-navbar swipeBackEnabled="false">
-   
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding padding align="center">
-  
-  
-  <ion-fab  down right edge> 
-           <button ion-fab mini><ion-icon name="contact" ></ion-icon></button>
-            <ion-fab-list>
-              <button ion-fab  (click)="piano()"><ion-icon name="body"></ion-icon></button>
-              <button ion-fab  (click)="EnviarMensaje()" ><ion-icon name="thumbs-up"></ion-icon></button>
-              <button ion-fab  (click)="CerrarSesion()" ><ion-icon name="power"></ion-icon></button>
-            
-           
-            </ion-fab-list>
-         </ion-fab> 
-         <section>
-          <div >
-            <div id="login-access" >
-              <h2><i class="glyphicon glyphicon-log-in"></i> Bienvenido!!!</h2>						
-            
-            </div>
-            
-         
-          </div>
-        </section>
-<!--
-  <button ion-button secondary menuToggle>Toggle Menu</button>
-  <button class="btn btn-lg btn-primary btn-block" (click)="Login()"  name="Submit" value="Login" type="Submit">Login</button>
-  <button   (click)="redirect()" > toma foto</button>
--->
-
-
-</ion-content>
+       <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  </ion-header>
+   <ion-content>
+    <img width=100% height=100% src="assets/imgs/aula.jpg">
+  </ion-content>
