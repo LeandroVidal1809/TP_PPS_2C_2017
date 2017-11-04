@@ -11,6 +11,7 @@ import { TomarAsistenciaPage } from '../pages/tomar-asistencia/tomar-asistencia'
 import { ListaAsistenciaPage } from '../pages/lista-asistencia/lista-asistencia';
 import { TomarFotoPage } from '../pages/tomar-foto/tomar-foto';
 import { ExcelPage } from '../pages/excel/excel';
+import { AbmAlumnosPage } from '../pages/abm-alumnos/abm-alumnos';
 
 
 
@@ -34,7 +35,8 @@ export class MyApp {
       { title: 'Tomar Fotos', component: TomarFotoPage },
       { title: 'LectorQR', component: QRPage },
       { title: 'Graficos Estadisticos', component: GraficosPage },
-      { title: 'Importar Excels', component: ExcelPage }
+      { title: 'Importar Excels', component: ExcelPage },
+      { title: 'abmAlumnos', component: AbmAlumnosPage }
  
     ];
     

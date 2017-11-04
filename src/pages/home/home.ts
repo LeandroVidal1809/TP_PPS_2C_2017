@@ -12,8 +12,6 @@ import { MenuController } from 'ionic-angular';
 export class HomePage {
 
   constructor(public navCtrl: NavController) {
-
-  constructor(public menuCtrl: MenuController,public navCtrl: NavController) {
   }
 
 }
