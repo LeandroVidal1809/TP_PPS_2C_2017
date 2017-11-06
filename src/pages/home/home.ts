@@ -6,7 +6,6 @@ import { TomarAsistenciaPage } from '../tomar-asistencia/tomar-asistencia';
 import { QRPage } from '../list/list';
 
 import { LoginPage } from '../login/login';
-import { ImportarPage } from '../importar/importar';
 import { MenuController } from 'ionic-angular';
 
 @Component({

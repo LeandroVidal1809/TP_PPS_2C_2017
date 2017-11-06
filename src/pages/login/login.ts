@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 import { MenuController } from 'ionic-angular';
 import { AbmAlumnosPage } from '../abm-alumnos/abm-alumnos';
 import { AbmProfyAdminPage } from '../abm-profy-admin/abm-profy-admin';
@@ -23,7 +24,11 @@ export class LoginPage {
   classactivo = "";
   claseRegistrar:string;
   claseLogin:string;
-  constructor(public menuCtrl: MenuController,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public menuCtrl: MenuController,
+              public navCtrl: NavController,
+              private _auth:AngularFireAuth,
+              public navParams: NavParams) 
+  {
     this.claseLogin="active";
     this.claseRegistrar="";
   }
