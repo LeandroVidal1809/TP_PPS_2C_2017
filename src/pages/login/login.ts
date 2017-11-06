@@ -5,6 +5,7 @@ import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 import { MenuController } from 'ionic-angular';
 import { AbmAlumnosPage } from '../abm-alumnos/abm-alumnos';
 import { AbmProfyAdminPage } from '../abm-profy-admin/abm-profy-admin';
+import { AlertController ,LoadingController, Loading} from 'ionic-angular';
 /**
  * Generated class for the LoginPage page.
  *
@@ -24,8 +25,17 @@ export class LoginPage {
   classactivo = "";
   claseRegistrar:string;
   claseLogin:string;
+
+  username:string;
+  password:string;
+  tipoUser:string;
+  Mensaje:string;
+  passwordconfirm:string;
+
   constructor(public menuCtrl: MenuController,
+              public spiner:LoadingController,
               public navCtrl: NavController,
+              public alertCtrl: AlertController,
               private _auth:AngularFireAuth,
               public navParams: NavParams) 
   {
@@ -34,13 +44,128 @@ export class LoginPage {
   }
 
 
+  async login()
+  {
+    if(this.username==null||this.password==null||this.password==''||this.username=='')
+      {
+        this.showAlert("Debe completar el Email y su Clave para ingresar","Campo vacio!");
+      }
+      else{
+        let espera = this.MiSpiner();
+        espera.present();       
+        await this._auth.auth.signInWithEmailAndPassword(this.username,this.password)
+                        .then(result => { espera.dismiss();
+                                          this.navCtrl.push(HomePage,{usuario:this.username})})
+                        .catch(error =>{ espera.dismiss();
+                                        this.showAlert(error.message,"Error al ingresar!")})
+
+                        
+
+                      
+                    }
+  }
+
+  async Aceptar()
+  {
+    
+    if(this.password.length>5){
+    if(this.password==this.passwordconfirm)
+    try{
+         this.MiSpiner();
+        const result = await this._auth.auth.createUserWithEmailAndPassword(this.username,this.password);
+    
+        this.Mensaje=this.username + " Fue ingresado Exitosamente!"
+        //alert(this.Mensaje);
+        let alert = this.alertCtrl.create({
+          title: "Mensaje",
+          subTitle: this.Mensaje,
+          buttons: ['OK']
+        });
+        alert.present();
+        this.navCtrl.push(LoginPage);
+      }
+      catch(e)
+      {
+     
+        console.error(e);
+        this.showAlertRegistrar(e,"error al registrarse");
+      }
+    else
+      {this.showAlertRegistrar("las claves no coinciden , intente nuevamente","error al registrarse")}
+  }
+  else
+    {
+
+      this.showAlertRegistrar("la clave debe contener por lo menos 6 caracteres","error al registrarse")
+    }
+
+  }
+
+  showAlertRegistrar(mensaje:string,titulo:string) {
+    
+        switch(mensaje)
+        {
+          
+          case "The email address is badly formatted.":
+          {
+    
+            mensaje="El email no contiene un formato correcto";
+            break;
+          }
+         
+    
+        }
+        let alert = this.alertCtrl.create({
+          title: titulo,
+          subTitle: mensaje,
+          buttons: ['OK']
+        });
+        alert.present();
+      }  
+
+  showAlert(mensaje:string,titulo:string) {
+    
+    switch(mensaje)
+    {
+      
+      case "The email address is badly formatted.":
+      {
+
+        mensaje="El email no contiene un formato correcto";
+        break;
+      }
+      case "The password is invalid or the user does not have a password.":
+      {
+        mensaje="La clave es incorrecta, intente nuevamente";
+      }
+
+    }
+    let alert = this.alertCtrl.create({
+      title: titulo,
+      subTitle: mensaje,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  MiSpiner():Loading
+  {
+    let loader = this.spiner.create({
+      content:"Espere..",
+      duration: 25000
+      
+    });
+   // loader.present();
+    return loader;
+  }
+
+
   ionViewDidLeave(){
     this.menuCtrl.enable(true);
   }
 
-
   redirect(){
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.push(HomePage);
   }
 
   ionViewDidLoad() {
@@ -64,7 +189,8 @@ export class LoginPage {
       this.claseRegistrar="active";
     }
   }
+
   ABMAlumnos(){
-    this.navCtrl.setRoot(HomePage);  
+    this.navCtrl.push(HomePage);  
   }
 }

@@ -29,11 +29,11 @@
         <div class="innter-form">
             <form class="sa-innate-form" method="post">
             <label>Direccion de correo electronico</label>
-            <input type="text" name="username">
+            <input type="text" name="username" [(ngModel)]="username">
             <label>Clave</label>
-            <input type="password" name="password">
+            <input type="password" name="password" [(ngModel)]="password">
                       
-            <button type="submit" (click)="ABMAlumnos()">Entrar</button>
+            <button type="submit" (click)="login()">Entrar</button>
             <!-- <a href="">Forgot Password?</a> -->
             </form>
           </div>
@@ -49,15 +49,15 @@
         <div id="sectionB" [hidden]="seccionB">
 			<div class="innter-form">
             <form class="sa-innate-form" method="post">
-            <label>Nombre</label>
-            <input type="text" name="username">
+            <!-- <label>Nombre</label>
+            <input type="text" name="username"> -->
             <label>Direccion de correo electronico</label>
-            <input type="text" name="username">
+            <input type="text" name="username" [(ngModel)]="username">
             <label>Contraseña</label>
-            <input type="password" name="password">
+            <input type="password" name="password" [(ngModel)]="password">
             <label>Repetir Contraseña</label>
-            <input type="password" name="password">
-            <button type="submit">Registrar</button>
+            <input type="password" name="password2" [(ngModel)]="passwordconfirm">
+            <button type="submit" (click)="Aceptar()">Registrar</button>
             </form>
             </div>
             <div class="social-login">
