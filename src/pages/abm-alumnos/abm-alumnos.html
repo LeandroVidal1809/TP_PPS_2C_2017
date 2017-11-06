@@ -4,15 +4,17 @@
 
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+    
     <ion-title>ABM Alumnos</ion-title>
+    <ion-buttons end>
+        <button ion-button (click)="closeModal()" >Cerrar </button>   
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
-<div class="login-body">
-  <article class="container-login center-block">
-  <section>
+<ion-content padding align="center">
+<!---->
+  <!--<article class="container-login center-block">
+  <section>  -->
     <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10">
       <div id="login-access" class="tab-pane fade active in">
         <h2><i class="glyphicon glyphicon-log-in"></i> ABM Alumnos</h2>						
@@ -23,6 +25,6 @@
       </div>
       <button  (click)="tomarAsistencia()" class="btn btn-primary btn-md">Registrar alumno</button>
     </div>
-  </section>
-</article>
-</div>
+ <!--</section>
+</article>--> 
+</ion-content>

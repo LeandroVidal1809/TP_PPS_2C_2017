@@ -7,16 +7,21 @@
 
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
+  <!--  <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
-    </button>
+    </button> -->
     <ion-title>Camara</ion-title>
+    <ion-buttons end>
+        <button ion-button (click)="closeModal()" >Cerrar </button>   
+      </ion-buttons>
     
   </ion-navbar>
 </ion-header>
-         <div class="login-body">
-  <article class="container-login center-block">            
-              <section>
+   
+
+<ion-content padding align="center">
+
+
                 <div >
                   <div id="login-access" >
                     <h2><i class="glyphicon glyphicon-log-in"></i> Fotos de Aulas</h2>						
@@ -39,6 +44,5 @@
                   <button type="submit" style="width: 28%;margin-top:0px;" class="btn btn-warning"> Asociar! <span  class="glyphicon glyphicon-log-in"></span></button>      
             </div>
                 </div>
-              </section>
-  </article>
-            </div>
+            
+</ion-content>

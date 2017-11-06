@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController,ModalController, Modal, ModalOptions } from 'ionic-angular';
 import { ListaAsistenciaPage } from '../lista-asistencia/lista-asistencia';
 
 /**
@@ -18,12 +18,15 @@ export class TomarAsistenciaPage {
 AulaSelect:string;
 Fecha:string;
 opcion:number;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public modalCtrl: ModalController,public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
     var f = new Date();
     this.Fecha=   f.getDay() +"/"+ f.getMonth() +"/"+ f.getFullYear();
   
   }
 
+  closeModal(){
+this.view.dismiss();
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad TomarAsistenciaPage');
   }
@@ -33,7 +36,10 @@ opcion:number;
     this.opcion=op;
   }
   tomarAsistencia()
-  {
-    this.navCtrl.push(ListaAsistenciaPage);
+  { const MyModalOption : ModalOptions ={
+    enableBackdropDismiss : false};
+    let profileModal : Modal = this.modalCtrl.create(ListaAsistenciaPage,  MyModalOption);
+    profileModal.present(); 
+
   }
 }

@@ -3,16 +3,17 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <ion-header>
     <ion-navbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
+   
       <ion-title>ABM Profesor & Administrativo</ion-title>
+      <ion-buttons end>
+          <button ion-button (click)="closeModal()" >Cerrar </button>   
+        </ion-buttons>
     </ion-navbar>
   </ion-header>
+  <ion-content padding align="center">
+    <!---->
 
-<div class="login-body">
-  <article class="container-login center-block">
-  <section>
+ 
     <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10">
       <div id="login-access" class="tab-pane fade active in">
         <h2><i class="glyphicon glyphicon-log-in"></i> ABM Profesor y Administrativo</h2>						
@@ -46,6 +47,4 @@
       
       <button  (click)="tomarAsistencia()" class="btn btn-primary btn-md">Registrar alumno</button>
     </div>
-  </section>
-</article>
-</div>
+  </ion-content>

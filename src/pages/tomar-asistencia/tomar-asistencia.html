@@ -1,19 +1,19 @@
-
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Asistencias</ion-title>
-  </ion-navbar>
-</ion-header>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<ion-header>
+  <ion-navbar>
+   
+    <ion-title>Asistencias</ion-title>
+   <ion-buttons end>
+  <button ion-button (click)="closeModal()" >Cerrar </button>   
+</ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding align="center">
 <div class="login-body">
- <article class="container-login center-block">
-  <section>
+
     <div>
       <div id="login-access">
         <h2><i class="glyphicon glyphicon-log-in"></i> Filtros para asistencia</h2>						
@@ -70,6 +70,6 @@
       
       <button  (click)="tomarAsistencia()" class="btn btn-primary btn-md" >Ingresar al aula</button>
     </div>
-  </section>
- </article>
+
 </div>
+</ion-content>

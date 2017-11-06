@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams , ViewController} from 'ionic-angular';
 
 /**
  * Generated class for the ListaAsistenciaPage page.
@@ -17,7 +17,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class ListaAsistenciaPage {
 listado:Array<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
     this.listado= new Array<any>();
     this.listado.push({"apellido":"Vidal","nombre":"Leandro","Asistio":false});
     this.listado.push({"apellido":"Sorichetti","nombre":"Florencia","Asistio":false});
@@ -26,7 +26,9 @@ listado:Array<any>;
     this.listado.push({"apellido":"Ruiz","nombre":"Pedro","Asistio":false});
     
   }
-
+  closeModal(){
+    this.view.dismiss();
+      }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListaAsistenciaPage');
   }

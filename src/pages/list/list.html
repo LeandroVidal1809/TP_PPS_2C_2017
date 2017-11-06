@@ -6,10 +6,11 @@
 
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+   
     <ion-title>LectorQR</ion-title>
+    <ion-buttons end>
+        <button ion-button (click)="closeModal()" >Cerrar </button>   
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -22,7 +23,7 @@
        <button ion-fab  (click)="CerrarSesion()" ><ion-icon name="power"></ion-icon></button>
      </ion-fab-list>
   </ion-fab> 
-  <section>
+
   <h2><i class="glyphicon glyphicon-log-in"></i> LectorQR</h2> 
 
 
@@ -43,7 +44,7 @@
     </button> 
     </div>
     </div>
-</section>
+
         
 
   

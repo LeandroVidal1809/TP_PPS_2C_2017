@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the GraficosPage page.
@@ -29,9 +29,11 @@ export class GraficosPage {
     console.log(e);
   }
   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
   }
-
+  closeModal(){
+    this.view.dismiss();
+      }
   ionViewDidLoad() {
     console.log('ionViewDidLoad GraficosPage');
   }

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform ,ModalController, Modal, ModalOptions } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
@@ -27,12 +27,12 @@ export class MyApp {
   rootPage: any = LoginPage;
   pages: Array<{title: string, component: any,type:string}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public modalCtrl: ModalController,public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage,type:'button'},      
+        
       { title: 'Tomar asistencia', component: TomarAsistenciaPage,type:'button'},
       { title: 'Tomar foto del aula', component: TomarFotoPage,type:'button'},
       { title: 'Graficos Estadisticos', component: GraficosPage, type:'button'},
@@ -63,7 +63,18 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     if(page.type=='button'){
-    this.nav.setRoot(page.component);
+//configuracion vieja
+   // this.nav.push(page.component);
+
+//prueba braa
+    const MyModalOption : ModalOptions ={
+      enableBackdropDismiss : false
+    };
+    let profileModal : Modal = this.modalCtrl.create(page.component, MyModalOption);
+    profileModal.present(); 
+
+
+   // this.nav.setRoot(page.component);
     }
 
   }

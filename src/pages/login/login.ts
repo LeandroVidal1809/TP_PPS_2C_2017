@@ -35,7 +35,7 @@ export class LoginPage {
 
 
   redirect(){
-    this.navCtrl.push(HomePage);
+    this.navCtrl.setRoot(HomePage);
   }
 
   ionViewDidLoad() {
@@ -60,6 +60,6 @@ export class LoginPage {
     }
   }
   ABMAlumnos(){
-    this.navCtrl.push(HomePage);  
+    this.navCtrl.setRoot(HomePage);  
   }
 }

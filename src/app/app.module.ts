@@ -11,7 +11,7 @@ import { RegistrarPage } from '../pages/registrar/registrar';
 import { TomarAsistenciaPage } from '../pages/tomar-asistencia/tomar-asistencia';
 import { TomarFotoPage } from '../pages/tomar-foto/tomar-foto';
 import { ListaAsistenciaPage } from '../pages/lista-asistencia/lista-asistencia';
-import { ImportarPage } from '../pages/importar/importar';
+
 import { ExcelPage } from '../pages/excel/excel';
 import { AbmAlumnosPage } from '../pages/abm-alumnos/abm-alumnos';
 import { AbmProfyAdminPage } from '../pages/abm-profy-admin/abm-profy-admin';
