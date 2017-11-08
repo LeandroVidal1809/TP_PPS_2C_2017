@@ -113,7 +113,7 @@ export class LoginPage {
       }).catch(error => {
         alert("Principal: "+error);
       });
-    } else{
+    } else{//esto es para localhost
       this._auth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider()).then(res =>{
         console.log(res);
         this.navCtrl.setRoot(HomePage);
