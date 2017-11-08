@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { Facebook } from '@ionic-native/facebook'
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { QRPage } from '../pages/list/list';
@@ -23,6 +22,7 @@ import { ChartsModule } from 'ng2-charts';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { Facebook } from '@ionic-native/facebook';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyDGhCp0KcrN7-QL49H_xHtlVVPswyNagCo",
