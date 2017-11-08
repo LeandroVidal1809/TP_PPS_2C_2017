@@ -23,6 +23,7 @@ import { ChartsModule } from 'ng2-charts';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { Facebook } from '@ionic-native/facebook';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyDGhCp0KcrN7-QL49H_xHtlVVPswyNagCo",
@@ -77,6 +78,7 @@ export const firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
+    Facebook,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
