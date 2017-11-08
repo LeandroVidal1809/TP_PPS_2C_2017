@@ -33,13 +33,13 @@
             <label>Clave</label>
             <input type="password" name="password" [(ngModel)]="password">
                       
-            <button type="submit" (click)="login()">Entrar</button>
+            <button type="submit" (click)="signInWithFacebook()">Entrar</button>
             <!-- <a href="">Forgot Password?</a> -->
             </form>
           </div>
             <div class="social-login">
     		<ul>
-            <li><a href=""><i class="fa fa-facebook"></i> Facebook</a></li>
+            <li><a><i class="fa fa-facebook"></i>  <button type="submit" (click)="signInWithFacebook()">Facebook</button></a></li>
             <li><a href=""><i class="fa fa-google-plus"></i> Google+</a></li>
             <li><a href=""><i class="fa fa-github" aria-hidden="true"></i> Github</a></li>
             </ul>

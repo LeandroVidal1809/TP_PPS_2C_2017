@@ -1,17 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,Platform } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 import { MenuController } from 'ionic-angular';
 import { AbmAlumnosPage } from '../abm-alumnos/abm-alumnos';
 import { AbmProfyAdminPage } from '../abm-profy-admin/abm-profy-admin';
 import { AlertController ,LoadingController, Loading} from 'ionic-angular';
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import * as firebase from 'firebase';
+import { Facebook } from '@ionic-native/facebook';
 
 @IonicPage()
 @Component({
@@ -35,6 +31,8 @@ export class LoginPage {
   constructor(public menuCtrl: MenuController,
               public spiner:LoadingController,
               public navCtrl: NavController,
+              public facebook: Facebook,
+              public platform: Platform,
               public alertCtrl: AlertController,
               private _auth:AngularFireAuth,
               public navParams: NavParams) 
@@ -100,6 +98,36 @@ export class LoginPage {
     }
 
   }
+
+
+  signInWithFacebook() {
+    if (this.platform.is('cordova')) {
+      this.facebook.login(['email', 'public_profile']).then(res => {
+        const facebookCredential = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
+        firebase.auth().signInWithCredential(facebookCredential).then(() => {
+          this.navCtrl.push(HomePage); 
+          console.log(facebookCredential);         
+        }).catch(error => {
+          console.log(error);
+          alert("Secundario: "+error);
+        });
+      }).catch(error => {
+        alert("Principal: "+error);
+      });
+    } else {
+      firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider()).then((res) => {
+        let loader = this.spiner.create({
+          content: "Espere...",
+          duration: 2600
+        });
+        loader.present();
+        this.navCtrl.push(HomePage);
+      }).catch(error => {
+        console.log(error);
+      });
+    }
+  }  
+
 
   showAlertRegistrar(mensaje:string,titulo:string) {
     
