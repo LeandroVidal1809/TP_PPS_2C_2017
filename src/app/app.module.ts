@@ -24,9 +24,6 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
-import { Facebook } from '@ionic-native/facebook';
-import firebase from 'firebase';
-
 export const firebaseConfig = {
   apiKey: "AIzaSyDGhCp0KcrN7-QL49H_xHtlVVPswyNagCo",
   authDomain: "tpfinalpps-68471.firebaseapp.com",
@@ -35,7 +32,6 @@ export const firebaseConfig = {
   storageBucket: "tpfinalpps-68471.appspot.com",
   messagingSenderId: "193916278651"
 };
-firebase.initializeApp(firebaseConfig);
 
 @NgModule({
   declarations: [
@@ -59,7 +55,8 @@ firebase.initializeApp(firebaseConfig);
     ChartsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+  
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -78,7 +75,6 @@ firebase.initializeApp(firebaseConfig);
 
   ],
   providers: [
-    Facebook,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController,ModalController, Modal, ModalOptions } from 'ionic-angular';
 import { ListaAsistenciaPage } from '../lista-asistencia/lista-asistencia';
+import { AngularFireModule} from 'angularfire2';
+import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
+import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 
 /**
  * Generated class for the TomarAsistenciaPage page.
@@ -17,11 +20,21 @@ import { ListaAsistenciaPage } from '../lista-asistencia/lista-asistencia';
 export class TomarAsistenciaPage {
 AulaSelect:string;
 Fecha:string;
+list: AngularFireList<any>;
+
 opcion:number;
-  constructor(public modalCtrl: ModalController,public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
+  constructor(public modalCtrl: ModalController,db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
     var f = new Date();
     this.Fecha=   f.getDay() +"/"+ f.getMonth() +"/"+ f.getFullYear();
-  
+   
+   debugger;
+    this.list = db.list('/Alumnos');
+    this.list.push({
+      Apellido:"Vidal",
+      Nombre: "Leandro",
+      Aula:"201",
+      Materia:"Programacion 1"});
+      
   }
 
   closeModal(){
