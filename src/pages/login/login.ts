@@ -53,7 +53,7 @@ export class LoginPage {
         espera.present();       
         await this._auth.auth.signInWithEmailAndPassword(this.username,this.password)
                         .then(result => { espera.dismiss();
-                                          this.navCtrl.push(HomePage,{usuario:this.username})})
+                                          this.navCtrl.setRoot(HomePage,{usuario:this.username})})
                         .catch(error =>{ espera.dismiss();
                                         this.showAlert(error.message,"Error al ingresar!")})
 
@@ -99,8 +99,52 @@ export class LoginPage {
 
   }
 
-
   signInWithFacebook() {
+
+    if (this.platform.is('cordova')) {
+      this.facebook.login(['email', 'public_profile']).then(res => {
+        this._auth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider()).then(res =>{
+          console.log(res);
+          this.navCtrl.setRoot(HomePage);
+        }).catch(error => {
+          console.log(error);
+          alert("Secundario: "+error);
+        });
+      }).catch(error => {
+        alert("Principal: "+error);
+      });
+    } else{
+      this._auth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider()).then(res =>{
+        console.log(res);
+        this.navCtrl.setRoot(HomePage);
+      })
+
+      
+    }
+
+
+
+
+ 
+     }
+
+  
+  //intento fallido
+   signInWithFacebook2() {
+ let provider = new firebase.auth.FacebookAuthProvider();
+ firebase.auth().signInWithRedirect(provider).then(()=>{
+   firebase.auth().getRedirectResult().then((result)=>{
+     alert(JSON.stringify(result));
+   }).catch(function(error){
+     alert(JSON.stringify(error))
+   });
+ })
+
+
+
+  }
+
+  signInWithFacebookPABLO() {
     if (this.platform.is('cordova')) {
       this.facebook.login(['email', 'public_profile']).then(res => {
         const facebookCredential = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
@@ -193,7 +237,7 @@ export class LoginPage {
   }
 
   redirect(){
-    this.navCtrl.push(HomePage);
+    this.navCtrl.setRoot(HomePage);
   }
 
   ionViewDidLoad() {
@@ -219,6 +263,6 @@ export class LoginPage {
   }
 
   ABMAlumnos(){
-    this.navCtrl.push(HomePage);  
+    this.navCtrl.setRoot(HomePage);  
   }
 }
