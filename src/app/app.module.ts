@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-
+import { Facebook } from '@ionic-native/facebook'
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { QRPage } from '../pages/list/list';
@@ -77,6 +77,7 @@ export const firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
+    Facebook,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
