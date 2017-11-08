@@ -55,7 +55,8 @@ export const firebaseConfig = {
     ChartsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+  
   ],
   bootstrap: [IonicApp],
   entryComponents: [

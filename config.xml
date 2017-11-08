@@ -82,4 +82,8 @@
     <plugin name="cordova-plugin-whitelist" spec="^1.3.1" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <engine name="android" spec="~6.2.3" />
+    <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
+        <variable name="APP_ID" value="372572516498697" />
+        <variable name="APP_NAME" value="io.ionic.Asistente" />
+    </plugin>
 </widget>
