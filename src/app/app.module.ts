@@ -28,12 +28,12 @@ import { Facebook } from '@ionic-native/facebook';
 import firebase from 'firebase';
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyDCv0vImz6mV8GHALqm-zAKem5n5w0uq9w",
-  authDomain: "appcredito-9672a.firebaseapp.com",
-  databaseURL: "https://appcredito-9672a.firebaseio.com",
-  projectId: "appcredito-9672a",
-  storageBucket: "",
-  messagingSenderId: "870404759120"
+  apiKey: "AIzaSyDGhCp0KcrN7-QL49H_xHtlVVPswyNagCo",
+  authDomain: "tpfinalpps-68471.firebaseapp.com",
+  databaseURL: "https://tpfinalpps-68471.firebaseio.com",
+  projectId: "tpfinalpps-68471",
+  storageBucket: "tpfinalpps-68471.appspot.com",
+  messagingSenderId: "193916278651"
 };
 firebase.initializeApp(firebaseConfig);
 
