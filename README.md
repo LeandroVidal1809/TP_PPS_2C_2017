@@ -1,12 +1,19 @@
-# TP_PPS_2C_2017
-TP Final de la practica profesional supervisada
-Vidal Leandro 4A
-Roberts Brian 4A
-Adiliberti Pablo 4A
-Responsabilidades Sabado 4 Noviembre:
-Maqueta de dise�o de la APK
- - Modificar Icon , Splash , Login , Registrarse y ABM del (28/10/2017) al (04/11/2017) Pablo Adiliberti
- - Armado del Menu Slide , con los puntos necesarios y estilo del Menu Slide del (28/10/2017) al (04/11/2017) Brian Roberts
- - Firebase, dise�o de paginas correspondientes a las opciones del Menu Slide del (28/10/2017) al (04/11/2017) y estilos css Leandro Vidal
 
 
+**TP_PPS_2C_2017**
+
+<h4>TP Final de la practica profesional supervisada</h4>
+
+<ol>
+- Vidal Leandro -
+Roberts Brian -
+Adiliberti Pablo -
+</ol>
+========================================
+
+<h5>Responsabilidades Sabado 4 Noviembre:</h5>
+<h6 id="inicializacionDelObjeto"> <strong>A. </strong> Maqueta de diseño de la APK</h6>
+
+ - Modificar Icon , Splash , Login , Registrarse y ABM  <strong>Pablo Adiliberti </strong>
+ - Armado del Menu Slide , con los puntos necesarios y estilo del Menu Slide <strong>Brian Roberts </strong>
+ - Firebase, dise�o de paginas correspondientes a las opciones del Menu Slide y estilos css <strong>Leandro Vidal </strong>
