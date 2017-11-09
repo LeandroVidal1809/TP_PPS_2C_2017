@@ -19,12 +19,10 @@ listado:Array<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
     this.listado= new Array<any>();
-    this.listado.push({"apellido":"Vidal","nombre":"Leandro","Asistio":false});
-    this.listado.push({"apellido":"Sorichetti","nombre":"Florencia","Asistio":false});
-    this.listado.push({"apellido":"Adiliberti","nombre":"Pablo","Asistio":false});
-    this.listado.push({"apellido":"Roberts","nombre":"Brian","Asistio":false});
-    this.listado.push({"apellido":"Ruiz","nombre":"Pedro","Asistio":false});
-    
+    this.listado=JSON.parse(sessionStorage.getItem("lista"));
+    console.log("listado");
+    console.log(this.listado);
+
   }
   closeModal(){
     this.view.dismiss();

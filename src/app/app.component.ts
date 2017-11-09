@@ -24,7 +24,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
  //rootPage: any = HomePage;
-  rootPage: any = LoginPage;
+  rootPage: any = TomarAsistenciaPage;
   pages: Array<{title: string, component: any,type:string}>;
 
   constructor(public modalCtrl: ModalController,public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {

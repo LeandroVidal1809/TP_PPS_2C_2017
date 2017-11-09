@@ -20,13 +20,15 @@
       <tr>
         <th class="th">Apellido</th>
         <th class="th">Nombre</th>
+        <th class="th">Aula</th>
         <th class="th">Presente</th>
       </tr>
     </thead>
     <tbody>
         <tr *ngFor="let item of listado">
-            <td style="border-top:0px; ">{{item.apellido}} </td>
-            <td style="border-top:0px; ">{{item.nombre}} </td>
+            <td style="border-top:0px; ">{{item.Apellido}} </td>
+            <td style="border-top:0px; ">{{item.Nombre}} </td>
+            <td style="border-top:0px; ">{{item.Aula}} </td>
             <td class="checkbox" style="border-top:0px; ">
                 <label>
                   <input type="checkbox" value="">
