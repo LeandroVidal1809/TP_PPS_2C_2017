@@ -52,22 +52,22 @@ this.view.dismiss();
      
     switch(this.OpcionElegida){
       case 0://Aula
-
-          await this.list.snapshotChanges(['child_added'])
+          var Observable = this.list.snapshotChanges(['child_added'])
               .subscribe(actions => {
               actions.forEach(action => {
                 if(action.payload.val()["Aula"]==+this.AulaSelect)
                 {
-                 action.payload.val();
+                 console.log(action.payload.val());
                  this.miLista.push(action.payload.val());
-
+                 var listString = JSON.stringify(this.miLista);
+                 sessionStorage.setItem("lista",listString);
+                 
                 }
               });
-
+              this.navCtrl.setRoot(ListaAsistenciaPage);
              });
-          
-             var listString = JSON.stringify(this.miLista);
-             sessionStorage.setItem("lista",listString);
+             
+
       break;
       case 1://Materia
       break;
@@ -80,7 +80,7 @@ this.view.dismiss();
     }
 
 
-    this.navCtrl.setRoot(ListaAsistenciaPage)
+    
     // const MyModalOption : ModalOptions ={
     // enableBackdropDismiss : false};
     // let profileModal : Modal = this.modalCtrl.create(ListaAsistenciaPage,  MyModalOption);

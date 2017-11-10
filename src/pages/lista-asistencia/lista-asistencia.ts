@@ -18,14 +18,14 @@ export class ListaAsistenciaPage {
 listado:Array<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
-    this.listado= new Array<any>();
+   
     this.listado=JSON.parse(sessionStorage.getItem("lista"));
     
-    //console.log(this.listado);
+    console.log(this.listado);
   }
   closeModal(){
    
-    localStorage.clear();
+    // localStorage.clear();
     this.navCtrl.setRoot(TomarAsistenciaPage);
       }
   ionViewDidLoad() {
