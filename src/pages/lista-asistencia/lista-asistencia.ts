@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams , ViewController} from 'ionic-angular';
-
+import { TomarAsistenciaPage } from '../tomar-asistencia/tomar-asistencia';
 /**
  * Generated class for the ListaAsistenciaPage page.
  *
@@ -18,14 +18,15 @@ export class ListaAsistenciaPage {
 listado:Array<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
-    this.listado= new Array<any>();
+   
     this.listado=JSON.parse(sessionStorage.getItem("lista"));
-    console.log("listado");
+    
     console.log(this.listado);
-
   }
   closeModal(){
-    this.view.dismiss();
+   
+    // localStorage.clear();
+    this.navCtrl.setRoot(TomarAsistenciaPage);
       }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListaAsistenciaPage');
