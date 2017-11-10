@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController,ModalController, Modal, ModalOptions } from 'ionic-angular';
 import { ListaAsistenciaPage } from '../lista-asistencia/lista-asistencia';
 import { AngularFireModule} from 'angularfire2';
@@ -28,26 +28,11 @@ OpcionElegida:number;
 opcion:number;
 
   constructor(public modalCtrl: ModalController,db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
+    this.list = db.list('/Alumnos');
     var f = new Date();
     this.Fecha=   f.getDay() +"/"+ f.getMonth() +"/"+ f.getFullYear();
-   this.OpcionElegida=0;
-   this.miLista = new Array<any>();
-    //this.list = db.list('/Alumnos');
-  // console.log(this.list);
-    // this.list.push({
-    //   Apellido:"Fernandez",
-    //   Nombre: "Juan",
-    //   Aula:"202",
-    //   Materia:"Programacion 2"});
-    //      this.list.push({
-    //   Apellido:"Lunatti",
-    //   Nombre: "Fernando",
-    //   Aula:"201",
-    //   Materia:"Programacion 1"}); 
-    this.list = db.list('/Alumnos');
-    
-
-
+    this.OpcionElegida=0;
+    this.miLista = new Array<any>(); 
 }
 
   closeModal(){
@@ -63,21 +48,26 @@ this.view.dismiss();
     this.OpcionElegida=op;
   }
  async tomarAsistencia()
-   { 
+   {
+     
     switch(this.OpcionElegida){
       case 0://Aula
-     await this.list.snapshotChanges(['child_added'])
-      .subscribe(actions => {
-        actions.forEach(action => {
-       if(action.payload.val()["Aula"]==+this.AulaSelect)
-        {
-            this.miLista.push(action.payload.val());
-        }
-        });
-      });
-      console.log(this.miLista);
-      var listString =JSON.stringify(this.miLista);
-      console.log(sessionStorage.setItem("lista",listString));
+
+          await this.list.snapshotChanges(['child_added'])
+              .subscribe(actions => {
+              actions.forEach(action => {
+                if(action.payload.val()["Aula"]==+this.AulaSelect)
+                {
+                 action.payload.val();
+                 this.miLista.push(action.payload.val());
+
+                }
+              });
+
+             });
+          
+             var listString = JSON.stringify(this.miLista);
+             sessionStorage.setItem("lista",listString);
       break;
       case 1://Materia
       break;
@@ -88,10 +78,14 @@ this.view.dismiss();
       case 5://Fecha
       break;
     }
-    const MyModalOption : ModalOptions ={
-    enableBackdropDismiss : false};
-    let profileModal : Modal = this.modalCtrl.create(ListaAsistenciaPage,  MyModalOption);
-    profileModal.present(); 
+
+
+    this.navCtrl.setRoot(ListaAsistenciaPage)
+    // const MyModalOption : ModalOptions ={
+    // enableBackdropDismiss : false};
+    // let profileModal : Modal = this.modalCtrl.create(ListaAsistenciaPage,  MyModalOption);
+    // profileModal.present(); 
+    
 
   }
 }
