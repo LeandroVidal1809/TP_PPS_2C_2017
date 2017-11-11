@@ -16,6 +16,26 @@ import { Facebook } from '@ionic-native/facebook';
 })
 export class LoginPage {
 
+facebok = {
+  loggedin: false,name : '',
+profilePicture: '',
+email: ''
+}
+
+google = {
+  loggedin: false,
+  name : '',
+  profilePicture: '',
+  email: ''
+}
+
+github = {
+  loggedin: false,
+  name : '',
+  profilePicture: '',
+  email: ''
+}
+
   seccionA = false;
   seccionB = true;
   classactivo = "";
@@ -101,32 +121,65 @@ export class LoginPage {
 
   signInWithFacebook() {
 
-    if (this.platform.is('cordova')) {
-      this.facebook.login(['email', 'public_profile']).then(res => {
-        this._auth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider()).then(res =>{
-          console.log(res);
-          this.navCtrl.setRoot(HomePage);
-        }).catch(error => {
-          console.log(error);
-          alert("Secundario: "+error);
-        });
-      }).catch(error => {
-        alert("Principal: "+error);
-      });
-    } else{//esto es para localhost
+   // if (this.platform.is('cordova')) {
+   //   this.facebook.login(['email', 'public_profile']).then(res => {
+    //    this._auth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider()).then(res =>{
+   //       console.log(res);
+   //       this.navCtrl.setRoot(HomePage);
+   //     }).catch(error => {
+   //       console.log(error);
+   //       alert("Secundario: "+error);
+   //     });
+   //   }).catch(error => {
+  //      alert("Principal: "+error);
+  //    });
+ //   } else{//esto es para localhost
       this._auth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider()).then(res =>{
+        console.log("---FACEBOOK---");
         console.log(res);
+        this.facebok.email = res.user.email;
+        this.facebok.loggedin = true;
+        this.facebok.profilePicture = res.user.photoURL;
+        this.facebok.name = res.user.displayName;
         this.navCtrl.setRoot(HomePage);
       })
 
       
-    }
+   // }
 
 
 
 
  
      }
+     signInWithGoogle(){
+
+      this._auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(res=>{
+        console.log("---GOOGLE---");
+        console.log(res);
+        this.google.email = res.user.email;
+        this.google.loggedin = true;
+        this.google.profilePicture = res.user.photoURL;
+        this.google.name = res.user.displayName;
+        this.navCtrl.setRoot(HomePage);
+              })
+        
+
+     }
+     signInWithGitHub(){
+
+      this._auth.auth.signInWithPopup(new firebase.auth.GithubAuthProvider()).then(res=>{
+        console.log("---GITHUB---");
+        console.log(res);
+        this.github.email = res.user.email;
+        this.github.loggedin = true;
+        this.github.profilePicture = res.user.photoURL;
+        this.github.name = res.user.displayName;
+        this.navCtrl.setRoot(HomePage);
+      })
+
+     }
+
 
   
   //intento fallido

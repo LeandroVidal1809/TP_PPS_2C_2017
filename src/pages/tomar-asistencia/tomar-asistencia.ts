@@ -20,6 +20,7 @@ import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 })
 export class TomarAsistenciaPage {
 AulaSelect:string;
+MateriaSelect:string;
 Fecha:string;
 list: AngularFireList<any>;
 Aula:string;
@@ -33,6 +34,7 @@ opcion:number;
     this.Fecha=   f.getDay() +"/"+ f.getMonth() +"/"+ f.getFullYear();
     this.OpcionElegida=0;
     this.miLista = new Array<any>(); 
+   
 }
 
   closeModal(){
@@ -40,6 +42,7 @@ this.view.dismiss();
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad TomarAsistenciaPage');
+    this.miLista = new Array<any>(); 
   }
 
   setOpcion(op:number)
@@ -48,7 +51,9 @@ this.view.dismiss();
     this.OpcionElegida=op;
   }
  async tomarAsistencia()
-   {
+   {  
+       const MyModalOption : ModalOptions ={
+    enableBackdropDismiss : false};
      
     switch(this.OpcionElegida){
       case 0://Aula
@@ -64,12 +69,34 @@ this.view.dismiss();
                  
                 }
               });
-              this.navCtrl.setRoot(ListaAsistenciaPage);
+               
+    let profileModal : Modal = this.modalCtrl.create(ListaAsistenciaPage,  MyModalOption);
+    profileModal.present(); 
+            //  this.navCtrl.setRoot(ListaAsistenciaPage);
              });
              
 
       break;
       case 1://Materia
+    
+      var Observable = this.list.snapshotChanges(['child_added'])
+      .subscribe(actions => { 
+      actions.forEach(action => {
+        if(action.payload.val()["Materia"]==+this.MateriaSelect)
+        {
+         console.log(action.payload.val());
+         this.miLista.push(action.payload.val());
+         console.log("lista", this.miLista);
+         var listString = JSON.stringify(this.miLista);
+         sessionStorage.setItem("lista",listString);
+         
+        }
+      });
+       
+let profileModal : Modal = this.modalCtrl.create(ListaAsistenciaPage,  MyModalOption);
+profileModal.present(); 
+    //  this.navCtrl.setRoot(ListaAsistenciaPage);
+     });
       break;
       case 2://Profesor
       break;
@@ -81,10 +108,7 @@ this.view.dismiss();
 
 
     
-    // const MyModalOption : ModalOptions ={
-    // enableBackdropDismiss : false};
-    // let profileModal : Modal = this.modalCtrl.create(ListaAsistenciaPage,  MyModalOption);
-    // profileModal.present(); 
+
     
 
   }

@@ -21,12 +21,12 @@ listado:Array<any>;
    
     this.listado=JSON.parse(sessionStorage.getItem("lista"));
     
-    console.log(this.listado);
+    console.log("lista",this.listado);
   }
   closeModal(){
-   
-    // localStorage.clear();
-    this.navCtrl.setRoot(TomarAsistenciaPage);
+    this.view.dismiss();
+    localStorage.clear();
+  //  this.navCtrl.setRoot(TomarAsistenciaPage);
       }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListaAsistenciaPage');

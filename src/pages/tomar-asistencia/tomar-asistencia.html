@@ -50,7 +50,7 @@
             <option>201</option>
             <option>202</option>
           </select>
-          <select class="selectpick" *ngIf="opcion==1" >
+          <select [(ngModel)]="MateriaSelect" style="color:black;"  class="selectpick" *ngIf="opcion==1" >
               <option>Materia...</option>
               <option>Laboratorio 1</option>
               <option>Programacion 1</option>
