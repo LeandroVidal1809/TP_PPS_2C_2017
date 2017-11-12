@@ -123,6 +123,10 @@ switch (provider) {
       signin =new firebase.auth.GithubAuthProvider();
         
     break;
+    case "twitter":
+    signin =new firebase.auth.TwitterAuthProvider();
+      
+  break;
 }
 this._auth.auth.signInWithRedirect(signin).then(res =>{
 
@@ -134,7 +138,10 @@ this._auth.auth.signInWithRedirect(signin).then(res =>{
     this.perfil.loggedin = true;
     this.perfil.profilePicture = res.user.photoURL;
     this.perfil.name = res.user.displayName;
-    this.navCtrl.setRoot(HomePage,this.perfil);
+    this.MiSpiner2(this.perfil);
+
+    
+
 
   });
 
@@ -144,54 +151,8 @@ this._auth.auth.signInWithRedirect(signin).then(res =>{
   }
 
 
-Loguot(){
 
-  this._auth.auth.signOut();
-
-}
-  
-  //intento fallido
-   signInWithFacebook2() {
- let provider = new firebase.auth.FacebookAuthProvider();
- firebase.auth().signInWithRedirect(provider).then(()=>{
-   firebase.auth().getRedirectResult().then((result)=>{
-     alert(JSON.stringify(result));
-   }).catch(function(error){
-     alert(JSON.stringify(error))
-   });
- })
-
-
-
-  }
-
-  signInWithFacebookPABLO() {
-    if (this.platform.is('cordova')) {
-      this.facebook.login(['email', 'public_profile']).then(res => {
-        const facebookCredential = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
-        firebase.auth().signInWithCredential(facebookCredential).then(() => {
-          this.navCtrl.push(HomePage); 
-          console.log(facebookCredential);         
-        }).catch(error => {
-          console.log(error);
-          alert("Secundario: "+error);
-        });
-      }).catch(error => {
-        alert("Principal: "+error);
-      });
-    } else {
-      firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider()).then((res) => {
-        let loader = this.spiner.create({
-          content: "Espere...",
-          duration: 2600
-        });
-        loader.present();
-        this.navCtrl.push(HomePage);
-      }).catch(error => {
-        console.log(error);
-      });
-    }
-  }  
+ 
 
 
   showAlertRegistrar(mensaje:string,titulo:string) {
@@ -250,6 +211,17 @@ Loguot(){
     });
    // loader.present();
     return loader;
+  }
+    MiSpiner2(vvari)
+  {
+    let loader = this.spiner.create({
+      content:"Espere..",
+      duration: 2000
+      
+    });
+   loader.present();
+   this.navCtrl.setRoot(HomePage,vvari);
+ 
   }
   CargarADM(){    this.username = "admin@admin.com";
   this.password = "admin123";}

@@ -40,18 +40,20 @@
             <div class="social-login">
     		<ul>
           <div>
-              <li> <button ion-button  round (click)="loginwith('facebook')"> <ion-icon name="logo-facebook"></ion-icon>&nbsp;Facebook</button></li>
-              <li> <button ion-button  round (click)="loginwith('twitter')"> <ion-icon name="logo-twitter"></ion-icon>&nbsp;Twitter</button></li>
-              
+            <!-- <a href="">Forgot Password?</a>      <li> <button ion-button  round (click)="loginwith('facebook')"> <ion-icon name="logo-facebook"></ion-icon>&nbsp;Facebook</button></li>
+            -->  
+            <button ion-button (click)="loginwith('twitter')" icon-twitter>
+                <ion-icon name="logo-twitter"></ion-icon>&nbsp;Twitter
+              </button>
+              <button ion-button (click)="loginwith('github')" icon-github>
+                  <ion-icon name="logo-github"></ion-icon>&nbsp;github
+                </button>
+                <button ion-button (click)="loginwith('google')" icon-google>
+                    <ion-icon name="logo-google"></ion-icon>&nbsp;google
+                  </button>
 
-          </div>
-          <li> <button  ion-button round (click)="loginwith('google')"> <ion-icon name="logo-google"></ion-icon>&nbsp;Google+</button></li>
-          <li> <button ion-button  round (click)="loginwith('github')"> <ion-icon name="logo-github"></ion-icon>&nbsp;Github</button></li>
-       
-          
-          <div>
-              
-            
+     
+
             </div>
             
             </ul>
