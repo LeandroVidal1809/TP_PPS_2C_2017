@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ViewController ,AlertController} from 'ionic-angular';
 import { Http } from '@angular/http';
 import * as papa from 'papaparse';
+//import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
+ import {AngularFireDatabase} from 'angularfire2/database';
+//import { FirebaseListObservable ,AngularFireDatabase } from "angularfire2/database-deprecated";
 
 /**
  * Generated class for the ExcelPage page.
@@ -22,12 +25,18 @@ export class ExcelPage {
   testRadioResult;
   archivo: string;
   public csvData: any[] = [];
+  lista: any;
+  miArray : any[] = [];
+  //lista: FirebaseListObservable<any[]>;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               private http: Http,
+              public af: AngularFireDatabase,
               public alertCtrl: AlertController,
                private view: ViewController) {
+
+                this.lista= af.list('/listas/');
   }
   closeModal(){
     this.view.dismiss();
@@ -98,7 +107,6 @@ export class ExcelPage {
   }
 
   private handleError(err) {
-
     console.log('Error ', err);
   }
  
@@ -107,10 +115,52 @@ export class ExcelPage {
 
     let csvData = res['_body'] || '';
     let parsedData = papa.parse(csvData).data;
-    console.log(parsedData);
     this.csvData = parsedData;
-    console.log(csvData);
     console.log('respuesta ',  this.csvData);
   }
+
+
+  public guardarLista()
+  {
+    // this.af.list("/listas/").set(this.archivo,this.csvData).then((response)=>{
+    //   this.AlertMensaje("Éxito!", "Se guardó con éxito!!");
+    // }).catch((error: any) => {
+    //   this.AlertMensaje("Error", error);
+    // })
+    // for (var index = 0; index < this.csvData.length; index++) {
+    //   var element = this.csvData[index];
+    //   for (var index2 = 0; index2 < element.length; index2++) {
+    //     var element2 = element[index2];
+
+    //     this.miArray[index][index2] = this.csvData[index][index2];
+        
+    //   }      
+    // }
+
+    this.lista.push({
+      lista:  this.archivo ,
+      alumnos : this.csvData});
+
+  }
+
+
+  AlertMensaje(titulo: string, mens: string)
+  {
+    
+      let ventana = this.alertCtrl.create({
+      title: titulo,
+      message: mens,
+      buttons:[
+        {
+          text: "Aceptar",
+          handler: data => {
+            console.log('Mensaje de Alerta');
+            }
+          }
+        ]
+
+      });
+      ventana.present(ventana);
+    } 
 
 }
