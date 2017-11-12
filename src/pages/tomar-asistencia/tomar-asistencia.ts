@@ -21,8 +21,11 @@ import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 export class TomarAsistenciaPage {
 AulaSelect:string;
 MateriaSelect:string;
+AlumnoSelect:string;
+ProfesorSelect:string;
 Fecha:string;
 list: AngularFireList<any>;
+listProfesores: AngularFireList<any>;
 Aula:string;
 miLista:Array<any>;
 OpcionElegida:number;
@@ -30,11 +33,12 @@ opcion:number;
 
   constructor(public modalCtrl: ModalController,db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
     this.list = db.list('/Alumnos');
+    this.listProfesores=db.list('/Profesores');
     var f = new Date();
     this.Fecha=   f.getDay() +"/"+ f.getMonth() +"/"+ f.getFullYear();
     this.OpcionElegida=0;
     this.miLista = new Array<any>(); 
-   
+    
 }
 
   closeModal(){
@@ -52,9 +56,10 @@ this.view.dismiss();
   }
  async tomarAsistencia()
    {  
-       const MyModalOption : ModalOptions ={
-    enableBackdropDismiss : false};
      
+    const MyModalOption : ModalOptions ={
+    enableBackdropDismiss : false};
+
     switch(this.OpcionElegida){
       case 0://Aula
           var Observable = this.list.snapshotChanges(['child_added'])
@@ -65,14 +70,16 @@ this.view.dismiss();
                  console.log(action.payload.val());
                  this.miLista.push(action.payload.val());
                  var listString = JSON.stringify(this.miLista);
+                 if(listString!=null)
                  sessionStorage.setItem("lista",listString);
                  
                 }
               });
                
-    let profileModal : Modal = this.modalCtrl.create(ListaAsistenciaPage,  MyModalOption);
-    profileModal.present(); 
-            //  this.navCtrl.setRoot(ListaAsistenciaPage);
+              if(this.miLista.length!=0)
+                {
+                 this.navCtrl.setRoot(ListaAsistenciaPage);
+              }else{alert("No hay lista cargada para su consulta");}
              });
              
 
@@ -82,25 +89,53 @@ this.view.dismiss();
       var Observable = this.list.snapshotChanges(['child_added'])
       .subscribe(actions => { 
       actions.forEach(action => {
-        if(action.payload.val()["Materia"]==+this.MateriaSelect)
+        if(action.payload.val()["Materia"]==this.MateriaSelect)
         {
          console.log(action.payload.val());
          this.miLista.push(action.payload.val());
          console.log("lista", this.miLista);
          var listString = JSON.stringify(this.miLista);
+         if(listString!=null)
          sessionStorage.setItem("lista",listString);
          
         }
       });
-       
-let profileModal : Modal = this.modalCtrl.create(ListaAsistenciaPage,  MyModalOption);
-profileModal.present(); 
-    //  this.navCtrl.setRoot(ListaAsistenciaPage);
+
+      if(this.miLista.length!=0)
+        {
+      this.navCtrl.setRoot(ListaAsistenciaPage);
+      }else{alert("No hay lista cargada para su consulta");}
+      //  this.navCtrl.setRoot(ListaAsistenciaPage);
      });
       break;
       case 2://Profesor
+      var Observable = this.listProfesores.snapshotChanges(['child_added'])
+      .subscribe(actions => { 
+      actions.forEach(action => {
+        console.log(action.payload.val()["Apellido"]+","+action.payload.val()["Nombre"]);
+        if(action.payload.val()["Apellido"]+","+action.payload.val()["Nombre"]==this.ProfesorSelect)
+        {
+              this.AulaSelect=action.payload.val()["Aula"];
+              this.tomarAsistencia();
+              this.OpcionElegida=0;
+       } 
+      });
+     });
       break;
       case 3://Alumno
+      var Observable = this.list.snapshotChanges(['child_added'])
+      .subscribe(actions => { 
+      actions.forEach(action => {
+        console.log(action.payload.val()["Apellido"]+","+action.payload.val()["Nombre"]);
+        if(action.payload.val()["Apellido"]+","+action.payload.val()["Nombre"]==this.AlumnoSelect)
+        {
+              this.AulaSelect=action.payload.val()["Aula"];
+              this.tomarAsistencia();
+              this.OpcionElegida=0;
+       } 
+      });
+     });
+
       break;
       case 5://Fecha
       break;
