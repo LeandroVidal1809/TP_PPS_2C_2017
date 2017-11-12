@@ -16,16 +16,27 @@ import { TomarAsistenciaPage } from '../tomar-asistencia/tomar-asistencia';
 
 export class ListaAsistenciaPage {
 listado:Array<any>;
-
+AulaFiltro:string;
+MateriaFiltro:string;
+ProfesorFiltro:string;
+Fecha:Date;
   constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
    
     this.listado=JSON.parse(sessionStorage.getItem("lista"));
-    
+    this.AulaFiltro = this.listado[0].Aula;
+    this.MateriaFiltro=this.listado[0].Materia;
     console.log("lista",this.listado);
   }
+  
+  Cerrar(){
+    sessionStorage.clear();
+    this.navCtrl.setRoot(TomarAsistenciaPage); 
+
+  }
   closeModal(){
+    sessionStorage.clear();
     this.view.dismiss();
-    localStorage.clear();
+    
   //  this.navCtrl.setRoot(TomarAsistenciaPage);
       }
   ionViewDidLoad() {

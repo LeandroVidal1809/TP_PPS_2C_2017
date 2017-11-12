@@ -44,25 +44,25 @@
     </div>
 </div>
 <div class="col-md-8">  
-        <select *ngIf="opcion==0" [(ngModel)]="AulaSelect"  style="color:black;" class="selectpick">
+        <select *ngIf="opcion==0" [(ngModel)]="AulaSelect" style="color:black;"   selected="selected">
             <option>Aula...</option>
             <option>200</option>
             <option>201</option>
             <option>202</option>
           </select>
-          <select [(ngModel)]="MateriaSelect" style="color:black;"  class="selectpick" *ngIf="opcion==1" >
+          <select [(ngModel)]="MateriaSelect"  style="color:black;"   selected="selected" *ngIf="opcion==1" >
               <option>Materia...</option>
               <option>Laboratorio 1</option>
               <option>Programacion 1</option>
               <option>Base de Datos</option>
             </select>
-            <select class="selectpick" *ngIf="opcion==2" >
+            <select [(ngModel)]="ProfesorSelect"  style="color:black;"   selected="selected" *ngIf="opcion==2" >
               <option>Profesor...</option>
-              <option>Gomez,Luis</option>
-              <option>Ruiz,Monica</option>
-              <option>Rodriguez,Luis</option>
+              <option>Abaurre,Fernando</option>
+              <option>Lopez,Gustavo</option>
+              <option>Fernandez,Diego</option>
             </select>
-            <input *ngIf="opcion==3"  id="msg"  [(ngModel)]="Alumno"  type="text" class="selectpick" name="msg" placeholder="Alumno"> 
+            <input *ngIf="opcion==3"  id="msg"  [(ngModel)]="AlumnoSelect"  type="text" class="selectpick" name="msg" placeholder="Alumno"> 
             <input *ngIf="opcion==4"  id="msg"  [(ngModel)]="Fecha"   type="text" class="selectpick" name="msg" placeholder="Fecha"> 
             	
       </div>
