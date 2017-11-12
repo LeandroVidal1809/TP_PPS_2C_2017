@@ -27,6 +27,7 @@ import firebase from 'firebase';
 
 import { HttpModule } from '@angular/http';
 
+
 export const firebaseConfig = {
   apiKey: "AIzaSyDGhCp0KcrN7-QL49H_xHtlVVPswyNagCo",
   authDomain: "tpfinalpps-68471.firebaseapp.com",
