@@ -27,8 +27,8 @@
         "@ionic-native/status-bar": "4.3.2",
         "@ionic/storage": "2.0.1",
         "angularfire2": "^5.0.0-rc.3",
-        "barcode-scanner": "0.0.1",
         "babyparse": "^0.4.6",
+        "barcode-scanner": "0.0.1",
         "chart.js": "^2.7.1",
         "cordova-android": "^6.2.3",
         "cordova-plugin-browsertab": "^0.2.0",
@@ -47,11 +47,8 @@
         "ionic-plugin-keyboard": "^2.2.1",
         "ionicons": "3.0.0",
         "ng2-charts": "^1.6.0",
-<<<<<<< HEAD
-        "phonegap-plugin-barcodescanner": "^7.0.0",
-=======
         "ngx-papaparse": "^1.2.5",
->>>>>>> 38805bce5ffc3c37eb5dfcf80406337e8de5a008
+        "phonegap-plugin-barcodescanner": "^7.0.0",
         "rxjs": "5.4.3",
         "sw-toolbox": "3.6.0",
         "zone.js": "0.8.18"
@@ -76,12 +73,8 @@
             "cordova-plugin-buildinfo": {},
             "cordova-universal-links-plugin": {},
             "cordova-plugin-inappbrowser": {},
-<<<<<<< HEAD
-            "phonegap-plugin-barcodescanner": {}
-=======
             "phonegap-plugin-barcodescanner": {},
             "cordova-plugin-browsertab": {}
->>>>>>> 38805bce5ffc3c37eb5dfcf80406337e8de5a008
         },
         "dependencies": {
             "@angular/common": "4.4.4",
