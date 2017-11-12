@@ -107,62 +107,42 @@ email: ''
 
   }
 
-  signInWithFacebook() {
 
-   // if (this.platform.is('cordova')) {
-   //   this.facebook.login(['email', 'public_profile']).then(res => {
-    //    this._auth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider()).then(res =>{
-   //       console.log(res);
-   //       this.navCtrl.setRoot(HomePage);
-   //     }).catch(error => {
-   //       console.log(error);
-   //       alert("Secundario: "+error);
-   //     });
-   //   }).catch(error => {
-  //      alert("Principal: "+error);
-  //    });
- //   } else{//esto es para localhost
-      this._auth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider()).then(res =>{
-        console.log("---FACEBOOK---");
-        console.log(res);
-        this.perfil.email = res.user.email;
-        this.perfil.loggedin = true;
-        this.perfil.profilePicture = res.user.photoURL;
-        this.perfil.name = res.user.displayName;
-        this.navCtrl.setRoot(HomePage,this.perfil);
-      })
-
+  loginwith(provider){
+let signin = null;
+switch (provider) {
+  case "facebook":
+    signin =new firebase.auth.FacebookAuthProvider();
+    
+    break;
+  case "google":
+     signin =new firebase.auth.GoogleAuthProvider();
       
-   // }
-
-     }
-     signInWithGoogle(){
-
-      this._auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(res=>{
-        console.log("---GOOGLE---");
-        console.log(res);
-        this.perfil.email = res.user.email;
-        this.perfil.loggedin = true;
-        this.perfil.profilePicture = res.user.photoURL;
-        this.perfil.name = res.user.displayName;
-        this.navCtrl.setRoot(HomePage,this.perfil);
-              })
+    break;
+  case "github":
+      signin =new firebase.auth.GithubAuthProvider();
         
+    break;
+}
+this._auth.auth.signInWithRedirect(signin).then(res =>{
 
-     }
-     signInWithGitHub(){
+  this._auth.auth.getRedirectResult().then(res =>{
 
-      this._auth.auth.signInWithPopup(new firebase.auth.GithubAuthProvider()).then(res=>{
-        console.log("---GITHUB---");
-        console.log(res);
-        this.perfil.email = res.user.email;
-        this.perfil.loggedin = true;
-        this.perfil.profilePicture = res.user.photoURL;
-        this.perfil.name = res.user.displayName;
-        this.navCtrl.setRoot(HomePage, this.perfil);
-      })
+    console.log("INGRESANDO CON ---",provider,"---");
+    console.log(res);
+    this.perfil.email = res.user.email;
+    this.perfil.loggedin = true;
+    this.perfil.profilePicture = res.user.photoURL;
+    this.perfil.name = res.user.displayName;
+    this.navCtrl.setRoot(HomePage,this.perfil);
 
-     }
+  });
+
+  
+})
+
+  }
+
 
 Loguot(){
 

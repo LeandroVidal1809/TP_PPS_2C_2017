@@ -39,11 +39,10 @@
           </div>
             <div class="social-login">
     		<ul>
-            <li><a><i class="fa fa-facebook"></i>  <button type="submit" (click)="signInWithFacebook()">Facebook</button></a></li>
-            <li><a><i class="fa fa-google-plus"></i>  <button type="submit" (click)="signInWithGoogle()">Google+</button></a></li>
-
-            <li><a><i class="fa fa-github"></i>  <button type="submit"  (click)="signInWithGitHub()">Github</button></a></li>
-      
+            <li> <button ion-button  round (click)="loginwith('facebook')"> <ion-icon name="logo-facebook"></ion-icon>&nbsp;Facebook</button></li>
+            <li> <button  ion-button round (click)="loginwith('google')"> <ion-icon name="logo-google"></ion-icon>&nbsp;Google+</button></li>
+            <li> <button ion-button  round (click)="loginwith('github')"> <ion-icon name="logo-github"></ion-icon>&nbsp;Github</button></li>
+         
             </ul>
             </div>
             <div class="clearfix"></div>
