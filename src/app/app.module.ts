@@ -25,6 +25,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { Facebook } from '@ionic-native/facebook';
 import firebase from 'firebase';
 
+import { HttpModule } from '@angular/http';
+
 export const firebaseConfig = {
   apiKey: "AIzaSyDGhCp0KcrN7-QL49H_xHtlVVPswyNagCo",
   authDomain: "tpfinalpps-68471.firebaseapp.com",
@@ -54,6 +56,7 @@ export const firebaseConfig = {
     BrowserModule,
     IonicModule.forRoot(MyApp),
     ChartsModule,
+    HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,

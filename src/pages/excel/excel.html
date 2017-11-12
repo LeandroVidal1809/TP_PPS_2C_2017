@@ -31,14 +31,50 @@
                       <br><br>
                   </div>
   
-              <div style="margin-top:20px; ">                
+              <!-- <div style="margin-top:20px; ">                
                     <input type="text" style="width: 80%;display: inline-block;height: 50px;" placeholder="Seleccione su planilla..."  class="selectpick">
                     <button type="submit" style="width: 5%;margin-top:0px;align-text:right;" class="btn btn-warning"> ... </button>      
-              </div>
+              </div> -->
                   </div>
               
-              </div>
-            </ion-content>
+                  <ion-navbar color='favorite'> 
+                    
+                     <ion-buttons start>
+                       <button ion-button icon-only (click)="elegirArchivos()">
+                           <ion-icon name="add"></ion-icon>
+                         </button>
+                     </ion-buttons>
+                     <ion-title>
+                       CSV Data
+                     </ion-title>
+                     <ion-buttons end>
+                       <button ion-button icon-only (click)="downloadCSV()">
+                           <ion-icon name="download"></ion-icon>
+                         </button>
+                         <button ion-button icon-only (click)="guardarLista()">
+                           <ion-icon name="cloud-upload"></ion-icon>
+                         </button>
+                     </ion-buttons >
+                   </ion-navbar>
+
+
+  
+                    <p *ngIf="archivo == null">Presiona el botón + para elegir un archivo</p>
+                  
+                      <table border="1" class="data-table" style="overflow-x:auto;">
+                      
+                        <th *ngIf="archivo != null">Legajo</th>
+                        <th *ngIf="archivo != null">Nombre y apellido</th>
+                        <th *ngIf="archivo != null">Horario</th>
+                        <tr *ngFor="let row of csvData; let i = index">
+                            <td *ngFor="let data of row; let j = index; trackBy: trackByFn">
+                              <ion-input type="text" [(ngModel)]="csvData[i][j]"></ion-input>
+                            </td>
+                          </tr>
+                      </table>
+
+  </div>
+</ion-content>
            <!-- <h2><i class="glyphicon glyphicon-log-in"></i> Importar/Exportar Excels</h2>						
             <img width="150" height="150" src="assets/imgs/excel.jpg"> -->
         
