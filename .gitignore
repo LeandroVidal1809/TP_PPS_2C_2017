@@ -38,3 +38,4 @@ src/pages/login/login.html
 *.ts
 *.html
 src/pages/tomar-asistencia/tomar-asistencia.ts
+*.json
