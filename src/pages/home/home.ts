@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController,ModalController, Modal, ModalOptions } from 'ionic-angular';
+import { NavController,NavParams,ModalController, Modal, ModalOptions } from 'ionic-angular';
 import { TomarFotoPage } from '../tomar-foto/tomar-foto';
 import { ExcelPage } from '../excel/excel';
 import { TomarAsistenciaPage } from '../tomar-asistencia/tomar-asistencia';
 import { QRPage } from '../list/list';
+import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 
 import { LoginPage } from '../login/login';
 import { MenuController } from 'ionic-angular';
@@ -14,10 +15,21 @@ import { MenuController } from 'ionic-angular';
 })
 export class HomePage {
   
-  constructor(public modalCtrl: ModalController,public navCtrl: NavController) {
+perfil = {loggedin: false,name : '',profilePicture: '',email: ''}
+
+  constructor(public modalCtrl: ModalController,public navCtrl: NavController,
+    private _auth:AngularFireAuth, public navParams: NavParams) {
+      console.log(navParams);
+      this.perfil=navParams.data;
+      console.log("pruebaFB:",this.perfil);
+    
   }
 
- 
+  logOut(){
+    console.log("deslogeando");
+      this._auth.auth.signOut();
+      this.navCtrl.setRoot(LoginPage);
+    }
 
   redirect(path:string)
   {

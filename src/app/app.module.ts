@@ -13,7 +13,7 @@ import { ListaAsistenciaPage } from '../pages/lista-asistencia/lista-asistencia'
 import { ExcelPage } from '../pages/excel/excel';
 import { AbmAlumnosPage } from '../pages/abm-alumnos/abm-alumnos';
 import { AbmProfyAdminPage } from '../pages/abm-profy-admin/abm-profy-admin';
-
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -76,7 +76,7 @@ export const firebaseConfig = {
 
   ],
   providers: [
-    StatusBar,
+    StatusBar,BarcodeScanner,
     SplashScreen,
     Facebook,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

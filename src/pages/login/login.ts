@@ -16,25 +16,13 @@ import { Facebook } from '@ionic-native/facebook';
 })
 export class LoginPage {
 
-facebok = {
+perfil = {
   loggedin: false,name : '',
 profilePicture: '',
 email: ''
 }
 
-google = {
-  loggedin: false,
-  name : '',
-  profilePicture: '',
-  email: ''
-}
 
-github = {
-  loggedin: false,
-  name : '',
-  profilePicture: '',
-  email: ''
-}
 
   seccionA = false;
   seccionB = true;
@@ -137,31 +125,27 @@ github = {
       this._auth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider()).then(res =>{
         console.log("---FACEBOOK---");
         console.log(res);
-        this.facebok.email = res.user.email;
-        this.facebok.loggedin = true;
-        this.facebok.profilePicture = res.user.photoURL;
-        this.facebok.name = res.user.displayName;
-        this.navCtrl.setRoot(HomePage);
+        this.perfil.email = res.user.email;
+        this.perfil.loggedin = true;
+        this.perfil.profilePicture = res.user.photoURL;
+        this.perfil.name = res.user.displayName;
+        this.navCtrl.setRoot(HomePage,this.perfil);
       })
 
       
    // }
 
-
-
-
- 
      }
      signInWithGoogle(){
 
       this._auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(res=>{
         console.log("---GOOGLE---");
         console.log(res);
-        this.google.email = res.user.email;
-        this.google.loggedin = true;
-        this.google.profilePicture = res.user.photoURL;
-        this.google.name = res.user.displayName;
-        this.navCtrl.setRoot(HomePage);
+        this.perfil.email = res.user.email;
+        this.perfil.loggedin = true;
+        this.perfil.profilePicture = res.user.photoURL;
+        this.perfil.name = res.user.displayName;
+        this.navCtrl.setRoot(HomePage,this.perfil);
               })
         
 
@@ -171,16 +155,20 @@ github = {
       this._auth.auth.signInWithPopup(new firebase.auth.GithubAuthProvider()).then(res=>{
         console.log("---GITHUB---");
         console.log(res);
-        this.github.email = res.user.email;
-        this.github.loggedin = true;
-        this.github.profilePicture = res.user.photoURL;
-        this.github.name = res.user.displayName;
-        this.navCtrl.setRoot(HomePage);
+        this.perfil.email = res.user.email;
+        this.perfil.loggedin = true;
+        this.perfil.profilePicture = res.user.photoURL;
+        this.perfil.name = res.user.displayName;
+        this.navCtrl.setRoot(HomePage, this.perfil);
       })
 
      }
 
+Loguot(){
 
+  this._auth.auth.signOut();
+
+}
   
   //intento fallido
    signInWithFacebook2() {
@@ -283,7 +271,8 @@ github = {
    // loader.present();
     return loader;
   }
-
+  CargarADM(){    this.username = "admin@admin.com";
+  this.password = "admin123";}
 
   ionViewDidLeave(){
     this.menuCtrl.enable(true);
