@@ -20,7 +20,8 @@ import * as papa from 'papaparse';
 })
 export class ExcelPage {
 
-
+  aulaSelect:string;
+  materiaSelect:string;
   testRadioOpen: boolean;
   testRadioResult;
   archivo: string;
@@ -35,8 +36,7 @@ export class ExcelPage {
               public af: AngularFireDatabase,
               public alertCtrl: AlertController,
                private view: ViewController) {
-
-                this.lista= af.list('/listas/');
+                this.lista= af.list('/Alumno/');
   }
   closeModal(){
     this.view.dismiss();
@@ -136,11 +136,18 @@ export class ExcelPage {
         
     //   }      
     // }
-
-    this.lista.push({
-      lista:  this.archivo ,
-      alumnos : this.csvData});
-
+    for (var index = 0; index < this.csvData.length-1; index++) {
+         var element = this.csvData[index];
+          var element2 = element[0];
+          this.lista.push({
+            Legajo: element[0],
+            Nombre : element[1],
+            Aula: this.aulaSelect,
+            Materia: this.materiaSelect,
+            Horario:  element[2]
+            });  
+        }
+        alert("Lista Importada Exitosamente!");
   }
 
 

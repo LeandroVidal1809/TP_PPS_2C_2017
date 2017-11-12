@@ -32,7 +32,7 @@ OpcionElegida:number;
 opcion:number;
 
   constructor(public modalCtrl: ModalController,db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
-    this.list = db.list('/Alumnos');
+    this.list = db.list('/Alumno');
     this.listProfesores=db.list('/Profesores');
     var f = new Date();
     this.Fecha=   f.getDay() +"/"+ f.getMonth() +"/"+ f.getFullYear();
