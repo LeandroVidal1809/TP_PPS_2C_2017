@@ -47,8 +47,13 @@
         "ionic-plugin-keyboard": "^2.2.1",
         "ionicons": "3.0.0",
         "ng2-charts": "^1.6.0",
+<<<<<<< HEAD
         "ngx-papaparse": "^1.2.5",
         "phonegap-plugin-barcodescanner": "^7.0.0",
+=======
+        "phonegap-plugin-barcodescanner": "^7.0.0",
+        "ngx-papaparse": "^1.2.5",
+>>>>>>> d7713b7b0333b49f679e2ff5bfdf797d2e431a82
         "rxjs": "5.4.3",
         "sw-toolbox": "3.6.0",
         "zone.js": "0.8.18"
