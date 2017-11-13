@@ -54,7 +54,8 @@ this.view.dismiss();
     this.opcion=op;
     this.OpcionElegida=op;
   }
- async tomarAsistencia()
+
+  async tomarAsistencia()
    {  
      
     const MyModalOption : ModalOptions ={
@@ -126,14 +127,15 @@ this.view.dismiss();
       var Observable = this.list.snapshotChanges(['child_added'])
       .subscribe(actions => { 
       actions.forEach(action => {
-        console.log(action.payload.val()["Apellido"]+","+action.payload.val()["Nombre"]);
-        if(action.payload.val()["Apellido"]+","+action.payload.val()["Nombre"]==this.AlumnoSelect)
+        
+        if(action.payload.val()["Legajo"]==this.AlumnoSelect)
         {
               this.AulaSelect=action.payload.val()["Aula"];
               this.tomarAsistencia();
               this.OpcionElegida=0;
        } 
       });
+      alert("No hay lista cargada para su consulta");
      });
 
       break;
@@ -147,4 +149,10 @@ this.view.dismiss();
     
 
   }
+
+
+
+
+
+
 }

@@ -23,20 +23,21 @@
   <table class="table" >
     <thead>
       <tr>
-        
+        <th class="th">Legajo</th>
         <th class="th">Nombre</th>
-      
         <th class="th">Presente</th>
       </tr>
     </thead>
     <tbody>
-          <tr *ngFor="let item of listado">
+          <tr *ngFor="let item of listadoP;let i=index">
             
+            
+            <td style="border-top:0px; ">{{item.Legajo}} </td>
             <td style="border-top:0px; ">{{item.Nombre}} </td>
-      
             <td class="checkbox" style="border-top:0px; ">
                 <label>
-                  <input type="checkbox" value="">
+                    <!-- <input type="checkbox" name="options" value="option" /> {{option}} -->
+                  <input (click)="Cambio(i)" [ngModel]="Presencia"  type="checkbox" value=item.Presente>
                   <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                 </label>
               </td>
@@ -45,6 +46,6 @@
   </table> 
   <div align="center">
   <button type="button"  class="btn btn-danger btn-circle btn-lg" (click)="Cerrar()" ><i class="glyphicon glyphicon-remove"></i></button>
-  <button type="button" style="margin-left:180px;outline:none;"  class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>
+  <button type="button" style="margin-left:180px;outline:none;" (click)="AgregarLista()"  class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>
 </div>
 </ion-content>

@@ -36,10 +36,10 @@
             <input type="radio" (click)="setOpcion(3)" name="radio" id="radio3" />
             <label for="radio3">Alumno</label>
         </div>
-        <div class="funkyradio-danger">
+        <!-- <div class="funkyradio-danger">
             <input type="radio" (click)="setOpcion(4)" name="radio" id="radio4" />
             <label for="radio4">Fecha</label>
-        </div>
+        </div> -->
 
     </div>
 </div>
@@ -62,8 +62,8 @@
               <option>Lopez,Gustavo</option>
               <option>Fernandez,Diego</option>
             </select>
-            <input *ngIf="opcion==3"  id="msg"  [(ngModel)]="AlumnoSelect"  type="text" class="selectpick" name="msg" placeholder="Alumno"> 
-            <input *ngIf="opcion==4"  id="msg"  [(ngModel)]="Fecha"   type="text" class="selectpick" name="msg" placeholder="Fecha"> 
+            <input *ngIf="opcion==3"  id="msg" placeholder="Inserta el Legajo..."  [(ngModel)]="AlumnoSelect"  type="text" class="selectpick" name="msg"> 
+            <!-- <input *ngIf="opcion==4"  id="msg"  [(ngModel)]="Fecha"   type="text" class="selectpick" name="msg" placeholder="Fecha">  -->
             	
       </div>
       </div>
