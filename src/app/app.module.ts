@@ -7,10 +7,12 @@ import { QRPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { GraficosPage } from '../pages/graficos/graficos';
 import { RegistrarPage } from '../pages/registrar/registrar';
+import { ConsultaPage } from '../pages/consulta/consulta';
 import { TomarAsistenciaPage } from '../pages/tomar-asistencia/tomar-asistencia';
 import { TomarFotoPage } from '../pages/tomar-foto/tomar-foto';
 import { ListaAsistenciaPage } from '../pages/lista-asistencia/lista-asistencia';
 import { ExcelPage } from '../pages/excel/excel';
+import { ListaconsultaPage } from '../pages/listaconsulta/listaconsulta';
 import { AbmAlumnosPage } from '../pages/abm-alumnos/abm-alumnos';
 import { AbmProfyAdminPage } from '../pages/abm-profy-admin/abm-profy-admin';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
@@ -50,7 +52,9 @@ export const firebaseConfig = {
     TomarFotoPage,
     ExcelPage,
     AbmAlumnosPage,
-    AbmProfyAdminPage
+    AbmProfyAdminPage,
+    ConsultaPage,
+    ListaconsultaPage
     
   ],
   imports: [
@@ -76,7 +80,9 @@ export const firebaseConfig = {
     TomarFotoPage,
     ExcelPage,
     AbmAlumnosPage,
-    AbmProfyAdminPage
+    AbmProfyAdminPage,
+    ConsultaPage,
+    ListaconsultaPage
 
   ],
   providers: [

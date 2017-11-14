@@ -3,6 +3,7 @@ import { NavController,NavParams,ModalController, Modal, ModalOptions } from 'io
 import { TomarFotoPage } from '../tomar-foto/tomar-foto';
 import { ExcelPage } from '../excel/excel';
 import { TomarAsistenciaPage } from '../tomar-asistencia/tomar-asistencia';
+import { ConsultaPage } from '../consulta/consulta';
 import { QRPage } from '../list/list';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 
@@ -62,6 +63,11 @@ perfil = {loggedin: false,name : '',profilePicture: '',email: ''}
         break;
         case 'Asistencia':
         profileModal = this.modalCtrl.create(TomarAsistenciaPage, MyModalOption);
+        profileModal.present();
+      //  this.navCtrl.push(TomarAsistenciaPage);
+        break;  
+        case 'Consulta':
+        profileModal = this.modalCtrl.create(ConsultaPage, MyModalOption);
         profileModal.present();
       //  this.navCtrl.push(TomarAsistenciaPage);
         break;  

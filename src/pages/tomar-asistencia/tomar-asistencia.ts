@@ -139,20 +139,35 @@ this.view.dismiss();
      });
 
       break;
-      case 5://Fecha
+      case 6://Aula-Materia
+        var Observable = this.list.snapshotChanges(['child_added'])
+        .subscribe(actions => { 
+        actions.forEach(action => {
+          if(action.payload.val()["Materia"]==this.MateriaSelect )
+          {
+            if(  action.payload.val()["Aula"]==+this.AulaSelect)
+              {
+              console.log(action.payload.val());
+              this.miLista.push(action.payload.val());
+              console.log("lista", this.miLista);
+              var listString = JSON.stringify(this.miLista);
+              if(listString!=null)
+              sessionStorage.setItem("lista",listString);
+            }
+          }
+         });
+      if(this.miLista.length!=0)
+        {
+      this.navCtrl.setRoot(ListaAsistenciaPage);
+      }
+      else{
+        alert("No hay lista cargada para su consulta");
+      }
+    });
       break;
     }
 
 
     
-
-    
-
   }
-
-
-
-
-
-
-}
+  }
