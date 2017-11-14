@@ -43,9 +43,8 @@ export class MyApp {
       { title: 'Para Alumnos', component:QRPage,type:'button'},
       { title: 'Para Encuestas', component:QRPage,type:'button'},
       { title: '------------Sección ABM------------', component: HomePage,type:'section'},
-      { title: 'Administrativo', component:AbmProfyAdminPage,type:'button'},
-      { title: 'Alumno', component:AbmAlumnosPage,type:'button'},
-      { title: 'Profesores', component:AbmProfyAdminPage,type:'button'}
+      { title: 'Usuarios', component:AbmProfyAdminPage,type:'button'},
+      { title: 'Alumnos', component:AbmAlumnosPage,type:'button'}
     ];
     
 

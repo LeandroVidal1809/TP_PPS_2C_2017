@@ -18,33 +18,18 @@
       <div id="login-access" class="tab-pane fade active in">
         <h2><i class="glyphicon glyphicon-log-in"></i> ABM Profesor y Administrativo</h2>						
 
-        <!-- <div class="col-md-7">
-          <div class="funkyradio">
-            <div class="funkyradio-danger"> 
-            <input type="text" name="radio" id="radio5" />
-            </div>
-          </div>
-        </div> -->
-        <input type="text" id="fname" name="firstname" placeholder="Ingrese su nombre">
-        <input type="text" id="a" name="a" placeholder="Ingrese su apellido">
-        <input type="text" id="b" name="b" placeholder="Ingrese su curso">
-        <input type="text" id="c" name="c" placeholder="Ingrese su ">
-        <input type="text" id="d" name="d" placeholder="Ingrese su ">
+        <input type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="Ingrese su legajo ">
+        <input type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="Ingrese su nombre">
+        <select  [(ngModel)]="tipo" style="color:black;" >
+            <option>Seleccione un tipo de usuario...</option>
+            <option>Profesor</option>
+            <option>Administrativo</option>
+          </select>
 
-        <!-- <div padding>
-          <ion-list>
-            <ion-item>
-              <ion-label>Seleccione un Usuario...</ion-label>
-              <ion-select  name="firstField" [(ngModel)]="tipoUser" (ionChange)="UserValido()">
-                <ion-option value="usuario">Profesor</ion-option>
-                <ion-option value="admin">Administrativo</ion-option>
-              </ion-select>
-            </ion-item>
-          </ion-list>
-        </div> -->
+
 
       </div>
       
-      <button  (click)="tomarAsistencia()" class="btn btn-primary btn-md">Registrar alumno</button>
+      <button  (click)="Guardar()" class="btn btn-primary btn-md">Registrar usuario</button>
     </div>
   </ion-content>
