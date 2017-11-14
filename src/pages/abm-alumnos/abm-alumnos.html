@@ -18,12 +18,26 @@
     <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10">
       <div id="login-access" class="tab-pane fade active in">
         <h2><i class="glyphicon glyphicon-log-in"></i> ABM Alumnos</h2>						
-
-        <input type="text" id="fname" name="firstname" placeholder="Ingrese su nombre">
-        <input type="text" id="a" name="a" placeholder="Ingrese su apellido">
-        <input type="text" id="b" name="b" placeholder="Ingrese su curso">
+        <input type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="Ingrese su legajo ">
+        <input type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="Ingrese su nombre">
+        <select  [(ngModel)]="horario" style="color:black;" >
+            <option>Seleccione un aula para asociar...</option>
+            <option> Sabado  8:30 12:30</option>
+          </select>
+        <select  [(ngModel)]="aulaSelect" style="color:black;" >
+            <option>Seleccione un aula para asociar...</option>
+            <option>200</option>
+            <option>201</option>
+            <option>202</option>
+          </select>
+        <select [(ngModel)]="materiaSelect"  style="color:black;" >
+            <option>Seleccione una materia para asociar..</option>
+            <option>Laboratorio 1</option>
+            <option>Programacion 1</option>
+            <option>Base de Datos</option>
+          </select>
       </div>
-      <button  (click)="tomarAsistencia()" class="btn btn-primary btn-md">Registrar alumno</button>
+      <button  (click)="Guardar()" class="btn btn-primary btn-md">Registrar alumno</button>
     </div>
  <!--</section>
 </article>--> 
