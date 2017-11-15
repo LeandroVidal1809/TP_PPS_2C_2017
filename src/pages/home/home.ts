@@ -16,7 +16,7 @@ import { MenuController } from 'ionic-angular';
 })
 export class HomePage {
   
-perfil = {loggedin: false,name : '',profilePicture: '',email: ''}
+perfil = {loggedin: false,name : '',profilePicture: '',email: ''};
 
   constructor(public modalCtrl: ModalController,public navCtrl: NavController,
     private _auth:AngularFireAuth, public navParams: NavParams) {
@@ -37,13 +37,10 @@ perfil = {loggedin: false,name : '',profilePicture: '',email: ''}
     const MyModalOption : ModalOptions ={
       enableBackdropDismiss : false
     };
-    const myData ={
-      name: 'Brian',
-      ocupacion: 'entrando'
-    };
+    
     switch (path) {
         case 'QR':
-        let profileModal : Modal = this.modalCtrl.create(QRPage, { data: myData}, MyModalOption);
+        let profileModal : Modal = this.modalCtrl.create(QRPage, { data: this.perfil}, MyModalOption);
         profileModal.present(); 
         //prueba de data en la entrada y salida del modal!
         profileModal.onDidDismiss((data)=>{
