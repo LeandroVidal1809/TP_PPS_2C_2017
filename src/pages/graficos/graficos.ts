@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 
+import { LoginPage } from '../login/login';
 /**
  * Generated class for the GraficosPage page.
  *
@@ -45,8 +47,14 @@ export class GraficosPage {
     console.log(e);
   }
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController,
+    private _auth:AngularFireAuth) {
   }
+  logOut(){
+    console.log("deslogeando");
+      this._auth.auth.signOut();
+      this.navCtrl.setRoot(LoginPage);
+    }
   closeModal(){
     this.view.dismiss();
       }

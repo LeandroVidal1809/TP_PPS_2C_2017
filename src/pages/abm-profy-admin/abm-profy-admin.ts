@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
 import {AngularFireDatabase} from 'angularfire2/database';
+import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 
+import { LoginPage } from '../login/login';
 /**
  * Generated class for the AbmProfyAdminPage page.
  *
@@ -23,9 +25,15 @@ export class AbmProfyAdminPage {
   constructor(public navCtrl: NavController,
                public navParams: NavParams,
                public af: AngularFireDatabase,
-                private view: ViewController) {
+                private view: ViewController,
+                private _auth:AngularFireAuth) {
                   this.lista= af.list('/Usuarios/');
   }
+  logOut(){
+    console.log("deslogeando");
+      this._auth.auth.signOut();
+      this.navCtrl.setRoot(LoginPage);
+    }
   closeModal(){
     this.view.dismiss();
       }

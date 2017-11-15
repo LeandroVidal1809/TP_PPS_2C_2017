@@ -4,6 +4,9 @@ import { Http } from '@angular/http';
 import * as papa from 'papaparse';
 //import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
  import {AngularFireDatabase} from 'angularfire2/database';
+ import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
+ 
+ import { LoginPage } from '../login/login';
 //import { FirebaseListObservable ,AngularFireDatabase } from "angularfire2/database-deprecated";
 
 /**
@@ -35,7 +38,8 @@ export class ExcelPage {
               private http: Http,
               public af: AngularFireDatabase,
               public alertCtrl: AlertController,
-               private view: ViewController) {
+               private view: ViewController,
+               private _auth:AngularFireAuth) {
                 this.lista= af.list('/Alumno/');
   }
   closeModal(){
@@ -45,7 +49,11 @@ export class ExcelPage {
     console.log('ionViewDidLoad ExcelPage');
   }
 
-
+  logOut(){
+    console.log("deslogeando");
+      this._auth.auth.signOut();
+      this.navCtrl.setRoot(LoginPage);
+    }
 
   public elegirArchivos()
   {

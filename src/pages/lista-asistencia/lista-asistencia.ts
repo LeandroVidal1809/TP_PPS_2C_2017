@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams , ViewController} from 'ionic-angul
 import { TomarAsistenciaPage } from '../tomar-asistencia/tomar-asistencia';
 import { AngularFireModule} from 'angularfire2';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
+
+import { LoginPage } from '../login/login';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 /**
  * Generated class for the ListaAsistenciaPage page.
@@ -26,7 +28,8 @@ ProfesorFiltro:string;
 Presencia:boolean;
 Fecha:Date;
 list: AngularFireList<any>;
-  constructor(public navCtrl: NavController,db:AngularFireDatabase, public navParams: NavParams, private view: ViewController) {
+  constructor(public navCtrl: NavController,db:AngularFireDatabase, public navParams: NavParams, private view: ViewController,
+    private _auth:AngularFireAuth) {
    this.Fecha =  new Date();
   var dia = this.Fecha.getDate();
   var mes = this.Fecha.getMonth();
@@ -51,7 +54,11 @@ list: AngularFireList<any>;
 
 //console.log("lista",this.listadoP);
   }
-  
+  logOut(){
+    console.log("deslogeando");
+      this._auth.auth.signOut();
+      this.navCtrl.setRoot(LoginPage);
+    }
   Cambio(index:any){
     if(this.listadoP[index].Presente==false)
       {

@@ -3,9 +3,11 @@ import { IonicPage, NavController, NavParams, ViewController,ModalController, Mo
 import { ListaAsistenciaPage } from '../lista-asistencia/lista-asistencia';
 import { ListaconsultaPage } from '../listaconsulta/listaconsulta';
 import { AngularFireModule} from 'angularfire2';
-import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
-import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 
+import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
+
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the ConsultaPage page.
@@ -32,7 +34,8 @@ export class ConsultaPage {
   OpcionElegida:number;
   opcion:number;
   dbCon: AngularFireDatabase;
-  constructor(public modalCtrl: ModalController,db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
+  constructor(public modalCtrl: ModalController,db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,
+    private _auth:AngularFireAuth) {
    
     this.dbCon=db;
    
@@ -41,7 +44,11 @@ export class ConsultaPage {
     this.OpcionElegida=0;
     this.miLista = new Array<any>(); 
     
-}
+}  logOut(){
+  console.log("deslogeando");
+    this._auth.auth.signOut();
+    this.navCtrl.setRoot(LoginPage);
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ConsultaPage');

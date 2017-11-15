@@ -128,25 +128,40 @@ switch (provider) {
       
   break;
 }
-this._auth.auth.signInWithRedirect(signin).then(res =>{
+if (this.platform.is('cordova')) {
+  this._auth.auth.signInWithRedirect(signin).then(res =>{
+    
+      this._auth.auth.getRedirectResult().then(res =>{
+    
+        console.log("INGRESANDO CON ---",provider,"---");
+        console.log(res);
+        this.perfil.email = res.user.email;
+        this.perfil.loggedin = true;
+        this.perfil.profilePicture = res.user.photoURL;
+        this.perfil.name = res.user.displayName;
+        this.navCtrl.setRoot(HomePage,this.perfil);
+    
+        
+    
+    
+      });
+    
+      
+    })
 
-  this._auth.auth.getRedirectResult().then(res =>{
+}else{
 
+  this._auth.auth.signInWithPopup(signin).then(res =>{
     console.log("INGRESANDO CON ---",provider,"---");
     console.log(res);
     this.perfil.email = res.user.email;
     this.perfil.loggedin = true;
     this.perfil.profilePicture = res.user.photoURL;
     this.perfil.name = res.user.displayName;
-    this.MiSpiner2(this.perfil);
+    this.navCtrl.setRoot(HomePage,this.perfil);
+  })
+}
 
-    
-
-
-  });
-
-  
-})
 
   }
 
@@ -212,17 +227,10 @@ this._auth.auth.signInWithRedirect(signin).then(res =>{
    // loader.present();
     return loader;
   }
-    MiSpiner2(vvari)
-  {
-    let loader = this.spiner.create({
-      content:"Espere..",
-      duration: 2000
-      
-    });
-   loader.present();
-   this.navCtrl.setRoot(HomePage,vvari);
+
  
-  }
+ 
+  
   CargarADM(){    this.username = "admin@admin.com";
   this.password = "admin123";}
 

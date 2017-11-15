@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, ViewController,ModalController, Mo
 import { ListaAsistenciaPage } from '../lista-asistencia/lista-asistencia';
 import { AngularFireModule} from 'angularfire2';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
+
+import { LoginPage } from '../login/login';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 
 
@@ -31,7 +33,8 @@ miLista:Array<any>;
 OpcionElegida:number;
 opcion:number;
 
-  constructor(public modalCtrl: ModalController,db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
+  constructor(public modalCtrl: ModalController,db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,
+    private _auth:AngularFireAuth) {
     this.list = db.list('/Alumno');
     this.listProfesores=db.list('/Profesores');
     var f = new Date();
@@ -40,7 +43,11 @@ opcion:number;
     this.miLista = new Array<any>(); 
     
 }
-
+logOut(){
+  console.log("deslogeando");
+    this._auth.auth.signOut();
+    this.navCtrl.setRoot(LoginPage);
+  }
   closeModal(){
 this.view.dismiss();
   }

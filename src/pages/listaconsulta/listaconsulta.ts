@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams , ViewController} from 'ionic-angul
 import { TomarAsistenciaPage } from '../tomar-asistencia/tomar-asistencia';
 import { AngularFireModule} from 'angularfire2';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
+
+import { LoginPage } from '../login/login';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 /**
  * Generated class for the ListaconsultaPage page.
@@ -26,7 +28,8 @@ export class ListaconsultaPage {
   Fecha:Date;
   Fechas:string;
   list: AngularFireList<any>;
-    constructor(public navCtrl: NavController,db:AngularFireDatabase, public navParams: NavParams, private view: ViewController) {
+    constructor(public navCtrl: NavController,db:AngularFireDatabase, public navParams: NavParams, private view: ViewController,
+      private _auth:AngularFireAuth) {
      this.Fecha =  new Date();
       this.listado=JSON.parse(sessionStorage.getItem("lista"));
       this.AulaFiltro = sessionStorage.getItem("Aula");
@@ -40,6 +43,11 @@ export class ListaconsultaPage {
       this.navCtrl.setRoot(TomarAsistenciaPage); 
   
     }
+    logOut(){
+      console.log("deslogeando");
+        this._auth.auth.signOut();
+        this.navCtrl.setRoot(LoginPage);
+      }
     closeModal(){
       sessionStorage.clear();
       this.view.dismiss();
