@@ -1,0 +1,41 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<ion-header>
+    <ion-navbar>
+    
+      <ion-title>Listado Asistentes</ion-title>
+      <ion-buttons end>
+          <button ion-button (click)="closeModal()" >Cerrar </button>   
+        </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content padding  class="body" >
+      <tr style="text-align:left;">
+          <th class="th"><h5>Materia: {{MateriaFiltro}}</h5></th>
+          <th class="th"><h5> Aula: {{AulaFiltro}} </h5></th>
+          <th class="th"><h5> Fecha: {{Fechas}} </h5></th>
+<!-- s -->
+          
+      </tr>
+    
+  <table class="table" >
+    <thead>
+      <tr>
+        <th class="th">Legajo</th>
+        <th class="th">Nombre</th>
+        <th class="th">Asitencia</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr *ngFor="let item of listado">
+            <td style="border-top:0px; ">{{item.Legajo}} </td>
+            <td style="border-top:0px; ">{{item.Nombre}} </td>
+            <td *ngIf='item.Presente==true' class="Presente">Presente</td>
+            <td *ngIf='item.Presente==false' class="Ausente">Ausente</td>
+          </tr>
+    </tbody>
+  </table> 
+</ion-content>
