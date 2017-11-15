@@ -39,3 +39,8 @@ src/pages/login/login.html
 *.html
 src/pages/tomar-asistencia/tomar-asistencia.ts
 *.json
+src/pages/lista-asistencia/lista-asistencia.html
+*.ts
+src/pages/lista-asistencia/lista-asistencia.scss
+src/pages/lista-asistencia/lista-asistencia.ts
+src/pages/listaconsulta/listaconsulta.scss

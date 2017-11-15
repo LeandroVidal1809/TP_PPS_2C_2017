@@ -86,7 +86,7 @@ AgregarLista()
       Nombre : element.Nombre,
       Presente: element.Presente});  
    });
-   
+   //s
 }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListaAsistenciaPage');
