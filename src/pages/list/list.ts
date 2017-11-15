@@ -4,6 +4,7 @@ import { BarcodeScanner ,BarcodeScannerOptions } from '@ionic-native/barcode-sca
 import { AngularFireModule} from 'angularfire2';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @Component({
   selector: 'page-list',
@@ -16,7 +17,7 @@ export class QRPage {
   escaneado:string;
   listcodigos: AngularFireList<any>;
   options :BarcodeScannerOptions;
-  constructor(public navCtrl: NavController,
+  constructor(private camera: Camera, public navCtrl: NavController,
      public navParams: NavParams, 
      private view: ViewController,db:AngularFireDatabase,
      private barcodeScanner: BarcodeScanner) {

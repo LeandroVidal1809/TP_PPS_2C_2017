@@ -3,7 +3,7 @@ import { NavController,NavParams,ModalController, Modal, ModalOptions } from 'io
 import { TomarFotoPage } from '../tomar-foto/tomar-foto';
 import { ExcelPage } from '../excel/excel';
 import { TomarAsistenciaPage } from '../tomar-asistencia/tomar-asistencia';
-import { ConsultaPage } from '../consulta/consulta';
+//import { ConsultaPage } from '../consulta/consulta';
 import { QRPage } from '../list/list';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 

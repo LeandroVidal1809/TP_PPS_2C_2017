@@ -14,11 +14,27 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
   templateUrl: 'graficos.html',
 })
 export class GraficosPage {
+  votoS1 = 1;
+  votoN1 =2;
+  votoNI1= 3;
+  
+  votoS2 = 3;
+  votoN2 = 2;
+  votoNI2= 1;
+  
+  votoS3 = 2;
+  votoN3 = 2;
+  votoNI3= 2;
+  
 
+
+  
   public doughnutChartLabels:string[] = ['Si', 'No', 'No Me Interesa'];
-  public doughnutChartData:number[] = [350, 450, 100];
-
+  public doughnutChartData:number[] = [this.votoS1, this.votoN1, this.votoNI1];
+  public doughnutChartData2:number[] = [this.votoS2, this.votoN2, this.votoNI2];
+  public doughnutChartData3:number[] = [this.votoS3, this.votoN3, this.votoNI3];
   public doughnutChartType:string = 'doughnut';
+  
   
   public chartClicked(e:any):void {
     console.log(e);

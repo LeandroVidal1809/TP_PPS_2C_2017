@@ -20,6 +20,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ChartsModule } from 'ng2-charts';
+import { Camera } from '@ionic-native/camera';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -87,7 +88,7 @@ export const firebaseConfig = {
   ],
   providers: [
     StatusBar,BarcodeScanner,
-    SplashScreen,
+    SplashScreen, Camera,
     Facebook,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
