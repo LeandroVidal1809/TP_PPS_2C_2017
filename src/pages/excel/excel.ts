@@ -131,7 +131,7 @@ export class ExcelPage {
   public guardarLista()
   {
 
-    debugger;
+    
     for (var index = 0; index < this.csvData.length-1; index++) {
          var element = this.csvData[index];
           var element2 = element[0];

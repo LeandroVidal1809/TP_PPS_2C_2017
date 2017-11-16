@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
 import {AngularFireDatabase} from 'angularfire2/database';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
-
+import { AlertController ,LoadingController, Loading} from 'ionic-angular';
 import { LoginPage } from '../login/login';
+import { HomePage } from '../home/home';
 /**
  * Generated class for the AbmAlumnosPage page.
  *
@@ -28,8 +29,13 @@ export class AbmAlumnosPage {
   constructor(public navCtrl: NavController,
                public navParams: NavParams,
                public af: AngularFireDatabase,
+               public alertCtrl: AlertController,               
                 private view: ViewController,
                 private _auth:AngularFireAuth) {
+                  this.tienePermisos();
+                    
+                    
+  
                   this.lista= af.list('/Alumno/');
   }
 
@@ -42,7 +48,14 @@ export class AbmAlumnosPage {
     this.view.dismiss();
       }
 
-
+tienePermisos()
+{
+  if(sessionStorage.getItem("type")!="administrativo")
+    {
+        this.showAlert("No tiene permisos para ingresar al ABM de Alumnos","Lo Sentimos");
+        this.navCtrl.setRoot(HomePage);
+    }
+}
   ionViewDidLoad() {
     console.log('ionViewDidLoad AbmAlumnosPage');
   }
@@ -66,4 +79,14 @@ export class AbmAlumnosPage {
       alert("Se guardo el alumno correctamente");
   }
 
+
+  showAlert(mensaje:string,titulo:string) {
+    
+    let alert = this.alertCtrl.create({
+      title: titulo,
+      subTitle: mensaje,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
 }

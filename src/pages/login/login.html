@@ -32,7 +32,11 @@
             <input type="text" name="username" [(ngModel)]="username">
             <label>Clave</label>
             <input type="password" name="password" [(ngModel)]="password">
-            <button ion-button  color="dark" (click)="CargarADM()" >Admin</button> 
+            <button style="width:23%;font-size:9px;" ion-button  color="dark" (click)="CargarADM('Administrador')" >Administrador</button>
+            <button style="width:23%;font-size:12px;" ion-button  color="dark" (click)="CargarADM('Alumno')" >Alumno</button>
+            <button style="width:23%;font-size:12px;" ion-button  color="dark" (click)="CargarADM('Profesor')" >Profesor</button> 
+            <button style="width:23%;font-size:9px;" ion-button  color="dark" (click)="CargarADM('Administrativo')" >Administrativo</button>
+            
             <button type="submit" (click)="login()">Entrar</button>
             <!-- <a href="">Forgot Password?</a> -->
             </form>

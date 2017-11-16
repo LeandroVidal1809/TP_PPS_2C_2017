@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams , ViewController} from 'ionic-angul
 import { TomarAsistenciaPage } from '../tomar-asistencia/tomar-asistencia';
 import { AngularFireModule} from 'angularfire2';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
-
+import { AlertController ,LoadingController, Loading} from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 /**
@@ -28,7 +28,7 @@ ProfesorFiltro:string;
 Presencia:boolean;
 Fecha:Date;
 list: AngularFireList<any>;
-  constructor(public navCtrl: NavController,db:AngularFireDatabase, public navParams: NavParams, private view: ViewController,
+  constructor(public navCtrl: NavController,public alertCtrl: AlertController,db:AngularFireDatabase, public navParams: NavParams, private view: ViewController,
     private _auth:AngularFireAuth) {
    this.Fecha =  new Date();
   var dia = this.Fecha.getDate();
@@ -48,9 +48,10 @@ list: AngularFireList<any>;
        "Presente":false
      }
 
-     debugger;  
+       
      this.listadoP.push(objecto);
     });
+
 
 //console.log("lista",this.listadoP);
   }
@@ -93,7 +94,20 @@ AgregarLista()
       Nombre : element.Nombre,
       Presente: element.Presente});  
    });
-   //s
+
+   this.showAlert("La lista de asistencia se ha cargado correctamente","Proceso finalizado")
+   sessionStorage.clear();
+   this.navCtrl.setRoot(TomarAsistenciaPage);
+   }
+
+showAlert(mensaje:string,titulo:string) {
+  
+  let alert = this.alertCtrl.create({
+    title: titulo,
+    subTitle: mensaje,
+    buttons: ['OK']
+  });
+  alert.present();
 }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListaAsistenciaPage');

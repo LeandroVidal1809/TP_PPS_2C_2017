@@ -8,7 +8,7 @@ import { AbmProfyAdminPage } from '../abm-profy-admin/abm-profy-admin';
 import { AlertController ,LoadingController, Loading} from 'ionic-angular';
 import * as firebase from 'firebase';
 import { Facebook } from '@ionic-native/facebook';
-
+import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -29,22 +29,26 @@ email: ''
   classactivo = "";
   claseRegistrar:string;
   claseLogin:string;
-
+type:string;
   username:string;
   password:string;
   tipoUser:string;
   Mensaje:string;
+  nameUser:string;
   passwordconfirm:string;
-
+  list: AngularFireList<any>;
   constructor(public menuCtrl: MenuController,
               public spiner:LoadingController,
               public navCtrl: NavController,
               public facebook: Facebook,
               public platform: Platform,
               public alertCtrl: AlertController,
+              public af: AngularFireDatabase,
               private _auth:AngularFireAuth,
               public navParams: NavParams) 
-  {
+  { 
+ 
+    this.list= af.list('/Usuarios');
     this.claseLogin="active";
     this.claseRegistrar="";
   }
@@ -60,14 +64,25 @@ email: ''
         let espera = this.MiSpiner();
         espera.present();       
         await this._auth.auth.signInWithEmailAndPassword(this.username,this.password)
-                        .then(result => { espera.dismiss();
-                                          this.navCtrl.setRoot(HomePage,{usuario:this.username})})
+                        .then(result => { 
+                          espera.dismiss();
+                          var Observable = this.list.snapshotChanges(['child_added'])
+                          .subscribe(actions => {
+                            actions.forEach(action => {
+                          
+                              if(action.payload.val()["Email"]==this.username)
+                            {
+                              
+                            this.type= action.payload.val()["Tipo"];
+                            }
+                          });
+                          sessionStorage.setItem("type",this.type);
+                          console.log("tipo"+ this.type);
+                                          this.navCtrl.setRoot(HomePage,{usuario:this.username})
+                         });                     
+                        })
                         .catch(error =>{ espera.dismiss();
-                                        this.showAlert(error.message,"Error al ingresar!")})
-
-                        
-
-                      
+                                        this.showAlert(error.message,"Error al ingresar!")})     
                     }
   }
 
@@ -231,8 +246,30 @@ if (this.platform.is('cordova')) {
  
  
   
-  CargarADM(){    this.username = "admin@admin.com";
-  this.password = "admin123";}
+  CargarADM(type:string){  
+  
+    switch(type)
+    {
+      case 'Administrador':
+      this.username = "administrador@administrador.com";
+      this.password = "admin123";
+      break;
+      case 'Administrativo':
+      this.username = "administrativo@administrativo.com";
+      this.password = "admin123";
+      break;
+      case 'Profesor':
+      this.username = "profesor@profesor.com";
+      this.password = "admin123";
+      break;
+      case 'Alumno':
+      this.username = "alumno@alumno.com";
+      this.password = "admin123";
+
+      
+    }
+
+  }
 
   ionViewDidLeave(){
     this.menuCtrl.enable(true);

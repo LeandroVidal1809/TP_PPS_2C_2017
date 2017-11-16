@@ -25,12 +25,15 @@
       <div id="login-access" class="tab-pane fade active in">
         <h2><i class="glyphicon glyphicon-log-in"></i> ABM Profesor y Administrativo</h2>						
 
-        <input type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="Ingrese su legajo ">
         <input type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="Ingrese su nombre">
+        <input type="email" id="c" name="c" [(ngModel)]="email" placeholder="Ingrese su email ">
+        <input type="password" id="c" name="c" [(ngModel)]="password" placeholder="Ingrese su Clave ">
+        <input type="password" id="c" name="c" [(ngModel)]="passwordconfirm" placeholder="Repita su Clave ">
         <select  [(ngModel)]="tipo" style="color:black;" >
             <option>Seleccione un tipo de usuario...</option>
             <option>Profesor</option>
             <option>Administrativo</option>
+            
           </select>
 
 
