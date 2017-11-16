@@ -16,7 +16,7 @@ import { ListaconsultaPage } from '../pages/listaconsulta/listaconsulta';
 import { AbmAlumnosPage } from '../pages/abm-alumnos/abm-alumnos';
 import { AbmProfyAdminPage } from '../pages/abm-profy-admin/abm-profy-admin';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import { EncuestaPage } from '../pages/encuesta/encuesta';
+// import { EncuestaPage } from '../pages/encuesta/encuesta';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -56,7 +56,8 @@ export const firebaseConfig = {
     ExcelPage,
     AbmAlumnosPage,
     AbmProfyAdminPage,
-    ConsultaPage,EncuestaPage,
+    ConsultaPage,
+    // EncuestaPage,
     ListaconsultaPage
     
   ],
@@ -76,7 +77,8 @@ export const firebaseConfig = {
     HomePage,
     QRPage,
     LoginPage,
-    GraficosPage,EncuestaPage,
+    GraficosPage,
+    // EncuestaPage,
     RegistrarPage,
     TomarAsistenciaPage,
     ListaAsistenciaPage,

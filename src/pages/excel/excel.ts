@@ -130,20 +130,8 @@ export class ExcelPage {
 
   public guardarLista()
   {
-    // this.af.list("/listas/").set(this.archivo,this.csvData).then((response)=>{
-    //   this.AlertMensaje("Éxito!", "Se guardó con éxito!!");
-    // }).catch((error: any) => {
-    //   this.AlertMensaje("Error", error);
-    // })
-    // for (var index = 0; index < this.csvData.length; index++) {
-    //   var element = this.csvData[index];
-    //   for (var index2 = 0; index2 < element.length; index2++) {
-    //     var element2 = element[index2];
 
-    //     this.miArray[index][index2] = this.csvData[index][index2];
-        
-    //   }      
-    // }
+    debugger;
     for (var index = 0; index < this.csvData.length-1; index++) {
          var element = this.csvData[index];
           var element2 = element[0];

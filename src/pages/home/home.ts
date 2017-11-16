@@ -6,7 +6,7 @@ import { TomarAsistenciaPage } from '../tomar-asistencia/tomar-asistencia';
 import { ConsultaPage } from '../consulta/consulta';
 import { QRPage } from '../list/list';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
-import { EncuestaPage } from '../encuesta/encuesta';
+// import { EncuestaPage } from '../encuesta/encuesta';
 
 import { LoginPage } from '../login/login';
 import { MenuController } from 'ionic-angular';
@@ -35,8 +35,8 @@ perfil = {loggedin: false,name : '',profilePicture: '',email: ''};
     encuesta(){const MyModalOption : ModalOptions ={
       enableBackdropDismiss : false
     };
-      let profileModal : Modal = this.modalCtrl.create(EncuestaPage, MyModalOption);
-      profileModal.present(); 
+      //let profileModal : Modal = this.modalCtrl.create(EncuestaPage, MyModalOption);
+      //profileModal.present(); 
     }
   redirect(path:string)
   {
