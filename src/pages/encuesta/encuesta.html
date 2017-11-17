@@ -1,0 +1,64 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<ion-header>
+    <ion-navbar>
+   
+      <ion-title>Encuesta</ion-title>
+      <ion-buttons end>
+          <button ion-button (click)="closeModal()" >Cerrar </button>   
+        </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  <ion-content padding align="center">
+    <!---->      <ion-fab  down right edge> 
+          <button ion-fab mini><ion-icon name="contact" ></ion-icon></button>
+          <ion-fab-list>
+            <button ion-fab  (click)="piano()"><ion-icon name="body"></ion-icon></button>
+            <button ion-fab  (click)="EnviarMensaje()" ><ion-icon name="thumbs-up"></ion-icon></button>
+            <button ion-fab  (click)="logOut()" ><ion-icon name="power"></ion-icon></button>
+          </ion-fab-list>
+       </ion-fab>
+
+ 
+    <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10">
+      <div id="login-access" class="tab-pane fade active in">
+        <h2><i  align="center" class="glyphicon glyphicon-log-in"></i>Encuesta</h2>						
+        <h2> Que te parecio la app?</h2>
+        <select  [(ngModel)]="tipo" style="color:black;" >
+         
+          <option>Mala</option>
+          <option>Bien</option>
+          <option>MuyBien</option>
+       
+        </select>
+        <h2> Le agregarias algo a la aplicacion?</h2> 
+        <input type="text" id="c" name="c"  placeholder="Ingrese respuesta ">
+        <h2> Estas interesado en capacitarte para lograr algo asi?</h2>  
+        <select  [(ngModel)]="tipo" style="color:black;" >
+       
+            <option>Si</option>
+            <option>No</option>
+            <option>La verdad no lo se</option>
+          </select>
+          <h2>Danos tu puntaje del 1 al 10</h2>  
+          <select  [(ngModel)]="tipo" style="color:black;" >
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            </select>
+
+
+      </div>
+      <h2><i class="glyphicon glyphicon-log-in"></i>Gracias por participar</h2>	
+      <button  (click)="Guardar()" class="btn btn-primary btn-md">Guardar encuesta</button>
+    
+    </div>
+  </ion-content>
