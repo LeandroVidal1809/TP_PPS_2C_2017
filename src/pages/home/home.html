@@ -2,14 +2,14 @@
        <button class="botonmenu" ion-button menuToggle>
     <ion-icon name="menu"></ion-icon>
     </button> 
-  <label  >  {{perfil.name}} -- {{perfil.email}} --        <img  width=50px; height=50px; src="{{perfil.profilePicture}}"/>  </label>
-     
+    <div class="titulos">
+  <label class="label2">  {{perfil.name}}  <img class="imagen"  src="{{perfil.profilePicture}}"/>  </label>
+    </div>
   </ion-header>
   <ion-content  padding align="center"  class="fondo">      
       <ion-fab  down right edge> 
           <button ion-fab mini><ion-icon name="contact" ></ion-icon></button>
            <ion-fab-list>
-             <button ion-fab  (click)="piano()"><ion-icon name="body"></ion-icon></button>
              <button ion-fab  (click)="encuesta()" ><ion-icon name="thumbs-up"></ion-icon></button>
              <button ion-fab  (click)="logOut()" ><ion-icon name="power"></ion-icon></button>
            </ion-fab-list>

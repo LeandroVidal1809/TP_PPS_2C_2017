@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController,NavParams,ModalController, Modal, ModalOptions } from 'ionic-angular';
+  import { NavController,NavParams,ModalController, Modal, ModalOptions } from 'ionic-angular';
 import { TomarFotoPage } from '../tomar-foto/tomar-foto';
 import { ExcelPage } from '../excel/excel';
 import { TomarAsistenciaPage } from '../tomar-asistencia/tomar-asistencia';
