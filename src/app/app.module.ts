@@ -16,6 +16,8 @@ import { ListaconsultaPage } from '../pages/listaconsulta/listaconsulta';
 import { AbmAlumnosPage } from '../pages/abm-alumnos/abm-alumnos';
 import { AbmProfyAdminPage } from '../pages/abm-profy-admin/abm-profy-admin';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+
+
 // import { EncuestaPage } from '../pages/encuesta/encuesta';
 
 
@@ -69,6 +71,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+
   
   ],
   bootstrap: [IonicApp],

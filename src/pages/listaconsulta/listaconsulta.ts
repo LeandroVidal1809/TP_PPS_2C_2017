@@ -28,15 +28,14 @@ export class ListaconsultaPage {
   Fecha:Date;
   Fechas:string;
   list: AngularFireList<any>;
-    constructor(public navCtrl: NavController,db:AngularFireDatabase, public navParams: NavParams, private view: ViewController,
+    constructor(public navCtrl: NavController,db:AngularFireDatabase,public navParams: NavParams, private view: ViewController,
       private _auth:AngularFireAuth) {
      this.Fecha =  new Date();
       this.listado=JSON.parse(sessionStorage.getItem("lista"));
       this.AulaFiltro = sessionStorage.getItem("Aula");
       this.MateriaFiltro=sessionStorage.getItem("Materia");
      this.Fechas=sessionStorage.getItem("Fecha");
-  //console.log("lista",this.listadoP);
-    }
+}
     //sss
     Cerrar(){
       sessionStorage.clear();
@@ -57,8 +56,22 @@ export class ListaconsultaPage {
   
         
 
+
+    downloadToPdf()
+    {
+    
+    }
+    
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListaconsultaPage');
   }
+
+  ngOnInit() {
+ 
+     }
+   
+
+ 
+
 
 }
