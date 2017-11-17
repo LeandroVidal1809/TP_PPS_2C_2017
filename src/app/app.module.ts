@@ -16,11 +16,8 @@ import { ListaconsultaPage } from '../pages/listaconsulta/listaconsulta';
 import { AbmAlumnosPage } from '../pages/abm-alumnos/abm-alumnos';
 import { AbmProfyAdminPage } from '../pages/abm-profy-admin/abm-profy-admin';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-
-
-// import { EncuestaPage } from '../pages/encuesta/encuesta';
-
-
+import { EncuestaPage } from '../pages/encuesta/encuesta';
+import { Push } from '@ionic-native/push';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ChartsModule } from 'ng2-charts';
@@ -59,7 +56,7 @@ export const firebaseConfig = {
     AbmAlumnosPage,
     AbmProfyAdminPage,
     ConsultaPage,
-    // EncuestaPage,
+    EncuestaPage,
     ListaconsultaPage
     
   ],
@@ -81,7 +78,7 @@ export const firebaseConfig = {
     QRPage,
     LoginPage,
     GraficosPage,
-    // EncuestaPage,
+     EncuestaPage,
     RegistrarPage,
     TomarAsistenciaPage,
     ListaAsistenciaPage,
@@ -96,7 +93,7 @@ export const firebaseConfig = {
   providers: [
     StatusBar,BarcodeScanner,
     SplashScreen, Camera,
-    Facebook,
+    Facebook,Push,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

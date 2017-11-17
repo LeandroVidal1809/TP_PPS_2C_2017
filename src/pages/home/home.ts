@@ -6,7 +6,8 @@ import { TomarAsistenciaPage } from '../tomar-asistencia/tomar-asistencia';
 import { ConsultaPage } from '../consulta/consulta';
 import { QRPage } from '../list/list';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
-// import { EncuestaPage } from '../encuesta/encuesta';
+import { EncuestaPage } from '../encuesta/encuesta';
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
 import { LoginPage } from '../login/login';
 import { MenuController } from 'ionic-angular';
@@ -19,11 +20,42 @@ export class HomePage {
   
 perfil = {loggedin: false,name : '',profilePicture: '',email: ''};
 
-  constructor(public modalCtrl: ModalController,public navCtrl: NavController,
+  constructor(private push: Push,public modalCtrl: ModalController,public navCtrl: NavController,
     private _auth:AngularFireAuth, public navParams: NavParams) {
       console.log(navParams);
       this.perfil=navParams.data;
       console.log("pruebaFB:",this.perfil);
+      this.push.hasPermission().then((res: any) => {
+    
+        if (res.isEnabled) {
+         alert('Tenes permisos de notificacion');
+         const options: PushOptions = {
+              android: {},
+              ios: {
+                  alert: 'true',
+                  badge: true,
+                  sound: 'false'
+              },
+              windows: {},
+              browser: {
+                  pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+              }
+          };
+          const pushObject: PushObject = this.push.init(options);
+          pushObject.on('notification').subscribe((notification: any) => {
+            alert(notification.message);
+          });
+          
+          pushObject.on('registration').subscribe((registration: any) => console.log('Device registered', registration));
+          
+          pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
+
+
+        } else {
+          alert('No tenes ermisos de notificacion');
+        }
+    
+      });
     
   }
 
@@ -35,8 +67,8 @@ perfil = {loggedin: false,name : '',profilePicture: '',email: ''};
     encuesta(){const MyModalOption : ModalOptions ={
       enableBackdropDismiss : false
     };
-      //let profileModal : Modal = this.modalCtrl.create(EncuestaPage, MyModalOption);
-      //profileModal.present(); 
+      let profileModal : Modal = this.modalCtrl.create(EncuestaPage, MyModalOption);
+      profileModal.present(); 
     }
   redirect(path:string)
   {
