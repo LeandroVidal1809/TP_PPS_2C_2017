@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
-
+import { Camera } from '@ionic-native/camera';
+import firebase from 'firebase';
 import { LoginPage } from '../login/login';
 /**
  * Generated class for the TomarFotoPage page.
@@ -17,9 +18,22 @@ import { LoginPage } from '../login/login';
 })
 export class TomarFotoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController,
-    private _auth:AngularFireAuth) {
-  }  logOut(){
+  public myPhoto: any;
+  public myPhotosRefLindas: any;
+  public myPhotoURL: any;
+
+  constructor(public navCtrl: NavController,
+             public navParams: NavParams,
+          //   private Camera: Camera,
+              private view: ViewController,
+            private _auth:AngularFireAuth) 
+  {
+    this.myPhotosRefLindas = firebase.storage().ref('/Aulas/');
+  }  
+  
+  
+  
+  logOut(){
     console.log("deslogeando");
       this._auth.auth.signOut();
       this.navCtrl.setRoot(LoginPage);
@@ -29,6 +43,48 @@ export class TomarFotoPage {
       }
   ionViewDidLoad() {
     console.log('ionViewDidLoad TomarFotoPage');
+  }
+
+
+
+  takePhotoLindas() 
+  {
+    this.Camera.getPicture({
+      quality: 100,
+      destinationType: this.Camera.DestinationType.DATA_URL,
+      sourceType: this.Camera.PictureSourceType.CAMERA,
+      saveToPhotoAlbum: true
+      
+    }).then(imageData => {
+      this.myPhoto = imageData;
+
+      this.uploadPhotoLindas();
+
+    }, error => {
+      console.log("ERROR -> " + JSON.stringify(error));
+    });
+  }
+
+  private uploadPhotoLindas(): void 
+  {
+
+    this.myPhotosRefLindas.child(this.generateUUID())
+      .putString(this.myPhoto, 'base64', { contentType: 'image/png' })
+      .then((savedPicture) => {
+   
+        this.myPhotoURL = savedPicture.downloadURL;       
+      });
+  }
+
+  private generateUUID(): any 
+  {
+    var d = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx'.replace(/[xy]/g, function (c) {
+      var r = (d + Math.random() * 16) % 16 | 0;
+      d = Math.floor(d / 16);
+      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+    return uuid;
   }
 
 }
