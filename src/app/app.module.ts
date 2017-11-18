@@ -18,7 +18,6 @@ import { AbmProfyAdminPage } from '../pages/abm-profy-admin/abm-profy-admin';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { EncuestaPage } from '../pages/encuesta/encuesta';
 import { Push } from '@ionic-native/push';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ChartsModule } from 'ng2-charts';
@@ -69,6 +68,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+
   
   ],
   bootstrap: [IonicApp],

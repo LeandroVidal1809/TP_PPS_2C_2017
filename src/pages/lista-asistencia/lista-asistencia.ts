@@ -109,6 +109,8 @@ showAlert(mensaje:string,titulo:string) {
   });
   alert.present();
 }
+
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListaAsistenciaPage');
   }
