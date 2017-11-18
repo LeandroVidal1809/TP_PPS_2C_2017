@@ -14,17 +14,24 @@
 <ion-content padding align="center">
     <h2><i class="glyphicon glyphicon-log-in"></i> Filtros para asistencia</h2>	
   <div [hidden]="OpcionesAvanzadas">
-
     <div class="funkyradio">
           <div class="funkyradio-danger">
-              <input type="radio" (click)="TraigoMaterias(6)" name="radio" id="radio5" />
-              <label for="radio5">MATERIAS</label>
-    </div>
-    <div class="funkyradio-danger">
-            <input type="radio" (click)="TraigoAulas(0)" name="radio" id="radio4" />
-            <label for="radio4">AULAS</label>
+              <input type="radio" (click)="Traigo('Materias')" name="radio" id="radio6" />
+              <label for="radio6">MATERIAS</label>
           </div>
     </div>
+      <div class="Lista" [hidden]="!MuestraMaterias" *ngFor="let item of miListaMaterias">
+        <a (click)="SetListaMateria(item.Nombre,item.Aula)">{{item.Nombre}}(Aula {{item.Aula}})</a>
+      </div>
+    <div class="funkyradio">
+      <div class="funkyradio-danger">
+        <input type="radio" (click)="Traigo('Aula')" name="radio" id="radio7" />
+        <label for="radio7">AULAS</label>
+      </div>
+    </div>
+    <div class="Lista" [hidden]="!MuestraAulas" *ngFor="let item of miListaMaterias">
+        <a (click)="SetListaMateria(item.Nombre,item.Aula)">Aula {{item.Aula}}</a>
+      </div>
   </div>
  
 
@@ -96,6 +103,6 @@
 </div>
 <button [hidden]="OpcionesAvanzadas" style="float:left" (click)="ChangeOpciones()" class="btn btn-primary btn-md" >Opciones Avanzadas +</button> 
 <button [hidden]="!OpcionesAvanzadas" style="float:left" (click)="ChangeOpciones()" class="btn btn-primary btn-md" >Opciones Avanzadas -</button> 
-<button  style="float:right"  (click)="tomarAsistencia()" class="btn btn-primary btn-md" >Ingresar al aula</button>
+<button [hidden]="!OpcionesAvanzadas" style="float:right"  (click)="tomarAsistencia()" class="btn btn-primary btn-md" >Ingresar al aula</button>
 
 </ion-content>

@@ -35,7 +35,7 @@ list: AngularFireList<any>;
   var mes = this.Fecha.getMonth()+1;
   var anio = this.Fecha.getFullYear();
 
-  debugger;
+
     this.listadoP=new Array<any>();
     this.listado=JSON.parse(sessionStorage.getItem("lista"));
     this.AulaFiltro = this.listado[0].Aula;
