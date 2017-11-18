@@ -39,17 +39,17 @@
                 </div>
                 
                 <div class="foto">
-                    <br><br>
+                  <img class="img-responsive" src="myPhoto" /> 
                 </div>
 
             <div style="margin-top:20px; ">                
-                  <select style="width: 45%;display: inline-block;height: 50px;"  class="selectpick">
+                  <select [(ngModel)]="aula" style="width: 45%;display: inline-block;height: 50px;"  class="selectpick">
                     <option>Aula...</option>
                     <option>200</option>
                     <option>201</option>
                     <option>202</option>
                   </select>
-                  <button type="submit" style="width: 28%;margin-top:0px;" class="btn btn-warning"> Asociar! <span  class="glyphicon glyphicon-log-in"></span></button>      
+                  <button type="submit" (click)="asociar()" style="width: 28%;margin-top:0px;" class="btn btn-warning"> Asociar! <span  class="glyphicon glyphicon-log-in"></span></button>      
             </div>
                 </div>
             
