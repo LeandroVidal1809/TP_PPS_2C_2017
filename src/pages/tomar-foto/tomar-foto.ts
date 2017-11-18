@@ -4,7 +4,8 @@ import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 import { Camera } from '@ionic-native/camera';
 import firebase from 'firebase';
 import { LoginPage } from '../login/login';
-import {AngularFireDatabase} from 'angularfire2/database';
+import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+
 /**
  * Generated class for the TomarFotoPage page.
  *
@@ -18,22 +19,21 @@ import {AngularFireDatabase} from 'angularfire2/database';
   templateUrl: 'tomar-foto.html',
 })
 export class TomarFotoPage {
-
+  AulaSelect:string;
   public myPhoto: any;
   public myPhotosRefLindas: any;
   public myPhotoURL: any;
-  list: any;
-  aula: string;
-
+  list: AngularFireList<any>;
   constructor(public navCtrl: NavController,
              public navParams: NavParams,
-             private Camera: Camera,
-             db:AngularFireDatabase,
+            private Camera: Camera,
+            db:AngularFireDatabase,
               private view: ViewController,
             private _auth:AngularFireAuth) 
   {
     this.myPhotosRefLindas = firebase.storage().ref('/Aulas/');
-    this.list=db.list('/Aulas');
+    this.list=db.list('/Aula');
+    
   }  
   
   
@@ -62,7 +62,6 @@ export class TomarFotoPage {
       
     }).then(imageData => {
       this.myPhoto = imageData;
-
       this.uploadPhotoLindas();
 
     }, error => {
@@ -75,9 +74,8 @@ export class TomarFotoPage {
 
     this.myPhotosRefLindas.child(this.generateUUID())
       .putString(this.myPhoto, 'base64', { contentType: 'image/png' })
-      .then((savedPicture) => {
-   
-        this.myPhotoURL = savedPicture.downloadURL;       
+      .then((savedPicture) => { 
+        this.myPhotoURL = savedPicture.downloadURL; 
       });
   }
 
@@ -96,9 +94,9 @@ export class TomarFotoPage {
   asociar()
   {
     this.list.push({
-      aula: this.aula,
-      foto: this.myPhotoURL,
-      url:this.myPhotoURL});
+      aula: this.AulaSelect,
+      foto: this.myPhotoURL
+    }); 
   }
 
 }

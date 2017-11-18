@@ -6,6 +6,7 @@ import * as papa from 'papaparse';
  import {AngularFireDatabase} from 'angularfire2/database';
  import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 //  import { FileTransfer, FileUploadOptions, FileTransferObject } from 'npm install --save @ionic-native/file-transfer';
+// import { FileTransfer, FileUploadOptions, FileTransferObject } from  '@ionic-native/file-transfer';
  
  import { LoginPage } from '../login/login';
 //import { FirebaseListObservable ,AngularFireDatabase } from "angularfire2/database-deprecated";
@@ -37,8 +38,13 @@ export class ExcelPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               private http: Http,
+<<<<<<< HEAD
               //private fileTransfer: FileTransfer, 
               private file: File,
+=======
+             // private fileTransfer: FileTransfer, 
+             // private file: File,
+>>>>>>> 77cc8b78cfce3d0eb05835d3b32d8c0e98a70e82
               public af: AngularFireDatabase,
               public alertCtrl: AlertController,
                private view: ViewController,
@@ -97,7 +103,7 @@ export class ExcelPage {
             
           }
         }
-    
+  
       }
     });
   
@@ -170,7 +176,7 @@ export class ExcelPage {
   }
   
 
-
+  
   
 
 }
