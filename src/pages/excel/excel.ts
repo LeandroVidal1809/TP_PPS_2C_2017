@@ -38,13 +38,8 @@ export class ExcelPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               private http: Http,
-<<<<<<< HEAD
-              //private fileTransfer: FileTransfer, 
-              private file: File,
-=======
              // private fileTransfer: FileTransfer, 
              // private file: File,
->>>>>>> 77cc8b78cfce3d0eb05835d3b32d8c0e98a70e82
               public af: AngularFireDatabase,
               public alertCtrl: AlertController,
                private view: ViewController,
