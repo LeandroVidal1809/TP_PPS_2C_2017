@@ -44,3 +44,7 @@ src/pages/lista-asistencia/lista-asistencia.html
 src/pages/lista-asistencia/lista-asistencia.scss
 src/pages/lista-asistencia/lista-asistencia.ts
 src/pages/listaconsulta/listaconsulta.scss
+*.ts
+*.html
+*.ts
+README.md

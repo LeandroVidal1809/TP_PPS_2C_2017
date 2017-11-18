@@ -20,13 +20,14 @@ export class HomePage {
   
 perfil = {loggedin: false,name : '',profilePicture: '',email: ''};
 
-  constructor(private push: Push,public modalCtrl: ModalController,public navCtrl: NavController,
+  constructor(public push: Push,public modalCtrl: ModalController,public navCtrl: NavController,
     private _auth:AngularFireAuth, public navParams: NavParams) {
       console.log(navParams);
       this.perfil=navParams.data;
       console.log("pruebaFB:",this.perfil);
+
       this.push.hasPermission().then((res: any) => {
-    
+        alert('prenotificacion');
         if (res.isEnabled) {
          alert('Tenes permisos de notificacion');
          const options: PushOptions = {
@@ -52,7 +53,7 @@ perfil = {loggedin: false,name : '',profilePicture: '',email: ''};
 
 
         } else {
-          alert('No tenes ermisos de notificacion');
+          alert('No tenes permisos de notificacion');
         }
     
       });

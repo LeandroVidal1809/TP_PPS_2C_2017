@@ -24,7 +24,7 @@ export class TomarFotoPage {
 
   constructor(public navCtrl: NavController,
              public navParams: NavParams,
-          //   private Camera: Camera,
+            private Camera: Camera,
               private view: ViewController,
             private _auth:AngularFireAuth) 
   {
