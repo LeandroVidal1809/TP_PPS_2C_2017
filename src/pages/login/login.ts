@@ -78,7 +78,23 @@ type:string;
                           });
                           sessionStorage.setItem("type",this.type);
                           console.log("tipo"+ this.type);
-                                          this.navCtrl.setRoot(HomePage,{usuario:this.username})
+                          this.perfil.loggedin = true;
+                         
+                    if(sessionStorage.getItem("type")=="admin") {
+                      this.perfil.name =sessionStorage.getItem("type");
+                      this.perfil.profilePicture =  '../assets/imgs/admin.jpg';
+                    }
+                    if(sessionStorage.getItem("type")=="profesor")  {
+                      this.perfil.name =sessionStorage.getItem("type");
+                      this.perfil.profilePicture =  '../assets/imgs/profesor.jpg';
+                    }
+                 
+                    if(sessionStorage.getItem("type")=="administrativo")  {
+                      this.perfil.name =sessionStorage.getItem("type");
+                      this.perfil.profilePicture =  '../assets/imgs/administrativo.jpg';
+                    }
+                       
+                          this.navCtrl.setRoot(HomePage,this.perfil);
                          });                     
                         })
                         .catch(error =>{ espera.dismiss();

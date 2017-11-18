@@ -4,6 +4,7 @@ import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 import { Camera } from '@ionic-native/camera';
 import firebase from 'firebase';
 import { LoginPage } from '../login/login';
+import {AngularFireDatabase} from 'angularfire2/database';
 /**
  * Generated class for the TomarFotoPage page.
  *
@@ -21,14 +22,18 @@ export class TomarFotoPage {
   public myPhoto: any;
   public myPhotosRefLindas: any;
   public myPhotoURL: any;
+  list: any;
+  aula: string;
 
   constructor(public navCtrl: NavController,
              public navParams: NavParams,
-            private Camera: Camera,
+             private Camera: Camera,
+             db:AngularFireDatabase,
               private view: ViewController,
             private _auth:AngularFireAuth) 
   {
     this.myPhotosRefLindas = firebase.storage().ref('/Aulas/');
+    this.list=db.list('/Aulas');
   }  
   
   
@@ -85,6 +90,15 @@ export class TomarFotoPage {
       return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
     });
     return uuid;
+  }
+
+
+  asociar()
+  {
+    this.list.push({
+      aula: this.aula,
+      foto: this.myPhotoURL,
+      url:this.myPhotoURL});
   }
 
 }
