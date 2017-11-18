@@ -39,7 +39,9 @@
                 </div>
                 
                 <div class="foto">
-                  <img class="img-responsive" src="myPhoto" /> 
+                  <div *ngFor="let item of list | async">
+                         <img class="img-responsive" src="{{item.url}}" /> 
+                 </div>
                 </div>
 
             <div style="margin-top:20px; ">                

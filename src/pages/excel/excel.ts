@@ -5,7 +5,7 @@ import * as papa from 'papaparse';
 //import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
  import {AngularFireDatabase} from 'angularfire2/database';
  import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
- import { FileTransfer, FileUploadOptions, FileTransferObject } from 'npm install --save @ionic-native/file-transfer';
+ import { FileTransfer, FileUploadOptions, FileTransferObject } from  '@ionic-native/file-transfer';
  
  import { LoginPage } from '../login/login';
 //import { FirebaseListObservable ,AngularFireDatabase } from "angularfire2/database-deprecated";
@@ -170,7 +170,7 @@ export class ExcelPage {
   }
   
 
-
+  
   
 
 }

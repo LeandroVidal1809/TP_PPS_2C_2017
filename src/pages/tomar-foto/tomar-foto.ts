@@ -77,7 +77,11 @@ export class TomarFotoPage {
       .putString(this.myPhoto, 'base64', { contentType: 'image/png' })
       .then((savedPicture) => {
    
-        this.myPhotoURL = savedPicture.downloadURL;       
+        this.myPhotoURL = savedPicture.downloadURL; 
+        this.list.push({
+          aula: this.aula,
+          foto: this.myPhotoURL,
+        });      
       });
   }
 
@@ -95,10 +99,11 @@ export class TomarFotoPage {
 
   asociar()
   {
+
     this.list.push({
       aula: this.aula,
       foto: this.myPhotoURL,
-      url:this.myPhotoURL});
+    });
   }
 
 }
