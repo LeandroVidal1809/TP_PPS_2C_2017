@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
-
+import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { LoginPage } from '../login/login';
 /**
  * Generated class for the GraficosPage page.
@@ -16,27 +16,32 @@ import { LoginPage } from '../login/login';
   templateUrl: 'graficos.html',
 })
 export class GraficosPage {
-  votoS1 = 1;
-  votoN1 =2;
-  votoNI1= 3;
-  
-  votoS2 = 3;
-  votoN2 = 2;
-  votoNI2= 1;
-  
-  votoS3 = 2;
-  votoN3 = 2;
-  votoNI3= 2;
-  
-
+  votop1 = 0;
+  votop2 = 0;
 
   
-  public doughnutChartLabels:string[] = ['Si', 'No', 'No Me Interesa'];
-  public doughnutChartData:number[] = [this.votoS1, this.votoN1, this.votoNI1];
-  public doughnutChartData2:number[] = [this.votoS2, this.votoN2, this.votoNI2];
-  public doughnutChartData3:number[] = [this.votoS3, this.votoN3, this.votoNI3];
+  votos1 = 0;
+  votos2 = 0;
+
+  
+  voton1 = 0;
+            
+  voton2 = 0;  
+  voton3 = 0;
+  voton4 = 0;
+  voton5 = 0;
+  list: AngularFireList<any>;
+  miLista:Array<any>;
+
+  public doughnutChartLabels:string[] = ['Si', 'No'];
+  public doughnutChartLabels2:string[] = ['Buena', 'Mala'];
+  public doughnutChartLabels3:string[] = ['1', '2', '3', '4', '5'];
+  public doughnutChartData:number[] ;// [this.votop1, this.votop2];
+  public doughnutChartData2:number[] ; //[this.votos1, this.votos2];
+  public doughnutChartData3:number[];  //[this.voton1, this.voton2, this.voton3,this.voton4,this.voton5];
+
   public doughnutChartType:string = 'doughnut';
-  
+ 
   
   public chartClicked(e:any):void {
     console.log(e);
@@ -47,9 +52,31 @@ export class GraficosPage {
     console.log(e);
   }
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController,
+  constructor(public navCtrl: NavController,    public db: AngularFireDatabase, public navParams: NavParams, private view: ViewController,
     private _auth:AngularFireAuth) {
+      this.list=db.list('/encuesta');
+
   }
+
+  cargargrafico(){
+   
+    var Observable = this.list.snapshotChanges(['child_added'])
+    .subscribe(actions => {
+    actions.forEach(action => {
+      if(action.payload.val()["respuesta1"]=="No")
+      {
+       console.log(action.payload.val());
+       this.miLista.push(action.payload.val());
+       var listString = JSON.stringify(this.miLista);
+      // if(listString!=null)
+   //    sessionStorage.setItem("lista",listString);
+       
+      }
+    }); 
+  })
+    
+  }
+  
   logOut(){
     console.log("deslogeando");
       this._auth.auth.signOut();

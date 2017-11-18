@@ -32,7 +32,7 @@ list: AngularFireList<any>;
     private _auth:AngularFireAuth) {
    this.Fecha =  new Date();
   var dia = this.Fecha.getDate();
-  var mes = this.Fecha.getMonth();
+  var mes = this.Fecha.getMonth()+1;
   var anio = this.Fecha.getFullYear();
 
   debugger;

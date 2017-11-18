@@ -22,7 +22,7 @@ export class QRPage {
   escaneado:string;
   listcodigos: AngularFireList<any>;
   options :BarcodeScannerOptions;
-  
+
   perfil = {loggedin: false,name : '',profilePicture: '',email: ''};
 
   constructor(private camera: Camera, public navCtrl: NavController,
@@ -43,36 +43,13 @@ export class QRPage {
       this.navCtrl.setRoot(LoginPage);
     }
 
-
     scan()
     {
-    //  this.existe=false;
-    //  this.cargo=false;
-     // alert("lle");
       this.options = { prompt : "Escanea tu Qr de Credito" }
       this.barcodeScanner.scan(this.options).then((barcodeData) =>
        {
           this.scanData=barcodeData;
            this.escaneado=barcodeData.text;
-  
-          //  this.listcodigos.subscribe(items => 
-          //   {
-          //     items.forEach(item =>
-          //      {
-  
-          //       if(this.escaneado==item.codigo)
-          //       {
-          //         this.saldo=item.valor;
-          //         this.existe = true 
-          //         this.mensajeSaldo=" Usted va a cargar  $" + item.valor + " a su credito"
-                  
-          //       }
-              
-                // });
-            // });
-        
-    
-    
           }, (err) => {
         alert("Error occured : " + err);
     });   
