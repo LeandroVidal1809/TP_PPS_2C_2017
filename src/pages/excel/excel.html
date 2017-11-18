@@ -37,19 +37,6 @@
                   <div class="foto" >						
                       <img width="150" height="150" src="assets/imgs/excel.jpg">
                       <br><br>
-                      
-                        <select  [(ngModel)]="aulaSelect" style="color:black;" >
-                            <option>Seleccione un aula para asociar...</option>
-                            <option>200</option>
-                            <option>201</option>
-                            <option>202</option>
-                          </select>
-                        <select [(ngModel)]="materiaSelect"  style="color:black;" >
-                            <option>Seleccione una materia para asociar..</option>
-                            <option>Laboratorio 1</option>
-                            <option>Programacion 1</option>
-                            <option>Base de Datos</option>
-                          </select>
                   </div>
   
               <!-- <div style="margin-top:20px; ">                
@@ -69,10 +56,10 @@
                        CSV Data
                      </ion-title>
                      <ion-buttons end>
-                       <button ion-button icon-only (click)="downloadCSV()">
+                       <!-- <button ion-button icon-only (click)="downloadCSV()">
                            <ion-icon name="download"></ion-icon>
-                         </button> -->
-                         <button ion-button icon-only (click)="guardarLista()">
+                         </button>  -->
+                         <button ion-button icon-only (click)="verificarLista()">
                            <ion-icon name="cloud-upload"></ion-icon>
                          </button>
                      </ion-buttons >

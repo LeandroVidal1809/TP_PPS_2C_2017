@@ -25,6 +25,7 @@ AulaSelect:string;
 MateriaSelect:string;
 AlumnoSelect:string;
 ProfesorSelect:string;
+OpcionesAvanzadas:Boolean;
 Fecha:string;
 list: AngularFireList<any>;
 listProfesores: AngularFireList<any>;
@@ -41,7 +42,7 @@ opcion:number;
     this.Fecha=   f.getDay() +"/"+ f.getMonth() +"/"+ f.getFullYear();
     this.OpcionElegida=0;
     this.miLista = new Array<any>(); 
-    
+    this.OpcionesAvanzadas=false;
 }
 logOut(){
   console.log("deslogeando");
@@ -175,6 +176,26 @@ this.view.dismiss();
     }
 
 
-    
+
+  }
+
+  ChangeOpciones()
+  {
+   if(this.OpcionesAvanzadas==true) 
+    {
+      this.OpcionesAvanzadas=false;
+    }
+    else
+      this.OpcionesAvanzadas=true;
   }
   }
+
+
+  // this.list.push({
+  //   Nombre: "Prueba Desarrollo",
+  //   Aula : 201 ,
+  //   Dia:"Sabado",
+  //   HorarioI:"15:30",
+  //   Horariof:"23:00",
+  //   NumeroDia:6
+  //   });  

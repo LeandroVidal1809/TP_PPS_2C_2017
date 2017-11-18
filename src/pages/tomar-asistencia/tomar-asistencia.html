@@ -12,19 +12,27 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding align="center">
-        <ion-fab  down right edge> 
-                <button ion-fab mini><ion-icon name="contact" ></ion-icon></button>
-                 <ion-fab-list>
-                   <button ion-fab  (click)="piano()"><ion-icon name="body"></ion-icon></button>
-                   <button ion-fab  (click)="EnviarMensaje()" ><ion-icon name="thumbs-up"></ion-icon></button>
-                   <button ion-fab  (click)="logOut()" ><ion-icon name="power"></ion-icon></button>
-                 </ion-fab-list>
-              </ion-fab>
-<div class="login-body">
+    <h2><i class="glyphicon glyphicon-log-in"></i> Filtros para asistencia</h2>	
+  <div [hidden]="OpcionesAvanzadas">
+
+    <div class="funkyradio">
+          <div class="funkyradio-danger">
+              <input type="radio" (click)="TraigoMaterias(6)" name="radio" id="radio5" />
+              <label for="radio5">MATERIAS</label>
+    </div>
+    <div class="funkyradio-danger">
+            <input type="radio" (click)="TraigoAulas(0)" name="radio" id="radio4" />
+            <label for="radio4">AULAS</label>
+          </div>
+    </div>
+  </div>
+ 
+
+              
+<div class="login-body" [hidden]="!OpcionesAvanzadas">
 
     <div>
-      <div id="login-access">
-        <h2><i class="glyphicon glyphicon-log-in"></i> Filtros para asistencia</h2>						
+      <div id="login-access">				
 
         <div class="col-md-7">
     <div class="funkyradio">
@@ -45,14 +53,6 @@
             <input type="radio" (click)="setOpcion(3)" name="radio" id="radio3" />
             <label for="radio3">Alumno</label>
         </div>
-        <!-- <div class="funkyradio-danger">
-            <input type="radio" (click)="setOpcion(4)" name="radio" id="radio4" />
-            <label for="radio4">Fecha</label>
-        </div> -->
-        <!-- <div class="funkyradio-danger">
-            <input type="radio" (click)="setOpcion(2)" name="radio" id="radio2" checked/>
-            <label for="radio2">Profesor</label>
-        </div> -->
     </div>
 </div>
 <div class="col-md-8">  
@@ -90,9 +90,12 @@
                 </select>	
       </div>
       </div>
-      
-      <button  (click)="tomarAsistencia()" class="btn btn-primary btn-md" >Ingresar al aula</button>
+
     </div>
 
 </div>
+<button [hidden]="OpcionesAvanzadas" style="float:left" (click)="ChangeOpciones()" class="btn btn-primary btn-md" >Opciones Avanzadas +</button> 
+<button [hidden]="!OpcionesAvanzadas" style="float:left" (click)="ChangeOpciones()" class="btn btn-primary btn-md" >Opciones Avanzadas -</button> 
+<button  style="float:right"  (click)="tomarAsistencia()" class="btn btn-primary btn-md" >Ingresar al aula</button>
+
 </ion-content>
