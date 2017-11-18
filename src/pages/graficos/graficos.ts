@@ -16,16 +16,16 @@ import { LoginPage } from '../login/login';
   templateUrl: 'graficos.html',
 })
 export class GraficosPage {
-  votop1 = 0;
-  votop2 = 0;
+  //respuesta1
+  votop1 = 0;//si
+  votop2 = 0;//no
 
   
-  votos1 = 0;
-  votos2 = 0;
+  votos1 = 0;//buena
+  votos2 = 0;//mala
 
   
   voton1 = 0;
-            
   voton2 = 0;  
   voton3 = 0;
   voton4 = 0;
@@ -68,7 +68,7 @@ export class GraficosPage {
        console.log(action.payload.val());
        this.miLista.push(action.payload.val());
        var listString = JSON.stringify(this.miLista);
-      // if(listString!=null)
+      //   if(listString!=null)
    //    sessionStorage.setItem("lista",listString);
        
       }
