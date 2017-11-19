@@ -21,26 +21,43 @@ import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
   templateUrl: 'tomar-asistencia.html',
 })
 export class TomarAsistenciaPage {
+  //Propiedades
 AulaSelect:string;
 MateriaSelect:string;
 AlumnoSelect:string;
 ProfesorSelect:string;
+OpcionesAvanzadas:Boolean;
+MuestraMaterias:boolean;
+MuestraAulas:boolean;
 Fecha:string;
 list: AngularFireList<any>;
+listaMateria: AngularFireList<any>;
 listProfesores: AngularFireList<any>;
 Aula:string;
 miLista:Array<any>;
+miListaMaterias:Array<any>;
+f:Date;
 OpcionElegida:number;
 opcion:number;
-
+//Constructor
   constructor(public modalCtrl: ModalController,db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,
     private _auth:AngularFireAuth) {
+   
+   
+      //Lista de Alumnos
     this.list = db.list('/Alumno');
+    
+    //Lista de Profesores
     this.listProfesores=db.list('/Profesores');
-    var f = new Date();
-    this.Fecha=   f.getDay() +"/"+ f.getMonth() +"/"+ f.getFullYear();
+    //Lista de Materias
+    this.listaMateria=db.list('/Materias');
+    this.f = new Date();
+    this.Fecha=   this.f.getDay() +"/"+ this.f.getMonth() +"/"+ this.f.getFullYear();
     this.OpcionElegida=0;
     this.miLista = new Array<any>(); 
+    this.miListaMaterias = new Array<any>(); 
+    this.OpcionesAvanzadas=false;
+    this.MuestraMaterias=false;
     
 }
 logOut(){
@@ -61,7 +78,74 @@ this.view.dismiss();
     this.opcion=op;
     this.OpcionElegida=op;
   }
+  ChangeOpciones()
+  {
+    
+   if(this.OpcionesAvanzadas==true) 
+    {
+      this.OpcionesAvanzadas=false;
+    }
+    else
+      this.OpcionesAvanzadas=true;
+  }
+  Traigo(tipo:string)
+  {
+    this.miListaMaterias= new Array<any>();
+    if(tipo=='Materias'){
+    if(this.MuestraMaterias)
+      {
+        return;
+      }
+      else
+        {
+          this.MuestraMaterias=true;
+          this.MuestraAulas=false;
+        }
+    }
+    else
+      {
+        if(this.MuestraAulas)
+          {
+            return;
+          }
+          else
+            {
+              this.MuestraMaterias=false;
+              this.MuestraAulas=true;
+            }
+      }
+    var Observable = this.listaMateria.snapshotChanges(['child_added'])
+    .subscribe(actions => {
+    actions.forEach(action => { console.log(action.payload.val());
+      if(action.payload.val()["NumeroDia"]==+this.f.getDay() 
+        && this.dateCompare(action.payload.val()["HorarioI"]+":00",this.f.getHours() +":"+this.f.getMinutes()+":"+this.f.getSeconds())==-1
+        && this.dateCompare(action.payload.val()["Horariof"]+":00",this.f.getHours() +":"+this.f.getMinutes()+":"+this.f.getSeconds())==1)
+      {
+       this.miListaMaterias.push(action.payload.val()); 
+      }
+    });
+     
+    if(this.miListaMaterias.length!=0)
+      {
+      }else{alert("No hay Materias en curso en este momento.");}
+   });
+   
 
+  }
+
+  dateCompare(time1,time2) {
+    var t1 = new Date();
+    var parts = time1.split(":");
+    t1.setHours(parts[0],parts[1],parts[2],0);
+    var t2 = new Date();
+    parts = time2.split(":");
+    t2.setHours(parts[0],parts[1],parts[2],0);
+  
+    // returns 1 if greater, -1 if less and 0 if the same
+    if (t1.getTime()>t2.getTime()) return 1;
+    if (t1.getTime()<t2.getTime()) return -1;
+    return 0;
+  }
   async tomarAsistencia()
    {  
      
@@ -93,7 +177,6 @@ this.view.dismiss();
 
       break;
       case 1://Materia
-    
       var Observable = this.list.snapshotChanges(['child_added'])
       .subscribe(actions => { 
       actions.forEach(action => {
@@ -175,6 +258,46 @@ this.view.dismiss();
     }
 
 
+
+  }
+
+  SetListaMateria(Materia:string,Aula:string)
+  {
     
+    var Observable = this.list.snapshotChanges(['child_added'])
+    .subscribe(actions => { 
+    actions.forEach(action => {
+      if(action.payload.val()["Materia"]==Materia )
+      {
+        if(  action.payload.val()["Aula"]==+Aula)
+          {
+          console.log(action.payload.val());
+          this.miLista.push(action.payload.val());
+          console.log("lista", this.miLista);
+          var listString = JSON.stringify(this.miLista);
+          if(listString!=null)
+          sessionStorage.setItem("lista",listString);
+        }
+      }
+     });
+  if(this.miLista.length!=0)
+    {
+  this.navCtrl.setRoot(ListaAsistenciaPage);
+  }
+  else{
+    alert("No hay lista cargada para su consulta");
+  }
+  });
   }
   }
+
+  
+
+  // this.list.push({
+  //   Nombre: "Prueba Desarrollo",
+  //   Aula : 201 ,
+  //   Dia:"Sabado",
+  //   HorarioI:"15:30",
+  //   Horariof:"23:00",
+  //   NumeroDia:6
+  //   });  

@@ -2,13 +2,11 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ViewController ,AlertController} from 'ionic-angular';
 import { Http } from '@angular/http';
 import * as papa from 'papaparse';
-//import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
  import {AngularFireDatabase} from 'angularfire2/database';
  import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 //  import { FileTransfer, FileUploadOptions, FileTransferObject } from 'npm install --save @ionic-native/file-transfer';
  
  import { LoginPage } from '../login/login';
-//import { FirebaseListObservable ,AngularFireDatabase } from "angularfire2/database-deprecated";
 
 /**
  * Generated class for the ExcelPage page.
@@ -23,7 +21,7 @@ import * as papa from 'papaparse';
   templateUrl: 'excel.html',
 })
 export class ExcelPage {
-
+  titulo:string;
   aulaSelect:string;
   materiaSelect:string;
   testRadioOpen: boolean;
@@ -31,8 +29,12 @@ export class ExcelPage {
   archivo: string;
   public csvData: any[] = [];
   lista: any;
+  Importacion: any;
+  Tiempo: number;
+  repetidor:any;
+  Fecha:Date;
+  existe:boolean;
   miArray : any[] = [];
-  //lista: FirebaseListObservable<any[]>;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -44,6 +46,10 @@ export class ExcelPage {
                private view: ViewController,
                private _auth:AngularFireAuth) {
                 this.lista= af.list('/Alumno/');
+                this.Importacion= af.list('/Importaciones/');
+                this.Fecha= new Date();
+                this.Tiempo=0;
+                this.existe=false;
   }
   closeModal(){
     this.view.dismiss();
@@ -65,15 +71,15 @@ export class ExcelPage {
   
     alert.addInput({
       type: 'radio',
-      label: 'PPS -4A-2c2017',
-      value: 'PPS -4A-2c2017',
+      label: 'PPS-4A-2c2017-200',
+      value: 'PPS-4A-2c2017-200',
       checked: true
     });
   
     alert.addInput({
       type: 'radio',
-      label: 'PPS-4b-2c2017',
-      value: 'PPS-4b-2c2017'
+      label: 'PPS-4b-2c2017-201',
+      value: 'PPS-4b-2c2017-201'
     });
   
     alert.addButton('Cancel');
@@ -86,12 +92,12 @@ export class ExcelPage {
   
         if(data){
           switch (data) {
-            case 'PPS -4A-2c2017':
-             this.archivo ='PPS -4A-2c2017.csv';
+            case 'PPS-4A-2c2017-200':
+             this.archivo ='PPS-4A-2c2017-200.csv';
              this.readCsvData();
               break;
-            case 'PPS-4b-2c2017':
-            this.archivo ='PPS-4b-2c2017.csv';
+            case 'PPS-4b-2c2017-201':
+            this.archivo ='PPS-4b-2c2017-201.csv';
             this.readCsvData();
               break;
             
@@ -130,23 +136,71 @@ export class ExcelPage {
     console.log('respuesta ',  this.csvData);
   }
 
-
-  public guardarLista()
-  {
-
+public verificarLista()
+{
+  this.existe=false;
+  var ticks=0;
+   //Recorremos la lista para detectar si ya fue cargada
+   debugger;
+   var Observable = this.Importacion.snapshotChanges(['child_added'])
+   .subscribe(actions => {
+   actions.forEach(action => {
+     if(action.payload.val()["Titulo"]==this.archivo && this.existe==false)
+     {
+     this.AlertMensaje("Esta lista ya fue importada el dia " + action.payload.val()["Fecha"],"Lista duplicada");
+     this.existe=true;
+     return;
+     }
+   });
+   
+  });
     
-    for (var index = 0; index < this.csvData.length-1; index++) {
-         var element = this.csvData[index];
-          var element2 = element[0];
-          this.lista.push({
-            Legajo: element[0],
-            Nombre : element[1],
-            Aula: this.aulaSelect,
-            Materia: this.materiaSelect,
-            Horario:  element[2]
-            });  
+  this.repetidor = setInterval(()=>{
+    this.Tiempo++;
+    if(this.Tiempo==2)
+      {
+        if(this.existe)
+          {this.Tiempo=0;clearInterval(this.repetidor);}
+        else
+          {
+        this.Tiempo=0;
+        this.TerminarTimer();
+        this.guardarLista();
+        clearInterval(this.repetidor);
         }
-        alert("Lista Importada Exitosamente!");
+      }
+  }, 1000);
+
+}
+  public guardarLista()
+  {     
+
+   
+    //Guardamos la Importacion
+    this.Importacion.push({
+      Titulo: this.archivo,
+      Fecha : this.Fecha.getDate()+"/"+(this.Fecha.getMonth()+1)
+      });  
+
+        var tit = this.archivo.split("-");
+    //guardamos los Alumnos importados
+        for (var index = 0; index < this.csvData.length-1; index++) {
+            var element = this.csvData[index];
+              var element2 = element[0];
+            var elementDia=element[2].split(" ");
+            var aula = tit[3].split(".");
+              this.lista.push({
+                Legajo: element[0],
+                Nombre : element[1],
+                Aula: aula[0],
+                Materia: tit[0],
+                Dia: elementDia[0],
+                HorarioI:elementDia[2],
+                HorarioF:elementDia[3],
+                });  
+            }
+            this.existe=false;
+            this.AlertMensaje("La lista fue agregada exitosamente!","Proceso finalizado");
   }
 
 
