@@ -164,7 +164,7 @@ public verificarLista()
         else
           {
         this.Tiempo=0;
-        this.TerminarTimer();
+        //this.TerminarTimer();
         this.guardarLista();
         clearInterval(this.repetidor);
         }
