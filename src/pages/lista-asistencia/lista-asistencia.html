@@ -16,18 +16,24 @@
       <ion-fab  down right edge> 
           <button ion-fab mini><ion-icon name="contact" ></ion-icon></button>
            <ion-fab-list>
-             <button ion-fab  (click)="piano()"><ion-icon name="body"></ion-icon></button>
-             <button ion-fab  (click)="EnviarMensaje()" ><ion-icon name="thumbs-up"></ion-icon></button>
+             <button ion-fab  (click)="TakePhoto()"><ion-icon name="ios-camera"></ion-icon></button>
              <button ion-fab  (click)="logOut()" ><ion-icon name="power"></ion-icon></button>
            </ion-fab-list>
         </ion-fab>
-      <tr style="text-align:left;">
-          <th class="th"><h5>Materia: {{MateriaFiltro}}</h5></th>
-          <th class="th"><h5> Aula: {{AulaFiltro}} </h5></th>
-
-          
+        <table>
+        <tr>
+          <td class="foto">  
+              <img *ngIf="!base64Image" class="foto"  src="assets/imgs/defecto.png">
+               <img [src]="base64Image" *ngIf="base64Image" /> 
+         </td>
+          <td>
+              <tr class="titulo1">Materia: {{MateriaFiltro}}</tr>
+              <tr class="titulo1"> Aula: {{AulaFiltro}}</tr>     
+              <tr class="titulo1">{{this.FechaHoy}}</tr>     
+          </td>
+               
       </tr>
-    
+    </table>
   <table class="table" >
     <thead>
       <tr>
@@ -54,5 +60,7 @@
   <div align="center">
   <button type="button"  class="btn btn-danger btn-circle btn-lg" (click)="Cerrar()" ><i class="glyphicon glyphicon-remove"></i></button>
   <button type="button" style="margin-left:180px;outline:none;" (click)="AgregarLista()"  class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>
+
+
 </div>
 </ion-content>
