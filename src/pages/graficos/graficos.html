@@ -26,13 +26,9 @@
 
     <h2><i class="glyphicon glyphicon-log-in"></i>   Estadisticas de encuestas!</h2>	
   
-
-    <ion-slides pager>
-      
-        <ion-slide block style="background-color: light">
-          
+   
   
-            <h2> Estas interesado en capacitarte para lograr algo asi?</h2>  
+            <h2> {{pregunta}}</h2>  
         <div style="display: block">
             <canvas baseChart
                         [data]="doughnutChartData"
@@ -43,43 +39,6 @@
                        </div>     
          
   
-        </ion-slide>
-      
-        <ion-slide block style="background-color: light">
-          <h2> Que te parecio la app?</h2>
-          
-        
-          <div style="display: block">
-              <canvas baseChart
-                          [data]="doughnutChartData2"
-                          [labels]="doughnutChartLabels2"
-                          [chartType]="doughnutChartType"
-                          (chartClick)="chartClicked($event)"
-                          ></canvas>
-                        </div>     
   
-            
-      
-        
-        </ion-slide>
-      
-        <ion-slide block  style="background-color: light">
-            
-          <h2>Danos tu puntaje del 1 al 5</h2>  
-          
-        
-          <div style="display: block">
-              <canvas baseChart
-                          [data]="doughnutChartData3"
-                          [labels]="doughnutChartLabels3"
-                          [chartType]="doughnutChartType"
-                          (chartClick)="chartClicked($event)"
-                         ></canvas> 
-                        </div>     
-                       
-  
-      
-        </ion-slide>
-      
-      </ion-slides>
+     
 </ion-content>

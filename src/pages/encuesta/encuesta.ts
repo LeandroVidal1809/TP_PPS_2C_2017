@@ -20,9 +20,16 @@ import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 })
 export class EncuestaPage {
 
-  preg1;
-  preg2;
-  preg3;
+  resp1;
+  resp2;
+  resp3;
+  pregunta;
+  tipo;
+  respSelect;
+  respEscrito;
+checkbox:boolean=false;
+select:boolean=false;
+escrito:boolean=false;
  
   list: AngularFireList<any>;
   constructor(public modalCtrl: ModalController,public navCtrl: NavController,
@@ -30,20 +37,71 @@ export class EncuestaPage {
     public db: AngularFireDatabase,
      private view: ViewController, 
      private _auth:AngularFireAuth) {
+   
 
+      this.list=db.list('/altaEncuesta');
 
-      this.list=db.list('/encuesta');
+      var Observable = this.list.snapshotChanges(['child_added'])
+      .subscribe(actions => {
+      actions.forEach(action => {
+        this.pregunta = action.payload.val()["Pregunta"];
+        console.log(this.pregunta);
+      this.tipo =   action.payload.val()["Tipo"];
+      this.resp1 =  action.payload.val()["Respuesta1"];
+      this.resp2 =  action.payload.val()["Respuesta2"];
+      this.resp3 =  action.payload.val()["Respuesta3"];
+      console.log(this.resp1,this.resp2,this.resp3);
+      }); 
+      switch (this.tipo) {
+        case "CheckBox":
+          this.checkbox = true;
+          break;
+          case "Escrito":
+          this.escrito = true;
+          break;
+          case "Selector":
+          this.select = true;
+          break;
+      
+      }
+    })
+
+      
   }
 
   Guardar(){
-    console.log(this.preg1,this.preg2,this.preg3);
+  //  console.log(this.preg1,this.preg2,this.preg3);
+  switch (this.tipo) {
+    case "CheckBox":
+      this.checkbox = true;
+      break;
+      case "Escrito":
+      this.list=this.db.list('/encuesta');
+      this.list.push({
+        alumno: sessionStorage.getItem("type"),
+        Pregunta: this.pregunta,
+        Tipo: this.tipo,
+      
     
-    this.list.push({
-      alumno: sessionStorage.getItem("type"),
-      respuesta1: this.preg1,
-      respuesta2: this.preg2,
-     respuesta3: this.preg3,
-    });
+      escrito: this.respEscrito,
+      });
+      break;
+      case "Selector":
+      this.list=this.db.list('/encuesta');
+      this.list.push({
+        alumno: sessionStorage.getItem("type"),
+        Pregunta: this.pregunta,
+        Tipo: this.tipo,
+      
+      select: this.respSelect
+      
+      });
+      break;
+  
+  }
+  
+  
+  
 this.grafico();
   
     }

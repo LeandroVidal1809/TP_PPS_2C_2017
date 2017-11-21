@@ -24,7 +24,27 @@
     <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10">
       <div id="login-access" class="tab-pane fade active in">
         <h2><i  align="center" class="glyphicon glyphicon-log-in"></i>Encuesta</h2>						
-        <h2> Que te parecio la app?</h2>
+      
+      <h2>{{pregunta}}</h2>
+      <div *ngIf="checkbox">
+        
+          <label><input type="checkbox" id="checkbox1" /> {{resp1}} </label>
+          <label><input type="checkbox" id="checkbox2" /> {{resp2}} </label>
+          <label><input type="checkbox" id="checkbox3" /> {{resp3}} </label>
+          </div>
+          <div *ngIf="select">
+              <select [(ngModel)]="respSelect"  style="color:black;" >
+                  <option>Seleccione respuesta..</option>
+                  <option>{{resp1}} </option>
+                  <option>{{resp2}} </option>
+                  <option>{{resp3}} </option>
+                </select>
+              </div>
+              <div *ngIf="escrito">
+                  <input type="text" id="c" name="c" [(ngModel)]="respEscrito" placeholder="Ingrese su respuesta">
+                  </div>
+      
+        <!-- <h2> Que te parecio la app?</h2>
         <select  [(ngModel)]="preg1" style="color:black;" >
          
           <option>Mala</option>
@@ -47,7 +67,7 @@
             <option>5</option>
           
             </select>
-
+ -->
 
       </div>
       <h2><i class="glyphicon glyphicon-log-in"></i>Gracias por participar</h2>	

@@ -9,6 +9,21 @@
     <ion-title>Ingreso</ion-title>
   </ion-navbar>
 </ion-header>
+<ion-fab  center  edge> 
+    <button ion-fab mini>
+      <ion-icon name="contact" ></ion-icon></button>
+     <ion-fab-list side="left">
+       <button ion-fab  (click)="loginwith('twitter')"><ion-icon name="logo-twitter"></ion-icon></button>
+       <button ion-fab  (click)="loginwith('github')" ><ion-icon name="logo-github"></ion-icon></button>
+       <button ion-fab  (click)="loginwith('google')" ><ion-icon name="logo-googleplus"></ion-icon></button>
+      </ion-fab-list>
+      <ion-fab-list side="right">
+       <button ion-fab  (click)="CargarADM('Administrativo')" ><ion-icon name="logo-angular"></ion-icon></button>
+       <button ion-fab  (click)="CargarADM('Profesor')" ><ion-icon name="school"></ion-icon></button>
+       <button ion-fab  (click)="CargarADM('Administrador')" ><ion-icon name="logo-html5"></ion-icon></button>
+      </ion-fab-list>
+  </ion-fab>
+
 <div class="container">
 	<div class="row">
 		<!-- <h2>Fancy Login / Registration form</h2> -->
@@ -32,9 +47,9 @@
             <input type="text" name="username" [(ngModel)]="username">
             <label>Clave</label>
             <input type="password" name="password" [(ngModel)]="password">
-            <button style="width:30%;font-size:9px;" ion-button  color="dark" (click)="CargarADM('Administrador')" >Administrador</button>
+            <!-- <button style="width:30%;font-size:9px;" ion-button  color="dark" (click)="CargarADM('Administrador')" >Administrador</button>
             <button style="width:30%;font-size:12px;" ion-button  color="dark" (click)="CargarADM('Profesor')" >Profesor</button> 
-            <button style="width:30%;font-size:9px;" ion-button  color="dark" (click)="CargarADM('Administrativo')" >Administrativo</button>
+            <button style="width:30%;font-size:9px;" ion-button  color="dark" (click)="CargarADM('Administrativo')" >Administrativo</button> -->
             <button type="submit" (click)="login()">Entrar</button>
             <!-- <a href="">Forgot Password?</a> -->
             </form>
@@ -44,7 +59,7 @@
           <div>
             <!-- <a href="">Forgot Password?</a>      <li> <button ion-button  round (click)="loginwith('facebook')"> <ion-icon name="logo-facebook"></ion-icon>&nbsp;Facebook</button></li>
             -->  
-            <button ion-button (click)="loginwith('twitter')" icon-twitter>
+            <!-- <button ion-button (click)="loginwith('twitter')" icon-twitter>
                 <ion-icon name="logo-twitter"></ion-icon>&nbsp;Twitter
               </button>
               <button ion-button (click)="loginwith('github')" icon-github>
@@ -52,7 +67,7 @@
                 </button>
                 <button ion-button (click)="loginwith('google')" icon-google>
                     <ion-icon name="logo-google"></ion-icon>&nbsp;google
-                  </button>
+                  </button> -->
 
      
 

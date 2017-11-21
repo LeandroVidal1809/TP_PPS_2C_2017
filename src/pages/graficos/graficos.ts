@@ -17,93 +17,99 @@ import { LoginPage } from '../login/login';
 })
 export class GraficosPage {
   //respuesta1
-  votop1:number = 0;//si
-  votop2:number = 5;//no
+  voto1:number = 0;
+  voto2:number = 0;
+  voto3:number = 0;
 
-  
-  votos1 :number= 0;//buena
-  votos2 :number= 0;//mala
-
-  
-  voton1 :number= 0;
-  voton2 :number= 0;  
-  voton3 :number= 0;
-  voton4 :number= 0;
-  voton5 :number= 0;
+  resp1;
+  resp2;
+  resp3;
 
   list: AngularFireList<any>;
   miLista:Array<any>;
+pregunta;
+
 
   public doughnutChartLabels:string[] = ['Si', 'No'];
-  public doughnutChartLabels2:string[] = ['Buena', 'Mala'];
-  public doughnutChartLabels3:string[] = ['1', '2', '3', '4', '5'];
-  public doughnutChartData:number[]= [this.votos1, this.votos2];
-  public doughnutChartData2:number[]= [this.votop1, this.votop2];
-  public doughnutChartData3:number[]= [this.voton1, this.voton2, this.voton3,this.voton4,this.voton5];
-
+  public doughnutChartData:number[]= [this.voto1, this.voto2];
   public doughnutChartType:string = 'doughnut';
- 
-  
   public chartClicked(e:any):void {
     console.log(e);
     
   }
-  
   public chartHovered(e:any):void {
     console.log(e);
   }
   
   constructor(public navCtrl: NavController,    public db: AngularFireDatabase, public navParams: NavParams, private view: ViewController,
     private _auth:AngularFireAuth) {
-      this.list=db.list('/encuesta');
- 
-      var Observable = this.list.snapshotChanges(['child_added'])
-      .subscribe(actions => {
-      actions.forEach(action => {
-    
-        if(action.payload.val()["respuesta1"]=="Bien")
-        { this.votop1++; 
-        console.log("si estamos aca");}
-
-          if(action.payload.val()["respuesta1"]=="Mal")
-            { this.votop2++; }
-          if(action.payload.val()["respuesta2"]=="Si")
-            { this.votos1++; }
-          if(action.payload.val()["respuesta2"]=="No")
-            { this.votos2++; }
-          if(action.payload.val()["respuesta3"]==+1)
-            { this.voton1++; 
-            console.log("estamos en los numeros");}
-          if(action.payload.val()["respuesta3"]==+2)
-            { this.voton2++; }
-          if(action.payload.val()["respuesta3"]==+3)
-            { this.voton3++; }
-          if(action.payload.val()["respuesta3"]==+4)
-            { this.voton4++;}
-          if(action.payload.val()["respuesta3"]==+5)
-            { this.voton5++; }
-   
-         
-        //  console.log(action.payload.val());
-        //  this.miLista.push(action.payload.val());
-        //  var listString = JSON.stringify(this.miLista);
-        //   if(listString!=null)
-     //    sessionStorage.setItem("lista",listString);
-         
-       
-      }); this.cargargrafico();
-    })       
+      this.cargarRespuestas();
+      
+      this.cargarresultados();
+      
+      
+      
+      
     
   }
 
-  cargargrafico(){
-    console.log("prueba",this.votop1,this.votop2);
-    console.log("prueba2",this.votos1,this.votos2);
-    console.log("prueba3",this.voton1,this.voton2,this.voton3,this.voton4,this.voton5);
-    this.doughnutChartData= [this.votos1, this.votos2];
-    this.doughnutChartData2= [this.votop1, this.votop2];
-    this.doughnutChartData3=  [this.voton1, this.voton2, this.voton3,this.voton4,this.voton5];
+  cargarRespuestas(){
+    this.list=this.db.list('/altaEncuesta');
+    
+          var Observable = this.list.snapshotChanges(['child_added'])
+          .subscribe(actions => {
+          actions.forEach(action => {
+            if(action.payload.val()["Tipo"]=="Selector")
+            { 
+              this.resp1 =  action.payload.val()["Respuesta1"];
+              this.resp2 =  action.payload.val()["Respuesta2"];
+              this.resp3 =  action.payload.val()["Respuesta3"];
+              console.log(this.resp1,this.resp2,this.resp3);
+    
+              this.doughnutChartLabels = [this.resp1,  this.resp2,  this.resp3 ];
+            }
+           
 
+          }); 
+
+          
+        })
+
+  }
+
+  cargarresultados(){
+
+    
+    this.list=this.db.list('/encuesta');
+    var Observable = this.list.snapshotChanges(['child_added'])
+    .subscribe(actions => {
+    actions.forEach(action => {
+      this.pregunta = action.payload.val()["Pregunta"];
+      if(action.payload.val()["Tipo"]=="Selector")
+      { 
+
+if(action.payload.val()["select"]==this.resp1)
+{this.voto1++;}
+if(action.payload.val()["select"]==this.resp2)
+{this.voto2++;}
+if(action.payload.val()["select"]==this.resp3)
+{this.voto3++;}
+      }
+      
+      if(action.payload.val()["Tipo"]=="Escrito")
+      { 
+
+        
+      }
+      if(action.payload.val()["Tipo"]=="CheckBox")
+      { 
+
+        
+      }
+
+     
+    });  this.doughnutChartData = [this.voto1, this.voto2, this.voto3];
+  })       
   }
  
   logOut(){

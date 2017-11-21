@@ -14,6 +14,7 @@ import { ListaAsistenciaPage } from '../pages/lista-asistencia/lista-asistencia'
 import { ExcelPage } from '../pages/excel/excel';
 import { ListaconsultaPage } from '../pages/listaconsulta/listaconsulta';
 import { AbmAlumnosPage } from '../pages/abm-alumnos/abm-alumnos';
+import { AltaEncuesta } from '../pages/alta-encuesta/alta-encuesta';
 import { AbmProfyAdminPage } from '../pages/abm-profy-admin/abm-profy-admin';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { EncuestaPage } from '../pages/encuesta/encuesta';
@@ -57,7 +58,7 @@ export const firebaseConfig = {
     AbmProfyAdminPage,
     ConsultaPage,
     EncuestaPage,
-    ListaconsultaPage
+    ListaconsultaPage,AltaEncuesta
     
   ],
   imports: [
@@ -87,7 +88,8 @@ export const firebaseConfig = {
     AbmAlumnosPage,
     AbmProfyAdminPage,
     ConsultaPage,
-    ListaconsultaPage
+    ListaconsultaPage,
+    AltaEncuesta
 
   ],
   providers: [
