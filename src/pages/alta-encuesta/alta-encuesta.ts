@@ -34,12 +34,13 @@ export class AltaEncuesta {
   constructor(
     public navCtrl: NavController,
                public navParams: NavParams,
-               public af: AngularFireDatabase,
+               public af: AngularFireDatabase, public spiner:LoadingController,
                public alertCtrl: AlertController,               
                 private view: ViewController,
                 private _auth:AngularFireAuth,public modalCtrl: ModalController) {
                   this.tienePermisos();
-                 
+                  let espera = this.MiSpiner2();
+                  espera.present();   
                     
 
                   this.lista= af.list('/altaEncuesta/');
@@ -103,11 +104,20 @@ tienePermisos()
       const MyModalOption : ModalOptions ={
         enableBackdropDismiss : false
       };
+       
         let profileModal : Modal = this.modalCtrl.create(EncuestaPage, MyModalOption);
         profileModal.present(); 
   }
-
-
+  MiSpiner2():Loading
+  {
+    let loader = this.spiner.create({
+      content:"Espere..",
+      duration: 3000
+      
+    });
+   // loader.present();
+    return loader;
+  }
   showAlert(mensaje:string,titulo:string) {
     
     let alert = this.alertCtrl.create({

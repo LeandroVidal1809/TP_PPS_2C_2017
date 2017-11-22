@@ -106,7 +106,7 @@ type:string;
     if(this.password.length>5){
     if(this.password==this.passwordconfirm)
     try{
-         this.MiSpiner();
+      
         const result = await this._auth.auth.createUserWithEmailAndPassword(this.username,this.password);
     
         this.Mensaje=this.username + " Fue ingresado Exitosamente!"
@@ -193,7 +193,8 @@ if (this.platform.is('cordova')) {
     this.perfil.loggedin = true;
     this.perfil.profilePicture = res.user.photoURL;
     this.perfil.name = res.user.displayName;
-    this.MiSpiner2();
+    let espera = this.MiSpiner2();
+    espera.present();   
     this.navCtrl.setRoot(HomePage,this.perfil);
   })
 }

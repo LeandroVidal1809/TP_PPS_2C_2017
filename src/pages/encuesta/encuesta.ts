@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ViewController,ModalController, Modal, ModalOptions } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ViewController,ModalController, Modal, ModalOptions,LoadingController, Loading } from 'ionic-angular';
 
 import { AngularFireAuthModule,AngularFireAuth } from 'angularfire2/auth';
 import { GraficosPage } from '../graficos/graficos';
@@ -39,11 +39,12 @@ button:boolean=false;
   list: AngularFireList<any>;
   constructor(public modalCtrl: ModalController,public navCtrl: NavController,
     public navParams: NavParams,
-    public db: AngularFireDatabase,
+    public db: AngularFireDatabase,public spiner:LoadingController,
      private view: ViewController, 
      private _auth:AngularFireAuth) {
    this.check1="";   this.check2="";   this.check3="";
-
+   let espera = this.MiSpiner2();
+   espera.present(); 
       this.list=db.list('/altaEncuesta');
 
       var Observable = this.list.snapshotChanges(['child_added'])
@@ -123,7 +124,7 @@ this.grafico();
   
     }
 grafico(){
-
+    
   const MyModalOption : ModalOptions ={
     enableBackdropDismiss : false
   };
@@ -136,6 +137,16 @@ grafico(){
       }
   ionViewDidLoad() {
     console.log('ionViewDidLoad AbmProfyAdminPage');
+  } 
+  MiSpiner2():Loading
+  {
+    let loader = this.spiner.create({
+      content:"Espere..",
+      duration: 3000
+      
+    });
+   // loader.present();
+    return loader;
   }
 
 }

@@ -100,7 +100,8 @@ Registrar():Boolean
   if(this.password.length>5){
     if(this.password==this.passwordconfirm)
     try{
-         this.MiSpiner();
+      let espera = this.MiSpiner();
+      espera.present();    
         const result =  this._auth.auth.createUserWithEmailAndPassword(this.email,this.password);
     
       this.showAlert(this.email + " Fue ingresado Exitosamente!","Proceso finalizado");      

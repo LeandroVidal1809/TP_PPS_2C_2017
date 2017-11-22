@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController,AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController,AlertController ,LoadingController, Loading} from 'ionic-angular';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { LoginPage } from '../login/login';
@@ -41,9 +41,11 @@ pregunta;
     console.log(e);
   }
   
-  constructor(public navCtrl: NavController,     public alertCtrl: AlertController,   public db: AngularFireDatabase, public navParams: NavParams, private view: ViewController,
+  constructor(public navCtrl: NavController,   public spiner:LoadingController,  public alertCtrl: AlertController,   public db: AngularFireDatabase, public navParams: NavParams, private view: ViewController,
     private _auth:AngularFireAuth) {
       this.tienePermisos();
+      let espera = this.MiSpiner2();
+      espera.present();   
       this.cargarRespuestas();
       
       this.cargarresultados();
@@ -74,6 +76,16 @@ pregunta;
           
         })
 
+  }
+  MiSpiner2():Loading
+  {
+    let loader = this.spiner.create({
+      content:"Espere..",
+      duration: 3000
+      
+    });
+   // loader.present();
+    return loader;
   }
   tienePermisos()
   {
