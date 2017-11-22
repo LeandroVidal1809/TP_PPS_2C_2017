@@ -187,6 +187,7 @@ if (this.platform.is('cordova')) {
     this.perfil.loggedin = true;
     this.perfil.profilePicture = res.user.photoURL;
     this.perfil.name = res.user.displayName;
+    this.MiSpiner2();
     this.navCtrl.setRoot(HomePage,this.perfil);
   })
 }
@@ -256,7 +257,16 @@ if (this.platform.is('cordova')) {
    // loader.present();
     return loader;
   }
-
+  MiSpiner2():Loading
+  {
+    let loader = this.spiner.create({
+      content:"Espere..",
+      duration: 2000
+      
+    });
+   // loader.present();
+    return loader;
+  }
  
  
   
