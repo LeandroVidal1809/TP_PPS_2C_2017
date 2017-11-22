@@ -164,6 +164,9 @@ if (this.platform.is('cordova')) {
     
         console.log("INGRESANDO CON ---",provider,"---");
         console.log(res);
+        this.type= "alumno";
+        sessionStorage.setItem("type",this.type);
+        console.log("tipo: "+ this.type);
         this.perfil.email = res.user.email;
         this.perfil.loggedin = true;
         this.perfil.profilePicture = res.user.photoURL;
@@ -183,6 +186,9 @@ if (this.platform.is('cordova')) {
   this._auth.auth.signInWithPopup(signin).then(res =>{
     console.log("INGRESANDO CON ---",provider,"---");
     console.log(res);
+    this.type= "alumno";
+    sessionStorage.setItem("type",this.type);
+    console.log("tipo: "+ this.type);
     this.perfil.email = res.user.email;
     this.perfil.loggedin = true;
     this.perfil.profilePicture = res.user.photoURL;

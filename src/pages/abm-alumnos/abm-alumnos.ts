@@ -50,10 +50,12 @@ export class AbmAlumnosPage {
 
 tienePermisos()
 {
-  if(sessionStorage.getItem("type")!="administrativo")
+  if(sessionStorage.getItem("type")!="admin" && sessionStorage.getItem("type")!="administrativo")
     {
         this.showAlert("No tiene permisos para ingresar al ABM de Alumnos","Lo Sentimos");
-        this.navCtrl.setRoot(HomePage);
+        this.view.dismiss();
+        
+       // this.navCtrl.setRoot(HomePage);
     }
 }
   ionViewDidLoad() {

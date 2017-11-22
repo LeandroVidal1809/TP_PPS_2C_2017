@@ -45,11 +45,29 @@ export class ExcelPage {
               public alertCtrl: AlertController,
                private view: ViewController,
                private _auth:AngularFireAuth) {
+                 this.tienePermisos();
                 this.lista= af.list('/Alumno/');
                 this.Importacion= af.list('/Importaciones/');
                 this.Fecha= new Date();
                 this.Tiempo=0;
                 this.existe=false;
+  }
+  tienePermisos()
+  {
+    if(sessionStorage.getItem("type")!="admin" && sessionStorage.getItem("type")!="administrativo")
+      {
+          this.showAlert("No tiene permisos para ingresar al ABM de Profesores y Administrativos","Lo sentimos");
+          this.view.dismiss(); // this.navCtrl.setRoot(HomePage);    
+      }
+  }
+  showAlert(mensaje:string,titulo:string) {
+    
+    let alert = this.alertCtrl.create({
+      title: titulo,
+      subTitle: mensaje,
+      buttons: ['OK']
+    });
+    alert.present();
   }
   closeModal(){
     this.view.dismiss();

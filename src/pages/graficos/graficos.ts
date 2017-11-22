@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController,AlertController } from 'ionic-angular';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { LoginPage } from '../login/login';
@@ -41,8 +41,9 @@ pregunta;
     console.log(e);
   }
   
-  constructor(public navCtrl: NavController,    public db: AngularFireDatabase, public navParams: NavParams, private view: ViewController,
+  constructor(public navCtrl: NavController,     public alertCtrl: AlertController,   public db: AngularFireDatabase, public navParams: NavParams, private view: ViewController,
     private _auth:AngularFireAuth) {
+      this.tienePermisos();
       this.cargarRespuestas();
       
       this.cargarresultados();
@@ -74,7 +75,23 @@ pregunta;
         })
 
   }
-
+  tienePermisos()
+  {
+    if(sessionStorage.getItem("type")!="admin" && sessionStorage.getItem("type")!="administrativo")
+      {
+          this.showAlert("No tiene permisos para ingresar al ABM de Profesores y Administrativos","Lo sentimos");
+          this.view.dismiss(); // this.navCtrl.setRoot(HomePage);    
+      }
+  }
+  showAlert(mensaje:string,titulo:string) {
+    
+    let alert = this.alertCtrl.create({
+      title: titulo,
+      subTitle: mensaje,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
   cargarresultados(){
 
     

@@ -43,10 +43,10 @@ export class AbmProfyAdminPage {
 
   tienePermisos()
   {
-    if(sessionStorage.getItem("type")!="admin")
+    if(sessionStorage.getItem("type")!="admin" && sessionStorage.getItem("type")!="administrativo")
       {
           this.showAlert("No tiene permisos para ingresar al ABM de Profesores y Administrativos","Lo sentimos");
-          this.navCtrl.setRoot(HomePage);
+          this.view.dismiss(); // this.navCtrl.setRoot(HomePage);    
       }
   }
   logOut(){
