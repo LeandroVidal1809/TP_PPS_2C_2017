@@ -13,6 +13,8 @@ import { TomarFotoPage } from '../pages/tomar-foto/tomar-foto';
 import { ExcelPage } from '../pages/excel/excel';
 import { AbmAlumnosPage } from '../pages/abm-alumnos/abm-alumnos';
 import { AbmProfyAdminPage } from '../pages/abm-profy-admin/abm-profy-admin';
+import { AltaEncuesta } from '../pages/alta-encuesta/alta-encuesta';
+import { EncuestaPage } from '../pages/encuesta/encuesta';
 
 
 
@@ -32,20 +34,28 @@ export class MyApp {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
-    this.pages = [
+
+
+   
+      this.pages = [
         
-      { title: 'Tomar asistencia', component: TomarAsistenciaPage,type:'button'},
-      { title: 'Tomar foto del aula', component: TomarFotoPage,type:'button'},
-      { title: 'Graficos Estadisticos', component: GraficosPage, type:'button'},
-      { title: 'Importar Excel', component: ExcelPage,type:'button'},
-      { title: '------------Sección QR------------', component: HomePage,type:'section'},
-      { title: 'Para Profesores', component:QRPage,type:'button'},
-      { title: 'Para Alumnos', component:QRPage,type:'button'},
-      { title: 'Para Encuestas', component:QRPage,type:'button'},
-      { title: '------------Sección ABM------------', component: HomePage,type:'section'},
-      { title: 'Usuarios', component:AbmProfyAdminPage,type:'button'},
-      { title: 'Alumnos', component:AbmAlumnosPage,type:'button'}
-    ];
+          { title: 'Tomar asistencia', component: TomarAsistenciaPage,type:'button'},
+          { title: 'Tomar foto del aula', component: TomarFotoPage,type:'button'},
+          { title: 'Creador de Encuestas', component: AltaEncuesta, type:'button'},
+          { title: 'Encuesta del dia', component: EncuestaPage, type:'button'},
+         
+          { title: 'Graficos Estadisticos', component: GraficosPage, type:'button'},
+          { title: 'Importar Excel', component: ExcelPage,type:'button'},
+          { title: '------------Sección QR------------', component: HomePage,type:'section'},
+          { title: 'Para Profesores', component:QRPage,type:'button'},
+          { title: 'Para Alumnos', component:QRPage,type:'button'},
+          { title: 'Para Encuestas', component:QRPage,type:'button'},
+          { title: '------------Sección ABM------------', component: HomePage,type:'section'},
+          { title: 'Usuarios', component:AbmProfyAdminPage,type:'button'},
+          { title: 'Alumnos', component:AbmAlumnosPage,type:'button'}
+        ];
+    
+    
     
 
   }

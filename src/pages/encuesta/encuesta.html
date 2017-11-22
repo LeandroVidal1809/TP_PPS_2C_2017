@@ -27,10 +27,37 @@
       
       <h2>{{pregunta}}</h2>
       <div *ngIf="checkbox">
-        
-          <label><input type="checkbox" id="checkbox1" /> {{resp1}} </label>
-          <label><input type="checkbox" id="checkbox2" /> {{resp2}} </label>
-          <label><input type="checkbox" id="checkbox3" /> {{resp3}} </label>
+
+
+
+          <ion-list>
+              
+                <ion-item>
+                  <ion-label>{{resp1}}</ion-label>
+                  <ion-checkbox [(ngModel)]="check1"></ion-checkbox>
+                </ion-item>
+              
+                <ion-item>
+                  <ion-label>{{resp2}}</ion-label>
+                  <ion-checkbox [(ngModel)]="check2" ></ion-checkbox>
+                </ion-item>
+              
+                <ion-item>
+                  <ion-label>{{resp3}}</ion-label>
+                  <ion-checkbox [(ngModel)]="check3"></ion-checkbox>
+                </ion-item>
+              
+              </ion-list>
+
+  <!--
+          <label>{{resp1}} </label>
+          <ion-checkbox [(ngModel)]="check1" > </ion-checkbox>
+     
+          <label>{{resp3}}</label>
+          <ion-checkbox [(ngModel)]="check2" >   </ion-checkbox> 
+          <label>{{resp3}}</label>
+          <ion-checkbox [(ngModel)]="check3" >   </ion-checkbox>
+          -->
           </div>
           <div *ngIf="select">
               <select [(ngModel)]="respSelect"  style="color:black;" >
@@ -40,8 +67,13 @@
                   <option>{{resp3}} </option>
                 </select>
               </div>
-              <div *ngIf="escrito">
-                  <input type="text" id="c" name="c" [(ngModel)]="respEscrito" placeholder="Ingrese su respuesta">
+              <div *ngIf="button">
+                
+                     
+                      <input [(ngModel)]="buttonSelect"  type="radio" name="gender" value={{resp1}}> {{resp1}}<br>
+                      <input [(ngModel)]="buttonSelect"  type="radio" name="gender" value={{resp2}}> {{resp2}} <br>
+                      <input [(ngModel)]="buttonSelect"  type="radio" name="gender" value={{resp3}}> {{resp3}}<br>
+            
                   </div>
       
         <!-- <h2> Que te parecio la app?</h2>

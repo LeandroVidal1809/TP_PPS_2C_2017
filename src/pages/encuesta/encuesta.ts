@@ -23,13 +23,18 @@ export class EncuestaPage {
   resp1;
   resp2;
   resp3;
+
   pregunta;
   tipo;
   respSelect;
-  respEscrito;
+  buttonSelect;
+  check1;
+  check2;
+  check3;
+
 checkbox:boolean=false;
 select:boolean=false;
-escrito:boolean=false;
+button:boolean=false;
  
   list: AngularFireList<any>;
   constructor(public modalCtrl: ModalController,public navCtrl: NavController,
@@ -37,7 +42,7 @@ escrito:boolean=false;
     public db: AngularFireDatabase,
      private view: ViewController, 
      private _auth:AngularFireAuth) {
-   
+   this.check1="";   this.check2="";   this.check3="";
 
       this.list=db.list('/altaEncuesta');
 
@@ -56,8 +61,8 @@ escrito:boolean=false;
         case "CheckBox":
           this.checkbox = true;
           break;
-          case "Escrito":
-          this.escrito = true;
+          case "RadioButton":
+          this.button = true;
           break;
           case "Selector":
           this.select = true;
@@ -72,18 +77,30 @@ escrito:boolean=false;
   Guardar(){
   //  console.log(this.preg1,this.preg2,this.preg3);
   switch (this.tipo) {
-    case "CheckBox":
-      this.checkbox = true;
-      break;
-      case "Escrito":
+  //  case "CheckBox":
+   //   this.list=this.db.list('/encuesta');
+   //   console.log("check select:" ,this.check1,this.check2,this.check3);
+   //   this.list.push({
+   //     alumno: sessionStorage.getItem("type"),
+   //     Pregunta: this.pregunta,
+  //      Tipo: this.tipo,
+   //     check1: this.check1,
+  //      check2: this.check2,
+  //      check3: this.check3
+      
+  //    });
+    //  break;
+      case "RadioButton":
       this.list=this.db.list('/encuesta');
+      console.log("button select:" ,this.buttonSelect);
       this.list.push({
         alumno: sessionStorage.getItem("type"),
         Pregunta: this.pregunta,
         Tipo: this.tipo,
       
     
-      escrito: this.respEscrito,
+        select: this.buttonSelect
+      
       });
       break;
       case "Selector":

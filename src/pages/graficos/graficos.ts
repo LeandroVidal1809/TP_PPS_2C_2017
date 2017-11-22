@@ -59,15 +59,13 @@ pregunta;
           var Observable = this.list.snapshotChanges(['child_added'])
           .subscribe(actions => {
           actions.forEach(action => {
-            if(action.payload.val()["Tipo"]=="Selector")
-            { 
               this.resp1 =  action.payload.val()["Respuesta1"];
               this.resp2 =  action.payload.val()["Respuesta2"];
               this.resp3 =  action.payload.val()["Respuesta3"];
               console.log(this.resp1,this.resp2,this.resp3);
     
               this.doughnutChartLabels = [this.resp1,  this.resp2,  this.resp3 ];
-            }
+         
            
 
           }); 
@@ -85,27 +83,17 @@ pregunta;
     .subscribe(actions => {
     actions.forEach(action => {
       this.pregunta = action.payload.val()["Pregunta"];
-      if(action.payload.val()["Tipo"]=="Selector")
-      { 
+     
 
-if(action.payload.val()["select"]==this.resp1)
-{this.voto1++;}
-if(action.payload.val()["select"]==this.resp2)
-{this.voto2++;}
-if(action.payload.val()["select"]==this.resp3)
-{this.voto3++;}
-      }
-      
-      if(action.payload.val()["Tipo"]=="Escrito")
-      { 
 
+        if(action.payload.val()["select"]==this.resp1)
+        {this.voto1++;}
+        if(action.payload.val()["select"]==this.resp2)
+        {this.voto2++;}
+        if(action.payload.val()["select"]==this.resp3)
+        {this.voto3++;}
         
-      }
-      if(action.payload.val()["Tipo"]=="CheckBox")
-      { 
-
-        
-      }
+    
 
      
     });  this.doughnutChartData = [this.voto1, this.voto2, this.voto3];
