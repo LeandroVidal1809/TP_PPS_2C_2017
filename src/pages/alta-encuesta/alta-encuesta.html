@@ -1,0 +1,57 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<ion-header>
+  <ion-navbar>
+    
+    <ion-title>Creando Encuesta</ion-title>
+    <ion-buttons end>
+        <button ion-button (click)="closeModal()" >Cerrar </button>   
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding align="center">
+    <ion-fab  down right edge> 
+        <button ion-fab mini><ion-icon name="contact" ></ion-icon></button>
+         <ion-fab-list>
+           <button ion-fab  (click)="piano()"><ion-icon name="body"></ion-icon></button>
+           <button ion-fab  (click)="EnviarMensaje()" ><ion-icon name="thumbs-up"></ion-icon></button>
+           <button ion-fab  (click)="logOut()" ><ion-icon name="power"></ion-icon></button>
+         </ion-fab-list>
+      </ion-fab>
+<!---->
+  <!--<article class="container-login center-block">
+  <section>  -->
+    <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10">
+      <div id="login-access" class="tab-pane fade active in">
+        <h2><i class="glyphicon glyphicon-log-in"></i>Encuestas</h2>			
+        <h1>Pregunta</h1>			
+        <input type="text" id="c" name="c" [(ngModel)]="pregunta" placeholder="Ingrese su pregunta">
+     <!--<input type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="Ingrese su nombre">-->
+  <br>
+        <select [(ngModel)]="tipoSelect"  style="color:black;" >
+            <option>Seleccione un tipo de respuesta..</option>
+            <!-- <option>CheckBox</option> -->
+            <option>Selector</option>
+            <option>RadioButton</option>
+          </select>
+      </div>
+      <button   (click)="cargar()" class="btn btn-primary btn-md">Cargar Respuestas</button>
+    
+          <div *ngIf="select">
+              <input type="text" id="c" name="c" [(ngModel)]="respuesta1" placeholder="Ingrese su respuesta1">
+              <input type="text" id="c" name="c" [(ngModel)]="respuesta2" placeholder="Ingrese su respuesta2">
+              <input type="text" id="c" name="c" [(ngModel)]="respuesta3" placeholder="Ingrese su respuesta3">
+           
+                  <button  (click)="Guardar()" class="btn btn-primary btn-md">Registrar Encuesta</button>
+            
+            </div>
+             
+                
+    
+      
+    </div>
+ <!--</section>
+</article>--> 
+</ion-content>
