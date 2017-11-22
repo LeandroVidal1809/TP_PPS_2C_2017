@@ -20,13 +20,20 @@
              <button ion-fab  (click)="logOut()" ><ion-icon name="power"></ion-icon></button>
            </ion-fab-list>
         </ion-fab>
-      <tr style="text-align:left;">
-          <th class="th"><h5>Materia: {{MateriaFiltro}}</h5></th>
-          <th class="th"><h5> Aula: {{AulaFiltro}} </h5></th>
-          <th class="th"><h5> Fecha: {{Fechas}} </h5></th>
-<!-- s -->
-          
-      </tr>
+        <table>
+          <tr>
+            <td class="foto">  
+                <img *ngIf="!urlPhoto" class="foto"  src="assets/imgs/defecto.png">
+                 <img [src]="urlPhoto" *ngIf="urlPhoto" /> 
+           </td>
+            <td>
+                <tr class="titulo1">Materia: {{MateriaFiltro}}</tr>
+                <tr class="titulo1"> Aula: {{AulaFiltro}}</tr>     
+                <tr class="titulo1">{{this.Fechas}}</tr>     
+            </td>
+                 
+        </tr>
+      </table>
     
   <table class="table" >
     <thead>
