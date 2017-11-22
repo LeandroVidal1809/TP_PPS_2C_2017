@@ -47,7 +47,8 @@ export class AltaEncuesta {
   }
 cargar()
 {
-this.isValid=true;
+
+  this.isValid=true;
   switch (this.tipoSelect) {
     case "CheckBox":
       this.select = true;
