@@ -26,6 +26,8 @@ export class AltaEncuesta {
   checkbox:boolean=false;
   select:boolean=false;
   escrito:boolean=false;
+  tiempo:string;
+  dato:Date;
   respuesta1: string;
   respuesta2: string;
   respuesta3: string;
@@ -38,29 +40,22 @@ export class AltaEncuesta {
                public alertCtrl: AlertController,               
                 private view: ViewController,
                 private _auth:AngularFireAuth,public modalCtrl: ModalController) {
-                  this.tienePermisos();
+                  if(sessionStorage.getItem("type")!="profesor")
+                    {
+                        this.showAlert("No tiene permisos para ingresar a la generacion de la encuesta","Lo Sentimos");
+                        this.view.dismiss();
+                    }
+                    else
+                    {
                   let espera = this.MiSpiner2();
                   espera.present();   
-                    
-
+                  this.dato= new Date();
                   this.lista= af.list('/altaEncuesta/');
+                  }
   }
 cargar()
 {
 
-  this.isValid=true;
-  switch (this.tipoSelect) {
-    case "CheckBox":
-      this.select = true;
-      break;
-      case "Selector":
-      this.select = true;
-      break;
-      case "RadioButton":
-      this.select = true;
-      break;
-  
-  }
 }  logOut(){
     console.log("deslogeando");
       this._auth.auth.signOut();this.view.dismiss();
@@ -70,50 +65,83 @@ cargar()
     this.view.dismiss();
       }
 
-tienePermisos()
-{
-  if(sessionStorage.getItem("type")!="admin" && sessionStorage.getItem("type")!="administrativo") 
-    {
-        this.showAlert("No tiene permisos para ingresar al ABM de Alumnos","Lo Sentimos");
-        this.view.dismiss();   //this.navCtrl.setRoot(HomePage);
-    }
-    
-}
   ionViewDidLoad() {
     console.log('ionViewDidLoad AbmAlumnosPage');
   }
 
   Guardar()
   {
-    this.lista.push({
+      if(this.respuesta1 || this.respuesta2 || this.respuesta3)
+        {
+          if(this.tiempo==null)
+            {
+              alert("Seleccione un tiempo de duracion");
+              return;
+            }
+          switch(this.tiempo)
+          {
+            case '1 min':
+            this.dato.setMinutes(this.dato.getMinutes()+1);
+            break;
+            case '10 min':
+            this.dato.setMinutes(this.dato.getMinutes()+10);
+            break;
+            case '45 min':
+            this.dato.setMinutes(this.dato.getMinutes()+45);
+            break;
+
+          }
+          switch(this.tipoSelect)
+          {
+            case 'Menu de Seleccion':
+            this.tipoSelect="Selector";
+            break;
+            case 'Botones opcion':
+            this.tipoSelect="RadioButton";
+            break;
+            case 'Respuesta Texto':
+            this.tipoSelect="Text";
+            break;
+
+          }
+          
+
+      this.lista.push({
       Pregunta: this.pregunta,
       Tipo: this.tipoSelect,
+      HoraFina: this.dato.getHours()+ ":" +  this.dato.getMinutes(),
       Respuesta1 : this.respuesta1,
       Respuesta2 : this.respuesta2,
       Respuesta3 : this.respuesta3,
       });  
-
-      this.pregunta = "";
+      
+  this.pregunta = "";
       this.respuesta1 = "";
       this.respuesta2 = "";
       this.respuesta3 = "";
     
 
-      alert("Se guardo la encuesta correctamente");
+      this.showAlert("Proceso finalizado","Se cargo correctamente")
 
-
+    
+    
       const MyModalOption : ModalOptions ={
         enableBackdropDismiss : false
       };
        
         let profileModal : Modal = this.modalCtrl.create(EncuestaPage, MyModalOption);
         profileModal.present(); 
-  }
+      }
+        else
+          {
+            this.showAlert("Atencion","Debe Cargar por lo menos una respuesta");
+          }
+   }
   MiSpiner2():Loading
   {
     let loader = this.spiner.create({
       content:"Espere..",
-      duration: 3000
+      duration: 1000
       
     });
    // loader.present();

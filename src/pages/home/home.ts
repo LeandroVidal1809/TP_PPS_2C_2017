@@ -123,6 +123,11 @@ perfil = {name : '',profilePicture: '',email: ''};
         profileModal = this.modalCtrl.create(ConsultaPage, MyModalOption);
         profileModal.present();
       //  this.navCtrl.push(TomarAsistenciaPage);
+        break;
+        case 'Encuesta':
+        profileModal = this.modalCtrl.create(AltaEncuesta, MyModalOption);
+        profileModal.present();
+      //  this.navCtrl.push(TomarAsistenciaPage);
         break;  
     
 
