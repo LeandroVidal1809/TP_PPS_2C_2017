@@ -40,7 +40,7 @@ export class AltaEncuesta {
                public alertCtrl: AlertController,               
                 private view: ViewController,
                 private _auth:AngularFireAuth,public modalCtrl: ModalController) {
-                  if(sessionStorage.getItem("type")!="profesor")
+                  if(sessionStorage.getItem("type")!="profesor" && sessionStorage.getItem("type")!="admin" && sessionStorage.getItem("type")!="administrativo")
                     {
                         this.showAlert("No tiene permisos para ingresar a la generacion de la encuesta","Lo Sentimos");
                         this.view.dismiss();
@@ -124,18 +124,13 @@ cargar()
       this.showAlert("Proceso finalizado","Se cargo correctamente")
 
     
-    
-      const MyModalOption : ModalOptions ={
-        enableBackdropDismiss : false
-      };
-       
-        let profileModal : Modal = this.modalCtrl.create(EncuestaPage, MyModalOption);
-        profileModal.present(); 
+   
       }
         else
           {
             this.showAlert("Atencion","Debe Cargar por lo menos una respuesta");
           }
+          this.view.dismiss();
    }
   MiSpiner2():Loading
   {

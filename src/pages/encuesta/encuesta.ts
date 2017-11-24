@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ViewController,ModalController, Modal, ModalOptions,LoadingController, Loading } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ViewController,ModalController,AlertController, Modal, ModalOptions,LoadingController, Loading } from 'ionic-angular';
 
 import { AngularFireAuthModule,AngularFireAuth } from 'angularfire2/auth';
 import { GraficosPage } from '../graficos/graficos';
@@ -31,6 +31,7 @@ export class EncuestaPage {
   check1;
   check2;
   check3;
+  yavoto:boolean=false;
 vale:boolean=false;
 Minuto:string;
 Tiempo:string;
@@ -42,14 +43,15 @@ button:boolean=false;
   list: AngularFireList<any>;
   constructor(public modalCtrl: ModalController,public navCtrl: NavController,
     public navParams: NavParams,
-    public db: AngularFireDatabase,public spiner:LoadingController,
+    public db: AngularFireDatabase,    public alertCtrl: AlertController,public spiner:LoadingController,
      private view: ViewController, 
      private _auth:AngularFireAuth) {
      this.check1="";   this.check2="";   this.check3="";
       this.Tiempo="0";
-      this.Minuto="0"
-     //let espera = this.MiSpiner2();
-   //espera.present(); 
+      this.Minuto="0";
+    
+     let espera = this.MiSpiner2();
+   espera.present(); 
       this.list=db.list('/altaEncuesta');
       this.horaActual= new Date();
       var Observable = this.list.snapshotChanges(['child_added'])
@@ -106,9 +108,20 @@ button:boolean=false;
 
       
   }
-
+  showAlert(mensaje:string,titulo:string) {
+    
+    let alert = this.alertCtrl.create({
+      title: titulo,
+      subTitle: mensaje,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
   Guardar(){
   //  console.log(this.preg1,this.preg2,this.preg3);
+   
+
+ 
   switch (this.tipo) {
 
       case "RadioButton":
@@ -137,9 +150,8 @@ button:boolean=false;
       break;
   
   }
-  
-  
-  
+ 
+
 this.grafico();
   
     }
@@ -148,8 +160,20 @@ grafico(){
   const MyModalOption : ModalOptions ={
     enableBackdropDismiss : false
   };
+  if(this.yavoto == true)
+  {
+    this.showAlert("No permitido","usted ya voto!");
+    this.view.dismiss();
+  }else{
     let profileModal : Modal = this.modalCtrl.create(GraficosPage, MyModalOption);
     profileModal.present(); 
+    profileModal.onDidDismiss((voto)=>{
+      console.log("grafico:",voto);
+      this.yavoto = voto;
+     })
+
+  }
+    
 }
 
   closeModal(){
@@ -157,6 +181,7 @@ grafico(){
       }
   ionViewDidLoad() {
     console.log('ionViewDidLoad AbmProfyAdminPage');
+   
   } 
   MiSpiner2():Loading
   {

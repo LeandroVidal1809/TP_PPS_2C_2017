@@ -135,7 +135,11 @@ pregunta;
       this.navCtrl.setRoot(LoginPage);
     }
   closeModal(){
-    this.view.dismiss();
+    const 
+      voto = true;
+   
+    
+    this.view.dismiss(voto);
       }
   ionViewDidLoad() {
     console.log('ionViewDidLoad GraficosPage');
