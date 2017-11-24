@@ -31,33 +31,61 @@ export class EncuestaPage {
   check1;
   check2;
   check3;
-
+vale:boolean=false;
+Minuto:string;
+Tiempo:string;
 checkbox:boolean=false;
 select:boolean=false;
 button:boolean=false;
- 
+ hora:string;
+ horaActual:Date;
   list: AngularFireList<any>;
   constructor(public modalCtrl: ModalController,public navCtrl: NavController,
     public navParams: NavParams,
     public db: AngularFireDatabase,public spiner:LoadingController,
      private view: ViewController, 
      private _auth:AngularFireAuth) {
-   this.check1="";   this.check2="";   this.check3="";
-   let espera = this.MiSpiner2();
-   espera.present(); 
+     this.check1="";   this.check2="";   this.check3="";
+      this.Tiempo="0";
+      this.Minuto="0"
+     //let espera = this.MiSpiner2();
+   //espera.present(); 
       this.list=db.list('/altaEncuesta');
-
+      this.horaActual= new Date();
       var Observable = this.list.snapshotChanges(['child_added'])
       .subscribe(actions => {
       actions.forEach(action => {
-        this.pregunta = action.payload.val()["Pregunta"];
-        console.log(this.pregunta);
-      this.tipo =   action.payload.val()["Tipo"];
-      this.resp1 =  action.payload.val()["Respuesta1"];
-      this.resp2 =  action.payload.val()["Respuesta2"];
-      this.resp3 =  action.payload.val()["Respuesta3"];
-      console.log(this.resp1,this.resp2,this.resp3);
-      }); 
+        debugger;
+        this.vale=false;
+        this.hora =action.payload.val()["HoraFina"];
+        var hora1= this.hora.split(":");
+        if(+hora1[0] > this.horaActual.getHours())
+          {
+              this.vale=true;
+          }
+          else
+            {
+              if(+hora1[1] > this.horaActual.getMinutes())
+              {
+                this.vale=true;
+              }
+              else{
+                this.vale=false;
+              }
+            }
+       if(this.vale)
+          {
+            this.Minuto=hora1[1];
+           this.Tiempo=hora1[0];
+          this.pregunta = action.payload.val()["Pregunta"];
+          console.log(this.pregunta);
+          this.tipo =   action.payload.val()["Tipo"];
+          this.resp1 =  action.payload.val()["Respuesta1"];
+          this.resp2 =  action.payload.val()["Respuesta2"];
+          this.resp3 =  action.payload.val()["Respuesta3"];
+          console.log(this.resp1,this.resp2,this.resp3);
+          }  
+    }); 
       switch (this.tipo) {
         case "CheckBox":
           this.checkbox = true;
@@ -70,6 +98,10 @@ button:boolean=false;
           break;
       
       }
+      if(this.vale=false)
+        {
+          alert("NO HAY ENCUESTAS VIGENTES");
+        }
     })
 
       
@@ -78,19 +110,7 @@ button:boolean=false;
   Guardar(){
   //  console.log(this.preg1,this.preg2,this.preg3);
   switch (this.tipo) {
-  //  case "CheckBox":
-   //   this.list=this.db.list('/encuesta');
-   //   console.log("check select:" ,this.check1,this.check2,this.check3);
-   //   this.list.push({
-   //     alumno: sessionStorage.getItem("type"),
-   //     Pregunta: this.pregunta,
-  //      Tipo: this.tipo,
-   //     check1: this.check1,
-  //      check2: this.check2,
-  //      check3: this.check3
-      
-  //    });
-    //  break;
+
       case "RadioButton":
       this.list=this.db.list('/encuesta');
       console.log("button select:" ,this.buttonSelect);

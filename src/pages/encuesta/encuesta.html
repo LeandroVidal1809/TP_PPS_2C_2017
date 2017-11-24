@@ -4,7 +4,8 @@
 <ion-header>
     <ion-navbar>
    
-      <ion-title>Encuesta</ion-title>
+      <h4> esta encuesta finaliza {{("0000"+this.Tiempo).slice(-2)}}:{{("0000"+this.Minuto).slice(-2)}}  </h4>
+
       <ion-buttons end>
           <button ion-button (click)="closeModal()" >Cerrar </button>   
         </ion-buttons>
