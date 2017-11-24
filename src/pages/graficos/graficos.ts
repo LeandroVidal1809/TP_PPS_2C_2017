@@ -43,7 +43,7 @@ pregunta;
   
   constructor(public navCtrl: NavController,   public spiner:LoadingController,  public alertCtrl: AlertController,   public db: AngularFireDatabase, public navParams: NavParams, private view: ViewController,
     private _auth:AngularFireAuth) {
-      this.tienePermisos();
+     // this.tienePermisos();
       let espera = this.MiSpiner2();
       espera.present();   
       this.cargarRespuestas();

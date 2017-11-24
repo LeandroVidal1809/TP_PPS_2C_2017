@@ -30,6 +30,7 @@ export class AbmProfyAdminPage {
   passwordconfirm:string;
   nombre: string;
   tipo:string;
+ 
   constructor(public navCtrl: NavController,
                public navParams: NavParams,
                public alertCtrl: AlertController,
@@ -39,6 +40,7 @@ export class AbmProfyAdminPage {
                 private _auth:AngularFireAuth) {
                   this.tienePermisos();
                   this.lista= af.list('/Usuarios/');
+                  
   }
 
   tienePermisos()
@@ -156,6 +158,7 @@ return false;
         });
         return loader;
       }
+     
     
 }
   

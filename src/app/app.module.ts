@@ -18,6 +18,7 @@ import { AltaEncuesta } from '../pages/alta-encuesta/alta-encuesta';
 import { AbmProfyAdminPage } from '../pages/abm-profy-admin/abm-profy-admin';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { EncuestaPage } from '../pages/encuesta/encuesta';
+import { Modificar } from '../pages/modificar/modificar';
 import { Push } from '@ionic-native/push';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -48,6 +49,7 @@ export const firebaseConfig = {
     HomePage,
     QRPage,
     LoginPage,
+    Modificar,
     GraficosPage,
     RegistrarPage,
     TomarAsistenciaPage,
@@ -80,6 +82,7 @@ export const firebaseConfig = {
     LoginPage,
     GraficosPage,
      EncuestaPage,
+     Modificar,
     RegistrarPage,
     TomarAsistenciaPage,
     ListaAsistenciaPage,

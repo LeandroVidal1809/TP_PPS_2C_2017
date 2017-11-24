@@ -17,7 +17,7 @@ import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 export class LoginPage {
 
 perfil = {
-  loggedin: false,name : '',
+  name : '',
 profilePicture: '',
 email: ''
 }
@@ -31,6 +31,7 @@ email: ''
   claseLogin:string;
 type:string;
   username:string;
+  nombre:string;
   password:string;
   tipoUser:string;
   Mensaje:string;
@@ -82,15 +83,24 @@ type:string;
                           if(sessionStorage.getItem("type")=="admin") {
                             this.perfil.name =sessionStorage.getItem("type");
                             this.perfil.profilePicture =  '../assets/imgs/admin.jpg';
+                            this.perfil.email = "administrador@administrador.com";
                           }
-                          if(sessionStorage.getItem("type")=="profesor")  {
+                          else if(sessionStorage.getItem("type")=="profesor")  {
                             this.perfil.name =sessionStorage.getItem("type");
                             this.perfil.profilePicture =  '../assets/imgs/profesor.jpg';
+                            this.perfil.email = "profesor@profesor.com";
                           }
                        
-                          if(sessionStorage.getItem("type")=="administrativo")  {
+                          else if(sessionStorage.getItem("type")=="administrativo")  {
                             this.perfil.name =sessionStorage.getItem("type");
                             this.perfil.profilePicture =  '../assets/imgs/administrativo.jpg';
+                            this.perfil.email = "administrativo@administrativo.com";
+                          }
+                          else{
+                            this.perfil.name = "federico";
+                            this.perfil.profilePicture =  '../assets/imgs/alumno.jpg';
+                            this.perfil.email = this.username;
+                            this.type= "alumno";
                           }
                                           this.navCtrl.setRoot(HomePage,this.perfil)
                          });                     
@@ -108,7 +118,7 @@ type:string;
     try{
       
         const result = await this._auth.auth.createUserWithEmailAndPassword(this.username,this.password);
-    
+   
         this.Mensaje=this.username + " Fue ingresado Exitosamente!"
         //alert(this.Mensaje);
         let alert = this.alertCtrl.create({
@@ -168,7 +178,7 @@ if (this.platform.is('cordova')) {
         sessionStorage.setItem("type",this.type);
         console.log("tipo: "+ this.type);
         this.perfil.email = res.user.email;
-        this.perfil.loggedin = true;
+       
         this.perfil.profilePicture = res.user.photoURL;
         this.perfil.name = res.user.displayName;
         this.navCtrl.setRoot(HomePage,this.perfil);
@@ -190,7 +200,7 @@ if (this.platform.is('cordova')) {
     sessionStorage.setItem("type",this.type);
     console.log("tipo: "+ this.type);
     this.perfil.email = res.user.email;
-    this.perfil.loggedin = true;
+
     this.perfil.profilePicture = res.user.photoURL;
     this.perfil.name = res.user.displayName;
     let espera = this.MiSpiner2();

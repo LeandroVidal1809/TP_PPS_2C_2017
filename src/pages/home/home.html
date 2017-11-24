@@ -2,9 +2,12 @@
        <button class="botonmenu" ion-button menuToggle>
     <ion-icon name="menu"></ion-icon>
     </button> 
-    <div class="titulos">
-  <label class="label2">  {{perfil.name}}  <img class="imagen"  src="{{perfil.profilePicture}}"/>  </label>
-    </div>
+    <div class="titulos"> <img class="imagen"  src="{{perfil.profilePicture}}"/></div> 
+    <div class="titulos">    <label class="label2">   CORREO: {{perfil.email}}  </label><br>
+      <label class="label2"> NOMBRE: {{perfil.name}}   </label></div>
+    
+
+  
   </ion-header>
   <ion-content  padding align="center"  class="fondo">      
       <ion-fab  down right edge> 

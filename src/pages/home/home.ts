@@ -8,6 +8,8 @@ import { QRPage } from '../list/list';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 import { AltaEncuesta } from '../alta-encuesta/alta-encuesta';
 import { EncuestaPage } from '../encuesta/encuesta';
+import { AbmProfyAdminPage } from '../abm-profy-admin/abm-profy-admin';
+import { Modificar } from '../modificar/modificar';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
 import { LoginPage } from '../login/login';
@@ -19,13 +21,13 @@ import { MenuController } from 'ionic-angular';
 })
 export class HomePage {
   
-perfil = {loggedin: false,name : '',profilePicture: '',email: ''};
+perfil = {name : '',profilePicture: '',email: ''};
 
   constructor(public push: Push,public modalCtrl: ModalController,public navCtrl: NavController,
     private _auth:AngularFireAuth, public navParams: NavParams) {
       console.log(navParams);
       this.perfil=navParams.data;
-      console.log("pruebaFB:",this.perfil);
+      console.log("prueba perfil logeado:",this.perfil);
 
       this.push.hasPermission().then((res: any) => {
         alert('prenotificacion');
@@ -71,6 +73,20 @@ perfil = {loggedin: false,name : '',profilePicture: '',email: ''};
     };
       let profileModal : Modal = this.modalCtrl.create(EncuestaPage, MyModalOption);
       profileModal.present(); 
+    }
+    modificar(){
+      const MyModalOption : ModalOptions ={
+        enableBackdropDismiss : false   };
+
+      let profileModal : Modal = this.modalCtrl.create(Modificar, { data: this.perfil}, MyModalOption);
+      profileModal.present(); 
+      profileModal.onDidDismiss((data)=>{
+        console.log("modificacion en home:",data);
+        this.perfil.email = data.email;
+        this.perfil.name = data.name;
+     
+      })
+
     }
   redirect(path:string)
   {
