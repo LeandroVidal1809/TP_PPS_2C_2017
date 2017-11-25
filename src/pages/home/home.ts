@@ -11,9 +11,10 @@ import { EncuestaPage } from '../encuesta/encuesta';
 import { AbmProfyAdminPage } from '../abm-profy-admin/abm-profy-admin';
 import { Modificar } from '../modificar/modificar';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
-
+import { NativeAudio } from '@ionic-native/native-audio';
 import { LoginPage } from '../login/login';
 import { MenuController } from 'ionic-angular';
+import {Platform} from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -23,7 +24,7 @@ export class HomePage {
   
 perfil = {name : '',profilePicture: '',email: ''};
 
-  constructor(public push: Push,public modalCtrl: ModalController,public navCtrl: NavController,
+  constructor(private nativeAudio: NativeAudio,public platform: Platform,public push: Push,public modalCtrl: ModalController,public navCtrl: NavController,
     private _auth:AngularFireAuth, public navParams: NavParams) {
       console.log(navParams);
       this.perfil=navParams.data;
@@ -84,6 +85,10 @@ perfil = {name : '',profilePicture: '',email: ''};
   }
 
   logOut(){
+    this.nativeAudio.play('Silbido').then(()=>{
+      console.log("sonidoreproducido");
+          }).catch(()=>{
+          });
     console.log("deslogeando");
       this._auth.auth.signOut();
       this.navCtrl.setRoot(LoginPage);
@@ -152,5 +157,19 @@ perfil = {name : '',profilePicture: '',email: ''};
     
 
     }    
+  }
+
+ionViewDidLoad() {
+  
+    this.platform.ready().then(() => { 
+  
+      this.nativeAudio.preloadComplex('Silbido', "assets/sound/Silbido.mp3", 1, 1, 0).then(() => {     
+       console.log("sonidocargado");
+      });
+      this.nativeAudio.play('Silbido').then(()=>{
+        console.log("sonidoreproducido");
+            }).catch(()=>{
+            });
+    });
   }
 }
