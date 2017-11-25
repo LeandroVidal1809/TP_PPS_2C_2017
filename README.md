@@ -40,7 +40,7 @@ Adiliberti Pablo -
 
  - <strong>Descarga Csv, Qr Pablo Adiliberti del (18/11/2017) al (25/11/2017)</strong>
  - Arreglo botones en el Login,Se crean botones flotantes, Generacion de Encuestas , Graficos de encuesta<strong>Brian Roberts del (18/11/2017) al (25/11/2017) </strong>
- - Arreglo de Lista de Asistencia por fecha, arreglo de toma de datos en la importacion del excel, subir foto asociada a una toma de asistencias,Asignarle tiempo a las Encuestas    <strong>Leandro Vidal del (18/11/2017) al (25/11/2017)</strong>
+ - Arreglo de Lista de Asistencia por fecha, arreglo de toma de datos en la importacion del excel, subir foto asociada a una toma de asistencias,Asignarle tiempo a las Encuestas, Graficos de Asistencia    <strong>Leandro Vidal del (18/11/2017) al (25/11/2017)</strong>
 
   =========================================
   
