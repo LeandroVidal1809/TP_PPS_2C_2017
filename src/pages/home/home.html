@@ -1,13 +1,17 @@
 <ion-header>
-       <button class="botonmenu" ion-button menuToggle>
-    <ion-icon name="menu"></ion-icon>
-    </button> 
-    <div class="titulos"> <img class="imagen"  src="{{perfil.profilePicture}}"/></div> 
-    <div class="titulos">    <label class="label2">   CORREO: {{perfil.email}}  </label><br>
-      <label class="label2"> NOMBRE: {{perfil.name}}   </label></div>
-    
+      
+    <table>
+      <tr>
+      <td> <button class="botonmenu" ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+          </button> </td> 
+      <td class="target">Email:{{perfil.email}}<br>Nombre:{{perfil.name}}</td>
+      <!-- <td>{{perfil.name}}</td>     -->
+      <td  class="titulos"><img class="imagen"  src="{{perfil.profilePicture}}"/></td>
+      </tr>
 
-  
+    </table>
+
   </ion-header>
   <ion-content  padding align="center"  class="fondo">      
       <ion-fab  down right edge> 

@@ -9,6 +9,7 @@ import firebase from 'firebase';
 import { Camera } from '@ionic-native/camera';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {TimerObservable} from "rxjs/observable/TimerObservable";
+import { File } from '@ionic-native/file';
 /**
  * Generated class for the ListaAsistenciaPage page.
  *
@@ -175,5 +176,6 @@ showAlert(mensaje:string,titulo:string) {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListaAsistenciaPage');
   }
+
 
 }

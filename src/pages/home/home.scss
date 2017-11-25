@@ -26,8 +26,16 @@ page-home {
    }
    .titulos{
     float: right;
+    margin-left: 22px;
     background-color: white;
     background-color: #7E7E7E;
+    border: 2px solid black;
+   }
+   .target{
+    float: left;
+    font-size: 12px ;
+    margin-top: 5%;
+    background-color: #B5ADAD;
     border: 2px solid black;
    }
    .centrar{

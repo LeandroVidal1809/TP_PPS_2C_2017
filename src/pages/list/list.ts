@@ -45,16 +45,14 @@ export class QRPage {
 
     scan()
     {
-      this.options = { prompt : "Escanea tu Qr de Credito" }
-      this.barcodeScanner.scan(this.options).then((barcodeData) =>
-       {
-          this.scanData=barcodeData;
-           this.escaneado=barcodeData.text;
-          }, (err) => {
-        alert("Error occured : " + err);
-    });   
+      alert("awd");
+      this.barcodeScanner.scan().then(barcodeData => {
+        alert("asd");
+        }, (err) => {
+        console.log('Error: ', err);
+    });
+}
   
-  } 
     CargarScann()
   {
    //this.existe=false;
@@ -70,6 +68,31 @@ export class QRPage {
         this.scanData=barcodeData;
          this.escaneado=barcodeData.text;
         console.log(this.escaneado);
+
+
+  
+ });
+  
+  
+  
+}
+
+  closeModal(){
+    const myData ={
+      name: 'Leandro',
+      ocupacion: 'saliendo'
+    };
+
+    this.view.dismiss(myData);
+  }
+ ionViewWillLoad(){
+const data = this.navParams.get('data');
+console.log(data);
+ }
+  
+}
+
+
 
 
 // this.listcodigos.subscribe(items => 
@@ -96,25 +119,3 @@ export class QRPage {
     
 //       });
 //   });
-
-  
- });
-  
-  
-  
-}
-
-  closeModal(){
-    const myData ={
-      name: 'Leandro',
-      ocupacion: 'saliendo'
-    };
-
-    this.view.dismiss(myData);
-  }
- ionViewWillLoad(){
-const data = this.navParams.get('data');
-console.log(data);
- }
-  
-}
