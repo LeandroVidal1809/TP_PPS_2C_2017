@@ -163,7 +163,7 @@ ionViewDidLoad() {
   
     this.platform.ready().then(() => { 
   
-      this.nativeAudio.preloadComplex('Silbido', "assets/sound/Silbido.mp3", 1, 1, 0).then(() => {     
+      this.nativeAudio.preloadComplex('Silbido', "../assets/sound/Silbido.mp3", 1, 1, 0).then(() => {     
        console.log("sonidocargado");
       });
       this.nativeAudio.play('Silbido').then(()=>{
