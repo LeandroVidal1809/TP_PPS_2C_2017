@@ -46,10 +46,7 @@ export class MyApp {
          
           { title: 'Graficos Estadisticos', component: GraficosPage, type:'button'},
           { title: 'Importar Excel', component: ExcelPage,type:'button'},
-          { title: '------------Sección QR------------', component: HomePage,type:'section'},
-          { title: 'Para Profesores', component:QRPage,type:'button'},
-          { title: 'Para Alumnos', component:QRPage,type:'button'},
-          { title: 'Para Encuestas', component:QRPage,type:'button'},
+         
           { title: '------------Sección ABM------------', component: HomePage,type:'section'},
           { title: 'UsuariosADM', component:AbmProfyAdminPage,type:'button'},
           { title: 'Alumnos', component:AbmAlumnosPage,type:'button'}

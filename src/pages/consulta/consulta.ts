@@ -54,7 +54,9 @@ export class ConsultaPage {
     console.log('ionViewDidLoad ConsultaPage');
   }
 
-
+  closeModal(){
+    this.view.dismiss();
+      }
   setOpcion(op:number)
   {
     this.opcion=op;
