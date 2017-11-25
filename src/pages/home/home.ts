@@ -60,7 +60,27 @@ perfil = {name : '',profilePicture: '',email: ''};
         }
     
       });
+      if(sessionStorage.getItem("type")=="admin") {
+   
+        this.perfil.profilePicture =  '../assets/imgs/admin.jpg';
+      
+      }
+      else if(sessionStorage.getItem("type")=="profesor")  {
     
+        this.perfil.profilePicture =  '../assets/imgs/profesor.jpg';
+
+      }
+   
+      else if(sessionStorage.getItem("type")=="administrativo")  {
+     
+        this.perfil.profilePicture =  '../assets/imgs/administrativo.jpg';
+ 
+      }
+      else{
+     
+        this.perfil.profilePicture =  '../assets/imgs/alumno.jpg';
+     
+      }
   }
 
   logOut(){
