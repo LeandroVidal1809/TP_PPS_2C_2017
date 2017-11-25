@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -27,7 +26,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ChartsModule } from 'ng2-charts';
 import { Camera } from '@ionic-native/camera';
-import { Chart } from 'chart.js';
+import { NativeAudio } from '@ionic-native/native-audio';
+
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -100,7 +100,7 @@ export const firebaseConfig = {
   ],
   providers: [
     StatusBar,BarcodeScanner,
-    SplashScreen, Camera,
+    SplashScreen, Camera,NativeAudio,
     Facebook,Push,File,
     Toast,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
