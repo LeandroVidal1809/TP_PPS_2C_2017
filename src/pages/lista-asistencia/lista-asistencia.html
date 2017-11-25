@@ -13,7 +13,14 @@
   </ion-header>
 
   <ion-content padding  class="body" >
-      
+    <ion-fab  down right edge> 
+      <button ion-fab mini><ion-icon name="contact" ></ion-icon></button>
+       <ion-fab-list>
+         <button ios-camera  (click)="TakePhoto()" ><ion-icon name="thumbs-up"></ion-icon></button>
+         <button ion-fab  (click)="modificar()" ><ion-icon name="contact"></ion-icon></button>
+         <button ion-fab  (click)="logOut()" ><ion-icon name="power"></ion-icon></button>
+       </ion-fab-list>
+    </ion-fab>
         <table>
         <tr>
           <td class="foto">  
