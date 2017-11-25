@@ -26,6 +26,13 @@ export class AbmAlumnosPage {
   aulaSelect:string;
   materiaSelect:string;
 
+  seccionA = false;
+  seccionB = true;
+  seccionC = true;
+  claseAlta:string;
+  claseBaja:string;
+  claseModificacion:string;
+
   constructor(public navCtrl: NavController,
                public navParams: NavParams,
                public af: AngularFireDatabase,
@@ -90,5 +97,54 @@ tienePermisos()
       buttons: ['OK']
     });
     alert.present();
+  }
+
+  mortrarA(boton)
+  {
+    console.log(this.seccionA);
+    if (boton == "A")
+    {
+      this.seccionA = false;
+      this.seccionB = true;
+      this.claseAlta="active";
+      this.claseBaja="";
+    }
+    else
+    {
+      this.seccionA = true;
+      this.seccionB = false;
+      this.claseAlta="";
+      this.claseBaja="active";
+    }
+
+    switch (boton) {
+      case "A":
+      this.seccionA = false;
+      this.seccionB = true;
+      this.seccionC = true;
+      this.claseAlta="active";
+      this.claseBaja="";
+      this.claseModificacion="";
+        break;
+      case "B":
+      this.seccionA = true;
+      this.seccionB = false;
+      this.seccionC = true;
+      this.claseAlta="";
+      this.claseBaja="active";
+      this.claseModificacion="";
+        break;
+      case "C":
+      this.seccionA = true;
+      this.seccionB = true;
+      this.seccionC = false;
+      this.claseAlta="";
+      this.claseBaja="";
+      this.claseModificacion="active";       
+        break;
+    
+      default:
+        break;
+    }
   }
 }
