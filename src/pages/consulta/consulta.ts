@@ -75,8 +75,7 @@ export class ConsultaPage {
             sessionStorage.setItem("lista",listString);
             sessionStorage.setItem("Aula",this.AulaSelect);
             sessionStorage.setItem("Materia",this.MateriaSelect);
-            sessionStorage.setItem("Fecha",this.Fecha);
-                      
+            sessionStorage.setItem("Fecha",this.Fecha);   
           });
           if(this.miLista.length!=0)
           {

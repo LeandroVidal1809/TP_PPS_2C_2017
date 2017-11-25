@@ -4,6 +4,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { QRPage } from '../pages/list/list';
+
+import { File } from '@ionic-native/file';
 import { LoginPage } from '../pages/login/login';
 import { GraficosPage } from '../pages/graficos/graficos';
 import { RegistrarPage } from '../pages/registrar/registrar';
@@ -30,7 +32,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { Facebook } from '@ionic-native/facebook';
 import firebase from 'firebase';
-
+import { Toast } from '@ionic-native/toast';
 import { HttpModule } from '@angular/http';
 
 
@@ -98,7 +100,8 @@ export const firebaseConfig = {
   providers: [
     StatusBar,BarcodeScanner,
     SplashScreen, Camera,
-    Facebook,Push,
+    Facebook,Push,File,
+    Toast,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
