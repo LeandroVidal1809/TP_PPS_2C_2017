@@ -35,4 +35,12 @@ Adiliberti Pablo -
  - Consulta de asistencia , Permisos y Perfiles,Estabilización en las vistas y codigo, Descarga de pdf    <strong>Leandro Vidal del (11/11/2017) al (18/11/2017)</strong>
 
   =========================================
+    <h5>Responsabilidades Sabado 25 Noviembre:</h5>
+<h6> <strong> Segundo Parcial</h6></strong>
+
+ - <strong>Descarga Csv, Qr Pablo Adiliberti del (18/11/2017) al (25/11/2017)</strong>
+ - Arreglo botones en el Login,Se crean botones flotantes, Generacion de Encuestas , Graficos de encuesta<strong>Brian Roberts del (18/11/2017) al (25/11/2017) </strong>
+ - Arreglo de Lista de Asistencia por fecha, arreglo de toma de datos en la importacion del excel, subir foto asociada a una toma de asistencias,Asignarle tiempo a las Encuestas    <strong>Leandro Vidal del (18/11/2017) al (25/11/2017)</strong>
+
+  =========================================
   

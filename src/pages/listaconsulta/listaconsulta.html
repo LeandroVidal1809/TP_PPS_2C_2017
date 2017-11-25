@@ -35,7 +35,7 @@
         </tr>
         
        
-        <button type="button"  (click)="downloadCSV()" >bbbb</button>
+        <!-- <button type="button"  (click)="downloadCSV()" >bbbb</button> -->
        
       </table>
     
@@ -56,5 +56,13 @@
           </tr>
     </tbody>
   </table> 
+  <ion-card>
+    <ion-card-header>
+      Estadisticas del dia
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #barCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
