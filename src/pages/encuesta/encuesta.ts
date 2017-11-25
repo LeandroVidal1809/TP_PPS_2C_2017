@@ -102,7 +102,7 @@ button:boolean=false;
       }
       if(this.vale=false)
         {
-          alert("NO HAY ENCUESTAS VIGENTES");
+          this.showAlert("Encuestas Expiradas","NO HAY ENCUESTAS VIGENTES");
         }
     })
 
