@@ -13,34 +13,41 @@
 </ion-header>
 <ion-content padding align="center">
  
-<!---->
-  <!--<article class="container-login center-block">
-  <section>  -->
-    <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10">
-      <div id="login-access" class="tab-pane fade active in">
-        <h2><i class="glyphicon glyphicon-log-in"></i> ABM Alumnos</h2>						
-        <input type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="Ingrese su legajo ">
-        <input type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="Ingrese su nombre">
-        <select  [(ngModel)]="horario" style="color:black;" >
-            <option>Seleccione un aula para asociar...</option>
-            <option> Sabado  8:30 12:30</option>
-            <option> Jueves  18:30 22:30</option>
-          </select>
-        <select  [(ngModel)]="aulaSelect" style="color:black;" >
-            <option>Seleccione un aula para asociar...</option>
-            <option>200</option>
-            <option>201</option>
-            <option>202</option>
-          </select>
-        <select [(ngModel)]="materiaSelect"  style="color:black;" >
-            <option>Seleccione una materia para asociar..</option>
-            <option>Laboratorio 1</option>
-            <option>Programacion 1</option>
-            <option>Base de Datos</option>
-          </select>
-      </div>
-      <button  (click)="Guardar()" class="btn btn-primary btn-md">Registrar alumno</button>
+
+    <!-- <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10"> -->
+      <div>
+        <div class="form-body">
+            <ul class="nav nav-tabs final-login">
+              <li class={{claseAlta}}><a data-toggle="tab" (click)="mortrarA('A')"  >Alta </a></li>
+              <li class={{claseBaja}}><a data-toggle="tab" (click)="mortrarA('B')">Baja</a></li>
+              <li class={{claseModificacion}}><a data-toggle="tab" (click)="mortrarA('C')">Modificacion</a></li>
+            </ul>
+        <div class="tab-content">
+        <div id="sectionA" [hidden]="seccionA" class="tab-pane fade in active">
+          <div class="innter-form">
+              <input type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="Ingrese su legajo ">
+              <input type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="Ingrese su nombre">
+            <button  (click)="Guardar()" class="btn btn-primary btn-md">Guardar</button>
+          </div>
+        </div>
+          <div id="sectionB" [hidden]="seccionB">
+            <div class="innter-form">
+              Baja
+              <button  (click)="Guardar()" class="btn btn-primary btn-md">Guardar</button>
+            </div>
+          </div>
+            <div id="sectionC" [hidden]="seccionC">
+              <div class="innter-form">
+                Modificacion
+
+                <button  (click)="Guardar()" class="btn btn-primary btn-md">Guardar</button>
+              </div>
+            </div>
+        
+        </div>
+
+
+        </div>
     </div>
- <!--</section>
-</article>--> 
+
 </ion-content>

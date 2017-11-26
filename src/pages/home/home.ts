@@ -162,12 +162,10 @@ perfil = {name : '',profilePicture: '',email: ''};
 ionViewDidLoad() {
   
     this.platform.ready().then(() => { 
-
-      this.nativeAudio.preloadSimple('Silbido', 'assets/sound/Silbido.mp3').then(()=>{   alert("cargo");}
-      
-     
-    ).catch((error)=>{alert(error);
-    });
+  
+      this.nativeAudio.preloadComplex('Silbido', "assets/sound/Silbido.mp3", 1, 1, 0).then(() => {     
+       console.log("sonidocargado");
+      });
       this.nativeAudio.play('Silbido').then(()=>{
         console.log("sonidoreproducido");
             }).catch(()=>{
