@@ -18,15 +18,15 @@
       <div id="login-access" class="tab-pane fade active in">
         <h2><i class="glyphicon glyphicon-log-in"></i>Modificar Datos</h2>						
 
-        <input type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="Reingrese su nombre">
-        <input type="email" id="c" name="c" [(ngModel)]="email" placeholder="Ingrese su email ">
-         <!-- <select  [(ngModel)]="tipo" style="color:black;" >
-            <option>Seleccione un tipo de usuario...</option>
-            <option>Profesor</option>
-            <option>Administrativo</option>
-            <option>Alumno</option>
-            
-          </select> -->
+        Nombre
+        <input type="text" id="a" name="a" [(ngModel)]="nombre" >
+        <!-- <input type="email" id="c" name="c" [(ngModel)]="email" > -->
+        Eliga una foto para su perfil
+        <a (click)="fotoelegida('1')">  <img class="foto"  width=250px;  src="assets/imgs/1.jpg"></a>
+        <a (click)="fotoelegida('2')">  <img class="foto"  width=250px;  src="assets/imgs/2.jpg"></a>
+        <a (click)="fotoelegida('3')">  <img class="foto"  width=250px;  src="assets/imgs/3.jpg"></a>
+        <a (click)="fotoelegida('4')">  <img class="foto"  width=250px;  src="assets/imgs/4.jpg"></a>
+        <a (click)="fotoelegida('5')">  <img class="foto"  width=250px; src="assets/imgs/5.jpg"></a>
 
 
 

@@ -8,6 +8,7 @@ import { HomePage } from '../home/home';
 
 
 import { LoginPage } from '../login/login';
+import { swipeShouldReset } from 'ionic-angular/util/util';
 /**
  * Generated class for the AbmProfyAdminPage page.
  *
@@ -194,6 +195,30 @@ return false;
           
         });
         return loader;
+      }
+
+      fotoelegida(valor:string)
+      {
+        switch (valor) {
+            case '1':
+            
+            break;
+            case '2':
+            
+            break;
+            case '3':
+            
+            break;
+            case '4':
+            
+            break;
+            case '5':
+            
+            break;
+        
+          default:
+            break;
+        }
       }
      
     

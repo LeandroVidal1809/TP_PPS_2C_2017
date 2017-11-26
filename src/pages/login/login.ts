@@ -29,7 +29,8 @@ email: ''
   classactivo = "";
   claseRegistrar:string;
   claseLogin:string;
-type:string;
+  type:string;
+  foto:string;
   username:string;
   nombre:string;
   password:string;
@@ -73,32 +74,36 @@ type:string;
                           
                               if(action.payload.val()["Email"]==this.username)
                             {
-                              
+                            
                             this.type= action.payload.val()["Tipo"];
+                            this.foto= action.payload.val()["Foto"];
                             }
                           });
+                          
                           sessionStorage.setItem("type",this.type);
+                          sessionStorage.setItem("foto",this.foto);
                           console.log("tipo: "+ this.type);
+                          console.log("foto: "+ this.foto);
                           
                           if(sessionStorage.getItem("type")=="admin") {
                             this.perfil.name =sessionStorage.getItem("type");
-                            this.perfil.profilePicture =  'assets/imgs/admin.jpg';
+                            this.perfil.profilePicture =  this.foto;
                             this.perfil.email = "administrador@administrador.com";
                           }
                           else if(sessionStorage.getItem("type")=="profesor")  {
                             this.perfil.name =sessionStorage.getItem("type");
-                            this.perfil.profilePicture =  '/assets/imgs/profesor.jpg';
+                            this.perfil.profilePicture =  this.foto;
                             this.perfil.email = "profesor@profesor.com";
                           }
                        
                           else if(sessionStorage.getItem("type")=="administrativo")  {
                             this.perfil.name =sessionStorage.getItem("type");
-                            this.perfil.profilePicture =  '/assets/imgs/administrativo.jpg';
+                            this.perfil.profilePicture =  this.foto;
                             this.perfil.email = "administrativo@administrativo.com";
                           }
                           else{
                             this.perfil.name = "federico";
-                            this.perfil.profilePicture =  '../assets/imgs/alumno.jpg';
+                            this.perfil.profilePicture =  this.foto;
                             this.perfil.email = this.username;
                             this.type= "alumno";
                           }

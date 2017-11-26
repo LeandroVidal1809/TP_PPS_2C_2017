@@ -5,12 +5,11 @@ import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 import { AlertController ,LoadingController, Loading} from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { HomePage } from '../home/home';
-/**
- * Generated class for the AbmAlumnosPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Console } from '@angular/core/src/console';
+import { Alert } from 'ionic-angular/components/alert/alert';
+import { elementDef } from '@angular/core/src/view/element';
+import { List } from 'ionic-angular/components/list/list';
+
 
 @IonicPage()
 @Component({
@@ -26,6 +25,8 @@ export class AbmAlumnosPage {
   aulaSelect:string;
   materiaSelect:string;
 
+  exite = false;
+  ListaLegajos : Array<any>;  
   seccionA = false;
   seccionB = true;
   seccionC = true;
@@ -42,8 +43,21 @@ export class AbmAlumnosPage {
                   this.tienePermisos();
                     
                     
-  
+                  this.ListaLegajos = new Array<any>();
                   this.lista= af.list('/Alumno/');
+                  var Observable = this.lista.snapshotChanges(['child_added'])
+                  .subscribe(actions => {
+                    actions.forEach(action => {
+                   console.log(action.payload.val()["Legajo"]);
+                  //   if(action.payload.val()["Legajo"]==this.legajo)
+                  //   {
+                  //     alert("entro");
+                  //     this.exite= true;
+                  //   }
+                  this.ListaLegajos.push(action.payload.val()["Legajo"]);
+                  });
+              })
+
   }
 
   logOut(){
@@ -71,21 +85,74 @@ tienePermisos()
 
   Guardar()
   {
-    this.lista.push({
-      Legajo: this.legajo,
-      Nombre : this.nombre,
-      Aula: this.aulaSelect,
-      Materia: this.materiaSelect,
-      Horario:  this.horario
-      });  
 
-      this.legajo = "";
-      this.nombre = "";
-      this.aulaSelect= "";
-      this.materiaSelect= "";
-      this.horario = "";
+    this.exite = false;
+    if(this.legajo != "" ||  this.nombre != "")
+    {
+        for (let index = 0; index < this.ListaLegajos.length; index++) 
+        {
+         if(this.ListaLegajos[index]== this.legajo)
+         {
 
-      alert("Se guardo el alumno correctamente");
+            this.exite = true;
+         }
+        }
+
+    }
+    else
+    {
+      this.showAlert("Complite todos los campos","Lo Sentimos");
+    }
+
+    if(this.exite)
+    {
+      this.showAlert("El numero de legajo ya exite","Lo Sentimos");
+    }
+    else
+    {
+      this.lista.push({
+        Nombre : this.nombre,
+        Legajo : this.legajo,
+        }); 
+      this.showAlert("Se guardo correctamente el alumno","Exito");
+    }
+  }
+
+  Guardar2()
+  {
+
+    let applesQuery = this.lista.child("Alumno").orderByChild("Legajo").equalTo(this.legajo);
+    this.exite = false;
+    if(this.legajo != "")
+    {
+        for (let index = 0; index < this.ListaLegajos.length; index++) 
+        {
+         if(this.ListaLegajos[index]== this.legajo)
+         {
+
+            this.exite = true;
+         }
+        }
+
+    }
+    else
+    {
+      this.showAlert("Complite todos los campos","Lo Sentimos");
+    }
+
+    if(this.exite)
+    {
+    
+
+      this.showAlert("Se elimino","Lo Sentimos");
+    }
+    else
+    {
+       
+      this.showAlert("no se elimino","Exito");
+    }
+
+
   }
 
 

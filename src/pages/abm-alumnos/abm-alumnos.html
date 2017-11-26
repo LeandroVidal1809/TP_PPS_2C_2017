@@ -25,20 +25,23 @@
         <div class="tab-content">
         <div id="sectionA" [hidden]="seccionA" class="tab-pane fade in active">
           <div class="innter-form">
+              Legajo
               <input type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="Ingrese su legajo ">
+              Nombre
               <input type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="Ingrese su nombre">
             <button  (click)="Guardar()" class="btn btn-primary btn-md">Guardar</button>
           </div>
         </div>
           <div id="sectionB" [hidden]="seccionB">
             <div class="innter-form">
-              Baja
-              <button  (click)="Guardar()" class="btn btn-primary btn-md">Guardar</button>
+              Ingrese el legajo del alumno 
+              <input type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="Ingrese su legajo ">
+              <button  (click)="Guardar2()" class="btn btn-primary btn-md">Guardar</button>
             </div>
           </div>
             <div id="sectionC" [hidden]="seccionC">
               <div class="innter-form">
-                Modificacion
+                Modificacion 
 
                 <button  (click)="Guardar()" class="btn btn-primary btn-md">Guardar</button>
               </div>

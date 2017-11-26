@@ -62,12 +62,12 @@ perfil = {name : '',profilePicture: '',email: ''};
       });
       if(sessionStorage.getItem("type")=="admin") {
    
-        this.perfil.profilePicture =  'assets/imgs/admin.jpg';
+        this.perfil.profilePicture =  sessionStorage.getItem("foto");
       
       }
       else if(sessionStorage.getItem("type")=="profesor")  {
     
-        this.perfil.profilePicture =  'assets/imgs/profesor.jpg';
+        this.perfil.profilePicture =  sessionStorage.getItem("foto");
 
       }
    
@@ -78,9 +78,10 @@ perfil = {name : '',profilePicture: '',email: ''};
       }
       if(sessionStorage.getItem("type")=="alumno")  {
      
-        this.perfil.profilePicture =  'assets/imgs/alumno.jpg';
+        this.perfil.profilePicture =  sessionStorage.getItem("foto");
      
       }
+      this.perfil.profilePicture =  sessionStorage.getItem("foto");
   }
 
   logOut(){
@@ -88,7 +89,7 @@ perfil = {name : '',profilePicture: '',email: ''};
       console.log("sonidoreproducido");
           }).catch(()=>{
           });
-          this.nativeAudio.play('Silbido')
+         this.nativeAudio.play('Silbido')
     console.log("deslogeando");
       this._auth.auth.signOut();
       this.navCtrl.setRoot(LoginPage);
