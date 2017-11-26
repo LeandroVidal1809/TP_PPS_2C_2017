@@ -82,18 +82,18 @@ type:string;
                           
                           if(sessionStorage.getItem("type")=="admin") {
                             this.perfil.name =sessionStorage.getItem("type");
-                            this.perfil.profilePicture =  '../assets/imgs/admin.jpg';
+                            this.perfil.profilePicture =  'assets/imgs/admin.jpg';
                             this.perfil.email = "administrador@administrador.com";
                           }
                           else if(sessionStorage.getItem("type")=="profesor")  {
                             this.perfil.name =sessionStorage.getItem("type");
-                            this.perfil.profilePicture =  '../assets/imgs/profesor.jpg';
+                            this.perfil.profilePicture =  '/assets/imgs/profesor.jpg';
                             this.perfil.email = "profesor@profesor.com";
                           }
                        
                           else if(sessionStorage.getItem("type")=="administrativo")  {
                             this.perfil.name =sessionStorage.getItem("type");
-                            this.perfil.profilePicture =  '../assets/imgs/administrativo.jpg';
+                            this.perfil.profilePicture =  '/assets/imgs/administrativo.jpg';
                             this.perfil.email = "administrativo@administrativo.com";
                           }
                           else{
@@ -174,7 +174,7 @@ if (this.platform.is('cordova')) {
     
         console.log("INGRESANDO CON ---",provider,"---");
         console.log(res);
-        this.type= "alumno";
+        this.type= "alumnos";
         sessionStorage.setItem("type",this.type);
         console.log("tipo: "+ this.type);
         this.perfil.email = res.user.email;
@@ -196,7 +196,7 @@ if (this.platform.is('cordova')) {
   this._auth.auth.signInWithPopup(signin).then(res =>{
     console.log("INGRESANDO CON ---",provider,"---");
     console.log(res);
-    this.type= "alumno";
+    this.type= "alumnos";
     sessionStorage.setItem("type",this.type);
     console.log("tipo: "+ this.type);
     this.perfil.email = res.user.email;

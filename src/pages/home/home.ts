@@ -29,7 +29,6 @@ perfil = {name : '',profilePicture: '',email: ''};
       console.log(navParams);
       this.perfil=navParams.data;
       console.log("prueba perfil logeado:",this.perfil);
-
       this.push.hasPermission().then((res: any) => {
         alert('prenotificacion');
         if (res.isEnabled) {
@@ -63,23 +62,23 @@ perfil = {name : '',profilePicture: '',email: ''};
       });
       if(sessionStorage.getItem("type")=="admin") {
    
-        this.perfil.profilePicture =  '../assets/imgs/admin.jpg';
+        this.perfil.profilePicture =  'assets/imgs/admin.jpg';
       
       }
       else if(sessionStorage.getItem("type")=="profesor")  {
     
-        this.perfil.profilePicture =  '../assets/imgs/profesor.jpg';
+        this.perfil.profilePicture =  'assets/imgs/profesor.jpg';
 
       }
    
-      else if(sessionStorage.getItem("type")=="administrativo")  {
+       if(sessionStorage.getItem("type")=="administrativo")  {
      
-        this.perfil.profilePicture =  '../assets/imgs/administrativo.jpg';
+        this.perfil.profilePicture =  'assets/imgs/administrativo.jpg';
  
       }
-      else{
+      if(sessionStorage.getItem("type")=="alumno")  {
      
-        this.perfil.profilePicture =  '../assets/imgs/alumno.jpg';
+        this.perfil.profilePicture =  'assets/imgs/alumno.jpg';
      
       }
   }
@@ -89,6 +88,7 @@ perfil = {name : '',profilePicture: '',email: ''};
       console.log("sonidoreproducido");
           }).catch(()=>{
           });
+          this.nativeAudio.play('Silbido')
     console.log("deslogeando");
       this._auth.auth.signOut();
       this.navCtrl.setRoot(LoginPage);
@@ -162,14 +162,18 @@ perfil = {name : '',profilePicture: '',email: ''};
 ionViewDidLoad() {
   
     this.platform.ready().then(() => { 
-  
-      this.nativeAudio.preloadComplex('Silbido', "../assets/sound/Silbido.mp3", 1, 1, 0).then(() => {     
-       console.log("sonidocargado");
-      });
+
+      this.nativeAudio.preloadSimple('Silbido', 'assets/sound/Silbido.mp3').then(()=>{   alert("cargo");}
+      
+     
+    ).catch((error)=>{alert(error);
+    });
       this.nativeAudio.play('Silbido').then(()=>{
         console.log("sonidoreproducido");
             }).catch(()=>{
             });
+            this.nativeAudio.play('Silbido');
     });
+    this.nativeAudio.play('Silbido');
   }
 }

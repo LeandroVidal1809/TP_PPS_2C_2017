@@ -26,7 +26,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ChartsModule } from 'ng2-charts';
 import { Camera } from '@ionic-native/camera';
-import { NativeAudio } from '@ionic-native/native-audio';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -100,7 +99,7 @@ export const firebaseConfig = {
   ],
   providers: [
     StatusBar,BarcodeScanner,
-    SplashScreen, Camera,NativeAudio,
+    SplashScreen, Camera,
     Facebook,Push,File,
     Toast,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

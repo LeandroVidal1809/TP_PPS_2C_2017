@@ -48,7 +48,7 @@ export class MyApp {
           { title: 'Importar Excel', component: ExcelPage,type:'button'},
          
           { title: '------------Sección ABM------------', component: HomePage,type:'section'},
-          { title: 'UsuariosADM', component:AbmProfyAdminPage,type:'button'},
+          { title: 'Usuarios', component:AbmProfyAdminPage,type:'button'},
           { title: 'Alumnos', component:AbmAlumnosPage,type:'button'}
         ];
     
