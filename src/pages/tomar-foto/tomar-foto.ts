@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
-import { Camera } from '@ionic-native/camera';
+//import { Camera } from '@ionic-native/camera';
 import firebase from 'firebase';
 import { LoginPage } from '../login/login';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
@@ -26,7 +26,7 @@ export class TomarFotoPage {
   list: AngularFireList<any>;
   constructor(public navCtrl: NavController,
              public navParams: NavParams,
-            private Camera: Camera,
+          
             db:AngularFireDatabase,
               private view: ViewController,
             private _auth:AngularFireAuth) 
@@ -54,7 +54,7 @@ export class TomarFotoPage {
 
   takePhotoLindas() 
   {
-    this.Camera.getPicture({
+   /*  this.Camera.getPicture({
       quality: 100,
       destinationType: this.Camera.DestinationType.DATA_URL,
       sourceType: this.Camera.PictureSourceType.CAMERA,
@@ -66,7 +66,7 @@ export class TomarFotoPage {
 
     }, error => {
       console.log("ERROR -> " + JSON.stringify(error));
-    });
+    }); */
   }
 
   private uploadPhotoLindas(): void 

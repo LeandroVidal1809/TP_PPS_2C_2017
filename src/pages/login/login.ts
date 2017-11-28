@@ -7,7 +7,7 @@ import { AbmAlumnosPage } from '../abm-alumnos/abm-alumnos';
 import { AbmProfyAdminPage } from '../abm-profy-admin/abm-profy-admin';
 import { AlertController ,LoadingController, Loading} from 'ionic-angular';
 import * as firebase from 'firebase';
-import { Facebook } from '@ionic-native/facebook';
+//import { Facebook } from '@ionic-native/facebook';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 @IonicPage()
 @Component({
@@ -42,7 +42,7 @@ email: ''
   constructor(public menuCtrl: MenuController,
               public spiner:LoadingController,
               public navCtrl: NavController,
-              public facebook: Facebook,
+         //     public facebook: Facebook,
               public platform: Platform,
               public alertCtrl: AlertController,
               public af: AngularFireDatabase,

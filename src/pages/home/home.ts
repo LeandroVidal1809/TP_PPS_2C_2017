@@ -10,7 +10,7 @@ import { AltaEncuesta } from '../alta-encuesta/alta-encuesta';
 import { EncuestaPage } from '../encuesta/encuesta';
 import { AbmProfyAdminPage } from '../abm-profy-admin/abm-profy-admin';
 import { Modificar } from '../modificar/modificar';
-import { Push, PushObject, PushOptions } from '@ionic-native/push';
+//import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { NativeAudio } from '@ionic-native/native-audio';
 import { LoginPage } from '../login/login';
 import { MenuController } from 'ionic-angular';
@@ -24,12 +24,12 @@ export class HomePage {
   
 perfil = {name : '',profilePicture: '',email: ''};
 
-  constructor(private nativeAudio: NativeAudio,public platform: Platform,public push: Push,public modalCtrl: ModalController,public navCtrl: NavController,
+  constructor(private nativeAudio: NativeAudio,public platform: Platform,/* public push: Push, */public modalCtrl: ModalController,public navCtrl: NavController,
     private _auth:AngularFireAuth, public navParams: NavParams) {
       console.log(navParams);
       this.perfil=navParams.data;
       console.log("prueba perfil logeado:",this.perfil);
-      this.push.hasPermission().then((res: any) => {
+      /* this.push.hasPermission().then((res: any) => {
         alert('prenotificacion');
         if (res.isEnabled) {
          alert('Tenes permisos de notificacion');
@@ -59,7 +59,7 @@ perfil = {name : '',profilePicture: '',email: ''};
           alert('No tenes permisos de notificacion');
         }
     
-      });
+      }); */
       if(sessionStorage.getItem("type")=="admin") {
    
         this.perfil.profilePicture =  sessionStorage.getItem("foto");
@@ -85,10 +85,7 @@ perfil = {name : '',profilePicture: '',email: ''};
   }
 
   logOut(){
-    this.nativeAudio.play('Silbido').then(()=>{
-      console.log("sonidoreproducido");
-          }).catch(()=>{
-          });
+    
          this.nativeAudio.play('Silbido')
     console.log("deslogeando");
       this._auth.auth.signOut();
@@ -165,14 +162,11 @@ ionViewDidLoad() {
     this.platform.ready().then(() => { 
   
       this.nativeAudio.preloadComplex('Silbido', "assets/sound/Silbido.mp3", 1, 1, 0).then(() => {     
-       console.log("sonidocargado");
+       console.log("sonidocargado");this.nativeAudio.play('Silbido');
       });
-      this.nativeAudio.play('Silbido').then(()=>{
-        console.log("sonidoreproducido");
-            }).catch(()=>{
-            });
-            this.nativeAudio.play('Silbido');
+     
+            
     });
-    this.nativeAudio.play('Silbido');
+    
   }
 }

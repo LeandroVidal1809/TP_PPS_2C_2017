@@ -4,7 +4,7 @@ import { BarcodeScanner ,BarcodeScannerOptions } from '@ionic-native/barcode-sca
 import { AngularFireModule} from 'angularfire2';
 
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+//import { Camera, CameraOptions } from '@ionic-native/camera';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 import { AbmAlumnosPage } from '../abm-alumnos/abm-alumnos';
 import { AbmProfyAdminPage } from '../abm-profy-admin/abm-profy-admin';
@@ -25,7 +25,7 @@ export class QRPage {
 
   perfil = {loggedin: false,name : '',profilePicture: '',email: ''};
 
-  constructor(private camera: Camera, public navCtrl: NavController,
+  constructor( public navCtrl: NavController,
      public navParams: NavParams, 
      private view: ViewController,db:AngularFireDatabase,
      private barcodeScanner: BarcodeScanner,

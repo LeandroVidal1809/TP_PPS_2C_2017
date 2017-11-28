@@ -20,15 +20,15 @@ import { AbmProfyAdminPage } from '../pages/abm-profy-admin/abm-profy-admin';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { EncuestaPage } from '../pages/encuesta/encuesta';
 import { Modificar } from '../pages/modificar/modificar';
-import { Push } from '@ionic-native/push';
+//import { Push } from '@ionic-native/push';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ChartsModule } from 'ng2-charts';
-
+import { NativeAudio } from '@ionic-native/native-audio';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { Facebook } from '@ionic-native/facebook';
+//import { Facebook } from '@ionic-native/facebook';
 import firebase from 'firebase';
 import { Toast } from '@ionic-native/toast';
 import { HttpModule } from '@angular/http';
@@ -97,8 +97,9 @@ export const firebaseConfig = {
   ],
   providers: [
     StatusBar,BarcodeScanner,
-    SplashScreen,
-    Facebook,Push,File,
+    SplashScreen,NativeAudio,
+    //Facebook,Push,
+    File,
     Toast,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
