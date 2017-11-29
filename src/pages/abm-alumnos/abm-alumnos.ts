@@ -34,6 +34,10 @@ export class AbmAlumnosPage {
   claseBaja:string;
   claseModificacion:string;
 
+  listadoP:Array<any>;
+  Modificar:boolean;
+  KeyModificar;
+
   constructor(public navCtrl: NavController,
                public navParams: NavParams,
                public af: AngularFireDatabase,
@@ -41,27 +45,42 @@ export class AbmAlumnosPage {
                 private view: ViewController,
                 private _auth:AngularFireAuth) {
                   this.tienePermisos();
-                    
+                  this.listadoP=new Array<any>();
                     
                   this.ListaLegajos = new Array<any>();
                   this.lista= af.list('/Alumno/');
                   var Observable = this.lista.snapshotChanges(['child_added'])
                   .subscribe(actions => {
                     actions.forEach(action => {
-                   console.log(action.payload.val()["Legajo"]);
-                  //   if(action.payload.val()["Legajo"]==this.legajo)
-                  //   {
-                  //     alert("entro");
-                  //     this.exite= true;
-                  //   }
+
                   this.ListaLegajos.push(action.payload.val()["Legajo"]);
+                  this.listadoP.push(action.key);
+                  var objecto = {
+                         "Legajo":action.payload.val()["Legajo"],
+                         "Nombre":action.payload.val()["Nombre"],
+                         "Key":action.key
+                       }
+
+                  this.listadoP.push(objecto);
                   });
               })
+              this.claseAlta="active";
+              this.Modificar = false;
+              // this.lista.forEach(element => {
+              //   var objecto = {
+              //     "Legajo":element.Legajo,
+              //     "Nombre":element.Nombre
+              //   }
+           
+                  
+              //   this.listadoP.push(objecto);
+              // })
+            //  console.log(this.listadoP);
+
 
   }
 
   logOut(){
-    console.log("deslogeando");
       this._auth.auth.signOut();
       this.navCtrl.setRoot(LoginPage);
     }
@@ -80,7 +99,7 @@ tienePermisos()
     }
 }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AbmAlumnosPage');
+
   }
 
   Guardar()
@@ -120,18 +139,18 @@ tienePermisos()
 
   Guardar2()
   {
-
-    let applesQuery = this.lista.child("Alumno").orderByChild("Legajo").equalTo(this.legajo);
-    this.exite = false;
+    
     if(this.legajo != "")
     {
-        for (let index = 0; index < this.ListaLegajos.length; index++) 
+        for (let index = 0; index < this.listadoP.length; index++) 
         {
-         if(this.ListaLegajos[index]== this.legajo)
+         if(this.listadoP[index].Legajo == this.legajo)
          {
 
-            this.exite = true;
+          this.lista.remove(this.listadoP[index].Key);
+          this.showAlert("Se elimino","Exito");
          }
+         
         }
 
     }
@@ -140,19 +159,45 @@ tienePermisos()
       this.showAlert("Complite todos los campos","Lo Sentimos");
     }
 
-    if(this.exite)
+  }
+  
+  Buscar()
+  {
+    if(this.legajo != "")
     {
-    
+        for (let index = 0; index < this.listadoP.length; index++) 
+        {
+         if(this.listadoP[index].Legajo == this.legajo)
+         {
+          this.legajo = this.listadoP[index].Legajo;
+          this.nombre = this.listadoP[index].Nombre;
+          this.KeyModificar = this.listadoP[index].Key;
+          this.Modificar = true;
+         }
+         
+        }
 
-      this.showAlert("Se elimino","Lo Sentimos");
     }
     else
     {
-       
-      this.showAlert("no se elimino","Exito");
+      this.showAlert("Complite todos los campos","Lo Sentimos");
     }
+  }
 
-
+  Guardar3()
+  {
+      if(this.nombre != "")
+      {
+        this.lista.update(this.KeyModificar,
+         { 
+           Nombre: this.nombre
+        })
+        this.showAlert("Se guardo correctamente el alumno","Exito");
+      }
+      else
+      {
+        this.showAlert("Complite todos los campos","Lo Sentimos");
+      }
   }
 
 
@@ -168,21 +213,7 @@ tienePermisos()
 
   mortrarA(boton)
   {
-    console.log(this.seccionA);
-    if (boton == "A")
-    {
-      this.seccionA = false;
-      this.seccionB = true;
-      this.claseAlta="active";
-      this.claseBaja="";
-    }
-    else
-    {
-      this.seccionA = true;
-      this.seccionB = false;
-      this.claseAlta="";
-      this.claseBaja="active";
-    }
+    
 
     switch (boton) {
       case "A":

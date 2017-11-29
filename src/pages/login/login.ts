@@ -19,7 +19,8 @@ export class LoginPage {
 perfil = {
   name : '',
 profilePicture: '',
-email: ''
+email: '',
+tipo:''
 }
 
 
@@ -39,6 +40,7 @@ email: ''
   nameUser:string;
   passwordconfirm:string;
   list: AngularFireList<any>;
+  mail:string;
   constructor(public menuCtrl: MenuController,
               public spiner:LoadingController,
               public navCtrl: NavController,
@@ -78,12 +80,17 @@ email: ''
                             this.type= action.payload.val()["Tipo"];
                             this.foto= action.payload.val()["Foto"];
                             this.nombre= action.payload.val()["Nombre"];
+                            this.mail = action.payload.val()["Email"];
+      
                             }
                            // this.type= action.payload.val()["Tipo"];
                           
                           });
+                          alert(this.type);
+                          alert(this.foto);
+                          alert(this.nombre);
+                          alert(this.mail);
                           
-                   
                           sessionStorage.setItem("type",this.type);
                           sessionStorage.setItem("foto",this.foto);
                           sessionStorage.setItem("nombre",this.nombre);
@@ -93,24 +100,28 @@ email: ''
                           if(sessionStorage.getItem("type")=="admin") {
                             this.perfil.name =sessionStorage.getItem("nombre");
                             this.perfil.profilePicture =  this.foto;
-                            this.perfil.email = "administrador@administrador.com";
+                            this.perfil.email = this.mail;
+                            this.perfil.tipo = this.type;
                           }
                           else if(sessionStorage.getItem("type")=="profesor")  {
                             this.perfil.name =sessionStorage.getItem("nombre");
                             this.perfil.profilePicture =  this.foto;
-                            this.perfil.email = "profesor@profesor.com";
+                            this.perfil.email = this.mail;
+                            this.perfil.tipo = this.type;
                           }
                        
                           else if(sessionStorage.getItem("type")=="administrativo")  {
                             this.perfil.name =sessionStorage.getItem("nombre");
                             this.perfil.profilePicture =  this.foto;
-                            this.perfil.email = "administrativo@administrativo.com";
+                            this.perfil.email = this.mail;
+                            this.perfil.tipo = this.type;
                           }
                           else{
                             this.perfil.name = sessionStorage.getItem("nombre");
                             this.perfil.profilePicture =  this.foto;
                             this.perfil.email = this.username;
                             this.type= "alumno";
+                            this.perfil.tipo = this.type;
                           }                        
                                           this.navCtrl.setRoot(HomePage,this.perfil)
                          });                     

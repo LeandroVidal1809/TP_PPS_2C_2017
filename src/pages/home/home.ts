@@ -22,7 +22,7 @@ import {Platform} from 'ionic-angular';
 })
 export class HomePage {
   
-perfil = {name : '',profilePicture: '',email: ''};
+perfil = {name : '',profilePicture: '',email: '',tipo:''};
 
   constructor(private nativeAudio: NativeAudio,public platform: Platform,/* public push: Push, */public modalCtrl: ModalController,public navCtrl: NavController,
     private _auth:AngularFireAuth, public navParams: NavParams) {
@@ -107,6 +107,8 @@ perfil = {name : '',profilePicture: '',email: ''};
         console.log("modificacion en home:",data);
         this.perfil.email = data.email;
         this.perfil.name = data.name;
+        this.perfil.tipo = data.tipo;
+        this.perfil.profilePicture = data.foto;
      
       })
 
