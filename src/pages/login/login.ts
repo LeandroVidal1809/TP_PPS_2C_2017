@@ -86,10 +86,7 @@ tipo:''
                            // this.type= action.payload.val()["Tipo"];
                           
                           });
-                          alert(this.type);
-                          alert(this.foto);
-                          alert(this.nombre);
-                          alert(this.mail);
+
                           
                           sessionStorage.setItem("type",this.type);
                           sessionStorage.setItem("foto",this.foto);
