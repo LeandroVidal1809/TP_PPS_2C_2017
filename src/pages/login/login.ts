@@ -106,7 +106,7 @@ email: ''
                             this.perfil.profilePicture =  this.foto;
                             this.perfil.email = this.username;
                             this.type= "alumno";
-                          }
+                          }                        
                                           this.navCtrl.setRoot(HomePage,this.perfil)
                          });                     
                         })

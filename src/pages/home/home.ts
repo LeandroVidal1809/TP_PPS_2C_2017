@@ -100,7 +100,7 @@ perfil = {name : '',profilePicture: '',email: ''};
     modificar(){
       const MyModalOption : ModalOptions ={
         enableBackdropDismiss : false   };
-
+       
       let profileModal : Modal = this.modalCtrl.create(Modificar, { data: this.perfil}, MyModalOption);
       profileModal.present(); 
       profileModal.onDidDismiss((data)=>{
@@ -119,6 +119,7 @@ perfil = {name : '',profilePicture: '',email: ''};
     
     switch (path) {
         case 'QR':
+        sessionStorage.setItem("EmailProf",this.perfil.email);
         let profileModal : Modal = this.modalCtrl.create(QRPage, { data: this.perfil}, MyModalOption);
         profileModal.present(); 
         //prueba de data en la entrada y salida del modal!

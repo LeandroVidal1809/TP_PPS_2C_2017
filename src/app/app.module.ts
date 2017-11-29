@@ -32,6 +32,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import firebase from 'firebase';
 import { Toast } from '@ionic-native/toast';
 import { HttpModule } from '@angular/http';
+import { InfoProfesorPage } from '../pages/info-profesor/info-profesor';
 
 
 export const firebaseConfig = {
@@ -56,6 +57,7 @@ export const firebaseConfig = {
     ListaAsistenciaPage,
     TomarFotoPage,
     ExcelPage,
+    InfoProfesorPage,
     AbmAlumnosPage,
     AbmProfyAdminPage,
     ConsultaPage,
@@ -85,6 +87,7 @@ export const firebaseConfig = {
      Modificar,
     RegistrarPage,
     TomarAsistenciaPage,
+    InfoProfesorPage,
     ListaAsistenciaPage,
     TomarFotoPage,
     ExcelPage,
