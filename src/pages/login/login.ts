@@ -77,32 +77,37 @@ email: ''
                             
                             this.type= action.payload.val()["Tipo"];
                             this.foto= action.payload.val()["Foto"];
+                            this.nombre= action.payload.val()["Nombre"];
                             }
+                           // this.type= action.payload.val()["Tipo"];
+                          
                           });
                           
+                   
                           sessionStorage.setItem("type",this.type);
                           sessionStorage.setItem("foto",this.foto);
+                          sessionStorage.setItem("nombre",this.nombre);
                           console.log("tipo: "+ this.type);
                           console.log("foto: "+ this.foto);
                           
                           if(sessionStorage.getItem("type")=="admin") {
-                            this.perfil.name =sessionStorage.getItem("type");
+                            this.perfil.name =sessionStorage.getItem("nombre");
                             this.perfil.profilePicture =  this.foto;
                             this.perfil.email = "administrador@administrador.com";
                           }
                           else if(sessionStorage.getItem("type")=="profesor")  {
-                            this.perfil.name =sessionStorage.getItem("type");
+                            this.perfil.name =sessionStorage.getItem("nombre");
                             this.perfil.profilePicture =  this.foto;
                             this.perfil.email = "profesor@profesor.com";
                           }
                        
                           else if(sessionStorage.getItem("type")=="administrativo")  {
-                            this.perfil.name =sessionStorage.getItem("type");
+                            this.perfil.name =sessionStorage.getItem("nombre");
                             this.perfil.profilePicture =  this.foto;
                             this.perfil.email = "administrativo@administrativo.com";
                           }
                           else{
-                            this.perfil.name = "federico";
+                            this.perfil.name = sessionStorage.getItem("nombre");
                             this.perfil.profilePicture =  this.foto;
                             this.perfil.email = this.username;
                             this.type= "alumno";
