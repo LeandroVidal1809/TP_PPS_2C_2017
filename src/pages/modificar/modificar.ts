@@ -59,8 +59,7 @@ export class Modificar {
 
                       if(action.payload.val()["Email"] == this.email)
                       {
-                   
-                        alert(action.payload.val()["Email"]);
+
             
                         this.KeyUsuario = action.key;
                       }
