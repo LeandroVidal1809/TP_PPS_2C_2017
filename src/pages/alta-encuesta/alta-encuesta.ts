@@ -6,6 +6,7 @@ import { AlertController ,LoadingController, Loading} from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { HomePage } from '../home/home';
 import { EncuestaPage } from '../encuesta/encuesta';
+import { ModificarEnc } from '../modificarEnc/modificarEnc';
 /**
  * Generated class for the AbmAlumnosPage page.
  *
@@ -68,7 +69,14 @@ cargar()
   ionViewDidLoad() {
     console.log('ionViewDidLoad AbmAlumnosPage');
   }
-
+Modificar(){
+  const MyModalOption : ModalOptions ={
+    enableBackdropDismiss : false
+  };
+  let profileModal : Modal = this.modalCtrl.create(ModificarEnc, MyModalOption);
+  profileModal.present(); 
+  //prueba de data en la entrada y salida del modal!
+}
   Guardar()
   {
       if(this.respuesta1 || this.respuesta2 || this.respuesta3)
@@ -81,7 +89,7 @@ cargar()
           switch(this.tiempo)
           {
             case '1 min':
-            this.dato.setMinutes(this.dato.getMinutes()+1);
+            this.dato.setMinutes(this.dato.getMinutes()+2);
             break;
             case '10 min':
             this.dato.setMinutes(this.dato.getMinutes()+10);

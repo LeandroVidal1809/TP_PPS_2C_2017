@@ -20,6 +20,7 @@ import { AbmProfyAdminPage } from '../pages/abm-profy-admin/abm-profy-admin';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { EncuestaPage } from '../pages/encuesta/encuesta';
 import { Modificar } from '../pages/modificar/modificar';
+import { ModificarEnc } from '../pages/modificarEnc/modificarEnc';
 //import { Push } from '@ionic-native/push';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -62,7 +63,7 @@ export const firebaseConfig = {
     AbmProfyAdminPage,
     ConsultaPage,
     EncuestaPage,
-    ListaconsultaPage,AltaEncuesta
+    ListaconsultaPage,AltaEncuesta,ModificarEnc
     
   ],
   imports: [
@@ -95,7 +96,7 @@ export const firebaseConfig = {
     AbmProfyAdminPage,
     ConsultaPage,
     ListaconsultaPage,
-    AltaEncuesta
+    AltaEncuesta,ModificarEnc
 
   ],
   providers: [
