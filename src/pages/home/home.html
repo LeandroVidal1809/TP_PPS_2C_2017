@@ -5,21 +5,17 @@
       <td> <button class="botonmenu" ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
           </button> </td> 
-      <td class="target">Email:{{perfil.email}}<br>Nombre:{{perfil.name}}</td>
+      <td class="target">{{'CORREO'| translate}}:{{perfil.email}}<br>{{'NOMBRE'| translate}}:{{perfil.name}}</td>
       <!-- <td>{{perfil.name}}</td>     -->
       <td  class="titulos"><img class="imagen"  src="{{perfil.profilePicture}}"/></td>
       </tr>
-      <label>
-        {{ 'HOME.SELECT' | translate }}
-        <select #langSelect (change)="translate.use(langSelect.value)">
-          <option *ngFor="let lang of langs" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
-        </select>
-      </label>
+     
     </table>
 
   </ion-header>
   <ion-content  padding align="center"  class="fondo">      
-      <ion-fab  down right edge> 
+   
+       <ion-fab  down right edge> 
           <button ion-fab mini><ion-icon name="contact" ></ion-icon></button>
            <ion-fab-list>
              <button ion-fab  (click)="encuesta()" ><ion-icon name="thumbs-up"></ion-icon></button>
