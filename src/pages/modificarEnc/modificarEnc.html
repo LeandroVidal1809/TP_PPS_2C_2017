@@ -1,0 +1,47 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<ion-header>
+    <ion-navbar>
+   
+      <ion-title>Modificar Encuesta</ion-title>
+      <ion-buttons end>
+          <button ion-button (click)="closeModal()" >Cerrar </button>   
+        </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  <ion-content padding align="center">
+    <!---->    
+
+ 
+    <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10">
+      <div id="login-access" class="tab-pane fade active in">
+        <h2><i class="glyphicon glyphicon-log-in"></i>Modificar Encuesta</h2>						
+        La encuesta Durará:
+        <select [(ngModel)]="tiempo" style="margin-left: -72px;width: 265px;font-size:22px"   style="color:black;" >
+          <option>Duracion de la Encuesta</option>
+          <!-- <option>CheckBox</option> -->
+          <option>1 min</option>
+          <option>10 min</option>
+          <option>45 min</option>
+        </select><br>
+        Pregunta:           
+        <input type="text" id="a" name="a" [(ngModel)]="pregunta" ><br>
+     Tipo:{{tipo}} <br>
+     Seleccione Nuevo: <select [(ngModel)]="tipo" style="margin-left: -72px;width: 265px;font-size:22px"   style="color:black;" >
+      <option>Tipo</option>
+      <!-- <option>CheckBox</option> -->
+      <option>RadioButton</option>
+      <option>Selector</option>
+     
+    </select><br>
+        Respuestas: <br>
+        <input type="text" id="a" name="a" [(ngModel)]="resp1" ><br>
+        <input type="text" id="a" name="a" [(ngModel)]="resp2" ><br>
+        <input type="text" id="a" name="a" [(ngModel)]="resp3" ><br>
+
+      </div>
+      
+      <button  (click)="Modificar()" class="btn btn-primary btn-md">Modificar Encuesta</button>
+    </div>
+  </ion-content>
