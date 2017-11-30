@@ -1,0 +1,14 @@
+{
+  "HOME": {
+    "TITLE": "Bonjour Angular 2 avec ngx-translate !",
+    "SELECT": "Cambiar el lenguaje"
+  },
+  "CORREO":"Email",
+  "CLAVE":"Password",
+  "CLAVE2":"RePassword",
+  "ENTRAR":"Loggin",
+  "INICIAR SESION":"Loggin",
+  "REGISTRAR":"Register",
+  "NOMBRE":"Name"
+
+}

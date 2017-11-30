@@ -9,6 +9,8 @@ import { Console } from '@angular/core/src/console';
 import { Alert } from 'ionic-angular/components/alert/alert';
 import { elementDef } from '@angular/core/src/view/element';
 import { List } from 'ionic-angular/components/list/list';
+import { Http } from '@angular/http';
+import * as papa from 'papaparse';
 
 
 @IonicPage()
@@ -30,38 +32,53 @@ export class AbmAlumnosPage {
   seccionA = false;
   seccionB = true;
   seccionC = true;
+  seccionD = true;
   claseAlta:string;
   claseBaja:string;
   claseModificacion:string;
+  claselista:string;
+
+  listadoP:Array<any>;
+  Modificar:boolean;
+  KeyModificar;
+  ListaNuevos:any;
+ // public csvData: any[] = ['12344','12344','32432'];
 
   constructor(public navCtrl: NavController,
                public navParams: NavParams,
+               private http: Http,
                public af: AngularFireDatabase,
                public alertCtrl: AlertController,               
                 private view: ViewController,
                 private _auth:AngularFireAuth) {
                   this.tienePermisos();
-                    
+                  this.listadoP=new Array<any>();
+                  this.ListaNuevos=new Array<any>();
                     
                   this.ListaLegajos = new Array<any>();
                   this.lista= af.list('/Alumno/');
                   var Observable = this.lista.snapshotChanges(['child_added'])
                   .subscribe(actions => {
                     actions.forEach(action => {
-                   console.log(action.payload.val()["Legajo"]);
-                  //   if(action.payload.val()["Legajo"]==this.legajo)
-                  //   {
-                  //     alert("entro");
-                  //     this.exite= true;
-                  //   }
+
                   this.ListaLegajos.push(action.payload.val()["Legajo"]);
+                  this.listadoP.push(action.key);
+                  var objecto = {
+                         "Legajo":action.payload.val()["Legajo"],
+                         "Nombre":action.payload.val()["Nombre"],
+                         "Key":action.key
+                       }
+
+                  this.listadoP.push(objecto);
                   });
               })
-
+              this.claseAlta="active";
+              this.Modificar = false;
+              //this.readCsvData();
+              this.CargarLIsta();
   }
 
   logOut(){
-    console.log("deslogeando");
       this._auth.auth.signOut();
       this.navCtrl.setRoot(LoginPage);
     }
@@ -80,7 +97,7 @@ tienePermisos()
     }
 }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AbmAlumnosPage');
+
   }
 
   Guardar()
@@ -120,18 +137,18 @@ tienePermisos()
 
   Guardar2()
   {
-
-    let applesQuery = this.lista.child("Alumno").orderByChild("Legajo").equalTo(this.legajo);
-    this.exite = false;
+    
     if(this.legajo != "")
     {
-        for (let index = 0; index < this.ListaLegajos.length; index++) 
+        for (let index = 0; index < this.listadoP.length; index++) 
         {
-         if(this.ListaLegajos[index]== this.legajo)
+         if(this.listadoP[index].Legajo == this.legajo)
          {
 
-            this.exite = true;
+          this.lista.remove(this.listadoP[index].Key);
+          this.showAlert("Se elimino","Exito");
          }
+         
         }
 
     }
@@ -140,19 +157,45 @@ tienePermisos()
       this.showAlert("Complite todos los campos","Lo Sentimos");
     }
 
-    if(this.exite)
+  }
+  
+  Buscar()
+  {
+    if(this.legajo != "")
     {
-    
+        for (let index = 0; index < this.listadoP.length; index++) 
+        {
+         if(this.listadoP[index].Legajo == this.legajo)
+         {
+          this.legajo = this.listadoP[index].Legajo;
+          this.nombre = this.listadoP[index].Nombre;
+          this.KeyModificar = this.listadoP[index].Key;
+          this.Modificar = true;
+         }
+         
+        }
 
-      this.showAlert("Se elimino","Lo Sentimos");
     }
     else
     {
-       
-      this.showAlert("no se elimino","Exito");
+      this.showAlert("Complite todos los campos","Lo Sentimos");
     }
+  }
 
-
+  Guardar3()
+  {
+      if(this.nombre != "")
+      {
+        this.lista.update(this.KeyModificar,
+         { 
+           Nombre: this.nombre
+        })
+        this.showAlert("Se guardo correctamente el alumno","Exito");
+      }
+      else
+      {
+        this.showAlert("Complite todos los campos","Lo Sentimos");
+      }
   }
 
 
@@ -168,50 +211,114 @@ tienePermisos()
 
   mortrarA(boton)
   {
-    console.log(this.seccionA);
-    if (boton == "A")
-    {
-      this.seccionA = false;
-      this.seccionB = true;
-      this.claseAlta="active";
-      this.claseBaja="";
-    }
-    else
-    {
-      this.seccionA = true;
-      this.seccionB = false;
-      this.claseAlta="";
-      this.claseBaja="active";
-    }
+    
 
     switch (boton) {
       case "A":
       this.seccionA = false;
       this.seccionB = true;
       this.seccionC = true;
+      this.seccionD = true;
       this.claseAlta="active";
       this.claseBaja="";
       this.claseModificacion="";
+      this.claselista ="";
         break;
       case "B":
       this.seccionA = true;
       this.seccionB = false;
       this.seccionC = true;
+      this.seccionD = true;
       this.claseAlta="";
       this.claseBaja="active";
       this.claseModificacion="";
+      this.claselista ="";
         break;
       case "C":
       this.seccionA = true;
       this.seccionB = true;
       this.seccionC = false;
+      this.seccionD = true;
       this.claseAlta="";
       this.claseBaja="";
-      this.claseModificacion="active";       
+      this.claseModificacion="active";  
+      this.claselista ="";     
         break;
+        case "D":
+        this.seccionA = true;
+        this.seccionB = true;
+        this.seccionC = true;
+        this.seccionD = false;
+        this.claseAlta="";
+        this.claseBaja="";
+        this.claseModificacion="";
+        this.claselista ="active";
+
+          break;
     
       default:
         break;
     }
   }
+
+  CargarLIsta()
+  {
+    var objecto = {
+      Legajo:"124334",
+      Nombre:"Campaña, martin"
+    }
+
+    var objecto1 = {
+      Legajo:"456544",
+      Nombre:"Fernandez , leandro"
+    }
+
+    var objecto2 = {
+      Legajo:"434333",
+      Nombre:"Meza, Maximiliano"
+    }
+
+    var objecto3 = {
+      Legajo:"324432",
+      Nombre:"Barco, Ignacio Hernán"
+    }
+
+    var objecto4 = {
+      Legajo:"123452",
+      Nombre:"Giglioti, Manuel"
+    }
+
+    var objecto5 = {
+      Legajo:"765343",
+      Nombre:"Bustos, Patricio Andrés"
+    }
+
+    var objecto6 = {
+      Legajo:"843432",
+      Nombre:"Gutierrez, Emiliano Gabriel"
+    }
+
+      this.ListaNuevos.push(objecto);
+      this.ListaNuevos.push(objecto1);
+      this.ListaNuevos.push(objecto2);
+      this.ListaNuevos.push(objecto3);
+      this.ListaNuevos.push(objecto4);
+      this.ListaNuevos.push(objecto5);
+      this.ListaNuevos.push(objecto6);
+
+      console.log(this.ListaNuevos);
+  }
+
+
+  GuardarLista()
+  {
+    this.ListaNuevos.forEach(element => {
+      this.lista.push(element); 
+      
+    });
+
+    this.showAlert("Se guardo correctamente la lista de alumnos","Exito");
+  }
+
+
 }

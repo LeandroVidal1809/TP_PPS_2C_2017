@@ -10,6 +10,7 @@ import { AbmAlumnosPage } from '../abm-alumnos/abm-alumnos';
 import { AbmProfyAdminPage } from '../abm-profy-admin/abm-profy-admin';
 
 import { LoginPage } from '../login/login';
+import { InfoProfesorPage } from '../info-profesor/info-profesor';
 
 @Component({
   selector: 'page-list',
@@ -23,19 +24,23 @@ export class QRPage {
   listcodigos: AngularFireList<any>;
   options :BarcodeScannerOptions;
 
+
+  Profesor= {Email: "",Aula : '',Materia: '',Apellido: '',Nombre: ''};  
+
+
   perfil = {loggedin: false,name : '',profilePicture: '',email: ''};
 
   constructor( public navCtrl: NavController,
-     public navParams: NavParams, 
+     public navParams: NavParams, public modalCtrl: ModalController,
      private view: ViewController,db:AngularFireDatabase,
      private barcodeScanner: BarcodeScanner,
-     private _auth:AngularFireAuth) {  
-       console.log(navParams);
+     private _auth:AngularFireAuth) 
+  {  
       this.perfil=navParams.data;
-      console.log("pruebaFB:",this.perfil);
-    // If we navigated to this page, we will have an item available as a nav param
-    this.listcodigos =db.list('/codigos');
-  
+ 
+
+      this.listcodigos =db.list('/codigos');
+      
   }
   logOut(){
     console.log("deslogeando");
@@ -45,9 +50,9 @@ export class QRPage {
 
     scan()
     {
-      alert("awd");
+     
       this.barcodeScanner.scan().then(barcodeData => {
-        alert("asd");
+      
         }, (err) => {
         console.log('Error: ', err);
     });
@@ -64,10 +69,31 @@ export class QRPage {
  
     this.options = { prompt : "Escanea tu Qr de Credito" }
     this.barcodeScanner.scan(this.options).then((barcodeData) =>
-     {
+     { 
         this.scanData=barcodeData;
-         this.escaneado=barcodeData.text;
-        console.log(this.escaneado);
+    
+       if(barcodeData.text=="alta-alumno"){
+
+        let profileModal : Modal = this.modalCtrl.create(AbmAlumnosPage,MyModalOption);
+               profileModal.present(); 
+
+       }
+       else if(barcodeData.text=="alta-administrador"){
+
+
+        let profileModal : Modal = this.modalCtrl.create(AbmProfyAdminPage,MyModalOption);
+               profileModal.present(); 
+
+       }    
+      else if(barcodeData.text=="alta-profesor"){
+        let profileModal : Modal = this.modalCtrl.create(InfoProfesorPage,MyModalOption);
+               profileModal.present(); 
+
+       }else{
+          alert("codigo qr no registrado!! reintentar");
+
+       }
+       
 
 
   

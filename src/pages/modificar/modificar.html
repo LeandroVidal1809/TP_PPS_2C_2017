@@ -18,20 +18,25 @@
       <div id="login-access" class="tab-pane fade active in">
         <h2><i class="glyphicon glyphicon-log-in"></i>Modificar Datos</h2>						
 
-        Nombre
+        Nombre:           
         <input type="text" id="a" name="a" [(ngModel)]="nombre" >
-        <!-- <input type="email" id="c" name="c" [(ngModel)]="email" > -->
-        Eliga una foto para su perfil
-        <a (click)="fotoelegida('1')">  <img class="foto"  width=250px;  src="assets/imgs/1.jpg"></a>
-        <a (click)="fotoelegida('2')">  <img class="foto"  width=250px;  src="assets/imgs/2.jpg"></a>
-        <a (click)="fotoelegida('3')">  <img class="foto"  width=250px;  src="assets/imgs/3.jpg"></a>
-        <a (click)="fotoelegida('4')">  <img class="foto"  width=250px;  src="assets/imgs/4.jpg"></a>
-        <a (click)="fotoelegida('5')">  <img class="foto"  width=250px; src="assets/imgs/5.jpg"></a>
+        Tipo:(No se puedo modificar)
+        <input type="text" id="s" name="s" [(ngModel)]="tipo" disabled>
+        Mail:(No se puedo modificar)
+        <input type="email" id="c" name="c" [(ngModel)]="email" disabled>
 
 
+        Eliga una foto para su perfil:
+        <form >
+            <input type="radio" [(ngModel)]="foto" name="gender1" ng-model="myVar" value="assets/imgs/1.jpg"> <img class="foto"  width=150px;  src="assets/imgs/1.jpg"><br>
+            <input type="radio" [(ngModel)]="foto" name="gender2" ng-model="myVar" value="assets/imgs/2.jpg">  <img class="foto"  width=150px;  src="assets/imgs/2.jpg"><br>
+            <input type="radio" [(ngModel)]="foto" name="gender3" ng-model="myVar" value="assets/imgs/3.jpg"> <img class="foto"  width=150px;  src="assets/imgs/3.jpg"><br>
+            <input type="radio" [(ngModel)]="foto" name="gender4" ng-model="myVar" value="assets/imgs/4.jpg"> <img class="foto"  width=150px;  src="assets/imgs/4.jpg"><br>
+            <input type="radio" [(ngModel)]="foto" name="gender5" ng-model="myVar" value="assets/imgs/5.jpg"> <img class="foto"  width=150px;  src="assets/imgs/5.jpg"><br>
+          </form>
 
       </div>
       
-      <button  (click)="Guardar2()" class="btn btn-primary btn-md">Modificar usuario</button>
+      <button  (click)="Guardar2(myVar)" class="btn btn-primary btn-md">Modificar usuario</button>
     </div>
   </ion-content>

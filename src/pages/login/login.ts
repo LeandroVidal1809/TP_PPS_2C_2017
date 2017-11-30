@@ -9,8 +9,10 @@ import { AlertController ,LoadingController, Loading} from 'ionic-angular';
 import * as firebase from 'firebase';
 //import { Facebook } from '@ionic-native/facebook';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
-import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
+
+
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @IonicPage()
 @Component({
@@ -18,13 +20,14 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
+  langs = ['en', 'fr', 'es'];
 perfil = {
   name : '',
 profilePicture: '',
-email: ''
+email: '',
+tipo:''
 }
-langs = ['en', 'fr', 'es'];
+
 
 
   seccionA = false;
@@ -42,8 +45,8 @@ langs = ['en', 'fr', 'es'];
   nameUser:string;
   passwordconfirm:string;
   list: AngularFireList<any>;
-  constructor(public translate: TranslateService,
-              public menuCtrl: MenuController,
+  mail:string;
+  constructor(public menuCtrl: MenuController,
               public spiner:LoadingController,
               public navCtrl: NavController,
          //     public facebook: Facebook,
@@ -51,7 +54,7 @@ langs = ['en', 'fr', 'es'];
               public alertCtrl: AlertController,
               public af: AngularFireDatabase,
               private _auth:AngularFireAuth,
-              public navParams: NavParams) 
+              public navParams: NavParams, public translate: TranslateService) 
   { 
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       console.log('Language changed to ' + this.translate.currentLang);
@@ -59,15 +62,8 @@ langs = ['en', 'fr', 'es'];
     this.list= af.list('/Usuarios');
     this.claseLogin="active";
     this.claseRegistrar="";
-
- 
   }
-   switchLenguage(lenguage: string){
-    this.translate.use(lenguage);
- console.log(lenguage);
- console.log(this.translate);
- 
-    }
+
 
   async login()
   {
@@ -90,36 +86,47 @@ langs = ['en', 'fr', 'es'];
                             
                             this.type= action.payload.val()["Tipo"];
                             this.foto= action.payload.val()["Foto"];
+                            this.nombre= action.payload.val()["Nombre"];
+                            this.mail = action.payload.val()["Email"];
+      
                             }
+                           // this.type= action.payload.val()["Tipo"];
+                          
                           });
+
                           
                           sessionStorage.setItem("type",this.type);
                           sessionStorage.setItem("foto",this.foto);
+                          sessionStorage.setItem("nombre",this.nombre);
                           console.log("tipo: "+ this.type);
                           console.log("foto: "+ this.foto);
                           
                           if(sessionStorage.getItem("type")=="admin") {
-                            this.perfil.name =sessionStorage.getItem("type");
+                            this.perfil.name =sessionStorage.getItem("nombre");
                             this.perfil.profilePicture =  this.foto;
-                            this.perfil.email = "administrador@administrador.com";
+                            this.perfil.email = this.mail;
+                            this.perfil.tipo = this.type;
                           }
                           else if(sessionStorage.getItem("type")=="profesor")  {
-                            this.perfil.name =sessionStorage.getItem("type");
+                            this.perfil.name =sessionStorage.getItem("nombre");
                             this.perfil.profilePicture =  this.foto;
-                            this.perfil.email = "profesor@profesor.com";
+                            this.perfil.email = this.mail;
+                            this.perfil.tipo = this.type;
                           }
                        
                           else if(sessionStorage.getItem("type")=="administrativo")  {
-                            this.perfil.name =sessionStorage.getItem("type");
+                            this.perfil.name =sessionStorage.getItem("nombre");
                             this.perfil.profilePicture =  this.foto;
-                            this.perfil.email = "administrativo@administrativo.com";
+                            this.perfil.email = this.mail;
+                            this.perfil.tipo = this.type;
                           }
                           else{
-                            this.perfil.name = "federico";
+                            this.perfil.name = sessionStorage.getItem("nombre");
                             this.perfil.profilePicture =  this.foto;
                             this.perfil.email = this.username;
                             this.type= "alumno";
-                          }
+                            this.perfil.tipo = this.type;
+                          }                        
                                           this.navCtrl.setRoot(HomePage,this.perfil)
                          });                     
                         })

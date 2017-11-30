@@ -31,31 +31,31 @@
 <div class="container">
 <div class="row">
 <div class="col-md-4 col-md-offset-4">
-<div class="form-body">
+<div class="form-body">   
+   <label>
+  {{ 'HOME.SELECT' | translate }}
+  <select #langSelect (change)="translate.use(langSelect.value)">
+    <option *ngFor="let lang of langs" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+  </select>
+</label>
     <ul class="nav nav-tabs final-login">
-      <li class={{claseLogin}}><a data-toggle="tab" (click)="mortrarA('A')"  >Iniciar Sesión</a></li>
-      <li class={{claseRegistrar}}><a data-toggle="tab" (click)="mortrarA('B')">Registrar</a></li>
+      <li class={{claseLogin}}><a data-toggle="tab" (click)="mortrarA('A')"  >{{'INICIAR SESION'| translate}}</a></li>
+      <li class={{claseRegistrar}}><a data-toggle="tab" (click)="mortrarA('B')">{{'REGISTRAR'| translate}}</a></li>
     </ul>
     <div class="tab-content">
       <div id="sectionA" [hidden]="seccionA" class="tab-pane fade in active">
         <div class="innter-form">
-           <label > {{ 'HELLO' | translate }}</label>
-         
+           
+        
           <form class="sa-innate-form" method="post">
-            <label>Direccion de correo electronico</label>
+            <label>{{'CORREO'| translate}}</label>
             <input type="text" name="username" [(ngModel)]="username">
-            <label>Clave</label>
+            <label>{{'CLAVE'| translate}}</label>
             <input type="password" name="password" [(ngModel)]="password">
             <!-- <button style="width:30%;font-size:9px;" ion-button  color="dark" (click)="CargarADM('Administrador')" >Administrador</button>
             <button style="width:30%;font-size:12px;" ion-button  color="dark" (click)="CargarADM('Profesor')" >Profesor</button> 
             <button style="width:30%;font-size:9px;" ion-button  color="dark" (click)="CargarADM('Administrativo')" >Administrativo</button> -->
-            <button type="submit" (click)="login()">Entrar</button>
-            <label>
-              {{ 'HOME.SELECT' | translate }}
-              <select #langSelect (change)="translate.use(langSelect.value)">
-                <option *ngFor="let lang of langs" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
-              </select>
-            </label>
+            <button type="submit" (click)="login()">{{'ENTRAR'| translate}}</button>
             <!-- <a href="">Forgot Password?</a> -->
             </form>
           </div>
@@ -75,15 +75,15 @@
             <form class="sa-innate-form" method="post">
             <!-- <label>Nombre</label>
             <input type="text" name="username"> -->
-            <label>Nombre</label>
+            <label>{{'NOMBRE'| translate}}</label>
             <input type="text" name="nombre" [(ngModel)]="nombre">
-            <label>Direccion de correo electronico</label>
+            <label>{{'CORREO'| translate}}</label>
             <input type="text" name="username" [(ngModel)]="username">
-            <label>Contraseña</label>
+            <label>{{'CLAVE'| translate}}</label>
             <input type="password" name="password" [(ngModel)]="password">
-            <label>Repetir Contraseña</label>
+            <label>{{'CLAVE2'| translate}}</label>
             <input type="password" name="password2" [(ngModel)]="passwordconfirm">
-            <button type="submit" (click)="Aceptar()">Registrar</button>
+            <button type="submit" (click)="Aceptar()">{{'REGISTRAR'| translate}}</button>
             </form>
             </div>
             <div class="social-login">

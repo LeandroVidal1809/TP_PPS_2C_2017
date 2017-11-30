@@ -24,14 +24,17 @@ import { swipeShouldReset } from 'ionic-angular/util/util';
 export class Modificar {
 
   lista: any;
-  legajo: string;
   Mensaje:string;
   email:string;
   password:string;
   passwordconfirm:string;
   nombre: string;
   tipo:string;
-  perfil = {name : '',profilePicture: '',email: ''};
+  foto: string;
+  KeyUsuario:string;
+  listadoU:Array<any>;
+  perfil = {name : '',profilePicture: '',email: '',tipo:''};
+  
   constructor(public navCtrl: NavController,
                public navParams: NavParams,
                public alertCtrl: AlertController,
@@ -46,26 +49,26 @@ export class Modificar {
                   console.log("prueba perfil logeado:",this.perfil);
                   this.email = this.perfil.email;
                   this.nombre = this.perfil.name;
+                  this.foto = this.perfil.profilePicture
+                  this.tipo =this.perfil.tipo;
+                  this.listadoU=new Array<any>();
+
+                  var Observable = this.lista.snapshotChanges(['child_added'])
+                  .subscribe(actions => {
+                    actions.forEach(action => {
+
+                      if(action.payload.val()["Email"] == this.email)
+                      {
+
+            
+                        this.KeyUsuario = action.key;
+                      }
+                  });
+              })
+
                 
   }
-cargardatos(){
-  var Observable = this.lista.snapshotChanges(['child_added'])
-  .subscribe(actions => {
-  actions.forEach(action => {
 
-   
-    action.payload.val()["Email"];
-    action.payload.val()["Nombre"];
-    action.payload.val()["Tipo"];
-    
-   
-
-  }); 
-
-  
-})
-
-}
   tienePermisos()
   {
     if(sessionStorage.getItem("type")!="admin" && sessionStorage.getItem("type")!="administrativo")
@@ -101,39 +104,29 @@ cargardatos(){
     this.tipo = data.tipo;
   }
 
-Guardar2(){
-console.log("modificado:",this.email,this.nombre);
-const data ={
-  name:this.nombre,
-  email: this.email,
-  tipo: this.tipo
-};
+Guardar2(foto: string){
 
-this.view.dismiss(data);
 
-}
-  Guardar()
+ 
+  if(this.nombre != "" || this.foto != "")
   {
-    var ok =this.Registrar();
-    if(ok)
-      {
-    this.lista.push({
-      Nombre : this.nombre,
-      Email:this.email,
-      Tipo: this.tipo.toLowerCase()
 
-      });  
-    
-      this.legajo = "";
-      this.nombre = "";
-      this.tipo = "";
-      this.email = "";
-      this.password="";
-      this.passwordconfirm="";
-    }
-    this.showAlert("Se guardo el usuario correctamente","Proceso finalizado");
+        this.lista.update(this.KeyUsuario,
+          { 
+            Nombre: this.nombre,
+            Foto:this.foto
+         })
+         this.showAlert("Se guardo correctamente el alumno","Exito");
+
+
+  }
+  else
+  {
+    this.showAlert("Complite todos los campos","Lo Sentimos");
   }
 
+}
+  
 
 Registrar():Boolean
 {
@@ -197,29 +190,7 @@ return false;
         return loader;
       }
 
-      fotoelegida(valor:string)
-      {
-        switch (valor) {
-            case '1':
-            
-            break;
-            case '2':
-            
-            break;
-            case '3':
-            
-            break;
-            case '4':
-            
-            break;
-            case '5':
-            
-            break;
-        
-          default:
-            break;
-        }
-      }
+
      
     
 }

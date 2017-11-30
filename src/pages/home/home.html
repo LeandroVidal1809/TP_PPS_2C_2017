@@ -9,7 +9,12 @@
       <!-- <td>{{perfil.name}}</td>     -->
       <td  class="titulos"><img class="imagen"  src="{{perfil.profilePicture}}"/></td>
       </tr>
-
+      <label>
+        {{ 'HOME.SELECT' | translate }}
+        <select #langSelect (change)="translate.use(langSelect.value)">
+          <option *ngFor="let lang of langs" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+        </select>
+      </label>
     </table>
 
   </ion-header>
@@ -32,14 +37,14 @@
       <div>   						
       <a (click)="redirect('Excel')"> <img class="foto" width=250px; height=120px; src="assets/imgs/menuExcel.png"></a>
     </div>
-    <a (click)="redirect('QR')"> <img class="foto" width=250px; height=120px; src="assets/imgs/menuExcel.png"></a>
+    <a (click)="redirect('QR')"> <img class="foto" width=250px; height=120px; src="assets/imgs/menuQR.png"></a>
     
     </div>  
     <div> 		
       <a (click)="redirect('Encuesta')">  <img class="foto" width=250px; height=120px; src="assets/imgs/Encuesta.png"></a>
       </div>     
     
-    
+  
     
     
     

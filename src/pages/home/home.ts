@@ -16,16 +16,21 @@ import { LoginPage } from '../login/login';
 import { MenuController } from 'ionic-angular';
 import {Platform} from 'ionic-angular';
 
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { IonicPage } from 'ionic-angular';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  
-perfil = {name : '',profilePicture: '',email: ''};
+  langs = ['en', 'fr', 'es'];
+perfil = {name : '',profilePicture: '',email: '',tipo:''};
 
-  constructor(private nativeAudio: NativeAudio,public platform: Platform,/* public push: Push, */public modalCtrl: ModalController,public navCtrl: NavController,
+  constructor(private nativeAudio: NativeAudio, public translate: TranslateService,public platform: Platform,/* public push: Push, */public modalCtrl: ModalController,public navCtrl: NavController,
     private _auth:AngularFireAuth, public navParams: NavParams) {
+       this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      console.log('Language changed to ' + this.translate.currentLang);
+    });
       console.log(navParams);
       this.perfil=navParams.data;
       console.log("prueba perfil logeado:",this.perfil);
@@ -100,13 +105,15 @@ perfil = {name : '',profilePicture: '',email: ''};
     modificar(){
       const MyModalOption : ModalOptions ={
         enableBackdropDismiss : false   };
-
+       
       let profileModal : Modal = this.modalCtrl.create(Modificar, { data: this.perfil}, MyModalOption);
       profileModal.present(); 
       profileModal.onDidDismiss((data)=>{
         console.log("modificacion en home:",data);
         this.perfil.email = data.email;
         this.perfil.name = data.name;
+        this.perfil.tipo = data.tipo;
+        this.perfil.profilePicture = data.foto;
      
       })
 
@@ -119,6 +126,7 @@ perfil = {name : '',profilePicture: '',email: ''};
     
     switch (path) {
         case 'QR':
+        sessionStorage.setItem("EmailProf",this.perfil.email);
         let profileModal : Modal = this.modalCtrl.create(QRPage, { data: this.perfil}, MyModalOption);
         profileModal.present(); 
         //prueba de data en la entrada y salida del modal!
