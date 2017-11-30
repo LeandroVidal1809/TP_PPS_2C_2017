@@ -16,8 +16,8 @@ import { AbmProfyAdminPage } from '../pages/abm-profy-admin/abm-profy-admin';
 import { AltaEncuesta } from '../pages/alta-encuesta/alta-encuesta';
 import { EncuestaPage } from '../pages/encuesta/encuesta';
 
-
-
+import { TranslateService } from '@ngx-translate/core';
+import { Config } from 'ionic-angular';
 
 @Component({
   templateUrl: 'app.html'
@@ -30,9 +30,13 @@ export class MyApp {
  rootPage: any = LoginPage;
   pages: Array<{title: string, component: any,type:string}>;
 
-  constructor(public modalCtrl: ModalController,public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public translate: TranslateService, public modalCtrl: ModalController,public platform: Platform, public statusBar: StatusBar, private config: Config, public splashScreen: SplashScreen) {
+    this.initTranslate();
     this.initializeApp();
-
+    
+      // this language will be used as a fallback when a translation isn't found in the current language
+ 
+  
     // used for an example of ngFor and navigation
 
 
@@ -52,11 +56,29 @@ export class MyApp {
           { title: 'Alumnos', component:AbmAlumnosPage,type:'button'}
         ];
     
+       
     
     
+  }   
+   initTranslate() {
+    // Set the default language for translation strings, and the current language.
+    this.translate.setDefaultLang('en');
 
+
+    if (this.translate.getBrowserLang() !== undefined) {
+      this.translate.use(this.translate.getBrowserLang());
+    } else {
+      this.translate.use('en'); // Set your language here
+    }
+
+    this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
+      this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
+    });
   }
-
+  public switchLenguage(lenguage: string){
+    this.translate.use(lenguage);
+   
+    }
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

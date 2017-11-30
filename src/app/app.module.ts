@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler, NgModule, Inject, PLATFORM_ID  } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -31,8 +31,12 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 //import { Facebook } from '@ionic-native/facebook';
 import firebase from 'firebase';
 import { Toast } from '@ionic-native/toast';
-import { HttpModule } from '@angular/http';
+import {UniversalTranslateLoader  } from '@ngx-universal/translate-loader';
 
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpModule, Http  } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyDGhCp0KcrN7-QL49H_xHtlVVPswyNagCo",
@@ -43,6 +47,13 @@ export const firebaseConfig = {
   messagingSenderId: "193916278651"
 };
 
+/* export function createTranslateLoader(http: Http) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+} */
+export function translateFactory(platformId: any, http: Http, httpClient: HttpClient): TranslateLoader {
+  const browserLoader = new TranslateHttpLoader(httpClient);
+  return new UniversalTranslateLoader(platformId, browserLoader, './i18n');
+}
 @NgModule({
   declarations: [
     MyApp,
@@ -68,10 +79,17 @@ export const firebaseConfig = {
     IonicModule.forRoot(MyApp),
     ChartsModule,
     HttpModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (translateFactory),
+        deps: [PLATFORM_ID, Http, HttpClient]
+      }
+    }),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-
+    TranslateModule.forRoot()
   
   ],
   bootstrap: [IonicApp],

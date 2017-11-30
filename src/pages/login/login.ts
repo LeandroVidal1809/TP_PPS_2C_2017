@@ -9,6 +9,9 @@ import { AlertController ,LoadingController, Loading} from 'ionic-angular';
 import * as firebase from 'firebase';
 //import { Facebook } from '@ionic-native/facebook';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+
+
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -21,7 +24,7 @@ perfil = {
 profilePicture: '',
 email: ''
 }
-
+langs = ['en', 'fr', 'es'];
 
 
   seccionA = false;
@@ -39,7 +42,8 @@ email: ''
   nameUser:string;
   passwordconfirm:string;
   list: AngularFireList<any>;
-  constructor(public menuCtrl: MenuController,
+  constructor(public translate: TranslateService,
+              public menuCtrl: MenuController,
               public spiner:LoadingController,
               public navCtrl: NavController,
          //     public facebook: Facebook,
@@ -49,12 +53,21 @@ email: ''
               private _auth:AngularFireAuth,
               public navParams: NavParams) 
   { 
- 
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      console.log('Language changed to ' + this.translate.currentLang);
+    });
     this.list= af.list('/Usuarios');
     this.claseLogin="active";
     this.claseRegistrar="";
-  }
 
+ 
+  }
+   switchLenguage(lenguage: string){
+    this.translate.use(lenguage);
+ console.log(lenguage);
+ console.log(this.translate);
+ 
+    }
 
   async login()
   {
