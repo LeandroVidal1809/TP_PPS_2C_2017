@@ -7,6 +7,7 @@ import { AbmAlumnosPage } from '../abm-alumnos/abm-alumnos';
 import { AbmProfyAdminPage } from '../abm-profy-admin/abm-profy-admin';
 import { AlertController ,LoadingController, Loading} from 'ionic-angular';
 import * as firebase from 'firebase';
+import { InfoAlumnoPage } from '../info-alumno/info-alumno';
 //import { Facebook } from '@ionic-native/facebook';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 @IonicPage()
@@ -67,6 +68,7 @@ tipo:''
       else{
         let espera = this.MiSpiner();
         espera.present();       
+        
         await this._auth.auth.signInWithEmailAndPassword(this.username,this.password)
                         .then(result => { 
                           espera.dismiss();
@@ -199,6 +201,8 @@ if (this.platform.is('cordova')) {
        
         this.perfil.profilePicture = res.user.photoURL;
         this.perfil.name = res.user.displayName;
+        localStorage.setItem("Nombre",this.perfil.name);
+        localStorage.setItem("Foto",this.perfil.profilePicture);
         this.navCtrl.setRoot(HomePage,this.perfil);
     
         

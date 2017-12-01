@@ -4,8 +4,8 @@ import {AngularFireDatabase} from 'angularfire2/database';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 import { AlertController ,LoadingController, Loading} from 'ionic-angular';
 import { HomePage } from '../home/home';	
-
-
+import * as papa from 'papaparse';
+import { Http } from '@angular/http';
 
 import { LoginPage } from '../login/login';
 /**
@@ -25,21 +25,28 @@ export class AbmProfyAdminPage {
   lista: any;
   legajo: string;
   Mensaje:string;
+  tipo:string;
   email:string;
   password:string;
   passwordconfirm:string;
+  public csvData: any[] = [];
   nombre: string;
-  tipo:string;
- 
+  tipocarga:string;
+  lista1:boolean;
+  testRadioOpen: boolean;
+  testRadioResult;
+  archivo: string;
   constructor(public navCtrl: NavController,
                public navParams: NavParams,
                public alertCtrl: AlertController,
                public af: AngularFireDatabase,
                public spiner:LoadingController,
+               private http: Http,
                 private view: ViewController,
                 private _auth:AngularFireAuth) {
                   this.tienePermisos();
                   this.lista= af.list('/Usuarios/');
+                  this.lista1=true;
                   
   }
 
@@ -76,7 +83,7 @@ export class AbmProfyAdminPage {
 
   Guardar()
   {
-    var ok =this.Registrar();
+    var ok =this.Registrar('');
     if(ok)
       {
     this.lista.push({
@@ -97,15 +104,57 @@ export class AbmProfyAdminPage {
   }
 
 
-Registrar():Boolean
+
+  GuardarLista()
+  {
+    debugger;
+    let espera = this.MiSpiner();
+    espera.present();  
+    for (var index = 0; index < this.csvData.length-1; index++) {
+      var element = this.csvData[index];
+        var _legajo = element[0];
+        var _nombre = element[1];
+        var _email = element[2];
+        var _clave = element[3];
+        var _foto = element[4];
+        this.email=_email;
+        this.password= _clave;
+        this.passwordconfirm= _clave;
+        var _tipo=this.archivo.split("-");
+        var ok =this.Registrar('lista');
+        if(ok)
+          {
+        this.lista.push({
+          Legajo:_legajo,
+          Nombre : _nombre,
+          Email:_email,
+          Tipo: _tipo[0],
+          Foto: _foto
+    
+          });  
+
+      }
+    }
+    espera.dismiss();
+    this.showAlert("Se guardo la lista correctamente","Proceso finalizado");
+  }
+
+
+
+
+
+Registrar(tipo:string):Boolean
 {
   if(this.password.length>5){
     if(this.password==this.passwordconfirm)
     try{
+      if(tipo!='lista'){
       let espera = this.MiSpiner();
-      espera.present();    
+      espera.present(); 
+    }   
         const result =  this._auth.auth.createUserWithEmailAndPassword(this.email,this.password);
     
+        if(tipo!='lista')
       this.showAlert(this.email + " Fue ingresado Exitosamente!","Proceso finalizado");      
     return true;  
     }
@@ -160,6 +209,80 @@ return false;
       }
      
     
+
+      public elegirArchivos()
+      {
+        let alert = this.alertCtrl.create();
+        alert.setTitle('Elegir archivo');
+      
+        alert.addInput({
+          type: 'radio',
+          label: 'Profesor-Carga',
+          value: 'Profesor-Carga',
+          checked: true
+        });
+      
+      
+        alert.addButton('Cancel');
+        alert.addButton({
+          text: 'Ok',
+          handler: data => {
+            console.log('Radio data:', data);
+            this.testRadioOpen = false;
+            this.testRadioResult = data;
+      
+            if(data){
+              switch (data) {
+                case 'Profesor-Carga':
+                 this.archivo ='Profesor-Carga.csv';
+                 this.readCsvData();
+                  break;
+                
+                
+              }
+            }
+      
+          }
+        });
+      
+        alert.present().then(() => {
+          this.testRadioOpen = true;
+        });
+      }
+    
+    
+      private readCsvData() {
+        if(this.archivo != null){
+        this.http.get('assets/archivos/'+this.archivo)
+          .subscribe(
+          data => this.extractData(data),
+          err => this.handleError(err)
+          );
+        }   
+      }
+    
+      private handleError(err) {
+        console.log('Error ', err);
+      }
+     
+    
+      private extractData(res) {
+    
+        let csvData = res['_body'] || '';
+        let parsedData = papa.parse(csvData).data;
+        this.csvData = parsedData;
+        console.log('respuesta ',  this.csvData);
+      }
+
+      cambiaLista(tipocargaa:string)
+      {
+          if(tipocargaa=="uno")
+            {
+              this.lista1=true;
+            }
+            else
+              this.lista1=false;
+      }
 }
   
 

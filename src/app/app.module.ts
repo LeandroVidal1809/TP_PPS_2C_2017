@@ -34,6 +34,7 @@ import firebase from 'firebase';
 import { Toast } from '@ionic-native/toast';
 import { HttpModule } from '@angular/http';
 import { InfoProfesorPage } from '../pages/info-profesor/info-profesor';
+import { InfoAlumnoPage } from '../pages/info-alumno/info-alumno';
 
 
 export const firebaseConfig = {
@@ -62,6 +63,7 @@ export const firebaseConfig = {
     AbmAlumnosPage,
     AbmProfyAdminPage,
     ConsultaPage,
+    InfoAlumnoPage,
     EncuestaPage,
     ListaconsultaPage,AltaEncuesta,ModificarEnc
     
@@ -96,7 +98,8 @@ export const firebaseConfig = {
     AbmProfyAdminPage,
     ConsultaPage,
     ListaconsultaPage,
-    AltaEncuesta,ModificarEnc
+    AltaEncuesta,ModificarEnc,
+    InfoAlumnoPage
 
   ],
   providers: [

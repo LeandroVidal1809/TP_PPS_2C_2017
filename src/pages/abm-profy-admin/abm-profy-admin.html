@@ -3,8 +3,19 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <ion-header>
     <ion-navbar>
-   
-      <ion-title>ABM Profesor & Administrativo</ion-title>
+      <form class="form-horizontal" role="form">
+        
+            <div class="form-group">
+                <label   class="col-sm-4 control-label">Seleccione la modalidad</label>
+                <div class="col-sm-8">
+                    <label class="radio-inline"> <input type="radio" (click)="cambiaLista('uno')" name="season" id="seasonSummer" value="uno" checked> Usuario </label>
+                    <label class="radio-inline"> <input type="radio" (click)="cambiaLista('lista')" name="season" id="seasonWinter" value="lista"> Lista </label>
+                 
+                </div>
+            </div>
+      </form>
+      <!-- <ion-title>ABM Profesor & Administrativo</ion-title> -->
+
       <ion-buttons end>
           <button ion-button (click)="closeModal()" >Cerrar </button>   
         </ion-buttons>
@@ -13,7 +24,7 @@
   <ion-content padding align="center">
     <!---->      
 
- 
+    <div [hidden]="!lista1">
     <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10">
       <div id="login-access" class="tab-pane fade active in">
         <h2><i class="glyphicon glyphicon-log-in"></i> ABM Profesor y Administrativo</h2>						
@@ -35,4 +46,47 @@
       
       <button  (click)="Guardar()" class="btn btn-primary btn-md">Registrar usuario</button>
     </div>
+    </div>
+
+
+    <div [hidden]="lista1">
+    <ion-navbar color='favorite'> 
+      
+       <ion-buttons start>
+         <button ion-button icon-only (click)="elegirArchivos()">
+             <ion-icon name="add"></ion-icon>
+           </button>
+       </ion-buttons>
+       <ion-title>
+         Importar Lista de Profesores/Administrativos
+       </ion-title>
+       <ion-buttons end>
+         <button ion-button icon-only (click)="downloadCSV()">
+             <ion-icon name="download"></ion-icon>
+           </button> 
+           <button ion-button icon-only (click)="guardarLista()">
+             <ion-icon name="cloud-upload"></ion-icon>
+           </button>
+       </ion-buttons >
+     </ion-navbar>
+
+
+
+      <p *ngIf="archivo == null">Presiona el botón + para elegir un archivo</p>
+    
+        <table border="1" class="data-table" style="overflow-x:auto;">
+        
+          <th *ngIf="archivo != null">Legajo</th>
+          <th *ngIf="archivo != null">Nombre y apellido</th>
+          <th *ngIf="archivo != null">Email</th>
+          <th *ngIf="archivo != null">Clave</th>
+          <tr *ngFor="let row of csvData; let i = index">
+              <td *ngFor="let data of row; let j = index; trackBy: trackByFn">
+                <ion-input type="text" [(ngModel)]="csvData[i][j]"></ion-input>
+              </td>
+            </tr>
+        </table>    
+        <button  (click)="GuardarLista()" class="btn btn-primary btn-md">Registrar Lista de Usuarios</button>
+    </div>
+
   </ion-content>

@@ -11,6 +11,7 @@ import { AbmProfyAdminPage } from '../abm-profy-admin/abm-profy-admin';
 
 import { LoginPage } from '../login/login';
 import { InfoProfesorPage } from '../info-profesor/info-profesor';
+import { InfoAlumnoPage } from '../info-alumno/info-alumno';
 
 @Component({
   selector: 'page-list',
@@ -74,7 +75,7 @@ export class QRPage {
     
        if(barcodeData.text=="alta-alumno"){
 
-        let profileModal : Modal = this.modalCtrl.create(AbmAlumnosPage,MyModalOption);
+        let profileModal : Modal = this.modalCtrl.create(InfoAlumnoPage,MyModalOption);
                profileModal.present(); 
 
        }
