@@ -83,6 +83,8 @@ export class Modificar {
       this.navCtrl.setRoot(LoginPage);
     }
   closeModal(){
+   
+
     this.view.dismiss();
       }
       showAlert(mensaje:string,titulo:string) {
@@ -110,7 +112,7 @@ Guardar2(foto: string){
  
   if(this.nombre != "" || this.foto != "")
   {
-
+console.log(this.foto);
         this.lista.update(this.KeyUsuario,
           { 
             Nombre: this.nombre,
@@ -118,7 +120,11 @@ Guardar2(foto: string){
          })
          this.showAlert("Se guardo correctamente el alumno","Exito");
 
-
+         const data ={
+          name: this.nombre,
+     
+          profilePicture: this.foto
+        };   this.view.dismiss(data);
   }
   else
   {

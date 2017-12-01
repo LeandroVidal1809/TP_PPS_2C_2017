@@ -125,6 +125,7 @@ button:boolean=false;
   switch (this.tipo) {
 
       case "RadioButton":
+      console.log("radioopcion");
       this.list=this.db.list('/encuesta');
       console.log("button select:" ,this.buttonSelect);
       this.list.push({
@@ -138,6 +139,7 @@ button:boolean=false;
       });
       break;
       case "Selector":
+      console.log("selectoroption");
       this.list=this.db.list('/encuesta');
       this.list.push({
         alumno: sessionStorage.getItem("type"),
@@ -163,7 +165,7 @@ grafico(){
   if(this.yavoto == true)
   {
     this.showAlert("No permitido","usted ya voto!");
-    this.view.dismiss();
+    
   }else{
     let profileModal : Modal = this.modalCtrl.create(GraficosPage, MyModalOption);
     profileModal.present(); 

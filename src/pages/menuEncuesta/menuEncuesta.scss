@@ -1,0 +1,50 @@
+page-menuEncuesta {
+   .botonmenu{
+       color:black;
+       background-color: #FFFFFF;
+       outline: none;
+   
+   }
+
+   .fondo{
+       background-image: url('../assets/imgs/AulaWp.jpg');
+       background-size: 300px 200px;
+      
+       
+   }
+   .label2{
+        font-size: 20px;
+        margin-top: 0px;
+   }
+
+   .imagen{
+    width:50px;
+    height:50px;
+    
+    //border: 2px solid black;
+
+   }
+   .titulos{
+    float: right;
+    margin-left: 22px;
+    background-color: white;
+    background-color: #7E7E7E;
+    border: 2px solid black;
+   }
+   .target{
+    float: left;
+    font-size: 12px ;
+    margin-top: 5%;
+    background-color: #B5ADAD;
+    border: 2px solid black;
+   }
+   .centrar{
+        margin-top: 20%;
+
+   }
+   .foto{
+    // background-color: rgba(255, 255, 255, 0.00);
+    border: 3px solid black;
+    margin-top: 2%;
+   }
+}

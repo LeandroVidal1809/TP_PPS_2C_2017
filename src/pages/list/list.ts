@@ -8,7 +8,9 @@ import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 import { AbmAlumnosPage } from '../abm-alumnos/abm-alumnos';
 import { AbmProfyAdminPage } from '../abm-profy-admin/abm-profy-admin';
-
+import { GraficosPage } from '../graficos/graficos';
+import {Platform} from 'ionic-angular';
+import { NativeAudio } from '@ionic-native/native-audio';
 import { LoginPage } from '../login/login';
 import { InfoProfesorPage } from '../info-profesor/info-profesor';
 import { InfoAlumnoPage } from '../info-alumno/info-alumno';
@@ -31,7 +33,7 @@ export class QRPage {
 
   perfil = {loggedin: false,name : '',profilePicture: '',email: ''};
 
-  constructor( public navCtrl: NavController,
+  constructor( private nativeAudio: NativeAudio,public platform: Platform,public navCtrl: NavController,
      public navParams: NavParams, public modalCtrl: ModalController,
      private view: ViewController,db:AngularFireDatabase,
      private barcodeScanner: BarcodeScanner,
@@ -80,9 +82,9 @@ export class QRPage {
 
        }
        else if(barcodeData.text=="alta-administrador"){
+        this.nativeAudio.play('Silbido');
 
-
-        let profileModal : Modal = this.modalCtrl.create(AbmProfyAdminPage,MyModalOption);
+        let profileModal : Modal = this.modalCtrl.create(GraficosPage,MyModalOption);
                profileModal.present(); 
 
        }    
@@ -115,7 +117,17 @@ export class QRPage {
  ionViewWillLoad(){
 const data = this.navParams.get('data');
 console.log(data);
+
+this.platform.ready().then(() => { 
+  
+      this.nativeAudio.preloadComplex('Silbido', "assets/sound/Silbido.mp3", 1, 1, 0).then(() => {     
+       console.log("sonidocargado");
+      });
+     
+            
+    });
  }
+ 
   
 }
 

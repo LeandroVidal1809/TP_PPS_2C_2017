@@ -15,7 +15,7 @@ import { AbmAlumnosPage } from '../pages/abm-alumnos/abm-alumnos';
 import { AbmProfyAdminPage } from '../pages/abm-profy-admin/abm-profy-admin';
 import { AltaEncuesta } from '../pages/alta-encuesta/alta-encuesta';
 import { EncuestaPage } from '../pages/encuesta/encuesta';
-
+import { MenuEncuesta } from '../pages/menuEncuesta/menuEncuesta';
 
 
 
@@ -41,12 +41,12 @@ export class MyApp {
         
           { title: 'Tomar asistencia', component: TomarAsistenciaPage,type:'button'},
           { title: 'Tomar foto del aula', component: TomarFotoPage,type:'button'},
-          { title: 'Creador de Encuestas', component: AltaEncuesta, type:'button'},
-          { title: 'Encuesta del dia', component: EncuestaPage, type:'button'},
+        
+          { title: 'Encuestas', component: MenuEncuesta, type:'button'},
          
           { title: 'Graficos Estadisticos', component: GraficosPage, type:'button'},
           { title: 'Importar Excel', component: ExcelPage,type:'button'},
-         
+          { title: 'QR Scann', component: QRPage,type:'button'},
           { title: '------------Sección ABM------------', component: HomePage,type:'section'},
           { title: 'Usuarios', component:AbmProfyAdminPage,type:'button'},
           { title: 'Alumnos', component:AbmAlumnosPage,type:'button'}

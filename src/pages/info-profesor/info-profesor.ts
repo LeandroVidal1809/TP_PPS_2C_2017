@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
-import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ViewController,AlertController } from 'ionic-angular';
 
 
 
@@ -18,12 +18,16 @@ export class InfoProfesorPage {
   Materia:string;
   Apellido:string;
   Nombre:string;
-
-  constructor(public navCtrl: NavController , private view: ViewController,db:AngularFireDatabase, public navParams: NavParams) 
+tipo:string;
+  constructor(public navCtrl: NavController , public alertCtrl: AlertController, private view: ViewController,db:AngularFireDatabase, public navParams: NavParams) 
   {
 
     this.emailProf = sessionStorage.getItem("EmailProf");
-
+    this.tipo = sessionStorage.getItem("type");
+    if(this.tipo!="profesor"){
+      this.showAlert("No eres un profesor","Sin Permisos");
+      this.view.dismiss();
+    }
     this.listaProf= db.list('/Profesores/');
     
 
@@ -44,9 +48,22 @@ export class InfoProfesorPage {
     
           });
       })
+     
 
   }
 
+  showAlert(mensaje:string,titulo:string) {
+    
+    
+
+    
+    let alert = this.alertCtrl.create({
+      title: titulo,
+      subTitle: mensaje,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad InfoProfesorPage');
   }

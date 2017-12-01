@@ -176,22 +176,39 @@ switch (provider) {
     break;
   case "google":
      signin =new firebase.auth.GoogleAuthProvider();
-      
+  
     break;
   case "github":
       signin =new firebase.auth.GithubAuthProvider();
-        
+    
     break;
     case "twitter":
     signin =new firebase.auth.TwitterAuthProvider();
-      
+  
   break;
 }
-if (this.platform.is('cordova')) {
+if (!this.platform.is('cordova')) {  
+this._auth.auth.signInWithPopup(signin).then(res =>{
+  console.log("INGRESANDO CON ---",provider,"---");
+  console.log(res);
+  this.type= "alumnos";
+  sessionStorage.setItem("type",this.type);
+  console.log("tipo: "+ this.type);
+  this.perfil.email = res.user.email;
+
+  this.perfil.profilePicture = res.user.photoURL;
+  this.perfil.name = res.user.displayName;
+
+  
+  this.navCtrl.setRoot(HomePage,this.perfil);
+})
+ 
+
+}else{  
   this._auth.auth.signInWithRedirect(signin).then(res =>{
-    
+
       this._auth.auth.getRedirectResult().then(res =>{
-    
+     
         console.log("INGRESANDO CON ---",provider,"---");
         console.log(res);
         this.type= "alumnos";
@@ -208,27 +225,12 @@ if (this.platform.is('cordova')) {
         
     
     
-      });
+      })
     
       
-    })
-
-}else{
-
-  this._auth.auth.signInWithPopup(signin).then(res =>{
-    console.log("INGRESANDO CON ---",provider,"---");
-    console.log(res);
-    this.type= "alumnos";
-    sessionStorage.setItem("type",this.type);
-    console.log("tipo: "+ this.type);
-    this.perfil.email = res.user.email;
-
-    this.perfil.profilePicture = res.user.photoURL;
-    this.perfil.name = res.user.displayName;
-    let espera = this.MiSpiner2();
-    espera.present();   
-    this.navCtrl.setRoot(HomePage,this.perfil);
-  })
+    }).catch(error =>{ 
+      this.showAlert(error.message,"Error al ingresar!");}) 
+ 
 }
 
 

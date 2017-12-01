@@ -36,6 +36,7 @@ import { HttpModule } from '@angular/http';
 import { InfoProfesorPage } from '../pages/info-profesor/info-profesor';
 import { InfoAlumnoPage } from '../pages/info-alumno/info-alumno';
 
+import { MenuEncuesta } from '../pages/menuEncuesta/menuEncuesta';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyDGhCp0KcrN7-QL49H_xHtlVVPswyNagCo",
@@ -65,7 +66,7 @@ export const firebaseConfig = {
     ConsultaPage,
     InfoAlumnoPage,
     EncuestaPage,
-    ListaconsultaPage,AltaEncuesta,ModificarEnc
+    ListaconsultaPage,AltaEncuesta,ModificarEnc,MenuEncuesta
     
   ],
   imports: [
@@ -98,8 +99,10 @@ export const firebaseConfig = {
     AbmProfyAdminPage,
     ConsultaPage,
     ListaconsultaPage,
-    AltaEncuesta,ModificarEnc,
-    InfoAlumnoPage
+    InfoAlumnoPage,
+    AltaEncuesta,
+    ModificarEnc,
+    MenuEncuesta
 
   ],
   providers: [

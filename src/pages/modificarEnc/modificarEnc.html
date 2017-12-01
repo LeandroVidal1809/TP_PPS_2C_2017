@@ -6,7 +6,7 @@
    
       <ion-title>Modificar Encuesta</ion-title>
       <ion-buttons end>
-          <button ion-button (click)="closeModal()" >Cerrar </button>   
+          <button ion-button (click)="Borrar()" >Borrar </button>   <button ion-button (click)="closeModal()" >Cerrar </button>   
         </ion-buttons>
     </ion-navbar>
   </ion-header>
@@ -18,7 +18,7 @@
       <div id="login-access" class="tab-pane fade active in">
         <h2><i class="glyphicon glyphicon-log-in"></i>Modificar Encuesta</h2>						
         La encuesta Durará:
-        <select [(ngModel)]="tiempo" style="margin-left: -72px;width: 265px;font-size:22px"   style="color:black;" >
+        <select [(ngModel)]="tiempomodif" style="margin-left: -72px;width: 265px;font-size:22px"   style="color:black;" >
           <option>Duracion de la Encuesta</option>
           <!-- <option>CheckBox</option> -->
           <option>1 min</option>

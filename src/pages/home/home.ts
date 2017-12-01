@@ -15,7 +15,7 @@ import { NativeAudio } from '@ionic-native/native-audio';
 import { LoginPage } from '../login/login';
 import { MenuController } from 'ionic-angular';
 import {Platform} from 'ionic-angular';
-
+import { MenuEncuesta } from '../menuEncuesta/menuEncuesta';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -81,7 +81,9 @@ perfil = {name : '',profilePicture: '',email: '',tipo:''};
         this.perfil.profilePicture =  sessionStorage.getItem("foto");
      
       }
-      this.perfil.profilePicture =  sessionStorage.getItem("foto");
+
+
+
   }
 
   logOut(){
@@ -105,13 +107,13 @@ perfil = {name : '',profilePicture: '',email: '',tipo:''};
       profileModal.present(); 
       profileModal.onDidDismiss((data)=>{
         console.log("modificacion en home:",data);
-        this.perfil.email = data.email;
+
         this.perfil.name = data.name;
-        this.perfil.tipo = data.tipo;
+
         this.perfil.profilePicture = data.foto;
      
       })
-
+      console.log(  this.perfil.profilePicture);
     }
   redirect(path:string)
   {
@@ -151,7 +153,7 @@ perfil = {name : '',profilePicture: '',email: '',tipo:''};
       //  this.navCtrl.push(TomarAsistenciaPage);
         break;
         case 'Encuesta':
-        profileModal = this.modalCtrl.create(AltaEncuesta, MyModalOption);
+        profileModal = this.modalCtrl.create(MenuEncuesta, MyModalOption);
         profileModal.present();
       //  this.navCtrl.push(TomarAsistenciaPage);
         break;  
@@ -165,11 +167,11 @@ ionViewDidLoad() {
     this.platform.ready().then(() => { 
   
       this.nativeAudio.preloadComplex('Silbido', "assets/sound/Silbido.mp3", 1, 1, 0).then(() => {     
-       console.log("sonidocargado");this.nativeAudio.play('Silbido');
+       console.log("sonidocargado");
       });
      
             
-    });
+    });this.nativeAudio.play('Silbido');
     
   }
 }
