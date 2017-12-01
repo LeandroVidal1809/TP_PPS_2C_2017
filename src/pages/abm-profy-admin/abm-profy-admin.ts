@@ -151,7 +151,7 @@ Registrar(tipo:string):Boolean
       if(tipo!='lista'){
       let espera = this.MiSpiner();
       espera.present(); 
-    }   
+      }   
         const result =  this._auth.auth.createUserWithEmailAndPassword(this.email,this.password);
     
         if(tipo!='lista')
