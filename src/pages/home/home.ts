@@ -82,6 +82,8 @@ perfil = {name : '',profilePicture: '',email: '',tipo:''};
      
       }
 
+
+
   }
 
   logOut(){
@@ -105,13 +107,13 @@ perfil = {name : '',profilePicture: '',email: '',tipo:''};
       profileModal.present(); 
       profileModal.onDidDismiss((data)=>{
         console.log("modificacion en home:",data);
-        this.perfil.email = data.email;
+
         this.perfil.name = data.name;
-        this.perfil.tipo = data.tipo;
+
         this.perfil.profilePicture = data.foto;
      
       })
-
+      console.log(  this.perfil.profilePicture);
     }
   redirect(path:string)
   {
