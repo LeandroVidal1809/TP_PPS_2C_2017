@@ -40,6 +40,9 @@
         <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png" />
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
     </platform>
+    <platform name="android">
+        <resource-file src="google-services.json" target="google-services.json" />
+    </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
@@ -86,6 +89,6 @@
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
     <plugin name="cordova-plugin-firebase" spec="^0.1.24" />
     <plugin name="cordova-plugin-x-toast" spec="^2.6.0" />
-    <engine name="android" spec="~6.3.0" />
     <plugin name="cordova-plugin-nativeaudio" spec="^3.0.9" />
+    <engine name="android" spec="~6.3.0" />
 </widget>

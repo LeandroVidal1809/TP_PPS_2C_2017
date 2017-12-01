@@ -81,7 +81,7 @@ perfil = {name : '',profilePicture: '',email: '',tipo:''};
         this.perfil.profilePicture =  sessionStorage.getItem("foto");
      
       }
-      this.perfil.profilePicture =  sessionStorage.getItem("foto");
+
   }
 
   logOut(){
