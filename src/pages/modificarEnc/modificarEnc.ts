@@ -63,7 +63,7 @@ export class ModificarEnc {
                       this.pregunta = action.payload.val()["Pregunta"];
                       console.log(this.pregunta);
                       this.tipo =   action.payload.val()["Tipo"];
-                      this.tiempo =new Date(action.payload.val()["HoraFina"]) ;
+                      this.tiempo =new Date() ;
                       console.log("tiempoencuesta:",this.tiempo);
                       this.resp1 =  action.payload.val()["Respuesta1"];
                       this.resp2 =  action.payload.val()["Respuesta2"];
@@ -122,27 +122,28 @@ Modificar(){
    switch(this.tiempomodif)
   {
     case '1 min':
- this.tiempo.getMinutes()+2;
+    this.tiempo.setMinutes(this.tiempo.getMinutes()+1);
     break;
-    case '10 min':
-this.tiempo.getMinutes()+10;
+    case '10 min':console.log("entro a modificar");
+    this.tiempo.setMinutes(this.tiempo.getMinutes()+10);
+
     break;
     case '45 min':
-this.tiempo.getMinutes()+45;
+    this.tiempo.setMinutes(this.tiempo.getMinutes()+45);
     break;
 
-  } 
+  } console.log("tiempomodificado:",this.tiempo);
         this.lista.update(this.KeyUsuario,
-          {  HoraFina: this.tiempo,
+          { 
             Pregunta: this.pregunta,
             Tipo: this.tipo,
-           
+            HoraFina: this.tiempo.getHours()+ ":" +  this.tiempo.getMinutes(),
             Respuesta1:this.resp1,
             Respuesta2:this.resp2,
             Respuesta3:this.resp3,
          });console.log(this.KeyUsuario);
          this.showAlert("Se modifico exitosamente la encuesta","Exito");
-         this.encuesta();
+         this.closeModal();
         
         
 
@@ -183,7 +184,13 @@ encuesta(){
         });
         alert.present();
       }  
-
+      Borrar(){
+        
+               this.lista.remove(this.KeyUsuario);
+               this.showAlert("Se borro correctamente la encuesta","Exito");
+               this.closeModal();
+       
+       }
 
       MiSpiner():Loading
       {

@@ -80,7 +80,7 @@ Modificar(){
   Guardar()
   {
       if(this.respuesta1 || this.respuesta2 || this.respuesta3)
-        {
+        {this.dato= new Date();
           if(this.tiempo==null)
             {
               alert("Seleccione un tiempo de duracion");

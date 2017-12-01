@@ -8,6 +8,7 @@ import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 import { AbmAlumnosPage } from '../abm-alumnos/abm-alumnos';
 import { AbmProfyAdminPage } from '../abm-profy-admin/abm-profy-admin';
+import { GraficosPage } from '../graficos/graficos';
 
 import { LoginPage } from '../login/login';
 import { InfoProfesorPage } from '../info-profesor/info-profesor';
@@ -81,7 +82,7 @@ export class QRPage {
        else if(barcodeData.text=="alta-administrador"){
 
 
-        let profileModal : Modal = this.modalCtrl.create(AbmProfyAdminPage,MyModalOption);
+        let profileModal : Modal = this.modalCtrl.create(GraficosPage,MyModalOption);
                profileModal.present(); 
 
        }    

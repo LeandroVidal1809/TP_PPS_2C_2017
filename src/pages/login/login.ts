@@ -196,8 +196,8 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
 
   this.perfil.profilePicture = res.user.photoURL;
   this.perfil.name = res.user.displayName;
-  let espera = this.MiSpiner2();
-  espera.present();   
+
+  
   this.navCtrl.setRoot(HomePage,this.perfil);
 })
  

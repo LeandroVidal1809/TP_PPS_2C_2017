@@ -34,7 +34,7 @@ import firebase from 'firebase';
 import { Toast } from '@ionic-native/toast';
 import { HttpModule } from '@angular/http';
 import { InfoProfesorPage } from '../pages/info-profesor/info-profesor';
-
+import { MenuEncuesta } from '../pages/menuEncuesta/menuEncuesta';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyDGhCp0KcrN7-QL49H_xHtlVVPswyNagCo",
@@ -63,7 +63,7 @@ export const firebaseConfig = {
     AbmProfyAdminPage,
     ConsultaPage,
     EncuestaPage,
-    ListaconsultaPage,AltaEncuesta,ModificarEnc
+    ListaconsultaPage,AltaEncuesta,ModificarEnc,MenuEncuesta
     
   ],
   imports: [
@@ -96,7 +96,7 @@ export const firebaseConfig = {
     AbmProfyAdminPage,
     ConsultaPage,
     ListaconsultaPage,
-    AltaEncuesta,ModificarEnc
+    AltaEncuesta,ModificarEnc,MenuEncuesta
 
   ],
   providers: [

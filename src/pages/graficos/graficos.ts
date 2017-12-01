@@ -30,8 +30,8 @@ export class GraficosPage {
 pregunta;
 
 
-  public doughnutChartLabels:string[] = ['Si', 'No'];
-  public doughnutChartData:number[]= [this.voto1, this.voto2];
+  public doughnutChartLabels:string[] = [this.resp1,  this.resp2,  this.resp3 ];
+  public doughnutChartData:number[]= [this.voto1, this.voto2,this.voto3];
   public doughnutChartType:string = 'doughnut';
   public chartClicked(e:any):void {
     console.log(e);
@@ -113,7 +113,9 @@ pregunta;
     actions.forEach(action => {
       this.pregunta = action.payload.val()["Pregunta"];
      
+ 
 
+     
 
         if(action.payload.val()["select"]==this.resp1)
         {this.voto1++;}
@@ -125,7 +127,8 @@ pregunta;
     
 
      
-    });  this.doughnutChartData = [this.voto1, this.voto2, this.voto3];
+    }); 
+    this.doughnutChartData = [this.voto1, this.voto2, this.voto3];
   })       
   }
  
