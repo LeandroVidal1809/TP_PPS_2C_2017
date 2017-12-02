@@ -6,7 +6,7 @@ import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 import { AlertController ,LoadingController, Loading} from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import firebase from 'firebase';
-//import { Camera } from '@ionic-native/camera';
+import { Camera } from '@ionic-native/camera';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {TimerObservable} from "rxjs/observable/TimerObservable";
 import { File } from '@ionic-native/file';
@@ -40,7 +40,7 @@ public base64Image: string;
 FechaHoy:string;
 list: AngularFireList<any>;
 Fotolist: AngularFireList<any>;
-  constructor(public navCtrl: NavController,/* private Camera: Camera, */public alertCtrl: AlertController,db:AngularFireDatabase, public navParams: NavParams, private view: ViewController,
+  constructor(public navCtrl: NavController, private Camera: Camera,public alertCtrl: AlertController,db:AngularFireDatabase, public navParams: NavParams, private view: ViewController,
     private _auth:AngularFireAuth) {
    this.Fecha =  new Date();
   var dia = this.Fecha.getDate();
@@ -99,7 +99,7 @@ Fotolist: AngularFireList<any>;
 
 TakePhoto() 
   {
-   /*  this.Camera.getPicture({
+     this.Camera.getPicture({
       quality: 100,
       destinationType: this.Camera.DestinationType.DATA_URL,
       sourceType: this.Camera.PictureSourceType.CAMERA,
@@ -111,7 +111,7 @@ TakePhoto()
    
     }, error => {
       console.log("ERROR -> " + JSON.stringify(error));
-    }); */
+    }); 
   }
 
   

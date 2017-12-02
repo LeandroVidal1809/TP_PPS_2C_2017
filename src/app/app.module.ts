@@ -30,6 +30,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 //import { Facebook } from '@ionic-native/facebook';
+import { Camera } from '@ionic-native/camera';
 import firebase from 'firebase';
 import { Toast } from '@ionic-native/toast';
 import { HttpModule } from '@angular/http';
@@ -109,6 +110,7 @@ export const firebaseConfig = {
     StatusBar,BarcodeScanner,
     SplashScreen,NativeAudio,
     //Facebook,Push,
+    Camera,
     File,
     Toast,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
