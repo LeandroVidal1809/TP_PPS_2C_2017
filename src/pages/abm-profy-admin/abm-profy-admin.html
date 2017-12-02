@@ -81,7 +81,7 @@
           <th *ngIf="archivo != null">Email</th>
           <th *ngIf="archivo != null">Clave</th>
           <tr *ngFor="let row of csvData; let i = index">
-              <td *ngFor="let data of row; let j = index; trackBy: trackByFn">
+              <td *ngFor="let data of row; let j = index ; trackBy: trackByFn">
                 <ion-input type="text" [(ngModel)]="csvData[i][j]"></ion-input>
               </td>
             </tr>

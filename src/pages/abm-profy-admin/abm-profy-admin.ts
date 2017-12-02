@@ -52,7 +52,7 @@ export class AbmProfyAdminPage {
 
   tienePermisos()
   {
-    if(sessionStorage.getItem("type")!="admin" && sessionStorage.getItem("type")!="administrativo")
+    if(sessionStorage.getItem("type")!="admin" )
       {
           this.showAlert("No tiene permisos para ingresar al ABM de Profesores y Administrativos","Lo sentimos");
           this.view.dismiss(); // this.navCtrl.setRoot(HomePage);    
@@ -83,6 +83,39 @@ export class AbmProfyAdminPage {
 
   Guardar()
   {
+    debugger;
+    if(this.nombre=="" || this.nombre==undefined || this.nombre==null)
+      {
+        this.showAlert("Debe ingresar Nombre","Error de validación");
+        return;
+      }
+      if(this.email=="" || this.email==undefined || this.email==null)
+        {
+          this.showAlert("Debe ingresar Email","Error de validación");
+          return;
+        }
+        if(this.password=="" || this.password==undefined || this.password==null)
+          {
+            this.showAlert("Debe ingresar Clave","Error de validación");
+            return;
+          }
+          if(this.passwordconfirm=="" || this.passwordconfirm==undefined || this.passwordconfirm==null)
+            {
+              this.showAlert("Confirme su clave!","Error de validación");
+              return;
+            }
+            
+            if(this.tipo=="" || this.tipo==undefined || this.tipo==null)
+              {
+                this.showAlert("Seleccione tipo de usuario!","Error de validación");
+                return;
+              }
+        if(this.password != this.passwordconfirm)
+          {
+            this.showAlert("las claves no coinciden","Error de validación");
+            return;
+          }  
+    if(this.nombre!="" && this.email!="" && this.password)
     var ok =this.Registrar('');
     if(ok)
       {
@@ -110,6 +143,12 @@ export class AbmProfyAdminPage {
     debugger;
     let espera = this.MiSpiner();
     espera.present();  
+    if(this.csvData.length==0)
+      {
+        espera.dismiss();
+        this.showAlert("Seleccione una lista","Error de Validacion");
+        return;
+      }
     for (var index = 0; index < this.csvData.length-1; index++) {
       var element = this.csvData[index];
         var _legajo = element[0];
