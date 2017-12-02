@@ -26,7 +26,7 @@ export class QRPage {
   escaneado:string;
   listcodigos: AngularFireList<any>;
   options :BarcodeScannerOptions;
-
+tipo:string;
 
   Profesor= {Email: "",Aula : '',Materia: '',Apellido: '',Nombre: ''};  
 
@@ -40,7 +40,7 @@ export class QRPage {
      private _auth:AngularFireAuth) 
   {  
       this.perfil=navParams.data;
- 
+     this.tipo =  sessionStorage.getItem("type")
 
       this.listcodigos =db.list('/codigos');
       
@@ -72,26 +72,41 @@ export class QRPage {
  
     this.options = { prompt : "Escanea tu Qr de Credito" }
     this.barcodeScanner.scan(this.options).then((barcodeData) =>
-     { 
+     {  
         this.scanData=barcodeData;
     
        if(barcodeData.text=="alta-alumno"){
-
+        if(this.tipo=="alumnos")
+          {
         let profileModal : Modal = this.modalCtrl.create(InfoAlumnoPage,MyModalOption);
                profileModal.present(); 
+              }
+              else{
+                    alert("El qr es correcto pero no tenes los permisos necesarios");
+              }
 
        }
        else if(barcodeData.text=="alta-administrador"){
+        if(this.tipo=="admin")
+          {
         this.nativeAudio.play('Silbido');
 
         let profileModal : Modal = this.modalCtrl.create(GraficosPage,MyModalOption);
                profileModal.present(); 
-
+          }
+          else{
+                alert("El qr es correcto pero no tenes los permisos necesarios");
+          }
        }    
       else if(barcodeData.text=="alta-profesor"){
+        if(this.tipo=="profesor")
+          {
         let profileModal : Modal = this.modalCtrl.create(InfoProfesorPage,MyModalOption);
                profileModal.present(); 
-
+              }
+              else{
+                    alert("El qr es correcto pero no tenes los permisos necesarios");
+              }
        }else{
           alert("codigo qr no registrado!! reintentar");
 
