@@ -73,7 +73,7 @@ perfil = {name : '',profilePicture: '',email: '',tipo:''};
    
        if(sessionStorage.getItem("type")=="administrativo")  {
      
-        this.perfil.profilePicture =  'assets/imgs/administrativo.jpg';
+        this.perfil.profilePicture =  sessionStorage.getItem("foto");
  
       }
       if(sessionStorage.getItem("type")=="alumno")  {

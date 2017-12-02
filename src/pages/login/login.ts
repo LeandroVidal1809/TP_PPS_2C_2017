@@ -110,6 +110,7 @@ tipo:''
                           }
                        
                           else if(sessionStorage.getItem("type")=="administrativo")  {
+                            debugger;
                             this.perfil.name =sessionStorage.getItem("nombre");
                             this.perfil.profilePicture =  this.foto;
                             this.perfil.email = this.mail;

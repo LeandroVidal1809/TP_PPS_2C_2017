@@ -260,6 +260,12 @@ return false;
           value: 'Profesor-Carga',
           checked: true
         });
+        alert.addInput({
+          type: 'radio',
+          label: 'Administrativo-Carga',
+          value: 'Administrativo-Carga',
+          checked: true
+        });
       
       
         alert.addButton('Cancel');
@@ -276,6 +282,10 @@ return false;
                  this.archivo ='Profesor-Carga.csv';
                  this.readCsvData();
                   break;
+                  case 'Administrativo-Carga':
+                  this.archivo ='administrativo-Carga.csv';
+                  this.readCsvData();
+                   break;
                 
                 
               }
