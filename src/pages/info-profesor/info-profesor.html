@@ -26,10 +26,40 @@
   <br>
   <br>
   <div align="center" vertical-align="center">
-  Email:{{Email}}<br>
-  Aula:{{Aula}}<br>
-  Materia:{{Materia}}<br>
-  Nombre: {{Apellido}} {{Nombre}}
+ 
   </div>
  
 </ion-content>
+
+
+
+
+
+   
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<div class="container">    
+  <div class="row">
+      <div class="panel panel-default">
+      <div class="panel-heading">  <h4 >Registro de cursada </h4></div>
+       <div class="panel-body">
+      <div class="col-md-2 col-xs-8 col-sm-3 col-lg-2">
+       <img alt="User Pic" src="{{Foto}}" id="profile-image1" class="img-circle img-responsive"  style="margin-left: 25%;"> 
+       <!-- <img alt="User Pic"  src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">  -->
+      </div>
+      <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
+          <div class="container" >
+            <h2  style="margin-left: 17%;">Nombre: {{Apellido}} {{Nombre}}</h2>
+            <p style="margin-left: 20%;">Profesor   <b> UTN</b></p>
+          </div>
+           <hr>
+          <ul class="container details" >
+            <li><p style="font-size:20px;"><span class="glyphicon glyphicon-user one" style="width:50px;font-size:15px;"></span>Materia Actual :{{Materia}}</p></li>
+            <li><p style="font-size:20px;"><span class="glyphicon glyphicon-user one" style="width:50px;font-size:15px;"></span>Aula : {{Aula}}</p></li>
+          </ul>
+          <hr>
+      </div>
+</div>
+</div>
+</div>

@@ -3,18 +3,24 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <ion-header>
-  <ion-navbar>
-    
-    <ion-title>ABM Alumnos</ion-title>
-    <ion-buttons end>
-        <button ion-button (click)="closeModal()" >Cerrar </button>   
-      </ion-buttons>
-  </ion-navbar>
+    <ion-navbar>
+      <form class="form-horizontal" role="form">
+        
+            <div class="form-group">
+                <label   class="col-sm-4 control-label">ABM Alumnos</label>
+            </div>
+      </form>
+
+
+      <ion-buttons end>
+          <button ion-button (click)="closeModal()" >Cerrar </button>   
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
 <ion-content padding align="center">
  
 
-    <!-- <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10"> -->
+
       <div>
         <div class="form-body">
             <ul class="nav nav-tabs final-login">
@@ -58,30 +64,47 @@
           </div>
         </div>
         <div id="sectionA" [hidden]="seccionD" class="tab-pane fade in active">
-            <div class="innter-form">
-                Lista
-                    <table border="1" class="table"  >
-                        <thead>
-                          <tr>
-                            <th class="th">          Legajo                      </th>
-                            <th class="th">          Nombre                      </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                              <tr *ngFor="let item of ListaNuevos;let i=index">
-                                <td style="border-top:0px; ">{{item.Legajo}} </td>
-                                <td style="border-top:0px; ">{{item.Nombre}} </td>             
-                              </tr>
-                        </tbody>
-                      </table> 
-                      <button  (click)="GuardarLista()" class="btn btn-primary btn-md">Guardar</button>
-            </div>
-          </div>
+            <ion-navbar color='favorite'> 
+                
+                 <ion-buttons start>
+                   <button ion-button icon-only (click)="elegirArchivos()">
+                       <ion-icon name="add"></ion-icon>
+                     </button>
+                 </ion-buttons>
+                 <ion-title>
+                   Importar Lista de Alumnos
+                 </ion-title>
+                 <ion-buttons end>
+                   <button ion-button icon-only (click)="downloadCSV()">
+                       <ion-icon name="download"></ion-icon>
+                     </button> 
+                     <button ion-button icon-only (click)="guardarLista()">
+                       <ion-icon name="cloud-upload"></ion-icon>
+                     </button>
+                 </ion-buttons >
+               </ion-navbar>
+          
+          
+          
+                <p *ngIf="archivo == null">Presiona el botón + para elegir un archivo</p>
+              
+                  <table border="1" class="data-table" style="overflow-x:auto;">
+                  
+                    <th *ngIf="archivo != null">Legajo</th>
+                    <th *ngIf="archivo != null">Nombre y apellido</th>
+                    <tr *ngFor="let row of csvData; let i = index">
+                        <td *ngFor="let data of row; let j = index ; trackBy: trackByFn">
+                          <ion-input type="text" [(ngModel)]="csvData[i][j]"></ion-input>
+                        </td>
+                      </tr>
+                  </table>    
+                  <button  (click)="GuardarLista()" class="btn btn-primary btn-md">Registrar Lista de Alumnos</button>
         
         </div>
 
 
         </div>
     </div>
+      </div>
 
 </ion-content>
