@@ -18,12 +18,14 @@ export class InfoProfesorPage {
   Materia:string;
   Apellido:string;
   Nombre:string;
-tipo:string;
+  tipo:string;
+  Foto:string;
   constructor(public navCtrl: NavController , public alertCtrl: AlertController, private view: ViewController,db:AngularFireDatabase, public navParams: NavParams) 
   {
 
     this.emailProf = sessionStorage.getItem("EmailProf");
     this.tipo = sessionStorage.getItem("type");
+    this.Foto= "assets/imgs/3.jpg";
     if(this.tipo!="profesor"){
       this.showAlert("No eres un profesor","Sin Permisos");
       this.view.dismiss();

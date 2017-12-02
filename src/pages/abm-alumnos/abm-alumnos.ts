@@ -37,7 +37,11 @@ export class AbmAlumnosPage {
   claseBaja:string;
   claseModificacion:string;
   claselista:string;
-
+  archivo: string;
+  public csvData: any[] = [];
+  lista1:boolean;
+  testRadioOpen: boolean;
+  testRadioResult;
   listadoP:Array<any>;
   Modificar:boolean;
   KeyModificar;
@@ -48,6 +52,7 @@ export class AbmAlumnosPage {
                public navParams: NavParams,
                private http: Http,
                public af: AngularFireDatabase,
+               public spiner:LoadingController,
                public alertCtrl: AlertController,               
                 private view: ViewController,
                 private _auth:AngularFireAuth) {
@@ -75,7 +80,8 @@ export class AbmAlumnosPage {
               this.claseAlta="active";
               this.Modificar = false;
               //this.readCsvData();
-              this.CargarLIsta();
+              this.lista1=true;
+  
   }
 
   logOut(){
@@ -261,63 +267,132 @@ tienePermisos()
     }
   }
 
-  CargarLIsta()
-  {
-    var objecto = {
-      Legajo:"124334",
-      Nombre:"Campaña, martin"
-    }
 
-    var objecto1 = {
-      Legajo:"456544",
-      Nombre:"Fernandez , leandro"
-    }
-
-    var objecto2 = {
-      Legajo:"434333",
-      Nombre:"Meza, Maximiliano"
-    }
-
-    var objecto3 = {
-      Legajo:"324432",
-      Nombre:"Barco, Ignacio Hernán"
-    }
-
-    var objecto4 = {
-      Legajo:"123452",
-      Nombre:"Giglioti, Manuel"
-    }
-
-    var objecto5 = {
-      Legajo:"765343",
-      Nombre:"Bustos, Patricio Andrés"
-    }
-
-    var objecto6 = {
-      Legajo:"843432",
-      Nombre:"Gutierrez, Emiliano Gabriel"
-    }
-
-      this.ListaNuevos.push(objecto);
-      this.ListaNuevos.push(objecto1);
-      this.ListaNuevos.push(objecto2);
-      this.ListaNuevos.push(objecto3);
-      this.ListaNuevos.push(objecto4);
-      this.ListaNuevos.push(objecto5);
-      this.ListaNuevos.push(objecto6);
-
-      console.log(this.ListaNuevos);
-  }
 
 
   GuardarLista()
   {
-    this.ListaNuevos.forEach(element => {
-      this.lista.push(element); 
+
+    let espera = this.MiSpiner();
+    espera.present();  
+    if(this.csvData.length==0)
+      {
+        espera.dismiss();
+        this.showAlert("Seleccione una lista","Error de Validacion");
+        return;
+      }
+    for (var index = 0; index < this.csvData.length-1; index++) {
+      var element = this.csvData[index];
+        var _legajo = element[0];
+        var _nombre = element[1];
+
+
+        this.lista.push({
+          Legajo:_legajo,
+          Nombre : _nombre,    
+          });  
+
       
+    }
+    espera.dismiss();
+    this.showAlert("Se guardo la lista correctamente","Proceso finalizado");
+  }
+
+
+
+
+
+     
+  private readCsvData() {
+    if(this.archivo != null){
+
+    this.http.get('assets/archivos/'+this.archivo)
+      .subscribe(
+      data => this.extractData(data),
+      err => this.handleError(err)
+      );
+    }   
+  }
+
+  private handleError(err) {
+    alert(err);
+    console.log('Error ', err);
+  }
+ 
+
+  private extractData(res) {
+
+    let csvData = res['_body'] || '';
+    let parsedData = papa.parse(csvData).data;
+    this.csvData = parsedData;
+    console.log('respuesta ',  this.csvData);
+  }
+
+
+
+  public elegirArchivos()
+  {
+    let alert = this.alertCtrl.create();
+    alert.setTitle('Elegir archivo');
+  
+    alert.addInput({
+      type: 'radio',
+      label: 'Alumnos-Carga',
+      value: 'Alumnos-Carga',
+      checked: true
     });
 
-    this.showAlert("Se guardo correctamente la lista de alumnos","Exito");
+  
+  
+    alert.addButton('Cancel');
+    alert.addButton({
+      text: 'Ok',
+      handler: data => {
+        console.log('Radio data:', data);
+        this.testRadioOpen = false;
+        this.testRadioResult = data;
+  
+    
+        if(data){
+          switch (data) {
+            case 'Alumnos-Carga':
+    
+             this.archivo ='Alumnos.csv';
+             this.readCsvData();
+              break;
+
+            
+            
+          }
+        }
+  
+      }
+    });
+  
+    alert.present().then(() => {
+      this.testRadioOpen = true;
+    });
+  }
+
+  
+  cambiaLista(tipocargaa:string)
+  {
+      if(tipocargaa=="uno")
+        {
+          this.lista1=true;
+        }
+        else
+          this.lista1=false;
+  }
+
+  MiSpiner():Loading
+  {
+    let loader = this.spiner.create({
+      content:"Espere..",
+      duration: 25000
+      
+    });
+    return loader;
   }
 
 

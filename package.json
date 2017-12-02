@@ -23,6 +23,7 @@
     "@ionic-native/barcode-scanner": "^4.4.2",
     "@ionic-native/browser-tab": "^4.4.2",
     "@ionic-native/camera": "^4.4.2",
+    "@ionic-native/camera-preview": "^4.4.2",
     "@ionic-native/core": "4.4.0",
     "@ionic-native/file": "^4.4.2",
     "@ionic-native/firebase": "^4.4.2",
