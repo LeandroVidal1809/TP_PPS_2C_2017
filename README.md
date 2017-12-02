@@ -43,4 +43,23 @@ Adiliberti Pablo -
  - Arreglo de Lista de Asistencia por fecha, arreglo de toma de datos en la importacion del excel, subir foto asociada a una toma de asistencias,Asignarle tiempo a las Encuestas, Graficos de Asistencia    <strong>Leandro Vidal del (18/11/2017) al (25/11/2017)</strong>
 
   =========================================
+    <h5>Responsabilidades Sabado 02 Diciembre:</h5>
+<h6> <strong> Segundo Parcial</h6></strong>
+
+- <strong>Leandro Vidal </strong>
+A. Tomar Asistencia 
+I. Diseño de estilos
+J. ABM profesor y administrativo
+M  QR Alumno
+- <strong>Pablo Adiliberti </strong>
+C. Carga de archivos excel y csv
+G. ABM Alumno
+H. Administracion de su propio perfil
+N. QR Profesores
+- <strong>Brian Roberts </strong>
+B. Carga de cuestionarios y encuesta dinamica
+F. Login con redes sociales
+L. Graficos estadisticas
+O. QR Encuestas
+  =========================================
   
