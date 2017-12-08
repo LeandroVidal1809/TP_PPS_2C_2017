@@ -23,43 +23,21 @@ import { MenuEncuesta } from '../menuEncuesta/menuEncuesta';
 export class HomePage {
   
 perfil = {name : '',profilePicture: '',email: '',tipo:''};
+claseLogin: string;
+claseFoto:string;
+conteiner:string;
 
   constructor(private nativeAudio: NativeAudio,public platform: Platform,/* public push: Push, */public modalCtrl: ModalController,public navCtrl: NavController,
-    private _auth:AngularFireAuth, public navParams: NavParams) {
+    private _auth:AngularFireAuth, public navParams: NavParams) 
+  {
+    this.claseLogin= localStorage.getItem("claseLogin");
+    this.claseFoto=localStorage.getItem("claseFoto");
+    this.conteiner=localStorage.getItem("conteiner");
+
       console.log(navParams);
       this.perfil=navParams.data;
       console.log("prueba perfil logeado:",this.perfil);
-      /* this.push.hasPermission().then((res: any) => {
-        alert('prenotificacion');
-        if (res.isEnabled) {
-         alert('Tenes permisos de notificacion');
-         const options: PushOptions = {
-              android: {},
-              ios: {
-                  alert: 'true',
-                  badge: true,
-                  sound: 'false'
-              },
-              windows: {},
-              browser: {
-                  pushServiceURL: 'http://push.api.phonegap.com/v1/push'
-              }
-          };
-          const pushObject: PushObject = this.push.init(options);
-          pushObject.on('notification').subscribe((notification: any) => {
-            alert(notification.message);
-          });
-          
-          pushObject.on('registration').subscribe((registration: any) => console.log('Device registered', registration));
-          
-          pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
 
-
-        } else {
-          alert('No tenes permisos de notificacion');
-        }
-    
-      }); */
       if(sessionStorage.getItem("type")=="admin") {
    
         this.perfil.profilePicture =  sessionStorage.getItem("foto");

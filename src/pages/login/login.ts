@@ -198,9 +198,7 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
   this.perfil.email = res.user.email;
 
   this.perfil.profilePicture = res.user.photoURL;
-  this.perfil.name = res.user.displayName;
-
-  
+  this.perfil.name = res.user.displayName; 
   this.navCtrl.setRoot(HomePage,this.perfil);
 })
  
@@ -222,39 +220,23 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
         localStorage.setItem("Nombre",this.perfil.name);
         localStorage.setItem("Foto",this.perfil.profilePicture);
         this.navCtrl.setRoot(HomePage,this.perfil);
-    
-        
-    
-    
-      })
-    
       
+      })
+        
     }).catch(error =>{ 
       this.showAlert(error.message,"Error al ingresar!");}) 
- 
-}
-
-
+    }
   }
-
-
-
- 
-
 
   showAlertRegistrar(mensaje:string,titulo:string) {
     
         switch(mensaje)
-        {
-          
+        {          
           case "The email address is badly formatted.":
-          {
-    
+          {  
             mensaje="El email no contiene un formato correcto";
             break;
-          }
-         
-    
+          }  
         }
         let alert = this.alertCtrl.create({
           title: titulo,
@@ -309,8 +291,6 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
    // loader.present();
     return loader;
   }
- 
- 
   
   CargarADM(type:string){  
   
@@ -369,5 +349,44 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
 
   ABMAlumnos(){
     this.navCtrl.setRoot(HomePage);  
+  }
+
+
+  /************************************** */
+  claseBoton:string;
+  claseFoto:string;
+  conteiner:string;
+
+  Temas(clase:string)
+  {
+    switch (clase) {
+      case "1":
+        this.claseBoton = "miboton";
+        this.claseFoto = "fondo1";
+        this.conteiner = "container1";
+        localStorage.setItem("claseBoton",this.claseBoton);
+        localStorage.setItem("claseFoto",this.claseFoto);
+        localStorage.setItem("conteiner",this.conteiner);
+        break;
+        case "2":
+        this.claseBoton = "miboton2";
+        this.claseFoto = "fondo2";
+        this.conteiner = "container2";
+        localStorage.setItem("claseBoton",this.claseBoton);
+        localStorage.setItem("claseFoto",this.claseFoto);
+        localStorage.setItem("conteiner",this.conteiner);
+        break;
+        case "3":
+        this.claseBoton = "miboton3";
+        this.claseFoto = "fondo3";
+        this.conteiner = "container3";
+        localStorage.setItem("claseBoton",this.claseBoton);
+        localStorage.setItem("claseFoto",this.claseFoto);
+        localStorage.setItem("conteiner",this.conteiner);
+        break;
+    
+      default:
+        break;
+    }
   }
 }

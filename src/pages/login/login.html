@@ -21,65 +21,62 @@
       </ion-fab-list>
   </ion-fab>
 <br><br><br><br>
-<div class="container">
-	<div class="row">
-		<!-- <h2>Fancy Login / Registration form</h2> -->
-	</div>
-</div>
+
 
 <div class="container">
-<div class="row">
-<div class="col-md-4 col-md-offset-4">
-<div class="form-body">
-    <ul class="nav nav-tabs final-login">
-<br>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+        <div class="form-body">
+            <div class={{conteiner}}>
+                  <ul class="nav nav-tabs final-login">
+                <br>
+          
+                  <li class={{claseLogin}} ><a data-toggle="tab" (click)="mortrarA('A')"  >Iniciar Sesión</a></li>
+                  <li class={{claseRegistrar}} ><a data-toggle="tab" (click)="mortrarA('B')">Registrar</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div id="sectionA" [hidden]="seccionA" class="tab-pane fade in active">
+                    <div class="innter-form">
+                  
+                
+                  <form class="sa-innate-form" method="post">
+                    <label>Direccion de correo electronico</label>
+                    <input type="text" name="username" [(ngModel)]="username">
+                    <label>Clave</label>
+                    <input type="password" name="password" [(ngModel)]="password">
+                    <br><br><br>
+                    <button class={{claseBoton}} type="submit" (click)="login()">Entrar</button>
+                    <br><br>
+                    <button class={{claseBoton}} type="submit" (click)="Temas('1')">Tema 1</button>
+                    <button class={{claseBoton}} type="submit" (click)="Temas('2')">Tema 2</button>
+                    <button class={{claseBoton}} type="submit" (click)="Temas('3')">Tema 3</button>
+                    <!-- <button class={{claseBoton}} type="submit" (click)="Temas('4')">Tema 4</button> -->
+                    </form>
+                  </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="sectionB" [hidden]="seccionB">
+              <div class="innter-form">
+                    <form class="sa-innate-form" method="post">
+                    <label>Nombre</label>
+                    <input type="text" name="nombre" [(ngModel)]="nombre">
+                    <label>Direccion de correo electronico</label>
+                    <input type="text" name="username" [(ngModel)]="username">
+                    <label>Contraseña</label>
+                    <input type="password" name="password" [(ngModel)]="password">
+                    <label>Repetir Contraseña</label>
+                    <input type="password" name="password2" [(ngModel)]="passwordconfirm">
+                    <button class={{claseBoton}} type="submit" (click)="Aceptar()">Registrar</button>
+                    </form>
+                    </div>
+                    <div class="social-login">
 
-      <li class={{claseLogin}}><a data-toggle="tab" (click)="mortrarA('A')"  >Iniciar Sesión</a></li>
-      <li class={{claseRegistrar}}><a data-toggle="tab" (click)="mortrarA('B')">Registrar</a></li>
-    </ul>
-    <div class="tab-content">
-      <div id="sectionA" [hidden]="seccionA" class="tab-pane fade in active">
-        <div class="innter-form">
-           
-        
-          <form class="sa-innate-form" method="post">
-            <label>Direccion de correo electronico</label>
-            <input type="text" name="username" [(ngModel)]="username">
-            <label>Clave</label>
-            <input type="password" name="password" [(ngModel)]="password">
-            <!-- <button style="width:30%;font-size:9px;" ion-button  color="dark" (click)="CargarADM('Administrador')" >Administrador</button>
-            <button style="width:30%;font-size:12px;" ion-button  color="dark" (click)="CargarADM('Profesor')" >Profesor</button> 
-            <button style="width:30%;font-size:9px;" ion-button  color="dark" (click)="CargarADM('Administrativo')" >Administrativo</button> -->
-            <br><br><br>
-            <button type="submit" (click)="login()">Entrar</button>
-            <!-- <a href="">Forgot Password?</a> -->
-            </form>
+                    </div>
+                </div>
+            </div>
           </div>
-            <div class="clearfix"></div>
+          </div>
         </div>
-        <div id="sectionB" [hidden]="seccionB">
-			<div class="innter-form">
-            <form class="sa-innate-form" method="post">
-            <!-- <label>Nombre</label>
-            <input type="text" name="username"> -->
-            <label>Nombre</label>
-            <input type="text" name="nombre" [(ngModel)]="nombre">
-            <label>Direccion de correo electronico</label>
-            <input type="text" name="username" [(ngModel)]="username">
-            <label>Contraseña</label>
-            <input type="password" name="password" [(ngModel)]="password">
-            <label>Repetir Contraseña</label>
-            <input type="password" name="password2" [(ngModel)]="passwordconfirm">
-            <button type="submit" (click)="Aceptar()">Registrar</button>
-            </form>
-            </div>
-            <div class="social-login">
-
-            </div>
-        </div>
-    </div>
-    </div>
-    </div>
     </div>
 </div>
 

@@ -28,9 +28,9 @@ page-login {
         color:#222 !important;
     }
     .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
-        color: #fff;
+        color: rgb(2, 2, 2);
         font-size: 12px;
-        background-color: #d14d42;
+        background-color: #d14d42;//
         border: none !important;
         border-bottom-color: transparent;
         border-radius:none !important;
@@ -98,7 +98,7 @@ page-login {
         
         .sa-innate-form button{
         border:1px solid#e64b3b;
-        background:#e64b3b;
+      //  background:#e64b3b;
         color:#fff;
         padding:10px 25px;
         font-size:14px;
@@ -107,7 +107,7 @@ page-login {
         }
         .sa-innate-form button:hover{
         border:1px solid#000000;
-        background:#db3b2b;    
+      //  background:#db3b2b;    
         color:#000000;
         }
         .sa-innate-form p{
