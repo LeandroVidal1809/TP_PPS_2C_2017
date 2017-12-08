@@ -356,7 +356,7 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
   claseBoton:string;
   claseFoto:string;
   conteiner:string;
-
+  claseRadio:string;   
   Temas(clase:string)
   {
     switch (clase) {
@@ -364,33 +364,41 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
         this.claseBoton = "miboton";
         this.claseFoto = "fondo1";
         this.conteiner = "container1";
+        this.claseRadio = "radio1";
         localStorage.setItem("claseBoton",this.claseBoton);
         localStorage.setItem("claseFoto",this.claseFoto);
         localStorage.setItem("conteiner",this.conteiner);
+        localStorage.setItem("claseRadio",this.claseRadio);
         break;
         case "2":
         this.claseBoton = "miboton2";
         this.claseFoto = "fondo2";
         this.conteiner = "container2";
+        this.claseRadio = "radio2";
         localStorage.setItem("claseBoton",this.claseBoton);
         localStorage.setItem("claseFoto",this.claseFoto);
         localStorage.setItem("conteiner",this.conteiner);
+        localStorage.setItem("claseRadio",this.claseRadio);
         break;
         case "3":
         this.claseBoton = "miboton3";
         this.claseFoto = "fondo3";
         this.conteiner = "container3";
+        this.claseRadio = "radio3";
         localStorage.setItem("claseBoton",this.claseBoton);
         localStorage.setItem("claseFoto",this.claseFoto);
         localStorage.setItem("conteiner",this.conteiner);
+        localStorage.setItem("claseRadio",this.claseRadio);
         break;
         case "4":
         this.claseBoton = "miboton4";
         this.claseFoto = "fondo4";
         this.conteiner = "container4";
+        this.claseRadio = "radio4";
         localStorage.setItem("claseBoton",this.claseBoton);
         localStorage.setItem("claseFoto",this.claseFoto);
         localStorage.setItem("conteiner",this.conteiner);
+        localStorage.setItem("claseRadio",this.claseRadio);
         break;
     
       default:

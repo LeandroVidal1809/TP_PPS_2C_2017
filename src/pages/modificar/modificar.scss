@@ -175,14 +175,7 @@ page-modificar {
     .funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
       color: #888;
     }
-    
-    .funkyradio input[type="radio"]:hover:not(:checked) ~ label:before,
-    .funkyradio input[type="checkbox"]:hover:not(:checked) ~ label:before {
-      content: '\2714';
-      text-indent: .9em;
-      color: #ea533f;
-    }
-    
+        
     .funkyradio input[type="radio"]:checked ~ label,
     .funkyradio input[type="checkbox"]:checked ~ label {
       color: #777;
@@ -203,23 +196,6 @@ page-modificar {
       background-color:#ea533f;
     }
     
-    .funkyradio-danger input[type="radio"]:checked ~ label:before,
-    .funkyradio-danger input[type="checkbox"]:checked ~ label:before {
-      color: #000000;
-      background-color:#ea533f;
-      
-       
-    }
-    
-    .funkyradio-danger input[type="radio"]:checked ~ label:before, 
-    .funkyradio-danger input[type="checkbox"]:checked ~ label:before{
-        color: #000000;
-        background-color:#ea533f;
-          
-    } 
-    
-    
-
     input[type="text"],
     input[type="password"],
     input[type="date"],

@@ -39,11 +39,20 @@ miListaMaterias:Array<any>;
 f:Date;
 OpcionElegida:number;
 opcion:number;
+
+claseBoton: string;
+claseFoto:string;
+conteiner:string; 
+claseRadio:string;     
+
 //Constructor
   constructor(public modalCtrl: ModalController,db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,
     private _auth:AngularFireAuth) {
    
-   
+      this.claseBoton= localStorage.getItem("claseBoton");
+      this.claseFoto=localStorage.getItem("claseFoto");
+      this.conteiner=localStorage.getItem("conteiner");
+      this.claseRadio = localStorage.getItem("claseRadio");
       //Lista de Alumnos
     this.list = db.list('/Alumno');
     
@@ -60,7 +69,7 @@ opcion:number;
     this.MuestraMaterias=false;
     
 }
-logOut(){
+logOut(){ 
   console.log("deslogeando");
     this._auth.auth.signOut();
     this.navCtrl.setRoot(LoginPage);
@@ -295,11 +304,3 @@ this.view.dismiss();
 
   
 
-  // this.list.push({
-  //   Nombre: "Prueba Desarrollo",
-  //   Aula : 201 ,
-  //   Dia:"Sabado",
-  //   HorarioI:"15:30",
-  //   Horariof:"23:00",
-  //   NumeroDia:6
-  //   });  

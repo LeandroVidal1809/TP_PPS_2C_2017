@@ -4,18 +4,20 @@
 
 <ion-header>
   <ion-navbar>
-   
+    <div class={{conteiner}}>
     <ion-title>Asistencias</ion-title>
    <ion-buttons end>
-  <button ion-button (click)="closeModal()" >Cerrar </button>   
-</ion-buttons>
+      <button ion-button (click)="closeModal()" >Cerrar </button>   
+    </ion-buttons>
+  </div>
   </ion-navbar>
 </ion-header>
 <ion-content padding align="center">
+    <div class={{conteiner}}>
     <h2><i class="glyphicon glyphicon-log-in"></i> Filtros para asistencia</h2>	
   <div [hidden]="OpcionesAvanzadas">
-    <div class="funkyradio">
-          <div class="funkyradio-danger">
+    <div class=funkyradio> 
+          <div class={{claseRadio}}>
               <input type="radio" (click)="Traigo('Materias')" name="radio" id="radio6" />
               <label for="radio6">MATERIAS</label>
           </div>
@@ -23,8 +25,8 @@
       <div class="Lista" [hidden]="!MuestraMaterias" *ngFor="let item of miListaMaterias">
         <a (click)="SetListaMateria(item.Nombre,item.Aula)">{{item.Nombre}}(Aula {{item.Aula}})</a>
       </div>
-    <div class="funkyradio">
-      <div class="funkyradio-danger">
+    <div class=funkyradio>
+      <div class={{claseRadio}}>
         <input type="radio" (click)="Traigo('Aula')" name="radio" id="radio7" />
         <label for="radio7">AULAS</label>
       </div>
@@ -43,20 +45,20 @@
 
         <div class="col-md-7">
     <div class="funkyradio">
-        <div class="funkyradio-danger">
+        <div class={{claseRadio}}>
             <input type="radio" (click)="setOpcion(6)" name="radio" id="radio5" />
             <label for="radio5">Aula-Materia</label>
           </div>
-      <div class="funkyradio-danger">
+      <div class={{claseRadio}}>
         <input type="radio" (click)="setOpcion(0)" name="radio" id="radio4" />
         <label for="radio4">Aula</label>
       </div>
-      <div class="funkyradio-danger">
+      <div class={{claseRadio}}>
             <input type="radio" (click)="setOpcion(1)" name="radio" id="radio1" />
             <label for="radio1">Materia</label>
         </div>
   
-        <div class="funkyradio-danger">
+        <div class={{claseRadio}}>
             <input type="radio" (click)="setOpcion(3)" name="radio" id="radio3" />
             <label for="radio3">Alumno</label>
         </div>
@@ -101,8 +103,10 @@
     </div>
 
 </div>
-<button [hidden]="OpcionesAvanzadas" style="float:left" (click)="ChangeOpciones()" class="btn btn-primary btn-md" >Opciones Avanzadas +</button> 
-<button [hidden]="!OpcionesAvanzadas" style="float:left" (click)="ChangeOpciones()" class="btn btn-primary btn-md" >Opciones Avanzadas -</button> 
-<button [hidden]="!OpcionesAvanzadas" style="float:right"  (click)="tomarAsistencia()" class="btn btn-primary btn-md" >Ingresar al aula</button>
-
+<form class="sa-innate-form" method="post">
+<button [hidden]="OpcionesAvanzadas" type="submit" style="float:left" (click)="ChangeOpciones()" class={{claseBoton}} >Opciones Avanzadas +</button> 
+<button [hidden]="!OpcionesAvanzadas" type="submit" style="float:left" (click)="ChangeOpciones()" class={{claseBoton}} >Opciones Avanzadas -</button> 
+<button [hidden]="!OpcionesAvanzadas"  type="submit" style="float:right"  (click)="tomarAsistencia()" class={{claseBoton}} >Ingresar al aula</button>
+</form>
+</div>
 </ion-content>

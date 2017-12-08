@@ -65,7 +65,7 @@ page-tomar-asistencia{
     .container-login .nav-tabs.nav-justified > li > a:focus {
         background: #ea533f;
         border: medium none;
-        color: #ffffff;
+        color:  #000000;
         margin-bottom: 0;
         margin-right: 0;
         border-radius: 0;
@@ -73,7 +73,7 @@ page-tomar-asistencia{
     .container-login .nav-tabs.nav-justified > .active > a,
     .container-login .nav-tabs.nav-justified > .active > a:hover,
     .container-login .nav-tabs.nav-justified > .active > a:focus {
-        background: #ffffff;
+        background:  #000000;
         color: #333333;
     }
     .container-login .nav-tabs.nav-justified > li > a:hover,
@@ -81,7 +81,7 @@ page-tomar-asistencia{
         background: #de2f18;
     }
     .tabs-login {
-        background: #ffffff;
+        background: #000000;
         border: medium none;
         margin-top: -1px;
         padding: 10px 35px;
@@ -90,7 +90,7 @@ page-tomar-asistencia{
         color: #ea533f;
     }
     .form-control {
-        background-color: #ffffff;
+        background-color:  #000000;
         background-image: none;
         border: 1px solid #999999;
         border-radius: 0;
@@ -110,7 +110,7 @@ page-tomar-asistencia{
     .container-login button {
         background-color: #ea533f;
         border-color: #ea533f;
-        color: #ffffff;
+        color:  #000000;
         border-radius: 0;
         font-size: 18px;
         line-height: 1.33;
@@ -174,52 +174,52 @@ page-tomar-asistencia{
       border-radius: 3px 0 0 3px;
     }
     
-    .funkyradio input[type="radio"]:hover:not(:checked) ~ label,
-    .funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
-      color: #888;
-    }
+    // .funkyradio input[type="radio"]:hover:not(:checked) ~ label,
+    // .funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
+    //   color: #888;
+    // }
     
-    .funkyradio input[type="radio"]:hover:not(:checked) ~ label:before,
-    .funkyradio input[type="checkbox"]:hover:not(:checked) ~ label:before {
-      content: '\2714';
-      text-indent: .9em;
-      color: #ea533f;
-    }
+    // .funkyradio input[type="radio"]:hover:not(:checked) ~ label:before,
+    // .funkyradio input[type="checkbox"]:hover:not(:checked) ~ label:before {
+    //   content: '\2714';
+    //   text-indent: .9em;
+    //   color: #ea533f;
+    // }
     
-    .funkyradio input[type="radio"]:checked ~ label,
-    .funkyradio input[type="checkbox"]:checked ~ label {
-      color: #777;
+    // .funkyradio input[type="radio"]:checked ~ label,
+    // .funkyradio input[type="checkbox"]:checked ~ label {
+    //   color: #777;
       
-    }
+    // }
     
-    .funkyradio input[type="radio"]:checked ~ label:before,
-    .funkyradio input[type="checkbox"]:checked ~ label:before {
-      content: '\2714';
-      text-indent: .9em;
-      color: #333;
-      background-color:#ea533f;
-    }
+    // .funkyradio input[type="radio"]:checked ~ label:before,
+    // .funkyradio input[type="checkbox"]:checked ~ label:before {
+    //   content: '\2714';
+    //   text-indent: .9em;
+    //   color: #333;
+    //   background-color:#ea533f;
+    // }
     
-    .funkyradio input[type="radio"]:focus ~ label:before,
-    .funkyradio input[type="checkbox"]:focus ~ label:before {
-      box-shadow: 0 0 0 3px #999;
-      background-color:#ea533f;
-    }
+    // .funkyradio input[type="radio"]:focus ~ label:before,
+    // .funkyradio input[type="checkbox"]:focus ~ label:before {
+    //   box-shadow: 0 0 0 3px #999;
+    //   background-color:#ea533f;
+    // }
     
-    .funkyradio-danger input[type="radio"]:checked ~ label:before,
-    .funkyradio-danger input[type="checkbox"]:checked ~ label:before {
-      color: #000000;
-      background-color:#ea533f;
+    // .funkyradio-danger input[type="radio"]:checked ~ label:before,
+    // .funkyradio-danger input[type="checkbox"]:checked ~ label:before {
+    //   color: #000000;
+    //   background-color:#ea533f;
       
        
-    }
+    // }
     
-    .funkyradio-danger input[type="radio"]:checked ~ label:before, 
-    .funkyradio-danger input[type="checkbox"]:checked ~ label:before{
-        color: #000000;
-        background-color:#ea533f;
+    // .funkyradio-danger input[type="radio"]:checked ~ label:before, 
+    // .funkyradio-danger input[type="checkbox"]:checked ~ label:before{
+    //     color: #000000;
+    //     background-color:#ea533f;
           
-    } 
+    // } 
     
     
 
@@ -270,7 +270,7 @@ page-tomar-asistencia{
     
     
     .selectpick{
-        background-color: #FFFFFF;
+        background-color: #000000;
         height:30px;
         width: 350px;
         color:black;
@@ -312,7 +312,7 @@ page-tomar-asistencia{
     .container-login .nav-tabs.nav-justified > li > a:focus {
         background: #ea533f;
         border: medium none;
-        color: #ffffff;
+        color:  #000000;
         margin-bottom: 0;
         margin-right: 0;
         border-radius: 0;
@@ -320,7 +320,7 @@ page-tomar-asistencia{
     .container-login .nav-tabs.nav-justified > .active > a,
     .container-login .nav-tabs.nav-justified > .active > a:hover,
     .container-login .nav-tabs.nav-justified > .active > a:focus {
-        background: #ffffff;
+        background: #000000;
         color: #333333;
     }
     .container-login .nav-tabs.nav-justified > li > a:hover,
@@ -328,7 +328,7 @@ page-tomar-asistencia{
         background: #de2f18;
     }
     .tabs-login {
-        background: #ffffff;
+        background:  #000000;
         border: medium none;
         margin-top: -1px;
         padding: 10px 35px;
@@ -337,7 +337,7 @@ page-tomar-asistencia{
         color: #ea533f;
     }
     .form-control {
-        background-color: #ffffff;
+        background-color:  #000000;
         background-image: none;
         border: 1px solid #999999;
         border-radius: 0;
@@ -357,7 +357,7 @@ page-tomar-asistencia{
     .container-login button {
         background-color: #ea533f;
         border-color: #ea533f;
-        color: #ffffff;
+        color: #000000;
         border-radius: 0;
         font-size: 18px;
         line-height: 1.33;
@@ -439,35 +439,68 @@ page-tomar-asistencia{
       
     }
     
-    .funkyradio input[type="radio"]:checked ~ label:before,
-    .funkyradio input[type="checkbox"]:checked ~ label:before {
+
+    .radio1 input[type="radio"]:checked ~ label:before,
+    .radio1 input[type="checkbox"]:checked ~ label:before {
       content: '\2714';
       text-indent: .9em;
       color: #333;
-      background-color:#ea533f;
+      background-color:#1abc9c;
     }
     
-    .funkyradio input[type="radio"]:focus ~ label:before,
-    .funkyradio input[type="checkbox"]:focus ~ label:before {
+    .radio1 input[type="radio"]:focus ~ label:before,
+    .radio1 input[type="checkbox"]:focus ~ label:before {
       box-shadow: 0 0 0 3px #999;
-      background-color:#ea533f;
+      background-color:#1abc9c;
+    }
+
+
+    .radio2 input[type="radio"]:checked ~ label:before,
+    .radio2 input[type="checkbox"]:checked ~ label:before {
+      content: '\2714';
+      text-indent: .9em;
+      color: #333;
+      background-color:#3cb0fd;
     }
     
-    .funkyradio-danger input[type="radio"]:checked ~ label:before,
-    .funkyradio-danger input[type="checkbox"]:checked ~ label:before {
-      color: #000000;
-      background-color:#ea533f;
-      
-       
+    .radio2 input[type="radio"]:focus ~ label:before,
+    .radio2 input[type="checkbox"]:focus ~ label:before {
+      box-shadow: 0 0 0 3px #999;
+      background-color:#3cb0fd;
+    }
+
+
+    .radio3 input[type="radio"]:checked ~ label:before,
+    .radio3 input[type="checkbox"]:checked ~ label:before {
+      content: '\2714';
+      text-indent: .9em;
+      color: #333;
+      background-color:#009620;
     }
     
-    .funkyradio-danger input[type="radio"]:checked ~ label:before, 
-    .funkyradio-danger input[type="checkbox"]:checked ~ label:before{
-        color: #000000;
-        background-color:#ea533f;
-          
-    } 
+    .radio3 input[type="radio"]:focus ~ label:before,
+    .radio3 input[type="checkbox"]:focus ~ label:before {
+      box-shadow: 0 0 0 3px #999;
+      background-color:#009620;
+    }
     
+
+    .radio4 input[type="radio"]:checked ~ label:before,
+    .radio4 input[type="checkbox"]:checked ~ label:before {
+      content: '\2714';
+      text-indent: .9em;
+      color: #333;
+      background-color:#631b81;
+    }
+    
+    .radio4 input[type="radio"]:focus ~ label:before,
+    .radio4 input[type="checkbox"]:focus ~ label:before {
+      box-shadow: 0 0 0 3px #999;
+      background-color:#631b81;
+    }
+
+    
+
     
 
     input[type="text"],
