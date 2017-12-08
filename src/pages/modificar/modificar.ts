@@ -9,12 +9,7 @@ import { HomePage } from '../home/home';
 
 import { LoginPage } from '../login/login';
 import { swipeShouldReset } from 'ionic-angular/util/util';
-/**
- * Generated class for the AbmProfyAdminPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -34,6 +29,10 @@ export class Modificar {
   KeyUsuario:string;
   listadoU:Array<any>;
   perfil = {name : '',profilePicture: '',email: '',tipo:''};
+
+  claseBoton: string;
+  claseFoto:string;
+  conteiner:string;   
   
   constructor(public navCtrl: NavController,
                public navParams: NavParams,
@@ -42,7 +41,11 @@ export class Modificar {
                public spiner:LoadingController,
                 private view: ViewController,
                 private _auth:AngularFireAuth) {
-               //  this.tienePermisos();
+
+                  this.claseBoton= localStorage.getItem("claseBoton");
+                  this.claseFoto=localStorage.getItem("claseFoto");
+                  this.conteiner=localStorage.getItem("conteiner");
+
                   this.lista= af.list('/Usuarios/');
                   console.log(navParams);
                   this.perfil=navParams.data;

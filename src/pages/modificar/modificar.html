@@ -3,11 +3,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <ion-header>
     <ion-navbar>
-   
+        <div class={{conteiner}}>
       <ion-title>Modificar Datos</ion-title>
       <ion-buttons end>
           <button ion-button (click)="closeModal()" >Cerrar </button>   
         </ion-buttons>
+        </div>
     </ion-navbar>
   </ion-header>
   <ion-content padding align="center">
@@ -15,7 +16,8 @@
 
  
     <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10">
-      <div id="login-access" class="tab-pane fade active in">
+      <!-- <div id="login-access" class="tab-pane fade active in"> -->
+          <div class={{conteiner}}>
         <h2><i class="glyphicon glyphicon-log-in"></i>Modificar Datos</h2>						
 
         Nombre:           
@@ -34,9 +36,11 @@
             <input type="radio" [(ngModel)]="foto" name="gender4" ng-model="myVar" value="assets/imgs/4.jpg"> <img class="foto"  width=150px;  src="assets/imgs/4.jpg"><br>
             <input type="radio" [(ngModel)]="foto" name="gender5" ng-model="myVar" value="assets/imgs/5.jpg"> <img class="foto"  width=150px;  src="assets/imgs/5.jpg"><br>
           </form>
-
+        <!-- </div> -->
       </div>
-      
-      <button  (click)="Guardar2(myVar)" class="btn btn-primary btn-md">Modificar usuario</button>
+      <form class="sa-innate-form" method="post">
+      <!-- <button  (click)="Guardar2(myVar)" class={{claseBoton}}>Modificar usuario</button> -->
+      <button class={{claseBoton}} type="submit" (click)="Guardar2(myVar)">Modificar usuario</button>
+      </form>
     </div>
   </ion-content>

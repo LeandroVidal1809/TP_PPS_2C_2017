@@ -23,14 +23,14 @@ import { MenuEncuesta } from '../menuEncuesta/menuEncuesta';
 export class HomePage {
   
 perfil = {name : '',profilePicture: '',email: '',tipo:''};
-claseLogin: string;
+claseBoton: string;
 claseFoto:string;
 conteiner:string;
 
   constructor(private nativeAudio: NativeAudio,public platform: Platform,/* public push: Push, */public modalCtrl: ModalController,public navCtrl: NavController,
     private _auth:AngularFireAuth, public navParams: NavParams) 
   {
-    this.claseLogin= localStorage.getItem("claseLogin");
+    this.claseBoton= localStorage.getItem("claseBoton");
     this.claseFoto=localStorage.getItem("claseFoto");
     this.conteiner=localStorage.getItem("conteiner");
 

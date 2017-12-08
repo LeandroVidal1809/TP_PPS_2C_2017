@@ -384,6 +384,14 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
         localStorage.setItem("claseFoto",this.claseFoto);
         localStorage.setItem("conteiner",this.conteiner);
         break;
+        case "4":
+        this.claseBoton = "miboton4";
+        this.claseFoto = "fondo4";
+        this.conteiner = "container4";
+        localStorage.setItem("claseBoton",this.claseBoton);
+        localStorage.setItem("claseFoto",this.claseFoto);
+        localStorage.setItem("conteiner",this.conteiner);
+        break;
     
       default:
         break;

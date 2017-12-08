@@ -32,6 +32,13 @@
 
 $turquoise: #1abc9c;
 .miboton {
+  border:1px solid#ccc;
+  outline:none;
+  width:100%;
+  margin:8px 0;
+  color: rgb(2, 2, 2);
+  
+
   padding: 11px 20px 11px 20px;
   border-radius: 3em;
   border-color: $turquoise;
@@ -106,6 +113,12 @@ $turquoise: #1abc9c;
     font-size: 22px;
     padding: 11px 20px 11px 20px;
     text-decoration: none;
+
+
+    border:1px solid#ccc;
+    outline:none;
+    width:100%;
+    margin:8px 0;
     
 }
 
@@ -123,7 +136,7 @@ $turquoise: #1abc9c;
   $blue: #009620;
   .miboton3 {
     font-family: 'Open Sans';
-    background:#009620;
+    background:#045213;
     padding: 11px 20px 11px 20px;
     border-color: $blue;
     color:$blue;
@@ -132,6 +145,26 @@ $turquoise: #1abc9c;
     
     &:hover {
       box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $blue;
+    }
+  }
+
+  $purple: #631b81;
+  .miboton4 {
+    // background: $yellow;
+    border:10px solidrgb(0, 0, 0);
+    border-radius: 3em;
+    background:#7e4a94;
+    border-color: $purple;
+    color: $purple;
+    background: {
+      image: linear-gradient(45deg,$purple 50%, transparent 50%);
+      position: 100%;
+      size: 400%;
+    }
+    transition: background 300ms ease-in-out;
+    
+    &:hover {
+      background-position: 0;
     }
   }
 
@@ -152,6 +185,11 @@ $turquoise: #1abc9c;
     font-size: 85%;
   }
 
+  .container3{
+    font-family: 'calibri';
+    font-size: 110%;
+  }
+
 
   .fondo1{
     background-image: url('../assets/imgs/fondo1.jpg');
@@ -167,3 +205,23 @@ $turquoise: #1abc9c;
     background-image: url('../assets/imgs/fondo3.jpg');
     background-size: 300px 200px;   
     }
+
+.fondo4{
+  background-image: url('../assets/imgs/fondo4.jpg');
+  background-size: 300px 200px;   
+  }
+
+
+  
+
+    .sa-innate-form button{
+      border:1px solid#e64b3b;
+    //  background:#e64b3b;
+      color:rgb(0, 0, 0);
+      padding:10px 25px;
+      font-size:14px;
+      margin-top:5px;
+      width: 100%;
+      }
+
+
