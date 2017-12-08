@@ -70,7 +70,7 @@ tipo:string;
     enableBackdropDismiss : false
   };
  
-    this.options = { prompt : "Escanea tu Qr de Credito" }
+    this.options = { prompt : "Escanea tu Qr " }
     this.barcodeScanner.scan(this.options).then((barcodeData) =>
      {  
         this.scanData=barcodeData;

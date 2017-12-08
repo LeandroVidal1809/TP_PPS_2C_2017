@@ -112,7 +112,7 @@ Guardar2(foto: string){
  
   if(this.nombre != "" || this.foto != "")
   {
-console.log(this.foto);
+        console.log(this.foto);
         this.lista.update(this.KeyUsuario,
           { 
             Nombre: this.nombre,
