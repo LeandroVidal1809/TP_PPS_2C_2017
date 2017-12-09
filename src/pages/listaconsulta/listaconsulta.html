@@ -3,15 +3,17 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <ion-header>
     <ion-navbar>
-    
+        <div class={{conteiner}}>
       <ion-title>Listado Asistentes</ion-title>
       <ion-buttons end>
           <button ion-button (click)="closeModal()" >Cerrar </button>   
         </ion-buttons>
+        </div>
     </ion-navbar>
   </ion-header>
 
   <ion-content padding  class="body" >
+      <div class={{conteiner}}>
       <ion-fab  down right edge> 
           <button ion-fab mini><ion-icon name="contact" ></ion-icon></button>
            <ion-fab-list>
@@ -32,11 +34,7 @@
                 <tr class="titulo1">{{this.Fechas}}</tr>     
             </td>
                  
-        </tr>
-        
-       
-        <!-- <button type="button"  (click)="downloadCSV()" >bbbb</button> -->
-       
+        </tr>       
       </table>
     
   <table class="table" >
@@ -64,5 +62,5 @@
       <canvas #barCanvas></canvas>
     </ion-card-content>
   </ion-card>
-
+      </div>
 </ion-content>

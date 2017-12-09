@@ -36,6 +36,11 @@ export class ExcelPage {
   existe:boolean;
   miArray : any[] = [];
 
+  claseBoton: string;
+  claseFoto:string;
+  conteiner:string; 
+  claseRadio:string; 
+
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               private http: Http,
@@ -44,7 +49,12 @@ export class ExcelPage {
               public af: AngularFireDatabase,
               public alertCtrl: AlertController,
                private view: ViewController,
-               private _auth:AngularFireAuth) {
+               private _auth:AngularFireAuth) 
+  {
+    this.claseBoton= localStorage.getItem("claseBoton");
+    this.claseFoto=localStorage.getItem("claseFoto");
+    this.conteiner=localStorage.getItem("conteiner");
+    this.claseRadio = localStorage.getItem("claseRadio");
                  this.tienePermisos();
                 this.lista= af.list('/Alumno/');
                 this.Importacion= af.list('/Importaciones/');

@@ -4,15 +4,17 @@
 
 <ion-header>
     <ion-navbar>
-    
-      <ion-title>Listado Asistentes</ion-title>
-      <ion-buttons end>
-          <button ion-button (click)="closeModal()" >Cerrar </button>   
-        </ion-buttons>
+        <div class={{conteiner}}>
+          <ion-title>Listado Asistentes</ion-title>
+          <ion-buttons end>
+              <button ion-button (click)="closeModal()" >Cerrar </button>   
+            </ion-buttons>
+      </div>
     </ion-navbar>
   </ion-header>
 
   <ion-content padding  class="body" >
+      <div class={{conteiner}}>
     <ion-fab  down right edge> 
       <button ion-fab mini><ion-icon name="contact" ></ion-icon></button>
        <ion-fab-list>
@@ -45,7 +47,6 @@
     </thead>
     <tbody>
           <tr *ngFor="let item of listadoP;let i=index">
-<!--             s -->
             <td style="border-top:0px; ">{{item.Legajo}} </td>
             <td style="border-top:0px; ">{{item.Nombre}} </td>
             <td class="checkbox" style="border-top:0px; ">
@@ -64,5 +65,6 @@
   <button type="button" style="margin-left:180px;outline:none;" (click)="AgregarLista()"  class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>
 
 
+</div>
 </div>
 </ion-content>

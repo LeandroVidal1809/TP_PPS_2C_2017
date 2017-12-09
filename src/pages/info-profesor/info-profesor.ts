@@ -20,8 +20,18 @@ export class InfoProfesorPage {
   Nombre:string;
   tipo:string;
   Foto:string;
+
+  claseBoton: string;
+  claseFoto:string;
+  conteiner:string; 
+  claseRadio:string; 
+  
   constructor(public navCtrl: NavController , public alertCtrl: AlertController, private view: ViewController,db:AngularFireDatabase, public navParams: NavParams) 
   {
+    this.claseBoton= localStorage.getItem("claseBoton");
+    this.claseFoto=localStorage.getItem("claseFoto");
+    this.conteiner=localStorage.getItem("conteiner");
+    this.claseRadio = localStorage.getItem("claseRadio");
 
     this.emailProf = sessionStorage.getItem("EmailProf");
     this.tipo = sessionStorage.getItem("type");

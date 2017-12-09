@@ -16,9 +16,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class InfoAlumnoPage {
 nombre:string;
 Foto:string;
+
+claseBoton: string;
+claseFoto:string;
+conteiner:string; 
+claseRadio:string; 
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.nombre=localStorage.getItem("Nombre");
     this.Foto=localStorage.getItem("Foto");
+
+    this.claseBoton= localStorage.getItem("claseBoton");
+    this.claseFoto=localStorage.getItem("claseFoto");
+    this.conteiner=localStorage.getItem("conteiner");
+    this.claseRadio = localStorage.getItem("claseRadio");
   }
 
   ionViewDidLoad() {

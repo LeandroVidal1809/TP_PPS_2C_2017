@@ -33,15 +33,25 @@ tipo:string;
 
   perfil = {loggedin: false,name : '',profilePicture: '',email: ''};
 
+  
+claseBoton: string;
+claseFoto:string;
+conteiner:string; 
+claseRadio:string; 
+
   constructor( private nativeAudio: NativeAudio,public platform: Platform,public navCtrl: NavController,
      public navParams: NavParams, public modalCtrl: ModalController,
      private view: ViewController,db:AngularFireDatabase,
      private barcodeScanner: BarcodeScanner,
      private _auth:AngularFireAuth) 
   {  
-      this.perfil=navParams.data;
-     this.tipo =  sessionStorage.getItem("type")
+    this.claseBoton= localStorage.getItem("claseBoton");
+    this.claseFoto=localStorage.getItem("claseFoto");
+    this.conteiner=localStorage.getItem("conteiner");
+    this.claseRadio = localStorage.getItem("claseRadio");
 
+      this.perfil=navParams.data;
+      this.tipo =  sessionStorage.getItem("type")
       this.listcodigos =db.list('/codigos');
       
   }

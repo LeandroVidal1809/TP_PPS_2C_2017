@@ -34,9 +34,19 @@ export class ConsultaPage {
   OpcionElegida:number;
   opcion:number;
   dbCon: AngularFireDatabase;
+
+  claseBoton: string;
+  claseFoto:string;
+  conteiner:string; 
+  claseRadio:string; 
+  
   constructor(public modalCtrl: ModalController,db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,
     private _auth:AngularFireAuth) {
    
+      this.claseBoton= localStorage.getItem("claseBoton");
+      this.claseFoto=localStorage.getItem("claseFoto");
+      this.conteiner=localStorage.getItem("conteiner");
+      this.claseRadio = localStorage.getItem("claseRadio");
     this.dbCon=db;
    
     var f = new Date();
