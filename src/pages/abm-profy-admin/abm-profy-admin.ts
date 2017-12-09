@@ -6,14 +6,8 @@ import { AlertController ,LoadingController, Loading} from 'ionic-angular';
 import { HomePage } from '../home/home';	
 import * as papa from 'papaparse';
 import { Http } from '@angular/http';
-
 import { LoginPage } from '../login/login';
-/**
- * Generated class for the AbmProfyAdminPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -36,6 +30,12 @@ export class AbmProfyAdminPage {
   testRadioOpen: boolean;
   testRadioResult;
   archivo: string;
+
+  claseBoton: string;
+  claseFoto:string;
+  conteiner:string; 
+  claseRadio:string; 
+  
   constructor(public navCtrl: NavController,
                public navParams: NavParams,
                public alertCtrl: AlertController,
@@ -44,6 +44,11 @@ export class AbmProfyAdminPage {
                private http: Http,
                 private view: ViewController,
                 private _auth:AngularFireAuth) {
+
+                  this.claseBoton= localStorage.getItem("claseBoton");
+                  this.claseFoto=localStorage.getItem("claseFoto");
+                  this.conteiner=localStorage.getItem("conteiner");
+                  this.claseRadio = localStorage.getItem("claseRadio");
                   this.tienePermisos();
                   this.lista= af.list('/Usuarios/');
                   this.lista1=true;

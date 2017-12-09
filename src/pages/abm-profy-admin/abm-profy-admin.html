@@ -3,6 +3,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <ion-header>
     <ion-navbar>
+        <div class={{conteiner}}>
       <form class="form-horizontal" role="form">
         
             <div class="form-group">
@@ -14,16 +15,16 @@
                 </div>
             </div>
       </form>
-      <!-- <ion-title>ABM Profesor & Administrativo</ion-title> -->
 
       <ion-buttons end>
           <button ion-button (click)="closeModal()" >Cerrar </button>   
         </ion-buttons>
+      </div>
     </ion-navbar>
   </ion-header>
   <ion-content padding align="center">
     <!---->      
-
+    <div class={{conteiner}}>
     <div [hidden]="!lista1">
     <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10">
       <div id="login-access" class="tab-pane fade active in">
@@ -43,8 +44,9 @@
 
 
       </div>
-      
-      <button  (click)="Guardar()" class="btn btn-primary btn-md">Registrar usuario</button>
+      <form class="sa-innate-form" method="post">
+      <button  (click)="Guardar()" class={{claseBoton}}>Registrar usuario</button>
+      </form>
     </div>
     </div>
 
@@ -85,8 +87,10 @@
                 <ion-input type="text" [(ngModel)]="csvData[i][j]"></ion-input>
               </td>
             </tr>
-        </table>    
-        <button  (click)="GuardarLista()" class="btn btn-primary btn-md">Registrar Lista de Usuarios</button>
-    </div>
-
+        </table>  
+        <form class="sa-innate-form" method="post">  
+        <button  (click)="GuardarLista()"  class={{claseBoton}}>Registrar Lista de Usuarios</button>
+        </form>
+      </div>
+  </div>
   </ion-content>

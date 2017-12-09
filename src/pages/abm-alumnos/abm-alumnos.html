@@ -4,6 +4,7 @@
 
 <ion-header>
     <ion-navbar>
+        <div class={{conteiner}}>
       <form class="form-horizontal" role="form">
         
             <div class="form-group">
@@ -15,19 +16,37 @@
       <ion-buttons end>
           <button ion-button (click)="closeModal()" >Cerrar </button>   
         </ion-buttons>
+        </div>
     </ion-navbar>
 </ion-header>
 <ion-content padding align="center">
- 
+    <div class={{conteiner}}>
 
 
       <div>
         <div class="form-body">
-            <ul class="nav nav-tabs final-login">
-              <li class={{claseAlta}}><a data-toggle="tab" (click)="mortrarA('A')"  >Alta </a></li>
-              <li class={{claseBaja}}><a data-toggle="tab" (click)="mortrarA('B')">Baja</a></li>
-              <li class={{claseModificacion}}><a data-toggle="tab" (click)="mortrarA('C')">Modificacion</a></li>
-              <li class={{claselista}}><a data-toggle="tab" (click)="mortrarA('D')">Cargar lista</a></li>
+            <ul class="nav nav-tabs">
+              <li >
+                <!-- <a data-toggle="tab" (click)="mortrarA('A')"  >Alta </a> -->
+                <form class="sa-innate-form" method="post">  
+                    <button  (click)="mortrarA('A')" class={{claseBoton}}>Alta</button>
+                    </form>
+              </li>
+              <li>
+                <form class="sa-innate-form" method="post">  
+                    <button  (click)="mortrarA('B')" class={{claseBoton}}>Baja</button>
+                    </form>
+              </li>
+              <li >
+                <form class="sa-innate-form" method="post">  
+                    <button  (click)="mortrarA('C')" class={{claseBoton}}>Modificacion</button>
+                    </form>
+              </li>
+              <li >
+                <form class="sa-innate-form" method="post">  
+                    <button  (click)="mortrarA('D')" class={{claseBoton}}>Cargar lista</button>
+                    </form>
+              </li>
             </ul>
         <div class="tab-content">
         <div id="sectionA" [hidden]="seccionA" class="tab-pane fade in active">
@@ -36,14 +55,18 @@
               <input type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="Ingrese su legajo ">
               Nombre
               <input type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="Ingrese su nombre">
-            <button  (click)="Guardar()" class="btn btn-primary btn-md">Guardar</button>
+              <form class="sa-innate-form" method="post">  
+            <button  (click)="Guardar()" class={{claseBoton}}>Guardar</button>
+              </form>
           </div>
         </div>
         <div id="sectionB" [hidden]="seccionB">
           <div class="innter-form">
             Ingrese el legajo del alumno 
             <input type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="Ingrese su legajo ">
-            <button  (click)="Guardar2()" class="btn btn-primary btn-md">Borrar</button>
+            <form class="sa-innate-form" method="post">  
+            <button  (click)="Guardar2()" class={{claseBoton}}>Borrar</button>
+            </form>
           </div>
         </div>
         <div id="sectionC" [hidden]="seccionC">
@@ -51,14 +74,18 @@
           <div [hidden]="Modificar">
               Ingrese el legajo del alumno 
               <input type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="Ingrese su legajo ">
-              <button  (click)="Buscar()" class="btn btn-primary btn-md">Buscar</button>
+              <form class="sa-innate-form" method="post">  
+              <button  (click)="Buscar()" class={{claseBoton}}>Buscar</button>
+              </form>
           </div>
           <div [hidden]="!Modificar">
               Legajo
               <input type="text" id="c" name="c" [(ngModel)]="legajo"  disabled>
               Nombre
               <input type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="Ingrese su nombre">
-              <button  (click)="Guardar3()" class="btn btn-primary btn-md">Guardar</button>
+              <form class="sa-innate-form" method="post">  
+              <button  (click)="Guardar3()" class={{claseBoton}}>Guardar</button>
+              </form>
           </div>
         
           </div>
@@ -97,14 +124,15 @@
                           <ion-input type="text" [(ngModel)]="csvData[i][j]"></ion-input>
                         </td>
                       </tr>
-                  </table>    
-                  <button  (click)="GuardarLista()" class="btn btn-primary btn-md">Registrar Lista de Alumnos</button>
-        
+                  </table>  
+                  <form class="sa-innate-form" method="post">  
+                  <button  (click)="GuardarLista()" class={{claseBoton}} >Registrar Lista de Alumnos</button>
+                  </form>
         </div>
 
 
+          </div>
         </div>
-    </div>
       </div>
-
+    </div>
 </ion-content>

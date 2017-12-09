@@ -46,7 +46,11 @@ export class AbmAlumnosPage {
   Modificar:boolean;
   KeyModificar;
   ListaNuevos:any;
- // public csvData: any[] = ['12344','12344','32432'];
+
+ claseBoton: string;
+ claseFoto:string;
+ conteiner:string; 
+ claseRadio:string; 
 
   constructor(public navCtrl: NavController,
                public navParams: NavParams,
@@ -55,7 +59,14 @@ export class AbmAlumnosPage {
                public spiner:LoadingController,
                public alertCtrl: AlertController,               
                 private view: ViewController,
-                private _auth:AngularFireAuth) {
+                private _auth:AngularFireAuth)
+                {
+
+                  this.claseBoton= localStorage.getItem("claseBoton");
+                  this.claseFoto=localStorage.getItem("claseFoto");
+                  this.conteiner=localStorage.getItem("conteiner");
+                  this.claseRadio = localStorage.getItem("claseRadio");
+
                   this.tienePermisos();
                   this.listadoP=new Array<any>();
                   this.ListaNuevos=new Array<any>();

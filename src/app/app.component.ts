@@ -40,7 +40,6 @@ export class MyApp {
       this.pages = [
         
           { title: 'Tomar asistencia', component: TomarAsistenciaPage,type:'button'},
-          { title: 'Tomar foto del aula', component: TomarFotoPage,type:'button'},
         
           { title: 'Encuestas', component: MenuEncuesta, type:'button'},
          
