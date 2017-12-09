@@ -41,11 +41,23 @@ button:boolean=false;
  hora:string;
  horaActual:Date;
   list: AngularFireList<any>;
+
+  claseBoton: string;
+  claseFoto:string;
+  conteiner:string; 
+  claseRadio:string; 
+  
   constructor(public modalCtrl: ModalController,public navCtrl: NavController,
     public navParams: NavParams,
     public db: AngularFireDatabase,    public alertCtrl: AlertController,public spiner:LoadingController,
      private view: ViewController, 
      private _auth:AngularFireAuth) {
+
+      this.claseBoton= localStorage.getItem("claseBoton");
+      this.claseFoto=localStorage.getItem("claseFoto");
+      this.conteiner=localStorage.getItem("conteiner");
+      this.claseRadio = localStorage.getItem("claseRadio");
+
      this.check1="";   this.check2="";   this.check3="";
       this.Tiempo="0";
       this.Minuto="0";

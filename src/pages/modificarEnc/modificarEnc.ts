@@ -38,6 +38,11 @@ export class ModificarEnc {
   KeyUsuario:string;
   listadoU:Array<any>;
   perfil = {name : '',profilePicture: '',email: '',tipo:''};
+
+  claseBoton: string;
+  claseFoto:string;
+  conteiner:string; 
+  claseRadio:string; 
   
   constructor(public modalCtrl: ModalController,public navCtrl: NavController,
                public navParams: NavParams,
@@ -46,6 +51,11 @@ export class ModificarEnc {
                public spiner:LoadingController,
                 private view: ViewController,
                 private _auth:AngularFireAuth) {
+
+                  this.claseBoton= localStorage.getItem("claseBoton");
+                  this.claseFoto=localStorage.getItem("claseFoto");
+                  this.conteiner=localStorage.getItem("conteiner");
+                  this.claseRadio = localStorage.getItem("claseRadio");
                //  this.tienePermisos();
                   this.lista= af.list('/altaEncuesta/');
                   console.log(navParams);

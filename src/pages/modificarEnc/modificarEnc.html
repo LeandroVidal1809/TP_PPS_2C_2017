@@ -3,16 +3,17 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <ion-header>
     <ion-navbar>
-   
+        <div class={{conteiner}}>
       <ion-title>Modificar Encuesta</ion-title>
       <ion-buttons end>
           <button ion-button (click)="Borrar()" >Borrar </button>   <button ion-button (click)="closeModal()" >Cerrar </button>   
         </ion-buttons>
+        </div>
     </ion-navbar>
   </ion-header>
   <ion-content padding align="center">
     <!---->    
-
+    <div class={{conteiner}}>
  
     <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10">
       <div id="login-access" class="tab-pane fade active in">
@@ -41,7 +42,9 @@
         <input type="text" id="a" name="a" [(ngModel)]="resp3" ><br>
 
       </div>
-      
-      <button  (click)="Modificar()" class="btn btn-primary btn-md">Modificar Encuesta</button>
+      <form class="sa-innate-form" method="post">
+      <button  (click)="Modificar()" class={{claseBoton}}>Modificar Encuesta</button>
+    </form>
+    </div>
     </div>
   </ion-content>

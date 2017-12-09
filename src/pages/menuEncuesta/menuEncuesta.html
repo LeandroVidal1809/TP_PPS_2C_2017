@@ -1,11 +1,4 @@
 
-  
-    <!--
-  Generated template for the ExcelPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
    
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,11 +6,12 @@
 
 <ion-header>
   <ion-navbar>
-  
+      <div class={{conteiner}}>
     <ion-title>Encuestas</ion-title>
     <ion-buttons end>
         <button ion-button (click)="closeModal()" >Cerrar </button>   
       </ion-buttons>
+      </div>
   </ion-navbar>
 </ion-header>
 
@@ -28,13 +22,16 @@
    
               
 <div *ngIf="super">
-    <button ion-button (click)="redirect('Alta')">Alta</button>    <br> <br>
+    <form class="sa-innate-form" method="post">
+    <button class={{claseBoton}} type="submit" (click)="redirect('Alta')">Alta</button>    <br> <br>
  
-    <button ion-button (click)="redirect('Modificar')">Modificar</button>   <br> <br>
-    <button ion-button (click)="redirect('Graficos')">Graficos</button>     <br> <br>
+    <button class={{claseBoton}} type="submit" (click)="redirect('Modificar')">Modificar</button>   <br> <br>
+    <button class={{claseBoton}} type="submit" (click)="redirect('Graficos')">Graficos</button>     <br> <br>
+    </form>
 </div>
-		  
-      <button ion-button (click)="redirect('Encuesta Del Dia')">Encuesta Del Dia</button>  
+<form class="sa-innate-form" method="post">
+      <button class={{claseBoton}} type="submit" (click)="redirect('Encuesta Del Dia')">Encuesta Del Dia</button>  
+</form>
     
 
   

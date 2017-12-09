@@ -3,16 +3,17 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <ion-header>
     <ion-navbar>
-   
+        <div class={{conteiner}}>
       <h4> Esta encuesta finaliza {{("0000"+this.Tiempo).slice(-2)}}:{{("0000"+this.Minuto).slice(-2)}}  </h4>
 
       <ion-buttons end>
           <button ion-button (click)="closeModal()" >Cerrar </button>   
         </ion-buttons>
+        </div>
     </ion-navbar>
   </ion-header>
   <ion-content padding align="center">
-    <!---->     
+      <div class={{conteiner}}>
 
  
     <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10">
@@ -43,15 +44,7 @@
               
               </ion-list>
 
-  <!--
-          <label>{{resp1}} </label>
-          <ion-checkbox [(ngModel)]="check1" > </ion-checkbox>
-     
-          <label>{{resp3}}</label>
-          <ion-checkbox [(ngModel)]="check2" >   </ion-checkbox> 
-          <label>{{resp3}}</label>
-          <ion-checkbox [(ngModel)]="check3" >   </ion-checkbox>
-          -->
+
           </div>
           <div *ngIf="select">
               <select [(ngModel)]="respSelect"  style="color:black;" >
@@ -70,34 +63,13 @@
             
                   </div>
       
-        <!-- <h2> Que te parecio la app?</h2>
-        <select  [(ngModel)]="preg1" style="color:black;" >
-         
-          <option>Mala</option>
-          <option>Bien</option>
-        </select>
-  
-        <h2> Estas interesado en capacitarte para lograr algo asi?</h2>  
-        <select  [(ngModel)]="preg2" style="color:black;" >
-       
-            <option>Si</option>
-            <option>No</option>
-    
-          </select>
-          <h2>Danos tu puntaje del 1 al 5</h2>  
-          <select  [(ngModel)]="preg3" style="color:black;" >
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          
-            </select>
- -->
+
 
       </div>
-      <h2><i class="glyphicon glyphicon-log-in"></i>Gracias por participar</h2>	
-      <button  (click)="Guardar()" class="btn btn-primary btn-md">Guardar encuesta</button>
-    
-    </div>
+      <h2><i class="glyphicon glyphicon-log-in"></i>Gracias por participar</h2>
+      <form class="sa-innate-form" method="post">	
+      <button  (click)="Guardar()" class={{claseBoton}} >Guardar encuesta</button>
+      </form>
+        </div>
+      </div>
   </ion-content>

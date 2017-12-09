@@ -4,7 +4,7 @@
 
 <ion-header>
   <ion-navbar>
-    
+      <div class={{conteiner}}>
 La encuesta Durará:
     <select [(ngModel)]="tiempo" style="margin-left: -72px;width: 265px;font-size:22px"  (click)="cargar()"  style="color:black;" >
       <option>Duracion de la Encuesta</option>
@@ -16,10 +16,11 @@ La encuesta Durará:
     <ion-buttons end>
         <button ion-button (click)="closeModal()" >Cerrar </button>   
       </ion-buttons>
+      </div>
   </ion-navbar>
 </ion-header>
 <ion-content padding >
-  
+    <div class={{conteiner}}>
   
 <!---->
   <!--<article class="container-login center-block">
@@ -49,12 +50,14 @@ La encuesta Durará:
               <br><br>
               <input style="margin-left: 0px;width: 265px;font-size:22px" type="text" id="c" name="c" [(ngModel)]="respuesta3" placeholder="Respuesta 3...">
               <br><br>
-                  <button  (click)="Guardar()" class="btn btn-primary btn-md">Registrar Encuesta</button>
+              <form class="sa-innate-form" method="post">
+                  <button class={{claseBoton}} (click)="Guardar()">Registrar Encuesta</button>
+                </form>
                    </div>
              
                 
     
       
     </div>
-  
+    </div>
 </ion-content>

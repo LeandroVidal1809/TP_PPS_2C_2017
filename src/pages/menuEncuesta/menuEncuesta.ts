@@ -26,8 +26,19 @@ export class MenuEncuesta {
   
 perfil = {name : '',profilePicture: '',email: '',tipo:''};
 super = true;
+claseBoton: string;
+claseFoto:string;
+conteiner:string; 
+claseRadio:string; 
+
   constructor(      public alertCtrl: AlertController,   private view: ViewController,public platform: Platform,/* public push: Push, */public modalCtrl: ModalController,public navCtrl: NavController,
     private _auth:AngularFireAuth, public navParams: NavParams) {
+
+      this.claseBoton= localStorage.getItem("claseBoton");
+      this.claseFoto=localStorage.getItem("claseFoto");
+      this.conteiner=localStorage.getItem("conteiner");
+      this.claseRadio = localStorage.getItem("claseRadio");
+
       console.log(navParams);
       this.perfil=navParams.data;
       console.log("prueba perfil logeado:",this.perfil);

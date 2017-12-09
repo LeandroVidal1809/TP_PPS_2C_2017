@@ -33,6 +33,10 @@ export class AltaEncuesta {
   respuesta2: string;
   respuesta3: string;
 
+  claseBoton: string;
+  claseFoto:string;
+  conteiner:string; 
+  claseRadio:string; 
 
   constructor(
     public navCtrl: NavController,
@@ -41,6 +45,12 @@ export class AltaEncuesta {
                public alertCtrl: AlertController,               
                 private view: ViewController,
                 private _auth:AngularFireAuth,public modalCtrl: ModalController) {
+
+                  
+      this.claseBoton= localStorage.getItem("claseBoton");
+      this.claseFoto=localStorage.getItem("claseFoto");
+      this.conteiner=localStorage.getItem("conteiner");
+      this.claseRadio = localStorage.getItem("claseRadio");
                   if(sessionStorage.getItem("type")!="profesor" && sessionStorage.getItem("type")!="admin" && sessionStorage.getItem("type")!="administrativo")
                     {
                         this.showAlert("No tiene permisos para ingresar a la generacion de la encuesta","Lo Sentimos");
