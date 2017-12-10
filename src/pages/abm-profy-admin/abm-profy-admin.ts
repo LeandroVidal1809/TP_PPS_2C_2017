@@ -35,6 +35,7 @@ export class AbmProfyAdminPage {
   claseFoto:string;
   conteiner:string; 
   claseRadio:string; 
+  textBox:string; 
   
   constructor(public navCtrl: NavController,
                public navParams: NavParams,
@@ -49,6 +50,7 @@ export class AbmProfyAdminPage {
                   this.claseFoto=localStorage.getItem("claseFoto");
                   this.conteiner=localStorage.getItem("conteiner");
                   this.claseRadio = localStorage.getItem("claseRadio");
+                  this.textBox = localStorage.getItem("textBox");
                   this.tienePermisos();
                   this.lista= af.list('/Usuarios/');
                   this.lista1=true;
