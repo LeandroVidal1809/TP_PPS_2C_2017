@@ -29,7 +29,7 @@
         <div class="form-body">
             <div class={{conteiner}}>
                   <ul class="nav nav-tabs final-login">
-                <br>
+ 
           
                   <li class={{claseLogin}} ><a data-toggle="tab" (click)="mortrarA('A')"  >Iniciar Sesión</a></li>
                   <li class={{claseRegistrar}} ><a data-toggle="tab" (click)="mortrarA('B')">Registrar</a></li>
@@ -38,19 +38,18 @@
                   <div id="sectionA" [hidden]="seccionA" class="tab-pane fade in active">
                     <div class="innter-form">
                   
-                
-                  <form class="sa-innate-form" method="post">
                     <label>Direccion de correo electronico</label>
-                    <input type="text" name="username" [(ngModel)]="username">
+                    <input class={{textBox}} type="text" name="username" [(ngModel)]="username">
                     <label>Clave</label>
-                    <input type="password" name="password" [(ngModel)]="password">
+                    <input class={{textBox}} type="password" name="password" [(ngModel)]="password">
                     <br>
+                    <form class="sa-innate-form" method="post">
                     <button class={{claseBoton}} type="submit" (click)="login()">Entrar</button>
                     <br>
-                    <button class={{claseBoton}} type="submit" (click)="Temas('1')">Tema 1</button>
-                    <button class={{claseBoton}} type="submit" (click)="Temas('2')">Tema 2</button>
-                    <button class={{claseBoton}} type="submit" (click)="Temas('3')">Tema 3</button>
-                    <button class={{claseBoton}} type="submit" (click)="Temas('4')">Tema 4</button> 
+                    <button class={{claseBoton}} type="submit" (click)="Temas('1')">Custom</button>
+                    <button class={{claseBoton}} type="submit" (click)="Temas('2')">Argentina</button>
+                    <button class={{claseBoton}} type="submit" (click)="Temas('3')">Profesional</button>
+                    <button class={{claseBoton}} type="submit" (click)="Temas('4')">Naif</button> 
                     </form>
                   </div> 
                     <div class="clearfix"></div>

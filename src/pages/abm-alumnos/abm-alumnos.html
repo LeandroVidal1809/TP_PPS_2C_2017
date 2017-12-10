@@ -11,8 +11,6 @@
                 <label   class="col-sm-4 control-label">ABM Alumnos</label>
             </div>
       </form>
-
-
       <ion-buttons end>
           <button ion-button (click)="closeModal()" >Cerrar </button>   
         </ion-buttons>
@@ -24,7 +22,7 @@
 
 
       <div>
-        <div class="form-body">
+        <div >
             <ul class="nav nav-tabs">
               <li >
                 <!-- <a data-toggle="tab" (click)="mortrarA('A')"  >Alta </a> -->
@@ -49,12 +47,12 @@
               </li>
             </ul>
         <div class="tab-content">
-        <div id="sectionA" [hidden]="seccionA" class="tab-pane fade in active">
-          <div class="innter-form">
+        <div id="sectionA" [hidden]="seccionA" >
+          <div >
               Legajo
-              <input type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="Ingrese su legajo ">
+              <input class={{textBox}}  type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="Ingrese su legajo ">
               Nombre
-              <input type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="Ingrese su nombre">
+              <input class={{textBox}} type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="Ingrese su nombre">
               <form class="sa-innate-form" method="post">  
             <button  (click)="Guardar()" class={{claseBoton}}>Guardar</button>
               </form>
@@ -63,7 +61,7 @@
         <div id="sectionB" [hidden]="seccionB">
           <div class="innter-form">
             Ingrese el legajo del alumno 
-            <input type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="Ingrese su legajo ">
+            <input class={{textBox}} type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="Ingrese su legajo ">
             <form class="sa-innate-form" method="post">  
             <button  (click)="Guardar2()" class={{claseBoton}}>Borrar</button>
             </form>
@@ -73,16 +71,16 @@
           <div class="innter-form">
           <div [hidden]="Modificar">
               Ingrese el legajo del alumno 
-              <input type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="Ingrese su legajo ">
+              <input class={{textBox}} type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="Ingrese su legajo ">
               <form class="sa-innate-form" method="post">  
               <button  (click)="Buscar()" class={{claseBoton}}>Buscar</button>
               </form>
           </div>
           <div [hidden]="!Modificar">
               Legajo
-              <input type="text" id="c" name="c" [(ngModel)]="legajo"  disabled>
+              <input class={{textBox}} type="text" id="c" name="c" [(ngModel)]="legajo"  disabled>
               Nombre
-              <input type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="Ingrese su nombre">
+              <input class={{textBox}} type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="Ingrese su nombre">
               <form class="sa-innate-form" method="post">  
               <button  (click)="Guardar3()" class={{claseBoton}}>Guardar</button>
               </form>

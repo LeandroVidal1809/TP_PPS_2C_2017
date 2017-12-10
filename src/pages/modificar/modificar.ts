@@ -32,7 +32,8 @@ export class Modificar {
 
   claseBoton: string;
   claseFoto:string;
-  conteiner:string;   
+  conteiner:string;
+  textBox:string;      
   
   constructor(public navCtrl: NavController,
                public navParams: NavParams,
@@ -45,6 +46,7 @@ export class Modificar {
                   this.claseBoton= localStorage.getItem("claseBoton");
                   this.claseFoto=localStorage.getItem("claseFoto");
                   this.conteiner=localStorage.getItem("conteiner");
+                  this.textBox = localStorage.getItem("textBox");
 
                   this.lista= af.list('/Usuarios/');
                   console.log(navParams);

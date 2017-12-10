@@ -51,6 +51,7 @@ export class AbmAlumnosPage {
  claseFoto:string;
  conteiner:string; 
  claseRadio:string; 
+ textBox:string; 
 
   constructor(public navCtrl: NavController,
                public navParams: NavParams,
@@ -66,7 +67,8 @@ export class AbmAlumnosPage {
                   this.claseFoto=localStorage.getItem("claseFoto");
                   this.conteiner=localStorage.getItem("conteiner");
                   this.claseRadio = localStorage.getItem("claseRadio");
-
+                  this.textBox = localStorage.getItem("textBox");
+          
                   this.tienePermisos();
                   this.listadoP=new Array<any>();
                   this.ListaNuevos=new Array<any>();

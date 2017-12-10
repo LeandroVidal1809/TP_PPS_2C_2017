@@ -357,6 +357,8 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
   claseFoto:string;
   conteiner:string;
   claseRadio:string;   
+  textBox:string;  
+
   Temas(clase:string)
   {
     switch (clase) {
@@ -365,40 +367,48 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
         this.claseFoto = "fondo1";
         this.conteiner = "container1";
         this.claseRadio = "radio1";
+        this.textBox = "textBox1";
         localStorage.setItem("claseBoton",this.claseBoton);
         localStorage.setItem("claseFoto",this.claseFoto);
         localStorage.setItem("conteiner",this.conteiner);
         localStorage.setItem("claseRadio",this.claseRadio);
+        localStorage.setItem("textBox",this.textBox);
         break;
         case "2":
         this.claseBoton = "miboton2";
         this.claseFoto = "fondo2";
         this.conteiner = "container2";
         this.claseRadio = "radio2";
+        this.textBox = "textBox2";
         localStorage.setItem("claseBoton",this.claseBoton);
         localStorage.setItem("claseFoto",this.claseFoto);
         localStorage.setItem("conteiner",this.conteiner);
         localStorage.setItem("claseRadio",this.claseRadio);
+        localStorage.setItem("textBox",this.textBox);
         break;
         case "3":
         this.claseBoton = "miboton3";
         this.claseFoto = "fondo3";
         this.conteiner = "container3";
         this.claseRadio = "radio3";
+        this.textBox = "textBox3";
         localStorage.setItem("claseBoton",this.claseBoton);
         localStorage.setItem("claseFoto",this.claseFoto);
         localStorage.setItem("conteiner",this.conteiner);
         localStorage.setItem("claseRadio",this.claseRadio);
+        localStorage.setItem("textBox",this.textBox);
         break;
         case "4":
         this.claseBoton = "miboton4";
         this.claseFoto = "fondo4";
         this.conteiner = "container4";
         this.claseRadio = "radio4";
+        this.textBox = "textBox4";
         localStorage.setItem("claseBoton",this.claseBoton);
         localStorage.setItem("claseFoto",this.claseFoto);
         localStorage.setItem("conteiner",this.conteiner);
         localStorage.setItem("claseRadio",this.claseRadio);
+        localStorage.setItem("textBox",this.textBox);
         break;
     
       default:

@@ -12,20 +12,18 @@
     </ion-navbar>
   </ion-header>
   <ion-content padding align="center">
-    <!---->    
 
- 
     <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10">
-      <!-- <div id="login-access" class="tab-pane fade active in"> -->
+
           <div class={{conteiner}}>
         <h2><i class="glyphicon glyphicon-log-in"></i>Modificar Datos</h2>						
 
         Nombre:           
-        <input type="text" id="a" name="a" [(ngModel)]="nombre" >
+        <input class={{textBox}} type="text" id="a" name="a" [(ngModel)]="nombre" >
         Tipo:(No se puedo modificar)
-        <input type="text" id="s" name="s" [(ngModel)]="tipo" disabled>
+        <input class={{textBox}} type="text" id="s" name="s" [(ngModel)]="tipo" disabled>
         Mail:(No se puedo modificar)
-        <input type="email" id="c" name="c" [(ngModel)]="email" disabled>
+        <input class={{textBox}} type="email" id="c" name="c" [(ngModel)]="email" disabled>
 
 
         Eliga una foto para su perfil:
@@ -36,10 +34,8 @@
             <input type="radio" [(ngModel)]="foto" name="gender4" ng-model="myVar" value="assets/imgs/4.jpg"> <img class="foto"  width=150px;  src="assets/imgs/4.jpg"><br>
             <input type="radio" [(ngModel)]="foto" name="gender5" ng-model="myVar" value="assets/imgs/5.jpg"> <img class="foto"  width=150px;  src="assets/imgs/5.jpg"><br>
           </form>
-        <!-- </div> -->
       </div>
       <form class="sa-innate-form" method="post">
-      <!-- <button  (click)="Guardar2(myVar)" class={{claseBoton}}>Modificar usuario</button> -->
       <button class={{claseBoton}} type="submit" (click)="Guardar2(myVar)">Modificar usuario</button>
       </form>
     </div>

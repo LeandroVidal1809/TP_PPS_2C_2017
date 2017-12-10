@@ -133,10 +133,10 @@ $turquoise: #1abc9c;
   }
 
 
-  $blue: #009620;
+  $blue: #916b1b;
   .miboton3 {
     font-family: 'Open Sans';
-    background:#045213;
+    background:#b18e2d;
     padding: 11px 20px 11px 20px;
     border-color: $blue;
     color:$blue;
@@ -148,12 +148,13 @@ $turquoise: #1abc9c;
     }
   }
 
-  $purple: #631b81;
+  $purple: pink;
   .miboton4 {
     // background: $yellow;
     border:10px solidrgb(0, 0, 0);
-    border-radius: 3em;
-    background:#7e4a94;
+  //  border-radius: 3em;
+  border-radius: 20px;
+    background:rgb(224, 122, 141);
     border-color: $purple;
     color: $purple;
     background: {
@@ -192,17 +193,17 @@ $turquoise: #1abc9c;
 
 
   .fondo1{
-    background-image: url('../assets/imgs/fondo1.jpg');
+    background-image: url('../assets/imgs/fondo2.jpg');
     background-size: 300px 200px;   
 }
 
 .fondo2{
-    background-image: url('../assets/imgs/fondo2.jpg');
+    background-image: url('../assets/imgs/fondo1.jpg');
     background-size: 300px 200px;   
     }
 
 .fondo3{
-    background-image: url('../assets/imgs/fondo3.jpg');
+    background-image: url('../assets/imgs/fondo1.jpg');
     background-size: 300px 200px;   
     }
 
@@ -211,18 +212,76 @@ $turquoise: #1abc9c;
   background-size: 300px 200px;   
   }
 
+.sa-innate-form button{
+  border:1px solid#e64b3b;
+//  background:#e64b3b;
+  color:rgb(0, 0, 0);
+  padding:10px 25px;
+  font-size:14px;
+  margin-top:5px;
+  width: 100%;
+  }
 
-  
 
-    .sa-innate-form button{
-      border:1px solid#e64b3b;
-    //  background:#e64b3b;
-      color:rgb(0, 0, 0);
-      padding:10px 25px;
-      font-size:14px;
-      margin-top:5px;
-      width: 100%;
-      }
+  .textBox1{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 5px solid  #1abc9c;
+    outline: none;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+  }
+
+  .textBox1:focus{
+    background-color: lightgreen;
+  }
+
+
+  .textBox2{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #3cb0fd;
+    outline: none;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+  }
+
+  .textBox2:focus{
+    background-color: lightblue;
+  }
+
+
+  .textBox3{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #916b1b;
+    border-radius: 4px;
+  }
+
+
+  .textBox4{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid rgb(224, 122, 141);
+    border-radius: 20px;
+  }
+
+  .textBox4:focus{
+    background-color: lightpink;
+  }
+
+
+
 
 
 
