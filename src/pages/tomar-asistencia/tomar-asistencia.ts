@@ -43,7 +43,8 @@ opcion:number;
 claseBoton: string;
 claseFoto:string;
 conteiner:string; 
-claseRadio:string;     
+claseRadio:string;    
+textBox:string;   
 
 //Constructor
   constructor(public modalCtrl: ModalController,db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,
@@ -53,6 +54,9 @@ claseRadio:string;
       this.claseFoto=localStorage.getItem("claseFoto");
       this.conteiner=localStorage.getItem("conteiner");
       this.claseRadio = localStorage.getItem("claseRadio");
+      this.textBox = localStorage.getItem("textBox");
+      
+      console.log(this.textBox);
       //Lista de Alumnos
     this.list = db.list('/Alumno');
     

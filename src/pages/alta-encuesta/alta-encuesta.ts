@@ -36,7 +36,8 @@ export class AltaEncuesta {
   claseBoton: string;
   claseFoto:string;
   conteiner:string; 
-  claseRadio:string; 
+  claseRadio:string;
+  textBox:string;  
 
   constructor(
     public navCtrl: NavController,
@@ -51,6 +52,10 @@ export class AltaEncuesta {
       this.claseFoto=localStorage.getItem("claseFoto");
       this.conteiner=localStorage.getItem("conteiner");
       this.claseRadio = localStorage.getItem("claseRadio");
+      this.textBox = localStorage.getItem("textBox");
+
+console.log(this.textBox);
+
                   if(sessionStorage.getItem("type")!="profesor" && sessionStorage.getItem("type")!="admin" && sessionStorage.getItem("type")!="administrativo")
                     {
                         this.showAlert("No tiene permisos para ingresar a la generacion de la encuesta","Lo Sentimos");

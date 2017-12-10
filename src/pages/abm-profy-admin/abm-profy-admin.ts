@@ -51,6 +51,8 @@ export class AbmProfyAdminPage {
                   this.conteiner=localStorage.getItem("conteiner");
                   this.claseRadio = localStorage.getItem("claseRadio");
                   this.textBox = localStorage.getItem("textBox");
+
+                  console.log(this.textBox);
                   this.tienePermisos();
                   this.lista= af.list('/Usuarios/');
                   this.lista1=true;

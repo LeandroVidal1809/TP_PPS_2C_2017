@@ -6,7 +6,7 @@
   <ion-navbar>
       <div class={{conteiner}}>
 La encuesta Durará:
-    <select [(ngModel)]="tiempo" style="margin-left: -72px;width: 265px;font-size:22px"  (click)="cargar()"  style="color:black;" >
+    <select  [(ngModel)]="tiempo" style="margin-left: -72px;width: 265px;font-size:22px"  (click)="cargar()"  style="color:black;" >
       <option>Duracion de la Encuesta</option>
       <!-- <option>CheckBox</option> -->
       <option>1 min</option>
@@ -30,10 +30,10 @@ La encuesta Durará:
         <h2  style="margin-left: 0px;width: 263px;font-size:22px"><i class="glyphicon glyphicon-log-in"></i>Generador de encuestas</h2>			
         <h1 style="margin-left: 0px;width: 265px;font-size:22px">Su Pregunta</h1>			
         <br>  
-        <input style="margin-left: 0px;width: 265px;font-size:22px" type="text" id="c" name="c" [(ngModel)]="pregunta" placeholder="Ingrese su pregunta">
+        <input class={{textBox}} style="margin-left: 0px;width: 265px;font-size:22px" type="text" id="c" name="c" [(ngModel)]="pregunta" placeholder="Ingrese su pregunta">
      <!--<input type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="Ingrese su nombre">-->
   <br><br>
-        <select [(ngModel)]="tipoSelect" style="margin-left: 0px;width: 265px;font-size:30px"  (click)="cargar()" >
+        <select class={{textBox}} [(ngModel)]="tipoSelect" style="margin-left: 0px;width: 265px;font-size:30px"  (click)="cargar()" >
             <option>Seleccione un tipo de respuesta..</option>
             <!-- <option>CheckBox</option> -->
             <option>Menu de Seleccion</option>
@@ -44,11 +44,11 @@ La encuesta Durará:
    <!-- <button    class="btn btn-primary btn-md">Cargar Respuestas</button> -->
     
           <div >
-              <input  style="margin-left: 0px;width: 265px;font-size:22px" type="text" id="c" name="c" [(ngModel)]="respuesta1" placeholder="Respuesta 1...">
+              <input class={{textBox}}  style="margin-left: 0px;width: 265px;font-size:22px" type="text" id="c" name="c" [(ngModel)]="respuesta1" placeholder="Respuesta 1...">
               <br><br>
-              <input  style="margin-left: 0px;width: 265px;font-size:22px" type="text" id="c" name="c" [(ngModel)]="respuesta2" placeholder="Respuesta 2...">
+              <input class={{textBox}}  style="margin-left: 0px;width: 265px;font-size:22px" type="text" id="c" name="c" [(ngModel)]="respuesta2" placeholder="Respuesta 2...">
               <br><br>
-              <input style="margin-left: 0px;width: 265px;font-size:22px" type="text" id="c" name="c" [(ngModel)]="respuesta3" placeholder="Respuesta 3...">
+              <input class={{textBox}} style="margin-left: 0px;width: 265px;font-size:22px" type="text" id="c" name="c" [(ngModel)]="respuesta3" placeholder="Respuesta 3...">
               <br><br>
               <form class="sa-innate-form" method="post">
                   <button class={{claseBoton}} (click)="Guardar()">Registrar Encuesta</button>

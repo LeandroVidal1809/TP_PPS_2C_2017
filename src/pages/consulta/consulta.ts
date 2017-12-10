@@ -39,6 +39,7 @@ export class ConsultaPage {
   claseFoto:string;
   conteiner:string; 
   claseRadio:string; 
+  textBox:string; 
   
   constructor(public modalCtrl: ModalController,db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,
     private _auth:AngularFireAuth) {
@@ -47,6 +48,9 @@ export class ConsultaPage {
       this.claseFoto=localStorage.getItem("claseFoto");
       this.conteiner=localStorage.getItem("conteiner");
       this.claseRadio = localStorage.getItem("claseRadio");
+      this.textBox = localStorage.getItem("textBox");
+
+      console.log(this.textBox);
     this.dbCon=db;
    
     var f = new Date();

@@ -46,6 +46,7 @@ button:boolean=false;
   claseFoto:string;
   conteiner:string; 
   claseRadio:string; 
+  textBox:string;  
   
   constructor(public modalCtrl: ModalController,public navCtrl: NavController,
     public navParams: NavParams,
@@ -57,6 +58,9 @@ button:boolean=false;
       this.claseFoto=localStorage.getItem("claseFoto");
       this.conteiner=localStorage.getItem("conteiner");
       this.claseRadio = localStorage.getItem("claseRadio");
+      this.textBox = localStorage.getItem("textBox");
+      //alert(this.textBox)
+      console.log(this.textBox);
 
      this.check1="";   this.check2="";   this.check3="";
       this.Tiempo="0";

@@ -19,7 +19,7 @@
       <div id="login-access" class="tab-pane fade active in">
         <h2><i class="glyphicon glyphicon-log-in"></i>Modificar Encuesta</h2>						
         La encuesta Durará:
-        <select [(ngModel)]="tiempomodif" style="margin-left: -72px;width: 265px;font-size:22px"   style="color:black;" >
+        <select class={{textBox}} [(ngModel)]="tiempomodif" style="margin-left: -72px;width: 265px;font-size:22px"   style="color:black;" >
           <option>Duracion de la Encuesta</option>
           <!-- <option>CheckBox</option> -->
           <option>1 min</option>
@@ -27,9 +27,9 @@
           <option>45 min</option>
         </select><br>
         Pregunta:           
-        <input type="text" id="a" name="a" [(ngModel)]="pregunta" ><br>
+        <input class={{textBox}} type="text" id="a" name="a" [(ngModel)]="pregunta" ><br>
      Tipo:{{tipo}} <br>
-     Seleccione Nuevo: <select [(ngModel)]="tipo" style="margin-left: -72px;width: 265px;font-size:22px"   style="color:black;" >
+     Seleccione Nuevo: <select class={{textBox}} [(ngModel)]="tipo" style="margin-left: -72px;width: 265px;font-size:22px"   style="color:black;" >
       <option>Tipo</option>
       <!-- <option>CheckBox</option> -->
       <option>RadioButton</option>
@@ -37,9 +37,9 @@
      
     </select><br>
         Respuestas: <br>
-        <input type="text" id="a" name="a" [(ngModel)]="resp1" ><br>
-        <input type="text" id="a" name="a" [(ngModel)]="resp2" ><br>
-        <input type="text" id="a" name="a" [(ngModel)]="resp3" ><br>
+        <input class={{textBox}} type="text" id="a" name="a" [(ngModel)]="resp1" ><br>
+        <input class={{textBox}} type="text" id="a" name="a" [(ngModel)]="resp2" ><br>
+        <input class={{textBox}} type="text" id="a" name="a" [(ngModel)]="resp3" ><br>
 
       </div>
       <form class="sa-innate-form" method="post">

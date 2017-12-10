@@ -21,35 +21,35 @@
     </div>
 
 <div class="col-md-8">  
-        <select  [(ngModel)]="AulaSelect" style="color:black;"   selected="selected">
+        <select class={{textBox}}  [(ngModel)]="AulaSelect" style="color:black;"   selected="selected">
             <option>Aula...</option>
             <option>200</option>
             <option>201</option>
             <option>202</option>
           </select>
-          <select [(ngModel)]="MateriaSelect"  style="color:black;"   selected="selected" >
+          <select class={{textBox}}  [(ngModel)]="MateriaSelect"  style="color:black;"   selected="selected" >
               <option>Materia...</option>
               <option>Laboratorio 1</option>
               <option>Programacion 1</option>
               <option>Base de Datos</option>
               <option>PPS</option>
             </select>
-            <select [(ngModel)]="ProfesorSelect"  style="color:black;"   selected="selected" *ngIf="opcion==2" >
+            <select class={{textBox}} [(ngModel)]="ProfesorSelect"  style="color:black;"   selected="selected" *ngIf="opcion==2" >
               <option>Profesor...</option>
               <option>Abaurre,Fernando</option>
               <option>Lopez,Gustavo</option>
               <option>Fernandez,Diego</option>
             </select>
             <input *ngIf="opcion==3"  id="msg" placeholder="Inserta el Legajo..."  [(ngModel)]="AlumnoSelect"  type="text" class="selectpick" name="msg"> 
-            <input   id="msg"  [(ngModel)]="Fecha"   type="text" class="selectpick" name="msg" placeholder="Fecha"> 
+            <input class={{textBox}}  id="msg"  [(ngModel)]="Fecha"   type="text" class="selectpick" name="msg" placeholder="Fecha"> 
 
-            <select *ngIf="opcion==6" [(ngModel)]="AulaSelect" style="color:black;"   selected="selected">
+            <select class={{textBox}} *ngIf="opcion==6" [(ngModel)]="AulaSelect" style="color:black;"   selected="selected">
                 <option>Aula...</option>
                 <option>200</option>
                 <option>201</option>
                 <option>202</option>
               </select>
-              <select [(ngModel)]="MateriaSelect"  style="color:black;"   selected="selected" *ngIf="opcion==6" >
+              <select class={{textBox}} [(ngModel)]="MateriaSelect"  style="color:black;"   selected="selected" *ngIf="opcion==6" >
                   <option>Materia...</option>
                   <option>Laboratorio 1</option>
                   <option>Programacion 1</option>
