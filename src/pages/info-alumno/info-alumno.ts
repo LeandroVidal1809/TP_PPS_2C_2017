@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AngularFireModule} from 'angularfire2';
 
+import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 /**
  * Generated class for the InfoAlumnoPage page.
  *
@@ -16,9 +19,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class InfoAlumnoPage {
 nombre:string;
 Foto:string;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+listAlumno: AngularFireList<any>;
+listMaterias: AngularFireList<any>;
+  constructor(public navCtrl: NavController,private db:AngularFireDatabase, public navParams: NavParams) {
     this.nombre=localStorage.getItem("Nombre");
     this.Foto=localStorage.getItem("Foto");
+
+    this.listAlumno=db.list("/Alumno");
+    this.listAlumno=db.list("/Materias");
+
+
   }
 
   ionViewDidLoad() {
