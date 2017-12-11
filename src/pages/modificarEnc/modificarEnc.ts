@@ -25,15 +25,18 @@ import { swipeShouldReset } from 'ionic-angular/util/util';
 export class ModificarEnc {
 
   lista: any;
+  listavotacion: any;
   Mensaje:string;
   
   pregunta:string;
+  pregunta2:string;
   resp1:string;
   resp2:string;
   tipo:string;
   tiempo:Date;
   tiempomodif:string;
   resp3:string;
+yavoto=false;
   
   KeyUsuario:string;
   listadoU:Array<any>;
@@ -47,7 +50,10 @@ export class ModificarEnc {
                 private view: ViewController,
                 private _auth:AngularFireAuth) {
                //  this.tienePermisos();
-                  this.lista= af.list('/altaEncuesta/');
+                 
+               
+               this.listavotacion = af.list('/encuesta/');
+               this.lista= af.list('/altaEncuesta/');
                   console.log(navParams);
                 
                  // this.perfil=navParams.data;
@@ -61,7 +67,7 @@ export class ModificarEnc {
                   .subscribe(actions => {
                   actions.forEach(action => {
                       this.pregunta = action.payload.val()["Pregunta"];
-                      console.log(this.pregunta);
+                      console.log("pregunta1:", this.pregunta);
                       this.tipo =   action.payload.val()["Tipo"];
                       this.tiempo =new Date() ;
                       console.log("tiempoencuesta:",this.tiempo);
@@ -70,13 +76,45 @@ export class ModificarEnc {
                       this.resp3 =  action.payload.val()["Respuesta3"];
                       console.log(this.resp1,this.resp2,this.resp3);
                       this.KeyUsuario = action.key;
-                }); 
+
+
+                      
+
+
+
+                });  }) 
+                var Observable = this.listavotacion.snapshotChanges(['child_added'])
+                .subscribe(actions => {
+                actions.forEach(action => {
+                    this.pregunta2 = action.payload.val()["Pregunta"];
+                    console.log("pregunta2:", this.pregunta2);
+                                  if(this.pregunta == this.pregunta2)
+                                  {
+                                    this.yavoto = true;
+                                   
+                                  }
+
+
+                    this.KeyUsuario = action.key;
+
+
+
+
+              });  this.cerrar(); })  
               
-
                 
-  })  
+               
+                
+              
 }
-
+cerrar(){
+if(this.yavoto  == true){
+  this.showAlert("La encuesta a modificar ya fue iniciada!","Lo Sentimos");
+  this.view.dismiss();
+}
+  
+  
+}
   tienePermisos()
   {
     if(sessionStorage.getItem("type")!="admin" && sessionStorage.getItem("type")!="administrativo")
@@ -133,7 +171,10 @@ Modificar(){
     break;
 
   } console.log("tiempomodificado:",this.tiempo);
-        this.lista.update(this.KeyUsuario,
+       
+  this.lista.remove(this.KeyUsuario);
+  
+  this.lista.push(
           { 
             Pregunta: this.pregunta,
             Tipo: this.tipo,

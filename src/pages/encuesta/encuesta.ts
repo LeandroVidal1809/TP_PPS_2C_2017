@@ -119,7 +119,7 @@ button:boolean=false;
   }
   Guardar(){
   //  console.log(this.preg1,this.preg2,this.preg3);
-   
+   console.log("sesion storage: ",sessionStorage);
 
  
   switch (this.tipo) {
@@ -130,6 +130,7 @@ button:boolean=false;
       console.log("button select:" ,this.buttonSelect);
       this.list.push({
         alumno: sessionStorage.getItem("type"),
+      nombre: sessionStorage.getItem("nombre"),
         Pregunta: this.pregunta,
         Tipo: this.tipo,
       
@@ -143,6 +144,7 @@ button:boolean=false;
       this.list=this.db.list('/encuesta');
       this.list.push({
         alumno: sessionStorage.getItem("type"),
+        nombre: sessionStorage.getItem("nombre"),
         Pregunta: this.pregunta,
         Tipo: this.tipo,
       

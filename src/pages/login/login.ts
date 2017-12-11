@@ -193,13 +193,14 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
   console.log("INGRESANDO CON ---",provider,"---");
   console.log(res);
   this.type= "alumnos";
+  
   sessionStorage.setItem("type",this.type);
   console.log("tipo: "+ this.type);
   this.perfil.email = res.user.email;
 
   this.perfil.profilePicture = res.user.photoURL;
   this.perfil.name = res.user.displayName;
-
+  sessionStorage.setItem("nombre",this.perfil.name);
   
   this.navCtrl.setRoot(HomePage,this.perfil);
 })
@@ -219,7 +220,7 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
        
         this.perfil.profilePicture = res.user.photoURL;
         this.perfil.name = res.user.displayName;
-        localStorage.setItem("Nombre",this.perfil.name);
+        localStorage.setItem("nombre",this.perfil.name);
         localStorage.setItem("Foto",this.perfil.profilePicture);
         this.navCtrl.setRoot(HomePage,this.perfil);
     

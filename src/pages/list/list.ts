@@ -14,6 +14,7 @@ import { NativeAudio } from '@ionic-native/native-audio';
 import { LoginPage } from '../login/login';
 import { InfoProfesorPage } from '../info-profesor/info-profesor';
 import { InfoAlumnoPage } from '../info-alumno/info-alumno';
+import { EncuestaPage } from '../encuesta/encuesta';
 
 @Component({
   selector: 'page-list',
@@ -87,11 +88,18 @@ tipo:string;
 
        }
        else if(barcodeData.text=="alta-administrador"){
-        if(this.tipo=="admin")
+        if(this.tipo=="profesor")
           {
         this.nativeAudio.play('Silbido');
 
         let profileModal : Modal = this.modalCtrl.create(GraficosPage,MyModalOption);
+               profileModal.present(); 
+          }
+          else if(this.tipo=="alumno")
+          {
+       
+
+        let profileModal : Modal = this.modalCtrl.create(EncuestaPage,MyModalOption);
                profileModal.present(); 
           }
           else{

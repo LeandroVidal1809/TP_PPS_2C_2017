@@ -71,7 +71,7 @@ pregunta;
          
            
 
-          }); 
+          }); this.doughnutChartLabels = [this.resp1,  this.resp2,  this.resp3 ];
 
           
         })
