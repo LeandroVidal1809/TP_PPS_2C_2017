@@ -333,9 +333,119 @@ define({ "api": [
     "name": ""
   },
   {
+    "type": "Delete",
+    "url": "/Eliminar/",
+    "title": "Eliminar encuesta",
+    "group": "Encuestas",
+    "description": "<p>Eliminar  encuesta</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "Id",
+            "description": "<p>Id de la pregunta a eliminar</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n  \"Id\": 22\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "permission": [
+      {
+        "name": "Profesor"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Mensaje",
+            "description": "<p>de finalización de proceso</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n  \"Mensaje\": \"Proceso de Eliminación finalizado\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Register error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./index.js",
+    "groupTitle": "Encuestas",
+    "name": "DeleteEliminar"
+  },
+  {
+    "type": "get",
+    "url": "/Traer/",
+    "title": "Traer Encuesta",
+    "group": "Encuestas",
+    "description": "<p>Traer  encuesta vigente</p>",
+    "permission": [
+      {
+        "name": "Profesor"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "Encuests",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n  \"Id\": \"Proceso de Eliminación finalizado\"\n  \"Pregunta\": \"Parcial Oral o Escrito?\",\n  \"TipoRespuesta\": \"Menu Seleccion\",\n  \"Respuesta1\": \"Oral\",\n  \"Respuesta2\": \"Escrito\",\n  \"Respuesta3\": \"Me es indistinto\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Register error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./index.js",
+    "groupTitle": "Encuestas",
+    "name": "GetTraer"
+  },
+  {
     "type": "post",
     "url": "/Alta/",
-    "title": "",
+    "title": "Alta Encuesta",
     "group": "Encuestas",
     "description": "<p>Generar encuesta</p>",
     "parameter": {
@@ -413,7 +523,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n  \"MateriaActual\": \"PPS\",\n  \"Aula\": \"201\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"Mensaje\": \"Proceso de grabación finalizado\"\n  \n}",
           "type": "json"
         }
       ]
@@ -435,7 +545,7 @@ define({ "api": [
   {
     "type": "put",
     "url": "/Modificar/",
-    "title": "",
+    "title": "Modificar encuesta",
     "group": "Encuestas",
     "description": "<p>Modificar encuesta</p>",
     "parameter": {
@@ -481,14 +591,14 @@ define({ "api": [
             "type": "Date",
             "optional": false,
             "field": "Duraci",
-            "description": "<p>ón   Duración en Minutos de la encuesta</p>"
+            "description": "<p>ón  Duración en Minutos de la encuesta</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Input",
-          "content": "{\n  \"Pregunta\": \"Parcial Oral o Escrito?\",\n  \"TipoRespuesta\": \"Menu Seleccion\",\n  \"Respuesta1\": \"Oral\",\n  \"Respuesta2\": \"Escrito\",\n  \"Respuesta3\": \"Me es indistinto\"\n}",
+          "content": "{\n  \"Pregunta\": \"Parcial Oral o Escrito?\",\n  \"TipoRespuesta\": \"Menu Seleccion\",\n  \"Respuesta1\": \"Oral\",\n  \"Respuesta2\": \"Escrito\",\n  \"Respuesta3\": \"Me es indistinto\"\n  \"Duracion\": \"00:45\"\n}",
           "type": "json"
         }
       ]
@@ -513,7 +623,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n  \"MateriaActual\": \"PPS\",\n  \"Aula\": \"201\"\n}",
+          "content": "   HTTP/1.1 200 OK\n   {\n\"Mensaje\": \"Proceso de modificación finalizado\"\n   }",
           "type": "json"
         }
       ]
@@ -671,7 +781,7 @@ define({ "api": [
   {
     "type": "get",
     "url": "/CargarScann/:datoScan",
-    "title": "",
+    "title": "Carga dato scanner",
     "group": "QR",
     "description": "<p>mediante el codigo que nos devuelve un QR , traemos los datos que proporciona dicho codigo</p>",
     "parameter": {
@@ -814,7 +924,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n  \"id\": 1,\n  \"Nombre\": \"Leandro Vidal\",\n  \"Tipo\": \"Administrador\",\n  \"Tipo\": \"/assets/img/FotoPerfil1.jpg\"\n  \n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"id\": 1,\n  \"Nombre\": \"Leandro Vidal\",\n  \"Tipo\": \"Administrador\",\n  \"PhotoUrl\": \"/assets/img/FotoPerfil1.jpg\"\n  \n}",
           "type": "json"
         }
       ]
@@ -823,7 +933,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Register error",
-          "content": "HTTP/1.1 500 Internal Server Error\nHTTP/1.1 401 Not Authenticated\n{\n \"error\": \"NoAccessRight\"\n}",
+          "content": "HTTP/1.1 401 Not Authenticated\n{\n \"error\": \"Usuario o Clave erroneos\"\n}",
           "type": "json"
         }
       ]

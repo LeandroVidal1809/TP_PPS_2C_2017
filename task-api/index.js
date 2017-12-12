@@ -29,7 +29,7 @@ app.use(express.static('public'));
  *      "id": 1,
  *      "Nombre": "Leandro Vidal",
  *      "Tipo": "Administrador",
- *      "Tipo": "/assets/img/FotoPerfil1.jpg"
+ *      "PhotoUrl": "/assets/img/FotoPerfil1.jpg"
  *      
  *    }
  * @apiErrorExample {json} Register error
@@ -219,7 +219,7 @@ app.post('/AgregarLista', function(req, res) {
  * @apiErrorExample {json} Register error
  *    HTTP/1.1 500 Internal Server Error
  */
-app.post('/readCsvData', function(req, res) {  
+app.get('/readCsvData', function(req, res) {  
     // business logic for create a Login...
 });
 
@@ -260,7 +260,7 @@ app.post('/guardarLista', function(req, res) {
 
 //Lector QR=======================================================
 /**
- * @api {get} /CargarScann/:datoScan 
+ * @api {get} /CargarScann/:datoScan Carga dato scanner 
  * @apiGroup QR
  * @apiDescription mediante el codigo que nos devuelve un QR , traemos los datos que proporciona dicho codigo 
  * @apiParam {String} datoScan   dato que nos devuelve la lectura de un codigo QR   
@@ -282,14 +282,14 @@ app.post('/guardarLista', function(req, res) {
  * @apiErrorExample {json} Register error
  *    HTTP/1.1 500 Internal Server Error
  */
-app.post('/CargaScan', function(req, res) {  
+app.get('/CargaScan', function(req, res) {  
     // business logic for create a Login...
 });
 
 
 //Crear Encuestas=======================================================
 /**
- * @api {post} /Alta/ 
+ * @api {post} /Alta/ Alta Encuesta
  * @apiGroup Encuestas
  * @apiDescription Generar encuesta 
  * @apiParam {String} Pregunta   Pregunta de la encuesta   
@@ -308,22 +308,22 @@ app.post('/CargaScan', function(req, res) {
  *      "Respuesta3": "Me es indistinto"
  *    }
  * 
- * @apiSuccess {String} Mensaje de finalización de proceso
+ * @apiSuccess {String} Mensaje Mensaje de finalización de proceso
  * @apiSuccessExample {json} Success
  *    HTTP/1.1 200 OK
  *    {
- *      "MateriaActual": "PPS",
- *      "Aula": "201"
+ *      "Mensaje": "Proceso de grabación finalizado"
+ *      
  *    }
  * @apiErrorExample {json} Register error
  *    HTTP/1.1 500 Internal Server Error
  */
-app.post('/CargaScan', function(req, res) {  
+app.post('/AltaEncuesta', function(req, res) {  
     // business logic for create a Login...
 });
 
 /**
- * @api {put} /Modificar/ 
+ * @api {put} /Modificar/ Modificar encuesta
  * @apiGroup Encuestas
  * @apiDescription Modificar encuesta 
  * @apiParam {String} Pregunta   Pregunta de la encuesta   
@@ -340,19 +340,68 @@ app.post('/CargaScan', function(req, res) {
  *      "Respuesta1": "Oral",
  *      "Respuesta2": "Escrito",
  *      "Respuesta3": "Me es indistinto"
+ *      "Duracion": "00:45"
  *    }
  * 
- * @apiSuccess {String} Mensaje de finalización de proceso
+ * @apiSuccess {String} Mensaje Mensaje de finalización de proceso
  * @apiSuccessExample {json} Success
  *    HTTP/1.1 200 OK
  *    {
- *      "MateriaActual": "PPS",
- *      "Aula": "201"
+* "Mensaje": "Proceso de modificación finalizado"
  *    }
  * @apiErrorExample {json} Register error
  *    HTTP/1.1 500 Internal Server Error
  */
-app.post('/CargaScan', function(req, res) {  
+app.put('/ModificaEncuesta', function(req, res) {  
+    // business logic for create a Login...
+});
+
+/**
+ * @api {Delete} /Eliminar/  Eliminar encuesta
+ * @apiGroup Encuestas
+ * @apiDescription Eliminar  encuesta 
+ * @apiParam {integer} Id   Id de la pregunta a eliminar
+ * @apiPermission Profesor
+ *  * @apiParamExample {json} Input
+ *    {
+ *      "Id": 22
+ *    }
+ * 
+ * @apiSuccess {String} Mensaje Mensaje de finalización de proceso
+ * @apiSuccessExample {json} Success
+ *    HTTP/1.1 200 OK
+ *    {
+ *      "Mensaje": "Proceso de Eliminación finalizado"
+ *    }
+ * @apiErrorExample {json} Register error
+ *    HTTP/1.1 500 Internal Server Error
+ */
+app.delete('/EliminaEncuesta', function(req, res) {  
+    // business logic for create a Login...
+});
+
+
+
+/**
+ * @api {get} /Traer/ Traer Encuesta
+ * @apiGroup Encuestas
+ * @apiDescription Traer  encuesta vigente
+ * @apiPermission Profesor
+ * @apiSuccess {Object} Encuests
+ * @apiSuccessExample {json} Success
+ *    HTTP/1.1 200 OK
+ *    {
+ *      "Id": "Proceso de Eliminación finalizado"
+ *      "Pregunta": "Parcial Oral o Escrito?",
+ *      "TipoRespuesta": "Menu Seleccion",
+ *      "Respuesta1": "Oral",
+ *      "Respuesta2": "Escrito",
+ *      "Respuesta3": "Me es indistinto"
+ *    }
+ * @apiErrorExample {json} Register error
+ *    HTTP/1.1 500 Internal Server Error
+ */
+app.get('/TraeEncuesta', function(req, res) {  
     // business logic for create a Login...
 });
 
