@@ -1,9 +1,34 @@
 /* ------------------------------------------------------------------------------------------
  * Content
  * ------------------------------------------------------------------------------------------ */
+ p {
+  font-family: "Times New Roman", Times, serif;
+}
+h1{
+  font-family: "Times New Roman", Times, serif;
+  font-size: 100px;
+}
 body {
   min-width: 980px;
   max-width: 1280px;
+  background-image: url('../img/AulaWp.jpg');
+  background-position: center center;
+  font-family: "Times New Roman", Times, serif;
+  
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
+  
+  /* Background image is fixed in the viewport so that it doesn't move when 
+     the content's height is greater than the image's height */
+  background-attachment: fixed;
+  
+  /* This is what makes the background image rescale based
+     on the container's size */
+  background-size: cover;
+  
+  /* Set a background color that will be displayed
+     while the background image is loading */
+  background-color: #FFFFFF;
 }
 
 body, p, a, div, th, td {
@@ -26,7 +51,8 @@ td.code {
 }
 
 p {
-  color: #808080;
+  color: #545454;
+  font-size: 20px;
 }
 
 h1 {
@@ -53,9 +79,10 @@ section {
 }
 
 section h1 {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Times New Roman", Times, serif;
+  color: #0088cc;
   font-weight: 700;
-  font-size: 32px;
+  font-size: 50px;
   line-height: 40px;
   padding-bottom: 14px;
   margin: 0 0 20px 0;
@@ -67,7 +94,7 @@ article {
 }
 
 article h1 {
-  font-family: "Source Sans Pro Bold", sans-serif;
+  font-family: "Georgia",serif;
   font-weight: 600;
   font-size: 24px;
   line-height: 26px;

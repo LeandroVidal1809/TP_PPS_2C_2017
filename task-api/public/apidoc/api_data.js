@@ -1,10 +1,284 @@
 define({ "api": [
   {
+    "type": "Delete",
+    "url": "/Eliminar/",
+    "title": "Eliminar alumno",
+    "group": "Alumnos",
+    "description": "<p>Eliminar alumno.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "Legajo",
+            "description": "<p>Legajo del alumno a eliminar</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n  \"Legajo\": \"202123\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "permission": [
+      {
+        "name": "Administrativo"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Mensaje",
+            "description": "<p>Mensaje de finalización de proceso</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n  \"Mensaje\": \"Proceso de Eliminación finalizado\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Register error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./index.js",
+    "groupTitle": "Alumnos",
+    "name": "DeleteEliminar"
+  },
+  {
+    "type": "post",
+    "url": "/Alta/",
+    "title": "Alta Alumno",
+    "group": "Alumnos",
+    "description": "<p>Registrar un alumno.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Legajo",
+            "description": "<p>Legajo del alumno</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Nombre",
+            "description": "<p>Nombre del alumno</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n  \"Legajo\": \"103578\",\n  \"Nombre\": \"Vidal,Federico\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "permission": [
+      {
+        "name": "Administrativo"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Mensaje",
+            "description": "<p>Mensaje de finalización de proceso</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n  \"Mensaje\": \"Proceso de grabación finalizado\"\n  \n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Register error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./index.js",
+    "groupTitle": "Alumnos",
+    "name": "PostAlta"
+  },
+  {
+    "type": "post",
+    "url": "/AltaLista/",
+    "title": "Alta lista alumno",
+    "group": "Alumnos",
+    "description": "<p>Registrar una lista de alumnos.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "object[]",
+            "optional": false,
+            "field": "Lista",
+            "description": "<p>Lista de alumnos</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n  \"Legajo\": \"103578\",\n  \"Nombre\": \"Ferreiro,Susana\"\n\n  \"Legajo\": \"103128\",\n  \"Nombre\": \"Lopez,Lucas\"\n\n  \"Legajo\": \"101238\",\n  \"Nombre\": \"Flores,Lucia\"\n\n  \"Legajo\": \"111428\",\n  \"Nombre\": \"Baez,Carolina\"\n\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "permission": [
+      {
+        "name": "Administrativo"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Mensaje",
+            "description": "<p>Mensaje de finalización de proceso</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n  \"Mensaje\": \"Proceso de grabación de listado finalizado\"\n  \n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Register error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./index.js",
+    "groupTitle": "Alumnos",
+    "name": "PostAltalista"
+  },
+  {
+    "type": "put",
+    "url": "/Modificar/",
+    "title": "Modificar alumno",
+    "group": "Alumnos",
+    "description": "<p>Modificar un alumno.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Legajo",
+            "description": "<p>Legajo del alumno (no puede ser modificado)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Nombre",
+            "description": "<p>Nombre del alumno</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n  \"Legajo\": \"103578\",\n  \"Nombre\": \"Vidal,Fabian\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "permission": [
+      {
+        "name": "Administrador"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Mensaje",
+            "description": "<p>Mensaje de finalización de proceso</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success",
+          "content": "   HTTP/1.1 200 OK\n   {\n\"Mensaje\": \"Proceso de modificación finalizado\"\n   }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Register error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./index.js",
+    "groupTitle": "Alumnos",
+    "name": "PutModificar"
+  },
+  {
     "type": "post",
     "url": "/Asistencia/",
     "title": "Tomar Asistencia",
     "group": "Asistencia",
-    "description": "<p>según los filtros utilizados trae lista de alumnos</p>",
+    "description": "<p>Según los filtros utilizados trae lista de alumnos.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -76,7 +350,7 @@ define({ "api": [
     "url": "/ConsultaAsistencia/",
     "title": "Consulta de la asistencia",
     "group": "Asistencia",
-    "description": "<p>Según los filtros nos devuelve la lista tomada segun fecha, materia y aula</p>",
+    "description": "<p>Según los filtros nos devuelve la lista tomada segun fecha, materia y aula.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -158,7 +432,7 @@ define({ "api": [
     "url": "/EnviaAsistencia/",
     "title": "Enviar Asistencia",
     "group": "Asistencia",
-    "description": "<p>sobre la lista que fue filtrada, se toma presentismo y se envía</p>",
+    "description": "<p>Sobre la lista que fue filtrada, se toma presentismo y se envía.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -223,7 +497,7 @@ define({ "api": [
     "url": "/FotoAsistencia/",
     "title": "Tomar foto de la asistencia",
     "group": "Asistencia",
-    "description": "<p>sobre la lista que fue filtrada,permite tomar una foto y asociarla</p>",
+    "description": "<p>Sobre la lista que fue filtrada,permite tomar una foto y asociarla.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -333,11 +607,206 @@ define({ "api": [
     "name": ""
   },
   {
+    "type": "post",
+    "url": "/Excel/",
+    "title": "Descarga archivos en formato excel",
+    "group": "Descargas",
+    "description": "<p>Descarga archivos en formato excel</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "object[]",
+            "optional": false,
+            "field": "Lista",
+            "description": "<p>Lista de alumnos</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n  \"Legajo\": \"103578\",\n  \"Nombre\": \"Ferreiro,Susana\"\n\n  \"Legajo\": \"103128\",\n  \"Nombre\": \"Lopez,Lucas\"\n\n  \"Legajo\": \"101238\",\n  \"Nombre\": \"Flores,Lucia\"\n\n  \"Legajo\": \"111428\",\n  \"Nombre\": \"Baez,Carolina\"\n\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "permission": [
+      {
+        "name": "Administrativo"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Mensaje",
+            "description": "<p>Mensaje de finalización de proceso</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n  \"Mensaje\": \"Proceso de Descarga de listado Excel finalizado\"\n  \n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Register error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./index.js",
+    "groupTitle": "Descargas",
+    "name": "PostExcel"
+  },
+  {
+    "type": "post",
+    "url": "/PDF/",
+    "title": "Descarga archivos en formato PDF",
+    "group": "Descargas",
+    "description": "<p>Descarga archivos en formato PDF</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "object[]",
+            "optional": false,
+            "field": "Lista",
+            "description": "<p>Lista de alumnos</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n  \"Legajo\": \"103578\",\n  \"Nombre\": \"Ferreiro,Susana\"\n\n  \"Legajo\": \"103128\",\n  \"Nombre\": \"Lopez,Lucas\"\n\n  \"Legajo\": \"101238\",\n  \"Nombre\": \"Flores,Lucia\"\n\n  \"Legajo\": \"111428\",\n  \"Nombre\": \"Baez,Carolina\"\n\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "permission": [
+      {
+        "name": "Administrativo"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Mensaje",
+            "description": "<p>Mensaje de finalización de proceso</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n  \"Mensaje\": \"Proceso de Descarga de listado PDF finalizado\"\n  \n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Register error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./index.js",
+    "groupTitle": "Descargas",
+    "name": "PostPdf"
+  },
+  {
+    "type": "post",
+    "url": "/Zip/",
+    "title": "Descarga archivos en formato comprimidos",
+    "group": "Descargas",
+    "description": "<p>Descarga archivos en formato comprimido</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "object[]",
+            "optional": false,
+            "field": "Lista",
+            "description": "<p>Lista de alumnos</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n  \"Legajo\": \"103578\",\n  \"Nombre\": \"Ferreiro,Susana\"\n\n  \"Legajo\": \"103128\",\n  \"Nombre\": \"Lopez,Lucas\"\n\n  \"Legajo\": \"101238\",\n  \"Nombre\": \"Flores,Lucia\"\n\n  \"Legajo\": \"111428\",\n  \"Nombre\": \"Baez,Carolina\"\n\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "permission": [
+      {
+        "name": "Administrativo"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Mensaje",
+            "description": "<p>Mensaje de finalización de proceso</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n  \"Mensaje\": \"Proceso de Descarga de listado comprimido finalizado\"\n  \n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Register error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./index.js",
+    "groupTitle": "Descargas",
+    "name": "PostZip"
+  },
+  {
     "type": "Delete",
     "url": "/Eliminar/",
     "title": "Eliminar encuesta",
     "group": "Encuestas",
-    "description": "<p>Eliminar  encuesta</p>",
+    "description": "<p>Eliminar encuesta.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -371,7 +840,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "Mensaje",
-            "description": "<p>de finalización de proceso</p>"
+            "description": "<p>Mensaje de finalización de proceso</p>"
           }
         ]
       },
@@ -402,7 +871,7 @@ define({ "api": [
     "url": "/Traer/",
     "title": "Traer Encuesta",
     "group": "Encuestas",
-    "description": "<p>Traer  encuesta vigente</p>",
+    "description": "<p>Traer encuesta vigente.</p>",
     "permission": [
       {
         "name": "Profesor"
@@ -423,7 +892,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n  \"Id\": \"Proceso de Eliminación finalizado\"\n  \"Pregunta\": \"Parcial Oral o Escrito?\",\n  \"TipoRespuesta\": \"Menu Seleccion\",\n  \"Respuesta1\": \"Oral\",\n  \"Respuesta2\": \"Escrito\",\n  \"Respuesta3\": \"Me es indistinto\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"Id\": \"Proceso de Eliminación finalizado\"\n  \"Pregunta\": \"Parcial Oral o Escrito?\",\n  \"TipoRespuesta\": \"Menu Seleccion\",\n  \"Respuesta1\": \"Oral\",\n  \"Respuesta2\": \"Escrito\",\n  \"Respuesta3\": \"Me es indistinto\"\n  \"Duracion\": \"00:15\"\n}",
           "type": "json"
         }
       ]
@@ -447,7 +916,7 @@ define({ "api": [
     "url": "/Alta/",
     "title": "Alta Encuesta",
     "group": "Encuestas",
-    "description": "<p>Generar encuesta</p>",
+    "description": "<p>Generar encuesta.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -498,7 +967,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Input",
-          "content": "{\n  \"Pregunta\": \"Parcial Oral o Escrito?\",\n  \"TipoRespuesta\": \"Menu Seleccion\",\n  \"Respuesta1\": \"Oral\",\n  \"Respuesta2\": \"Escrito\",\n  \"Respuesta3\": \"Me es indistinto\"\n}",
+          "content": "{\n  \"Pregunta\": \"Parcial Oral o Escrito?\",\n  \"TipoRespuesta\": \"Menu Seleccion\",\n  \"Respuesta1\": \"Oral\",\n  \"Respuesta2\": \"Escrito\",\n  \"Respuesta3\": \"Me es indistinto\",\n  \"Duracion\": \"00:30\"\n}",
           "type": "json"
         }
       ]
@@ -516,7 +985,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "Mensaje",
-            "description": "<p>de finalización de proceso</p>"
+            "description": "<p>Mensaje de finalización de proceso</p>"
           }
         ]
       },
@@ -547,7 +1016,7 @@ define({ "api": [
     "url": "/Modificar/",
     "title": "Modificar encuesta",
     "group": "Encuestas",
-    "description": "<p>Modificar encuesta</p>",
+    "description": "<p>Modificar encuesta.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -616,14 +1085,14 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "Mensaje",
-            "description": "<p>de finalización de proceso</p>"
+            "description": "<p>Mensaje de finalización de proceso</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success",
-          "content": "   HTTP/1.1 200 OK\n   {\n\"Mensaje\": \"Proceso de modificación finalizado\"\n   }",
+          "content": "HTTP/1.1 200 OK\n{\n   \"Mensaje\": \"Proceso de modificación finalizado\"\n}",
           "type": "json"
         }
       ]
@@ -647,7 +1116,7 @@ define({ "api": [
     "url": "/ImportarCsv/:Path",
     "title": "Importar planilla csv",
     "group": "Importar",
-    "description": "<p>pasandole como parámetro la ruta del archivo, nos devolvera todos los datos que contiene</p>",
+    "description": "<p>Enviando como parámetro la ruta del archivo, nos devolvera todos los datos que contiene.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -656,7 +1125,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "Path",
-            "description": "<p>Ruta donde esta el archivo a importar . El nombre del archivo debera seguir el siguiente formato &quot;Materia-Curso-CuatrimestreAño-Aula&quot;</p>"
+            "description": "<p>Ruta donde esta el archivo a importar . El nombre del archivo deberá seguir el siguiente formato: &quot;Materia-Curso-CuatrimestreAño-Aula&quot;.</p>"
           }
         ]
       },
@@ -715,7 +1184,7 @@ define({ "api": [
     "url": "/GuardarLista/",
     "title": "Guarda lista de alumnos importada",
     "group": "Importar",
-    "description": "<p>Guarda</p>",
+    "description": "<p>Guarda lista de alumnos importada.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -783,7 +1252,7 @@ define({ "api": [
     "url": "/CargarScann/:datoScan",
     "title": "Carga dato scanner",
     "group": "QR",
-    "description": "<p>mediante el codigo que nos devuelve un QR , traemos los datos que proporciona dicho codigo</p>",
+    "description": "<p>Mediante el código que nos devuelve un QR, traemos los datos que proporciona dicho código.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -792,7 +1261,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "datoScan",
-            "description": "<p>dato que nos devuelve la lectura de un codigo QR</p>"
+            "description": "<p>Dato que nos devuelve la lectura de un codigo QR</p>"
           }
         ]
       },
@@ -854,7 +1323,7 @@ define({ "api": [
     "url": "/inicio/",
     "title": "Inicio de sesión",
     "group": "Sesion",
-    "description": "<p>permite a los usuarios ingresar al sistema</p>",
+    "description": "<p>permite a los usuarios ingresar al sistema.</p>",
     "permission": [
       {
         "name": "Todos"
@@ -941,5 +1410,156 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "./index.js",
     "groupTitle": "Sesion"
+  },
+  {
+    "type": "post",
+    "url": "/Alta/",
+    "title": "Alta Usuario",
+    "group": "Usuario",
+    "description": "<p>Alta de usuarios para ingresar al sistema, pueden ser tipo Profesor o Administrativo.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Nombre",
+            "description": "<p>Nombre del Usuario</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Email",
+            "description": "<p>Email para registrar al usuario</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Clave",
+            "description": "<p>Clave alfanumerica &gt; 6 caracteres</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Tipo",
+            "description": "<p>Puede ser del tipo Profesor o Aldministrativo</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n  \"Nombre\": \"Juan Santoro\",\n  \"Email\": \"Juan@gmail.com\",\n  \"Clave\": \"123456\",\n  \"Tipo\": \"Profesor\",\n \n}",
+          "type": "json"
+        }
+      ]
+    },
+    "permission": [
+      {
+        "name": "Administrador"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Mensaje",
+            "description": "<p>Mensaje de finalización de proceso</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n  \"Mensaje\": \"Proceso de grabación finalizado\"\n  \n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Register error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./index.js",
+    "groupTitle": "Usuario",
+    "name": "PostAlta"
+  },
+  {
+    "type": "post",
+    "url": "/AltaLista/",
+    "title": "Alta lista de usuarios",
+    "group": "Usuario",
+    "description": "<p>Alta de una lista de usuarios para ingresar al sistema, pueden ser tipo Profesor o Administrativo.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Object[]",
+            "optional": false,
+            "field": "Lista",
+            "description": "<p>de Usuarios   Lista de usuario a dar de alta</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n  \"Nombre\": \"Juan Santoro\",\n  \"Email\": \"Juan@gmail.com\",\n  \"Clave\": \"123456\",\n  \"Tipo\": \"Profesor\",\n\n  \"Nombre\": \"Santiago Pereyra\",\n  \"Email\": \"Sanso@gmail.com\",\n  \"Clave\": \"123456\",\n  \"Tipo\": \"Administrativo\", \n\n  \"Nombre\": \"Lucas Leguizamon\",\n  \"Email\": \"Legui@gmail.com\",\n  \"Clave\": \"123456\",\n  \"Tipo\": \"Profesor\", \n\n \n}",
+          "type": "json"
+        }
+      ]
+    },
+    "permission": [
+      {
+        "name": "Administrador"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Mensaje",
+            "description": "<p>Mensaje de finalización de proceso</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n  \"Mensaje\": \"Proceso de grabación de la lista finalizado\"\n  \n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Register error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./index.js",
+    "groupTitle": "Usuario",
+    "name": "PostAltalista"
   }
 ] });

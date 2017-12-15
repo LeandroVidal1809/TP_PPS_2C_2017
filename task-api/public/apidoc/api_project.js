@@ -1,7 +1,7 @@
 define({
   "name": "API DOC LEANDRO VIDAL",
   "version": "1.0.0",
-  "description": "Descripcion de la API para final de PPS",
+  "description": "Descripcion de la API para final de PPS. Esta documentación es a modo de ejemplo mostrando al funcionalidad del sistema, no hace referencia directa a una API",
   "template": {
     "forceLanguage": "es"
   },
@@ -10,7 +10,7 @@ define({
   "apidoc": "0.3.0",
   "generator": {
     "name": "apidoc",
-    "time": "2017-12-12T02:39:17.266Z",
+    "time": "2017-12-15T15:30:59.861Z",
     "url": "http://apidocjs.com",
     "version": "0.17.6"
   }
