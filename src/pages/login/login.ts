@@ -53,9 +53,15 @@ tipo:''
               public navParams: NavParams) 
   { 
  
-    this.list= af.list('/Usuarios');
-    this.claseLogin="active";
+    this.claseBoton = "miboton";
+    this.claseFoto = "fondo1";
+    this.conteiner = "container1";
+    this.claseRadio = "radio1";
+    this.textBox = "textBox1";
+    this.claseLogin="active1";
     this.claseRegistrar="";
+    this.list= af.list('/Usuarios');
+
   }
 
 
@@ -336,14 +342,54 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
     if (boton == "A"){
       this.seccionA = false;
       this.seccionB = true;
-      this.claseLogin="active";
-      this.claseRegistrar="";
+    //  this.claseLogin="active";
+    //  this.claseRegistrar="";
+      switch (this.clasetemas) {
+        case "1":
+        this.claseLogin="active1";
+        this.claseRegistrar="";
+          break;
+          case "2":
+          this.claseLogin="active2";
+          this.claseRegistrar="";
+          break;
+          case "3":
+          this.claseLogin="active3";
+          this.claseRegistrar="";
+          break;
+          case "4":
+          this.claseLogin="active4";
+          this.claseRegistrar="";
+          break;
+      
+        default:
+          break;
+      }
     }
     else{
       this.seccionA = true;
       this.seccionB = false;
-      this.claseLogin="";
-      this.claseRegistrar="active";
+      switch (this.clasetemas) {
+        case "1":
+        this.claseLogin="";
+        this.claseRegistrar="active1";
+          break;
+          case "2":
+          this.claseLogin="";
+          this.claseRegistrar="active2";
+          break;
+          case "3":
+          this.claseLogin="";
+          this.claseRegistrar="active3";
+          break;
+          case "4":
+          this.claseLogin="";
+          this.claseRegistrar="active4";
+          break;
+      
+        default:
+          break;
+      }
     }
   }
 
@@ -357,10 +403,12 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
   claseFoto:string;
   conteiner:string;
   claseRadio:string;   
-  textBox:string;  
+  textBox:string; 
+  clasetemas :string; 
 
   Temas(clase:string)
   {
+    this.clasetemas = clase;
     switch (clase) {
       case "1":
         this.claseBoton = "miboton";
@@ -368,6 +416,8 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
         this.conteiner = "container1";
         this.claseRadio = "radio1";
         this.textBox = "textBox1";
+        this.claseLogin="active1";
+        this.claseRegistrar="";
         localStorage.setItem("claseBoton",this.claseBoton);
         localStorage.setItem("claseFoto",this.claseFoto);
         localStorage.setItem("conteiner",this.conteiner);
@@ -380,6 +430,8 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
         this.conteiner = "container2";
         this.claseRadio = "radio2";
         this.textBox = "textBox2";
+        this.claseLogin="active2";
+        this.claseRegistrar="";
         localStorage.setItem("claseBoton",this.claseBoton);
         localStorage.setItem("claseFoto",this.claseFoto);
         localStorage.setItem("conteiner",this.conteiner);
@@ -392,6 +444,8 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
         this.conteiner = "container3";
         this.claseRadio = "radio3";
         this.textBox = "textBox3";
+        this.claseLogin="active3";
+        this.claseRegistrar="";
         localStorage.setItem("claseBoton",this.claseBoton);
         localStorage.setItem("claseFoto",this.claseFoto);
         localStorage.setItem("conteiner",this.conteiner);
@@ -404,6 +458,8 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
         this.conteiner = "container4";
         this.claseRadio = "radio4";
         this.textBox = "textBox4";
+        this.claseLogin="active4";
+        this.claseRegistrar="";
         localStorage.setItem("claseBoton",this.claseBoton);
         localStorage.setItem("claseFoto",this.claseFoto);
         localStorage.setItem("conteiner",this.conteiner);

@@ -58,13 +58,13 @@
               <div class="innter-form">
                     <form class="sa-innate-form" method="post">
                     <label>Nombre</label>
-                    <input type="text" name="nombre" [(ngModel)]="nombre">
+                    <input class={{textBox}} type="text" name="nombre" [(ngModel)]="nombre">
                     <label>Direccion de correo electronico</label>
-                    <input type="text" name="username" [(ngModel)]="username">
+                    <input class={{textBox}} type="text" name="username" [(ngModel)]="username">
                     <label>Contraseña</label>
-                    <input type="password" name="password" [(ngModel)]="password">
+                    <input class={{textBox}} type="password" name="password" [(ngModel)]="password">
                     <label>Repetir Contraseña</label>
-                    <input type="password" name="password2" [(ngModel)]="passwordconfirm">
+                    <input class={{textBox}} type="password" name="password2" [(ngModel)]="passwordconfirm">
                     <button class={{claseBoton}} type="submit" (click)="Aceptar()">Registrar</button>
                     </form>
                     </div>

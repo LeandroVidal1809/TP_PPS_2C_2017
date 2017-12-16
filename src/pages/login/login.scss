@@ -27,14 +27,7 @@ page-login {
     .nav-tabs>li{
         color:#222 !important;
     }
-    .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
-        color: rgb(2, 2, 2);
-        font-size: 12px;
-        background-color: #d14d42;//
-        border: none !important;
-        border-bottom-color: transparent;
-        border-radius:none !important;
-    }
+
     .nav-tabs>li>a {
         margin-right: 2px;
         line-height: 1.428571429;
@@ -116,5 +109,40 @@ page-login {
         }
     
     
+        .nav-tabs>li.active1>a, .nav-tabs>li.active1>a:hover, .nav-tabs>li.active1>a:focus {
+            color: rgb(2, 2, 2);
+            font-size: 12px;
+            background-color:  #1abc9c;
+            border: none !important;
+            border-bottom-color: transparent;
+            border-radius:none !important;
+        }
+
+        .nav-tabs>li.active2>a, .nav-tabs>li.active2>a:hover, .nav-tabs>li.active2>a:focus {
+            color: rgb(2, 2, 2);
+            font-size: 12px;
+            background-color: #3cb0fd;
+            border: none !important;
+            border-bottom-color: transparent;
+            border-radius:none !important;
+        }
+
+        .nav-tabs>li.active3>a, .nav-tabs>li.active3>a:hover, .nav-tabs>li.active3>a:focus {
+            color: rgb(2, 2, 2);
+            font-size: 12px;
+            background-color:#916b1b;
+            border: none !important;
+            border-bottom-color: transparent;
+            border-radius:none !important;
+        }
+
+        .nav-tabs>li.active4>a, .nav-tabs>li.active4>a:hover, .nav-tabs>li.active4>a:focus {
+            color: rgb(2, 2, 2);
+            font-size: 12px;
+            background-color: rgb(224, 122, 141);
+            border: none !important;
+            border-bottom-color: transparent;
+            border-radius:none !important;
+        }
     }
     

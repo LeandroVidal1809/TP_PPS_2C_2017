@@ -33,6 +33,7 @@ conteiner:string;
     this.claseBoton= localStorage.getItem("claseBoton");
     this.claseFoto=localStorage.getItem("claseFoto");
     this.conteiner=localStorage.getItem("conteiner");
+    this.FotosMenu();
 
       console.log(navParams);
       this.perfil=navParams.data;
@@ -151,5 +152,50 @@ ionViewDidLoad() {
             
     });this.nativeAudio.play('Silbido');
     
+  }
+
+  fotoTomarAsistencia:string;
+  fotoConsultaAsistencia:string;
+  fotoImportarExel:string;
+  fotoLectorQR:string;
+  fotoCrearEncuesta:string;
+
+  FotosMenu()
+  {
+      switch (this.claseBoton) 
+      {
+        case 'miboton':
+        this.fotoTomarAsistencia = "assets/imgs/fotoTomarAsistencia1.jpg";
+    //    alert(this.fotoConsultaAsistencia);
+        this.fotoConsultaAsistencia = "assets/imgs/fotoConsultaAsistencia1.png";
+        this.fotoImportarExel = "assets/imgs/fotoImportarExel1.jpg";
+        this.fotoLectorQR = "assets/imgs/fotoLectorQR1.jpg";
+        this.fotoCrearEncuesta = "assets/imgs/fotoCrearEncuesta1.jpg";
+        break;
+        case 'miboton2':    
+        this.fotoTomarAsistencia = "assets/imgs/fotoTomarAsistencia2.jpg";
+        this.fotoConsultaAsistencia = "assets/imgs/fotoConsultaAsistencia2.png";
+        this.fotoImportarExel = "assets/imgs/fotoImportarExel2.jpg";
+        this.fotoLectorQR = "assets/imgs/fotoLectorQR2.png";
+        this.fotoCrearEncuesta = "assets/imgs/fotoCrearEncuesta2.png";
+        break;
+        case 'miboton3':
+        this.fotoTomarAsistencia = "assets/imgs/fotoTomarAsistencia3.jpg";
+        this.fotoConsultaAsistencia = "assets/imgs/fotoConsultaAsistencia3.jpg";
+        this.fotoImportarExel = "assets/imgs/fotoImportarExel3.jpg";
+        this.fotoLectorQR = "assets/imgs/fotoLectorQR3.jpg";
+        this.fotoCrearEncuesta = "assets/imgs/fotoCrearEncuesta3.png";
+        break;
+        case 'miboton4':
+        this.fotoTomarAsistencia = "assets/imgs/fotoTomarAsistencia4.jpg";
+        this.fotoConsultaAsistencia = "assets/imgs/fotoConsultaAsistencia4.png";
+        this.fotoImportarExel = "assets/imgs/fotoImportarExel4.jpg";
+        this.fotoLectorQR = "assets/imgs/fotoLectorQR4.jpg";
+        this.fotoCrearEncuesta = "assets/imgs/fotoCrearEncuesta4.jpg";
+        break;  
+
+    
+
+      }    
   }
 }
