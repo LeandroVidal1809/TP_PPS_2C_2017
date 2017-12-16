@@ -5,9 +5,9 @@
 <ion-header>
   <ion-navbar>
 
-    <ion-title>Listas de asistencias</ion-title>
+    <ion-title>{{'Listas de asistencias'| translate}}</ion-title>
    <ion-buttons end>
-  <button ion-button (click)="closeModal()" >Cerrar </button>   
+  <button ion-button (click)="closeModal()" >{{'CERRAR'| translate}} </button>   
 </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -17,47 +17,47 @@
   <!-- sdasadasdss -->
     <div>
       <div   id="login-access">
-        <h2><i class="glyphicon glyphicon-log-in"></i> Filtros para Consultar</h2>						
+        <h2><i class="glyphicon glyphicon-log-in"></i> {{'Filtros para Consultar'| translate}}</h2>						
     </div>
 
 <div class="col-md-8">  
         <select  [(ngModel)]="AulaSelect" style="color:black;"   selected="selected">
-            <option>Aula...</option>
+            <option> {{'Aula'| translate}}...</option>
             <option>200</option>
             <option>201</option>
             <option>202</option>
           </select>
           <select [(ngModel)]="MateriaSelect"  style="color:black;"   selected="selected" >
-              <option>Materia...</option>
-              <option>Laboratorio 1</option>
-              <option>Programacion 1</option>
-              <option>Base de Datos</option>
+              <option>{{'Materia'| translate}}...</option>
+              <option>{{'Laboratorio'| translate}} 1</option>
+              <option>{{'Programacion'| translate}} 1</option>
+              <option>{{'Base de Datos'| translate}}</option>
               <option>PPS</option>
             </select>
             <select [(ngModel)]="ProfesorSelect"  style="color:black;"   selected="selected" *ngIf="opcion==2" >
-              <option>Profesor...</option>
+              <option>{{'PROFESOR'| translate}}...</option>
               <option>Abaurre,Fernando</option>
               <option>Lopez,Gustavo</option>
               <option>Fernandez,Diego</option>
             </select>
-            <input *ngIf="opcion==3"  id="msg" placeholder="Inserta el Legajo..."  [(ngModel)]="AlumnoSelect"  type="text" class="selectpick" name="msg"> 
-            <input   id="msg"  [(ngModel)]="Fecha"   type="text" class="selectpick" name="msg" placeholder="Fecha"> 
+            <input *ngIf="opcion==3"  id="msg" placeholder="{{'Inserta el Legajo'| translate}}..."  [(ngModel)]="AlumnoSelect"  type="text" class="selectpick" name="msg"> 
+            <input   id="msg"  [(ngModel)]="Fecha"   type="text" class="selectpick" name="msg" placeholder="{{'Ingrese Fecha'| translate}}"> 
             <select *ngIf="opcion==6" [(ngModel)]="AulaSelect" style="color:black;"   selected="selected">
-                <option>Aula...</option>
+                <option>{{'Aula'| translate}}...</option>
                 <option>200</option>
                 <option>201</option>
                 <option>202</option>
               </select>
               <select [(ngModel)]="MateriaSelect"  style="color:black;"   selected="selected" *ngIf="opcion==6" >
-                  <option>Materia...</option>
-                  <option>Laboratorio 1</option>
-                  <option>Programacion 1</option>
-                  <option>Base de Datos</option>
+                  <option>{{'Materia'| translate}}...</option>
+                  <option>{{'Laboratorio'| translate}} 1</option>
+                  <option>{{'Programacion'| translate}} 1</option>
+                  <option>{{'Base de Datos'| translate}}</option>
                 </select>	
       </div>
       </div>
       
-      <button  (click)="tomarAsistencia()" class="btn btn-primary btn-md" >Ingresar al aula</button>
+      <button  (click)="tomarAsistencia()" class="btn btn-primary btn-md" >{{'Ingresar al aula'| translate}}</button>
 
 
 </div>

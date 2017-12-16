@@ -6,6 +6,7 @@ import { AlertController ,LoadingController, Loading} from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { HomePage } from '../home/home';
 import { EncuestaPage } from '../encuesta/encuesta';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 /**
  * Generated class for the AbmAlumnosPage page.
  *
@@ -36,13 +37,28 @@ export class AltaEncuesta {
   constructor(
     public navCtrl: NavController,
                public navParams: NavParams,
-               public af: AngularFireDatabase, public spiner:LoadingController,
+               public af: AngularFireDatabase, public spiner:LoadingController,public translate: TranslateService,
                public alertCtrl: AlertController,               
                 private view: ViewController,
                 private _auth:AngularFireAuth,public modalCtrl: ModalController) {
+                  this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+                    console.log('Language changed to ' + this.translate.currentLang);
+                  });
                   if(sessionStorage.getItem("type")!="profesor" && sessionStorage.getItem("type")!="admin" && sessionStorage.getItem("type")!="administrativo")
                     {
-                        this.showAlert("No tiene permisos para ingresar a la generacion de la encuesta","Lo Sentimos");
+                      if(this.translate.currentLang=="es"){
+                        this.showAlert("No tiene permisos para ingresar como Profesores y Administrativos","Lo sentimos");                  }
+                  if(this.translate.currentLang=="ja"){
+                    this.showAlert("教授と管理者のABMに入る権限がありません。","ごめんなさい");   }
+                  if(this.translate.currentLang=="it"){
+                    this.showAlert("Non hai il permesso di entrare nell'ABM di professori e amministratori","Siamo spiacenti");   }
+                  if(this.translate.currentLang=="po"){
+                    this.showAlert("Você não tem permissão para entrar na ABM de Professores e Administradores","Sentimos muito"); }
+                  if(this.translate.currentLang=="en"){
+                    this.showAlert("You do not have permission to enter the ABM of Professors and Administrators","We are sorry");   }
+                  if(this.translate.currentLang=="fr"){
+                    this.showAlert("Vous n'êtes pas autorisé à entrer dans le guichet automatique des professeurs et des administrateurs","Nous sommes désolés");
+                  }
                         this.view.dismiss();
                     }
                     else
@@ -75,7 +91,20 @@ cargar()
         {
           if(this.tiempo==null)
             {
-              alert("Seleccione un tiempo de duracion");
+              if(this.translate.currentLang=="es"){
+              this.showAlert("Seleccione un tiempo de duracion","Lo sentimos");                  }
+        if(this.translate.currentLang=="ja"){
+          this.showAlert("継続時間を選択する","ごめんなさい");   }
+        if(this.translate.currentLang=="it"){
+          this.showAlert("Seleziona una durata","Siamo spiacenti");   }
+        if(this.translate.currentLang=="po"){
+          this.showAlert("Selecione um tempo de duração","Sentimos muito"); }
+        if(this.translate.currentLang=="en"){
+          this.showAlert("Select a duration time","We are sorry");   }
+        if(this.translate.currentLang=="fr"){
+          this.showAlert("Sélectionnez une durée","Nous sommes désolés");
+        }
+        
               return;
             }
           switch(this.tiempo)
@@ -128,19 +157,38 @@ cargar()
       }
         else
           {
-            this.showAlert("Atencion","Debe Cargar por lo menos una respuesta");
+            if(this.translate.currentLang=="es"){
+              this.showAlert("Atencion","Debe Cargar por lo menos una respuesta");           }
+      if(this.translate.currentLang=="ja"){
+        this.showAlert("注意","少なくとも1つの回答をアップロードする必要があります");   }
+      if(this.translate.currentLang=="it"){
+        this.showAlert("Attenzione","Devi caricare almeno una risposta");   }
+      if(this.translate.currentLang=="po"){
+        this.showAlert("Atenção","Você deve enviar pelo menos uma resposta"); }
+      if(this.translate.currentLang=="en"){
+        this.showAlert("Attention","You must upload at least one response");   }
+      if(this.translate.currentLang=="fr"){
+        this.showAlert("Attention","Vous devez télécharger au moins une réponse");
+      }
+       
           }
           this.view.dismiss();
    }
   MiSpiner2():Loading
-  {
-    let loader = this.spiner.create({
-      content:"Espere..",
-      duration: 1000
-      
-    });
-   // loader.present();
-    return loader;
+  {if(this.translate.currentLang=="es"){
+    let loader = this.spiner.create({content:"Espere..", duration: 1000});               return loader;                  }
+if(this.translate.currentLang=="ja"){
+  let loader = this.spiner.create({content:"待つ..", duration: 1000});    return loader;   }
+if(this.translate.currentLang=="it"){
+  let loader = this.spiner.create({content:"aspettare..", duration: 1000});     return loader;   }
+if(this.translate.currentLang=="po"){
+  let loader = this.spiner.create({content:"Espere..", duration: 1000});    return loader; }
+if(this.translate.currentLang=="en"){
+  let loader = this.spiner.create({content:"waited..", duration: 1000});    return loader;   }
+if(this.translate.currentLang=="fr"){
+  let loader = this.spiner.create({content:"Attendre..", duration: 1000});   return loader;
+}
+   
   }
   showAlert(mensaje:string,titulo:string) {
     

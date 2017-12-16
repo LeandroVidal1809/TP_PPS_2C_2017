@@ -15,7 +15,7 @@ import { AbmAlumnosPage } from '../pages/abm-alumnos/abm-alumnos';
 import { AbmProfyAdminPage } from '../pages/abm-profy-admin/abm-profy-admin';
 import { AltaEncuesta } from '../pages/alta-encuesta/alta-encuesta';
 import { EncuestaPage } from '../pages/encuesta/encuesta';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, LangChangeEvent  } from '@ngx-translate/core';
 import { Config } from 'ionic-angular';
 
 
@@ -37,12 +37,29 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
 
-
-   
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      console.log('Language changed to ' + this.translate.currentLang);
+    });
+    if(this.translate.currentLang == 'en'){
       this.pages = [
         
-          { title: 'Tomar asistencia', component: TomarAsistenciaPage,type:'button'},
-          { title: 'Tomar foto del aula', component: TomarFotoPage,type:'button'},
+        { title: 'Take Picture of day', component: TomarFotoPage,type:'button'},
+        { title: 'Take assistance', component: TomarAsistenciaPage,type:'button'},
+          { title: 'Survey Creator', component: AltaEncuesta, type:'button'},
+          { title: 'Survey of the day', component: EncuestaPage, type:'button'},
+         
+          { title: 'Statistical Graphics', component: GraficosPage, type:'button'},
+          { title: 'Import Excel', component: ExcelPage,type:'button'},
+         
+          { title: '------------Section ABM------------', component: HomePage,type:'section'},
+          { title: 'Users', component:AbmProfyAdminPage,type:'button'},
+          { title: 'Students', component:AbmAlumnosPage,type:'button'}
+        ];
+    }else{
+      this.pages = [
+        
+        { title: 'Tomar foto del aula', component: TomarFotoPage,type:'button'},
+        { title: 'Tomar asistencia', component: TomarAsistenciaPage,type:'button'},
           { title: 'Creador de Encuestas', component: AltaEncuesta, type:'button'},
           { title: 'Encuesta del dia', component: EncuestaPage, type:'button'},
          
@@ -53,6 +70,8 @@ export class MyApp {
           { title: 'Usuarios', component:AbmProfyAdminPage,type:'button'},
           { title: 'Alumnos', component:AbmAlumnosPage,type:'button'}
         ];
+    }
+    
     
     
     

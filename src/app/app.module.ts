@@ -33,7 +33,7 @@ import firebase from 'firebase';
 import { Toast } from '@ionic-native/toast';
 
 import { InfoProfesorPage } from '../pages/info-profesor/info-profesor';
-
+import { Geolocation } from '@ionic-native/geolocation';
 import { Http, HttpModule } from '@angular/http';
 
 
@@ -118,7 +118,7 @@ export const firebaseConfig = {
     StatusBar,BarcodeScanner,
     SplashScreen,NativeAudio,
     //Facebook,Push,
-    File,
+    File,Geolocation,
     Toast,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

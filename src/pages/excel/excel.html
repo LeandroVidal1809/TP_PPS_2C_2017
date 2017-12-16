@@ -12,9 +12,9 @@
 <ion-header>
   <ion-navbar>
   
-    <ion-title>Importación de planila excel</ion-title>
+    <ion-title>{{'Importación de planila excel'| translate}}</ion-title>
     <ion-buttons end>
-        <button ion-button (click)="closeModal()" >Cerrar </button>   
+        <button ion-button (click)="closeModal()" >{{'CERRAR'| translate}} </button>   
       </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -26,7 +26,7 @@
    
                   <div >
                     <div id="login-access" >
-                      <h2><i class="glyphicon glyphicon-log-in"></i> Importar/Exportar Excels</h2>						
+                      <h2><i class="glyphicon glyphicon-log-in"></i>{{'Importar/Exportar Excels'| translate}} </h2>						
                     </div>
                   <div class="foto" >						
                       <img width="150" height="150" src="assets/imgs/excel.jpg">
@@ -61,13 +61,13 @@
 
 
   
-                    <p *ngIf="archivo == null">Presiona el botón + para elegir un archivo</p>
+                    <p *ngIf="archivo == null">{{'Presiona el botón + para elegir un archivo'| translate}}</p>
                   
                       <table border="1" class="data-table" style="overflow-x:auto;">
                       
-                        <th *ngIf="archivo != null">Legajo</th>
-                        <th *ngIf="archivo != null">Nombre y apellido</th>
-                        <th *ngIf="archivo != null">Horario</th>
+                        <th *ngIf="archivo != null">{{'LEGAJO'| translate}}</th>
+                        <th *ngIf="archivo != null">{{'Nombre y apellido'| translate}}</th>
+                        <th *ngIf="archivo != null">{{'Horario'| translate}}</th>
                         <tr *ngFor="let row of csvData; let i = index">
                             <td *ngFor="let data of row; let j = index; trackBy: trackByFn">
                               <ion-input type="text" [(ngModel)]="csvData[i][j]"></ion-input>

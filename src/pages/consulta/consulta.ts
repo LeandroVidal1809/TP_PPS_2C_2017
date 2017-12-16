@@ -6,7 +6,7 @@ import { AngularFireModule} from 'angularfire2';
 
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
-
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { LoginPage } from '../login/login';
 
 /**
@@ -34,9 +34,11 @@ export class ConsultaPage {
   OpcionElegida:number;
   opcion:number;
   dbCon: AngularFireDatabase;
-  constructor(public modalCtrl: ModalController,db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,
+  constructor(public translate: TranslateService,public modalCtrl: ModalController,db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,
     private _auth:AngularFireAuth) {
-   
+      this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+        console.log('Language changed to ' + this.translate.currentLang);
+      });
     this.dbCon=db;
    
     var f = new Date();
@@ -82,7 +84,8 @@ export class ConsultaPage {
           if(this.miLista.length!=0)
           {
             this.navCtrl.setRoot(ListaconsultaPage);
-          }else{alert("la consulta no trajo datos");}
+          }else{//alert("la consulta no trajo datos");
+        }
         
         });
           

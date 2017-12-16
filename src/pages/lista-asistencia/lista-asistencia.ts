@@ -10,6 +10,8 @@ import firebase from 'firebase';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {TimerObservable} from "rxjs/observable/TimerObservable";
 import { File } from '@ionic-native/file';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+
 /**
  * Generated class for the ListaAsistenciaPage page.
  *
@@ -40,8 +42,11 @@ public base64Image: string;
 FechaHoy:string;
 list: AngularFireList<any>;
 Fotolist: AngularFireList<any>;
-  constructor(public navCtrl: NavController,/* private Camera: Camera, */public alertCtrl: AlertController,db:AngularFireDatabase, public navParams: NavParams, private view: ViewController,
+  constructor(public translate: TranslateService,public navCtrl: NavController,/* private Camera: Camera, */public alertCtrl: AlertController,db:AngularFireDatabase, public navParams: NavParams, private view: ViewController,
     private _auth:AngularFireAuth) {
+      this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      console.log('Language changed to ' + this.translate.currentLang);
+    });
    this.Fecha =  new Date();
   var dia = this.Fecha.getDate();
   var mes = this.Fecha.getMonth()+1;

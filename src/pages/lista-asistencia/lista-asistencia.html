@@ -5,9 +5,9 @@
 <ion-header>
     <ion-navbar>
     
-      <ion-title>Listado Asistentes</ion-title>
+      <ion-title>{{'Listado Asistentes'| translate}}</ion-title>
       <ion-buttons end>
-          <button ion-button (click)="closeModal()" >Cerrar </button>   
+          <button ion-button (click)="closeModal()" >{{'CERRAR'| translate}} </button>   
         </ion-buttons>
     </ion-navbar>
   </ion-header>
@@ -28,8 +28,8 @@
                <img [src]="base64Image" *ngIf="base64Image" /> 
          </td>
           <td>
-              <tr class="titulo1">Materia: {{MateriaFiltro}}</tr>
-              <tr class="titulo1"> Aula: {{AulaFiltro}}</tr>     
+              <tr class="titulo1">{{'Materia'| translate}}: {{MateriaFiltro}}</tr>
+              <tr class="titulo1"> {{'Aula'| translate}}: {{AulaFiltro}}</tr>     
               <tr class="titulo1">{{this.FechaHoy}}</tr>     
           </td>
                
@@ -38,9 +38,9 @@
   <table class="table" >
     <thead>
       <tr>
-        <th class="th">Legajo</th>
-        <th class="th">Nombre</th>
-        <th class="th">Presente</th>
+        <th class="th">{{'LEGAJO'| translate}}</th>
+        <th class="th">{{'NOMBRE'| translate}}</th>
+        <th class="th">{{'Presente'| translate}}</th>
       </tr>
     </thead>
     <tbody>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-  import { NavController,NavParams,ModalController, Modal, ModalOptions } from 'ionic-angular';
+  import { NavController,NavParams,ModalController, Modal,AlertController, ModalOptions } from 'ionic-angular';
 import { TomarFotoPage } from '../tomar-foto/tomar-foto';
 import { ExcelPage } from '../excel/excel';
 import { TomarAsistenciaPage } from '../tomar-asistencia/tomar-asistencia';
@@ -15,7 +15,7 @@ import { NativeAudio } from '@ionic-native/native-audio';
 import { LoginPage } from '../login/login';
 import { MenuController } from 'ionic-angular';
 import {Platform} from 'ionic-angular';
-
+import { Geolocation } from '@ionic-native/geolocation';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { IonicPage } from 'ionic-angular';
 @Component({
@@ -23,12 +23,59 @@ import { IonicPage } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  langs = ['en', 'fr', 'es'];
+  langs = ['en', 'fr', 'es','po','ja','it'];
 perfil = {name : '',profilePicture: '',email: '',tipo:''};
 
-  constructor(private nativeAudio: NativeAudio, public translate: TranslateService,public platform: Platform,/* public push: Push, */public modalCtrl: ModalController,public navCtrl: NavController,
+  constructor(              public alertCtrl: AlertController,
+    private nativeAudio: NativeAudio,          private gps: Geolocation,
+    public translate: TranslateService,public platform: Platform,/* public push: Push, */public modalCtrl: ModalController,public navCtrl: NavController,
     private _auth:AngularFireAuth, public navParams: NavParams) {
        this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+
+
+        this.platform.ready().then(() => {
+          
+          this.gps.getCurrentPosition().then(resp =>{
+           /* 
+            alert(resp.coords.latitude);
+            alert(resp.coords.longitude); */
+            if(resp.coords.latitude> 13.83 && resp.coords.latitude< 53.48 && resp.coords.longitude<153.98 && resp.coords.longitude>50.44){
+              //alert("Jampong");
+              this.translate.use('ja');
+            }
+            else if(resp.coords.latitude> 35.96 && resp.coords.latitude< 46.25 && resp.coords.longitude<18.45 && resp.coords.longitude>6.85){
+             // alert("Con los Italianos");
+              this.translate.use('it');
+            }
+            else if(resp.coords.latitude> -17.85 && resp.coords.latitude< 12 && resp.coords.longitude<-32 && resp.coords.longitude>-83){
+             // alert("Braziiiilia");
+              this.translate.use('po');
+            }
+            else if(resp.coords.latitude>12.38 && resp.coords.latitude< 68.46 && resp.coords.longitude<-60.82 && resp.coords.longitude>-140.97){
+             // alert("NewYorkCityy");
+              this.translate.use('en');
+            }
+            else if(resp.coords.latitude> 42.35 && resp.coords.latitude< 51.01 && resp.coords.longitude<7.55 && resp.coords.longitude>-7.55){
+            //  alert("Estamos en Europa");
+              this.translate.use('fr');
+            }
+            else if(resp.coords.latitude> -54.87 && resp.coords.latitude< -18.45 && resp.coords.longitude<-53.78 && resp.coords.longitude>-80.15){
+             // alert("Latinoamerica muchachos");
+              this.translate.use('es');
+            }else{
+              this.translate.use('en');
+          
+            }
+          }).catch(error =>{ 
+            this.showAlert("GeoLocalitation no encontrada","Error");
+          
+          }) 
+            
+          
+          
+              });
+
+
       console.log('Language changed to ' + this.translate.currentLang);
     });
       console.log(navParams);
@@ -118,6 +165,31 @@ perfil = {name : '',profilePicture: '',email: '',tipo:''};
       })
 
     }
+    showAlert(mensaje:string,titulo:string) {
+      
+      switch(mensaje)
+      {
+        
+        case "The email address is badly formatted.":
+        {
+  
+          mensaje="El email no contiene un formato correcto";
+          break;
+        }
+        case "The password is invalid or the user does not have a password.":
+        {
+          mensaje="La clave es incorrecta, intente nuevamente";
+        }
+  
+      }
+      let alert = this.alertCtrl.create({
+        title: titulo,
+        subTitle: mensaje,
+        buttons: ['OK']
+      });
+      alert.present();
+    }
+  
   redirect(path:string)
   {
     const MyModalOption : ModalOptions ={
@@ -166,7 +238,7 @@ perfil = {name : '',profilePicture: '',email: '',tipo:''};
   }
 
 ionViewDidLoad() {
-  
+
     this.platform.ready().then(() => { 
   
       this.nativeAudio.preloadComplex('Silbido', "assets/sound/Silbido.mp3", 1, 1, 0).then(() => {     

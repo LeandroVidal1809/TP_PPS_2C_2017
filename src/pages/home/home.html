@@ -2,9 +2,8 @@
       
     <table>
       <tr>
-      <td> <button class="botonmenu" ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-          </button> </td> 
+      <td> 
+           </td> 
       <td class="target">{{'CORREO'| translate}}:{{perfil.email}}<br>{{'NOMBRE'| translate}}:{{perfil.name}}</td>
       <!-- <td>{{perfil.name}}</td>     -->
       <td  class="titulos"><img class="imagen"  src="{{perfil.profilePicture}}"/></td>
@@ -22,23 +21,45 @@
              <button ion-fab  (click)="modificar()" ><ion-icon name="contact"></ion-icon></button>
              <button ion-fab  (click)="logOut()" ><ion-icon name="power"></ion-icon></button>
            </ion-fab-list>
+           <ion-fab-list side="left">
+            
+            <button ion-fab style="margin:0px 3px;" (click)="translate.use('es')" >ES</button>
+            <button ion-fab style="margin:0px 3px;" (click)="translate.use('en')" >EN</button>
+            <button ion-fab style="margin:0px 3px;" (click)="translate.use('fr')">FR</button>
+            <button ion-fab style="margin:0px 3px;" (click)="translate.use('po')" >PO</button>
+            <button ion-fab style="margin:0px 3px;" (click)="translate.use('ja')" >JA</button>
+            <button ion-fab style="margin:0px 3px;" (click)="translate.use('it')">IT</button>
+           </ion-fab-list>
         </ion-fab>
-    <div >
-      <div>						
-        <a (click)="redirect('Asistencia')">  <img class="foto"  width=250px; height=120px; src="assets/imgs/menuAsistencia.png"></a>
-      </div>
-      <div>   						
-          <a (click)="redirect('Consulta')"> <img class="foto" width=250px; height=120px; src="assets/imgs/menuConsulta.png"></a>
-        </div>
-      <div>   						
-      <a (click)="redirect('Excel')"> <img class="foto" width=250px; height=120px; src="assets/imgs/menuExcel.png"></a>
-    </div>
-    <a (click)="redirect('QR')"> <img class="foto" width=250px; height=120px; src="assets/imgs/menuQR.png"></a>
-    
-    </div>  
-    <div> 		
-      <a (click)="redirect('Encuesta')">  <img class="foto" width=250px; height=120px; src="assets/imgs/Encuesta.png"></a>
-      </div>     
+
+        <!-- <label>
+          {{ 'HOME.SELECT' | translate }}
+          <select #langSelect (change)="translate.use(langSelect.value)">
+            <option *ngFor="let lang of langs" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+          </select>
+        </label> -->
+<br><br>
+    <div padding align="center">
+   	<div> <button ion-button round full (click)="redirect('Asistencia')">{{'Asistencia'| translate}}</button>				
+      <!--        <a (click)="redirect('Asistencia')">  <img class="foto"  width=250px; height=120px; src="assets/imgs/menuAsistencia.png"></a>
+       -->   
+       <br>
+                <button ion-button round full (click)="redirect('Consulta')">{{'Consulta'| translate}}</button>							
+      <!--           <a (click)="redirect('Consulta')"> <img class="foto" width=250px; height=120px; src="assets/imgs/menuConsulta.png"></a>
+       -->    </div>
+         <br>
+ <div> <button ion-button round full (click)="redirect('Excel')">{{'Excel'| translate}}</button>			
+     </div>    <!--    <a (click)="redirect('Excel')"> <img class="foto" width=250px; height=120px; src="assets/imgs/menuExcel.png"></a>
+   --> <div>     <br>
+      <button ion-button round  full  (click)="redirect('QR')">{{'QR'| translate}}</button>			
+  <!--     <a (click)="redirect('QR')"> <img class="foto" width=250px; height=120px; src="assets/imgs/menuQR.png"></a>
+   -->    </div>		
+         
+   
+    	<br>
+        <button ion-button round  full (click)="redirect('Encuesta')">{{'Encuestas'| translate}}</button>			
+<!--       <a (click)="redirect('Encuesta')">  <img class="foto" width=250px; height=120px; src="assets/imgs/Encuesta.png"></a>
+ -->      </div>     
     
   
     

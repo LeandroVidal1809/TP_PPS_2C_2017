@@ -4,9 +4,9 @@
 <ion-header>
     <ion-navbar>
     
-      <ion-title>Listado Asistentes</ion-title>
+      <ion-title>{{'Listado Asistentes'| translate}}</ion-title>
       <ion-buttons end>
-          <button ion-button (click)="closeModal()" >Cerrar </button>   
+          <button ion-button (click)="closeModal()" >{{'CERRAR'| translate}} </button>   
         </ion-buttons>
     </ion-navbar>
   </ion-header>
@@ -27,8 +27,8 @@
                  <img [src]="urlPhoto" *ngIf="urlPhoto" /> 
            </td>
             <td>
-                <tr class="titulo1">Materia: {{MateriaFiltro}}</tr>
-                <tr class="titulo1"> Aula: {{AulaFiltro}}</tr>     
+                <tr class="titulo1">{{'Materia'| translate}}: {{MateriaFiltro}}</tr>
+                <tr class="titulo1"> {{'Aula'| translate}}: {{AulaFiltro}}</tr>     
                 <tr class="titulo1">{{this.Fechas}}</tr>     
             </td>
                  
@@ -42,23 +42,23 @@
   <table class="table" >
     <thead>
       <tr>
-        <th class="th">Legajo</th>
-        <th class="th">Nombre</th>
-        <th class="th">Asitencia</th>
+        <th class="th">{{'LEGAJO'| translate}}</th>
+        <th class="th">{{'NOMBRE'| translate}}</th>
+        <th class="th">{{'Asitencia'| translate}}</th>
       </tr>
     </thead>
     <tbody>
           <tr *ngFor="let item of listado">
             <td style="border-top:0px; ">{{item.Legajo}} </td>
             <td style="border-top:0px; ">{{item.Nombre}} </td>
-            <td *ngIf='item.Presente==true' class="Presente">Presente</td>
-            <td *ngIf='item.Presente==false' class="Ausente">Ausente</td>
+            <td *ngIf='item.Presente==true' class="Presente">{{'Presente'| translate}}</td>
+            <td *ngIf='item.Presente==false' class="Ausente">{{'Ausente'| translate}}</td>
           </tr>
     </tbody>
   </table> 
   <ion-card>
     <ion-card-header>
-      Estadisticas del dia
+        {{'Estadisticas del dia'| translate}}
     </ion-card-header>
     <ion-card-content>
       <canvas #barCanvas></canvas>

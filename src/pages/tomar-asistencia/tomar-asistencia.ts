@@ -1,11 +1,12 @@
 import { Component,Input } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController,ModalController, Modal, ModalOptions } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController,ViewController,ModalController, Modal, ModalOptions } from 'ionic-angular';
 import { ListaAsistenciaPage } from '../lista-asistencia/lista-asistencia';
 import { AngularFireModule} from 'angularfire2';
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 
 import { LoginPage } from '../login/login';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 
 /**
@@ -40,9 +41,11 @@ f:Date;
 OpcionElegida:number;
 opcion:number;
 //Constructor
-  constructor(public modalCtrl: ModalController,db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,
+  constructor(public translate: TranslateService,   public alertCtrl: AlertController,public modalCtrl: ModalController,db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,
     private _auth:AngularFireAuth) {
-   
+      this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+        console.log('Language changed to ' + this.translate.currentLang);
+      });
    
       //Lista de Alumnos
     this.list = db.list('/Alumno');
@@ -129,7 +132,28 @@ this.view.dismiss();
      
     if(this.miListaMaterias.length!=0)
       {
-      }else{alert("No hay Materias en curso en este momento.");}
+      }else{
+        if(this.translate.currentLang=="es"){
+          this.showAlert("No hay Materias en curso en este momento.")    ;       }
+      if(this.translate.currentLang=="ja"){
+      this.showAlert("あなたのお問い合わせのためのロードされたリストはありません") ; }
+      if(this.translate.currentLang=="it"){
+      this.showAlert("No Matters in corso in questo momento");  }
+      if(this.translate.currentLang=="po"){
+      this.showAlert("Nenhuma matéria em curso neste momento") ;}
+      if(this.translate.currentLang=="en"){
+      this.showAlert("No Matters underway at this time");  }
+      if(this.translate.currentLang=="fr"){
+      this.showAlert("Aucun sujet en cours pour le moment");
+      }
+        
+        
+    
+    
+    
+    
+    
+    }
    });
    
 
@@ -173,7 +197,19 @@ this.view.dismiss();
               if(this.miLista.length!=0)
                 {
                  this.navCtrl.setRoot(ListaAsistenciaPage);
-              }else{alert("No hay lista cargada para su consulta");}
+              }else{   if(this.translate.currentLang=="es"){
+                this.showAlert("No hay lista cargada para su consulta")    ;       }
+            if(this.translate.currentLang=="ja"){
+            this.showAlert("あなたのお問い合わせのためのロードされたリストはありません") ; }
+            if(this.translate.currentLang=="it"){
+            this.showAlert("Non esiste una lista caricata per la tua richiesta");  }
+            if(this.translate.currentLang=="po"){
+            this.showAlert("Não há lista carregada para sua consulta") ;}
+            if(this.translate.currentLang=="en"){
+            this.showAlert("There is no loaded list for your inquiry");  }
+            if(this.translate.currentLang=="fr"){
+            this.showAlert("Il n'y a pas de liste chargée pour votre demande");
+            }}
              });
              
 
@@ -197,7 +233,19 @@ this.view.dismiss();
       if(this.miLista.length!=0)
         {
       this.navCtrl.setRoot(ListaAsistenciaPage);
-      }else{alert("No hay lista cargada para su consulta");}
+      }else{   if(this.translate.currentLang=="es"){
+        this.showAlert("No hay lista cargada para su consulta")    ;       }
+    if(this.translate.currentLang=="ja"){
+    this.showAlert("あなたのお問い合わせのためのロードされたリストはありません") ; }
+    if(this.translate.currentLang=="it"){
+    this.showAlert("Non esiste una lista caricata per la tua richiesta");  }
+    if(this.translate.currentLang=="po"){
+    this.showAlert("Não há lista carregada para sua consulta") ;}
+    if(this.translate.currentLang=="en"){
+    this.showAlert("There is no loaded list for your inquiry");  }
+    if(this.translate.currentLang=="fr"){
+    this.showAlert("Il n'y a pas de liste chargée pour votre demande");
+    }}
       //  this.navCtrl.setRoot(ListaAsistenciaPage);
      });
       break;
@@ -227,7 +275,19 @@ this.view.dismiss();
               this.OpcionElegida=0;
        } 
       });
-      alert("No hay lista cargada para su consulta");
+      if(this.translate.currentLang=="es"){
+        this.showAlert("No hay lista cargada para su consulta")    ;       }
+    if(this.translate.currentLang=="ja"){
+    this.showAlert("あなたのお問い合わせのためのロードされたリストはありません") ; }
+    if(this.translate.currentLang=="it"){
+    this.showAlert("Non esiste una lista caricata per la tua richiesta");  }
+    if(this.translate.currentLang=="po"){
+    this.showAlert("Não há lista carregada para sua consulta") ;}
+    if(this.translate.currentLang=="en"){
+    this.showAlert("There is no loaded list for your inquiry");  }
+    if(this.translate.currentLang=="fr"){
+    this.showAlert("Il n'y a pas de liste chargée pour votre demande");
+    }
      });
 
       break;
@@ -253,7 +313,19 @@ this.view.dismiss();
       this.navCtrl.setRoot(ListaAsistenciaPage);
       }
       else{
-        alert("No hay lista cargada para su consulta");
+        if(this.translate.currentLang=="es"){
+          this.showAlert("No hay lista cargada para su consulta")    ;       }
+      if(this.translate.currentLang=="ja"){
+      this.showAlert("あなたのお問い合わせのためのロードされたリストはありません") ; }
+      if(this.translate.currentLang=="it"){
+      this.showAlert("Non esiste una lista caricata per la tua richiesta");  }
+      if(this.translate.currentLang=="po"){
+      this.showAlert("Não há lista carregada para sua consulta") ;}
+      if(this.translate.currentLang=="en"){
+      this.showAlert("There is no loaded list for your inquiry");  }
+      if(this.translate.currentLang=="fr"){
+      this.showAlert("Il n'y a pas de liste chargée pour votre demande");
+      }
       }
     });
       break;
@@ -287,9 +359,31 @@ this.view.dismiss();
   this.navCtrl.setRoot(ListaAsistenciaPage);
   }
   else{
-    alert("No hay lista cargada para su consulta");
+    if(this.translate.currentLang=="es"){
+    this.showAlert("No hay lista cargada para su consulta")    ;       }
+if(this.translate.currentLang=="ja"){
+this.showAlert("あなたのお問い合わせのためのロードされたリストはありません") ; }
+if(this.translate.currentLang=="it"){
+this.showAlert("Non esiste una lista caricata per la tua richiesta");  }
+if(this.translate.currentLang=="po"){
+this.showAlert("Não há lista carregada para sua consulta") ;}
+if(this.translate.currentLang=="en"){
+this.showAlert("There is no loaded list for your inquiry");  }
+if(this.translate.currentLang=="fr"){
+this.showAlert("Il n'y a pas de liste chargée pour votre demande");
+}
+ 
   }
   });
+  }
+  showAlert(mensaje:string) {
+    
+    let alert = this.alertCtrl.create({
+ 
+      subTitle: mensaje,
+      buttons: ['OK']
+    });
+    alert.present();
   }
   }
 

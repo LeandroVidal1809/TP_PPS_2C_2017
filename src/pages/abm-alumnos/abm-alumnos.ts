@@ -11,7 +11,7 @@ import { elementDef } from '@angular/core/src/view/element';
 import { List } from 'ionic-angular/components/list/list';
 import { Http } from '@angular/http';
 import * as papa from 'papaparse';
-
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @IonicPage()
 @Component({
@@ -19,7 +19,7 @@ import * as papa from 'papaparse';
   templateUrl: 'abm-alumnos.html',
 })
 export class AbmAlumnosPage {
-
+  langs = ['en', 'fr', 'es'];
   lista: any;
   legajo: string;
   nombre: string;
@@ -46,11 +46,14 @@ export class AbmAlumnosPage {
 
   constructor(public navCtrl: NavController,
                public navParams: NavParams,
-               private http: Http,
+               private http: Http, public translate: TranslateService,
                public af: AngularFireDatabase,
                public alertCtrl: AlertController,               
                 private view: ViewController,
                 private _auth:AngularFireAuth) {
+                  this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+                    console.log('Language changed to ' + this.translate.currentLang);
+                  });
                   this.tienePermisos();
                   this.listadoP=new Array<any>();
                   this.ListaNuevos=new Array<any>();

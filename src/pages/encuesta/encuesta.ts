@@ -5,7 +5,7 @@ import { AngularFireAuthModule,AngularFireAuth } from 'angularfire2/auth';
 import { GraficosPage } from '../graficos/graficos';
 import { LoginPage } from '../login/login';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
-
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 /**
  * Generated class for the EncuestaPage page.
  *
@@ -41,11 +41,14 @@ button:boolean=false;
  hora:string;
  horaActual:Date;
   list: AngularFireList<any>;
-  constructor(public modalCtrl: ModalController,public navCtrl: NavController,
+  constructor(public translate: TranslateService,public modalCtrl: ModalController,public navCtrl: NavController,
     public navParams: NavParams,
     public db: AngularFireDatabase,    public alertCtrl: AlertController,public spiner:LoadingController,
      private view: ViewController, 
      private _auth:AngularFireAuth) {
+       this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      console.log('Language changed to ' + this.translate.currentLang);
+    });
      this.check1="";   this.check2="";   this.check3="";
       this.Tiempo="0";
       this.Minuto="0";
@@ -101,8 +104,20 @@ button:boolean=false;
       
       }
       if(this.vale=false)
-        {
-          this.showAlert("Encuestas Expiradas","NO HAY ENCUESTAS VIGENTES");
+        { if(this.translate.currentLang=="es"){
+          this.showAlert("Encuestas Expiradas","NO HAY ENCUESTAS VIGENTES");             }
+    if(this.translate.currentLang=="ja"){
+      this.showAlert("期限切れのアンケート","現在の調査はありません");   }
+    if(this.translate.currentLang=="it"){
+      this.showAlert("Sondaggi scaduti","NON CI SONO INDAGINI ATTUALI");   }
+    if(this.translate.currentLang=="po"){
+      this.showAlert("Inquéritos Expirados","NÃO HÁ ENCONTRAS ATUAIS"); }
+    if(this.translate.currentLang=="en"){
+      this.showAlert("Expired Surveys","THERE ARE NO CURRENT SURVEYS");   }
+    if(this.translate.currentLang=="fr"){
+      this.showAlert("Enquêtes expirées","IL N'Y A PAS D'ENQUÊTES ACTUELLES");
+    }
+          
         }
     })
 
@@ -161,8 +176,20 @@ grafico(){
     enableBackdropDismiss : false
   };
   if(this.yavoto == true)
-  {
-    this.showAlert("No permitido","usted ya voto!");
+  { if(this.translate.currentLang=="es"){
+    this.showAlert("Usted ya voto","Lo sentimos");                  }
+if(this.translate.currentLang=="ja"){
+this.showAlert("継続時間を選択する","ごめんなさい");   }
+if(this.translate.currentLang=="it"){
+this.showAlert("vous votez déjà","Siamo spiacenti");   }
+if(this.translate.currentLang=="po"){
+this.showAlert("Tu già voti","Sentimos muito"); }
+if(this.translate.currentLang=="en"){
+this.showAlert("you already vote","We are sorry");   }
+if(this.translate.currentLang=="fr"){
+this.showAlert("voce já vota","Nous sommes désolés");
+}
+
     this.view.dismiss();
   }else{
     let profileModal : Modal = this.modalCtrl.create(GraficosPage, MyModalOption);
@@ -184,14 +211,20 @@ grafico(){
    
   } 
   MiSpiner2():Loading
-  {
-    let loader = this.spiner.create({
-      content:"Espere..",
-      duration: 3000
-      
-    });
-   // loader.present();
-    return loader;
+  {if(this.translate.currentLang=="es"){
+    let loader = this.spiner.create({content:"Espere..", duration: 3000});               return loader;                  }
+if(this.translate.currentLang=="ja"){
+  let loader = this.spiner.create({content:"待つ..", duration: 3000});    return loader;   }
+if(this.translate.currentLang=="it"){
+  let loader = this.spiner.create({content:"aspettare..", duration: 3000});     return loader;   }
+if(this.translate.currentLang=="po"){
+  let loader = this.spiner.create({content:"Espere..", duration: 3000});    return loader; }
+if(this.translate.currentLang=="en"){
+  let loader = this.spiner.create({content:"waited..", duration: 3000});    return loader;   }
+if(this.translate.currentLang=="fr"){
+  let loader = this.spiner.create({content:"Attendre..", duration: 3000});   return loader;
+}
+  
   }
 
 }

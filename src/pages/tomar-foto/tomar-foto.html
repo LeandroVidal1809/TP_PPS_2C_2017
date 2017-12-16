@@ -10,9 +10,9 @@
   <!--  <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button> -->
-    <ion-title>Camara</ion-title>
+    <ion-title>{{'Camara'| translate}}</ion-title>
     <ion-buttons end>
-        <button ion-button (click)="closeModal()" >Cerrar </button>   
+        <button ion-button (click)="closeModal()" >{{'CERRAR'| translate}} </button>   
       </ion-buttons>
     
   </ion-navbar>
@@ -25,10 +25,10 @@
 
                 <div >
                   <div id="login-access" >
-                    <h2><i class="glyphicon glyphicon-log-in"></i> Fotos de Aulas</h2>						
+                    <h2><i class="glyphicon glyphicon-log-in"></i>{{'Fotos de Aulas'| translate}} </h2>						
                   </div>
                   <div class="col-md-12">
-                    <button type="submit"  (click)="takePhotoLindas()" style="margin-top:10px;margin-left:80px;width: 200px;height: 50px;font-size:25px"   class="btn btn-warning pull"> Tomar foto <span class="glyphicon glyphicon-send"></span></button>
+                    <button type="submit"  (click)="takePhotoLindas()" style="margin-top:10px;margin-left:80px;width: 200px;height: 50px;font-size:25px"   class="btn btn-warning pull"> {{'Tomar foto'| translate}} <span class="glyphicon glyphicon-send"></span></button>
                 </div>
                 
                 <div class="foto">
@@ -37,7 +37,7 @@
 
             <div style="margin-top:20px; ">                
                   <select [(ngModel)]="AulaSelect" style="width: 45%;display: inline-block;height: 50px;"  class="selectpick">
-                    <option>Aula...</option>
+                    <option>{{'Aula'| translate}}...</option>
                     <option>200</option>
                     <option>201</option>
                     <option>202</option>

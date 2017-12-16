@@ -4,9 +4,9 @@
 <ion-header>
     <ion-navbar>
    
-      <ion-title>Modificar Datos</ion-title>
+      <ion-title>{{'Modificar Datos'| translate}}</ion-title>
       <ion-buttons end>
-          <button ion-button (click)="closeModal()" >Cerrar </button>   
+          <button ion-button (click)="closeModal()" >{{'CERRAR'| translate}} </button>   
         </ion-buttons>
     </ion-navbar>
   </ion-header>
@@ -16,17 +16,17 @@
  
     <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10">
       <div id="login-access" class="tab-pane fade active in">
-        <h2><i class="glyphicon glyphicon-log-in"></i>Modificar Datos</h2>						
+        <h2><i class="glyphicon glyphicon-log-in"></i>{{'Modificar Datos'| translate}}</h2>						
 
-        Nombre:           
+        {{'NOMBRE'| translate}}:           
         <input type="text" id="a" name="a" [(ngModel)]="nombre" >
-        Tipo:(No se puedo modificar)
+        {{'TIPO'| translate}}:(No se puede modificar)
         <input type="text" id="s" name="s" [(ngModel)]="tipo" disabled>
-        Mail:(No se puedo modificar)
+        {{'CORREO'| translate}}:(No se puede modificar)
         <input type="email" id="c" name="c" [(ngModel)]="email" disabled>
 
 
-        Eliga una foto para su perfil:
+        {{'Eliga una foto para su perfil'| translate}}:
         <form >
             <input type="radio" [(ngModel)]="foto" name="gender1" ng-model="myVar" value="assets/imgs/1.jpg"> <img class="foto"  width=150px;  src="assets/imgs/1.jpg"><br>
             <input type="radio" [(ngModel)]="foto" name="gender2" ng-model="myVar" value="assets/imgs/2.jpg">  <img class="foto"  width=150px;  src="assets/imgs/2.jpg"><br>
@@ -37,6 +37,6 @@
 
       </div>
       
-      <button  (click)="Guardar2(myVar)" class="btn btn-primary btn-md">Modificar usuario</button>
+      <button  (click)="Guardar2(myVar)" class="btn btn-primary btn-md">{{'Modificar usuario'| translate}}</button>
     </div>
   </ion-content>

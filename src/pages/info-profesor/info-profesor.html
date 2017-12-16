@@ -7,9 +7,9 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>InfoProfesor</ion-title>
+    <ion-title>Info{{'PROFESOR'| translate}}</ion-title>
     <ion-buttons end>
-        <button ion-button (click)="closeModal()" >Cerrar </button>   
+        <button ion-button (click)="closeModal()" >{{'CERRAR'| translate}} </button>   
       </ion-buttons>
   </ion-navbar>
 
@@ -26,10 +26,10 @@
   <br>
   <br>
   <div align="center" vertical-align="center">
-  Email:{{Email}}<br>
-  Aula:{{Aula}}<br>
-  Materia:{{Materia}}<br>
-  Nombre: {{Apellido}} {{Nombre}}
+      {{'CORREO'| translate}}:{{Email}}<br>
+      {{'Aula'| translate}}:{{Aula}}<br>
+      {{'Materia'| translate}}:{{Materia}}<br>
+      {{'NOMBRE'| translate}}: {{Apellido}} {{Nombre}}
   </div>
  
 </ion-content>

@@ -5,9 +5,9 @@
 <ion-header>
   <ion-navbar>
     
-    <ion-title>ABM Alumnos</ion-title>
+    <ion-title>ABM {{'ALUMNOS'| translate}}</ion-title>
     <ion-buttons end>
-        <button ion-button (click)="closeModal()" >Cerrar </button>   
+        <button ion-button (click)="closeModal()" >{{'CERRAR'| translate}} </button>   
       </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -18,53 +18,53 @@
       <div>
         <div class="form-body">
             <ul class="nav nav-tabs final-login">
-              <li class={{claseAlta}}><a data-toggle="tab" (click)="mortrarA('A')"  >Alta </a></li>
-              <li class={{claseBaja}}><a data-toggle="tab" (click)="mortrarA('B')">Baja</a></li>
-              <li class={{claseModificacion}}><a data-toggle="tab" (click)="mortrarA('C')">Modificacion</a></li>
-              <li class={{claselista}}><a data-toggle="tab" (click)="mortrarA('D')">Cargar lista</a></li>
+              <li class={{claseAlta}}><a data-toggle="tab" (click)="mortrarA('A')"  >{{'ALTA'| translate}} </a></li>
+              <li class={{claseBaja}}><a data-toggle="tab" (click)="mortrarA('B')">{{'BAJA'| translate}}</a></li>
+              <li class={{claseModificacion}}><a data-toggle="tab" (click)="mortrarA('C')">{{'MODIFICACION'| translate}}</a></li>
+              <li class={{claselista}}><a data-toggle="tab" (click)="mortrarA('D')">{{'CARGAR LISTA'| translate}}</a></li>
             </ul>
         <div class="tab-content">
         <div id="sectionA" [hidden]="seccionA" class="tab-pane fade in active">
           <div class="innter-form">
-              Legajo
-              <input type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="Ingrese su legajo ">
-              Nombre
-              <input type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="Ingrese su nombre">
-            <button  (click)="Guardar()" class="btn btn-primary btn-md">Guardar</button>
+            {{'LEGAJO'| translate}}
+              <input type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="{{'Ingrese su legajo'| translate}} ">
+              {{'NOMBRE'| translate}}
+              <input type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="{{'Ingrese su nombre'| translate}}">
+            <button  (click)="Guardar()" class="btn btn-primary btn-md"> {{'GUARDAR'| translate}}</button>
           </div>
         </div>
         <div id="sectionB" [hidden]="seccionB">
           <div class="innter-form">
-            Ingrese el legajo del alumno 
-            <input type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="Ingrese su legajo ">
-            <button  (click)="Guardar2()" class="btn btn-primary btn-md">Borrar</button>
+            {{'INGRESE EL LEGAJO DEL ALUMNO'| translate}}   
+            <input type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="{{'Ingrese su legajo'| translate}} ">
+            <button  (click)="Guardar2()" class="btn btn-primary btn-md">        {{'BORRAR'| translate}}</button>
           </div>
         </div>
         <div id="sectionC" [hidden]="seccionC">
           <div class="innter-form">
           <div [hidden]="Modificar">
-              Ingrese el legajo del alumno 
-              <input type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="Ingrese su legajo ">
-              <button  (click)="Buscar()" class="btn btn-primary btn-md">Buscar</button>
+            {{'INGRESE EL LEGAJO DEL ALUMNO'| translate}}
+              <input type="text" id="c" name="c" [(ngModel)]="legajo" placeholder="{{'Ingrese su legajo'| translate}} ">
+              <button  (click)="Buscar()" class="btn btn-primary btn-md">      {{'Buscar'| translate}}</button>
           </div>
           <div [hidden]="!Modificar">
-              Legajo
+            {{'LEGAJO'| translate}}
               <input type="text" id="c" name="c" [(ngModel)]="legajo"  disabled>
-              Nombre
-              <input type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="Ingrese su nombre">
-              <button  (click)="Guardar3()" class="btn btn-primary btn-md">Guardar</button>
+              {{'NOMBRE'| translate}}
+              <input type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="{{'Ingrese su nombre'| translate}}">
+              <button  (click)="Guardar3()" class="btn btn-primary btn-md">    {{'GUARDAR'| translate}}</button>
           </div>
         
           </div>
         </div>
         <div id="sectionA" [hidden]="seccionD" class="tab-pane fade in active">
             <div class="innter-form">
-                Lista
+              {{'LISTA'| translate}}
                     <table border="1" class="table"  >
                         <thead>
                           <tr>
-                            <th class="th">          Legajo                      </th>
-                            <th class="th">          Nombre                      </th>
+                            <th class="th">             {{'LEGAJO'| translate}}                     </th>
+                            <th class="th">           {{'NOMBRE'| translate}}                     </th>
                           </tr>
                         </thead>
                         <tbody>
@@ -74,7 +74,7 @@
                               </tr>
                         </tbody>
                       </table> 
-                      <button  (click)="GuardarLista()" class="btn btn-primary btn-md">Guardar</button>
+                      <button  (click)="GuardarLista()" class="btn btn-primary btn-md"> {{'GUARDAR'| translate}}</button>
             </div>
           </div>
         

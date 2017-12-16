@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
 
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 
 @IonicPage()
@@ -19,9 +20,11 @@ export class InfoProfesorPage {
   Apellido:string;
   Nombre:string;
 
-  constructor(public navCtrl: NavController , private view: ViewController,db:AngularFireDatabase, public navParams: NavParams) 
+  constructor(public translate: TranslateService,public navCtrl: NavController , private view: ViewController,db:AngularFireDatabase, public navParams: NavParams) 
   {
-
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      console.log('Language changed to ' + this.translate.currentLang);
+    });
     this.emailProf = sessionStorage.getItem("EmailProf");
 
     this.listaProf= db.list('/Profesores/');

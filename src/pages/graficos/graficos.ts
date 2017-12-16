@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, ViewController,AlertController ,Lo
 import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { LoginPage } from '../login/login';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+
 /**
  * Generated class for the GraficosPage page.
  *
@@ -41,8 +43,11 @@ pregunta;
     console.log(e);
   }
   
-  constructor(public navCtrl: NavController,   public spiner:LoadingController,  public alertCtrl: AlertController,   public db: AngularFireDatabase, public navParams: NavParams, private view: ViewController,
+  constructor(public translate: TranslateService,public navCtrl: NavController,   public spiner:LoadingController,  public alertCtrl: AlertController,   public db: AngularFireDatabase, public navParams: NavParams, private view: ViewController,
     private _auth:AngularFireAuth) {
+      this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+        console.log('Language changed to ' + this.translate.currentLang);
+      });
      // this.tienePermisos();
       let espera = this.MiSpiner2();
       espera.present();   
@@ -78,20 +83,37 @@ pregunta;
 
   }
   MiSpiner2():Loading
-  {
-    let loader = this.spiner.create({
-      content:"Espere..",
-      duration: 3000
-      
-    });
-   // loader.present();
-    return loader;
+  {if(this.translate.currentLang=="es"){
+    let loader = this.spiner.create({content:"Espere..", duration: 3000});               return loader;                  }
+if(this.translate.currentLang=="ja"){
+  let loader = this.spiner.create({content:"待つ..", duration: 3000});    return loader;   }
+if(this.translate.currentLang=="it"){
+  let loader = this.spiner.create({content:"aspettare..", duration: 3000});     return loader;   }
+if(this.translate.currentLang=="po"){
+  let loader = this.spiner.create({content:"Espere..", duration: 3000});    return loader; }
+if(this.translate.currentLang=="en"){
+  let loader = this.spiner.create({content:"waited..", duration: 3000});    return loader;   }
+if(this.translate.currentLang=="fr"){
+  let loader = this.spiner.create({content:"Attendre..", duration: 3000});   return loader;
+}
   }
   tienePermisos()
   {
     if(sessionStorage.getItem("type")!="admin" && sessionStorage.getItem("type")!="administrativo")
       {
-          this.showAlert("No tiene permisos para ingresar al ABM de Profesores y Administrativos","Lo sentimos");
+        if(this.translate.currentLang=="es"){
+          this.showAlert("No tiene permisos para ingresar como Profesores y Administrativos","Lo sentimos");                  }
+    if(this.translate.currentLang=="ja"){
+      this.showAlert("教授と管理者のABMに入る権限がありません。","ごめんなさい");   }
+    if(this.translate.currentLang=="it"){
+      this.showAlert("Non hai il permesso di entrare nell'ABM di professori e amministratori","Siamo spiacenti");   }
+    if(this.translate.currentLang=="po"){
+      this.showAlert("Você não tem permissão para entrar na ABM de Professores e Administradores","Sentimos muito"); }
+    if(this.translate.currentLang=="en"){
+      this.showAlert("You do not have permission to enter the ABM of Professors and Administrators","We are sorry");   }
+    if(this.translate.currentLang=="fr"){
+      this.showAlert("Vous n'êtes pas autorisé à entrer dans le guichet automatique des professeurs et des administrateurs","Nous sommes désolés");
+    }
           this.view.dismiss(); // this.navCtrl.setRoot(HomePage);    
       }
   }

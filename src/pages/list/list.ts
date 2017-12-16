@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController,ModalController, Modal, ModalOptions } from 'ionic-angular';
+import { NavController, NavParams, AlertController,ViewController,ModalController, Modal, ModalOptions } from 'ionic-angular';
 import { BarcodeScanner ,BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { AngularFireModule} from 'angularfire2';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 //import { Camera, CameraOptions } from '@ionic-native/camera';
@@ -30,12 +31,14 @@ export class QRPage {
 
   perfil = {loggedin: false,name : '',profilePicture: '',email: ''};
 
-  constructor( public navCtrl: NavController,
+  constructor(  public alertCtrl: AlertController,public translate: TranslateService,public navCtrl: NavController,
      public navParams: NavParams, public modalCtrl: ModalController,
      private view: ViewController,db:AngularFireDatabase,
      private barcodeScanner: BarcodeScanner,
      private _auth:AngularFireAuth) 
-  {  
+  {   this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+    console.log('Language changed to ' + this.translate.currentLang);
+  });
       this.perfil=navParams.data;
  
 
@@ -66,8 +69,20 @@ export class QRPage {
   const MyModalOption : ModalOptions ={
     enableBackdropDismiss : false
   };
- 
-    this.options = { prompt : "Escanea tu Qr de Credito" }
+  if(this.translate.currentLang=="es"){
+    this.options = { prompt : "Escanea tu Qr de Credito" }             }
+if(this.translate.currentLang=="ja"){
+  this.options = { prompt : "あなたのクレジットカードをスキャンしてください" }   }
+if(this.translate.currentLang=="it"){
+  this.options = { prompt : "Scansiona il tuo credito Qr" }  }
+if(this.translate.currentLang=="po"){
+  this.options = { prompt : "Digitalize seu crédito Qr" } }
+if(this.translate.currentLang=="en"){
+  this.options = { prompt : "Scan your credit Qr" }  }
+if(this.translate.currentLang=="fr"){
+  this.options = { prompt : "Scannez votre crédit Qr" }
+}
+    
     this.barcodeScanner.scan(this.options).then((barcodeData) =>
      { 
         this.scanData=barcodeData;
@@ -89,8 +104,20 @@ export class QRPage {
         let profileModal : Modal = this.modalCtrl.create(InfoProfesorPage,MyModalOption);
                profileModal.present(); 
 
-       }else{
-          alert("codigo qr no registrado!! reintentar");
+       }else{if(this.translate.currentLang=="es"){
+        this.showAlert("codigo qr no registrado!! reintentar")    ;       }
+    if(this.translate.currentLang=="ja"){
+    this.showAlert("QRコードが登録されていません！ 再試行") ; }
+    if(this.translate.currentLang=="it"){
+    this.showAlert("Codice QR non registrato !! riprovare");  }
+    if(this.translate.currentLang=="po"){
+    this.showAlert("QR code not registered !! tente novamente") ;}
+    if(this.translate.currentLang=="en"){
+    this.showAlert("qr code not registered !! retry");  }
+    if(this.translate.currentLang=="fr"){
+    this.showAlert("QR code non enregistré !! réessayer");
+    }
+      
 
        }
        
@@ -101,6 +128,15 @@ export class QRPage {
   
   
   
+}
+showAlert(mensaje:string) {
+  
+  let alert = this.alertCtrl.create({
+
+    subTitle: mensaje,
+    buttons: ['OK']
+  });
+  alert.present();
 }
 
   closeModal(){

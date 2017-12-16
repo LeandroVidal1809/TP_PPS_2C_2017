@@ -4,9 +4,9 @@
 <ion-header>
     <ion-navbar>
    
-      <ion-title>ABM Profesor & Administrativo</ion-title>
+      <ion-title>ABM {{'PROFESOR'| translate}} & {{'ADMINISTRATIVO'| translate}}</ion-title>
       <ion-buttons end>
-          <button ion-button (click)="closeModal()" >Cerrar </button>   
+          <button ion-button (click)="closeModal()" >{{'CERRAR'| translate}} </button>   
         </ion-buttons>
     </ion-navbar>
   </ion-header>
@@ -16,16 +16,16 @@
  
     <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10">
       <div id="login-access" class="tab-pane fade active in">
-        <h2><i class="glyphicon glyphicon-log-in"></i> ABM Profesor y Administrativo</h2>						
+        <h2><i class="glyphicon glyphicon-log-in"></i> ABM {{'PROFESOR'| translate}} & {{'ADMINISTRATIVO'| translate}}</h2>						
 
-        <input type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="Ingrese su nombre">
-        <input type="email" id="c" name="c" [(ngModel)]="email" placeholder="Ingrese su email ">
-        <input type="password" id="c" name="c" [(ngModel)]="password" placeholder="Ingrese su Clave ">
-        <input type="password" id="c" name="c" [(ngModel)]="passwordconfirm" placeholder="Repita su Clave ">
+        <input type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="{{'Ingrese su nombre'| translate}}">
+        <input type="email" id="c" name="c" [(ngModel)]="email" placeholder="{{'Ingrese su email'| translate}} ">
+        <input type="password" id="c" name="c" [(ngModel)]="password" placeholder="{{'Ingrese su Clave'| translate}} ">
+        <input type="password" id="c" name="c" [(ngModel)]="passwordconfirm" placeholder="{{'Repita su Clave'| translate}} ">
         <select  [(ngModel)]="tipo" style="color:black;" >
-            <option>Seleccione un tipo de usuario...</option>
-            <option>Profesor</option>
-            <option>Administrativo</option>
+            <option>{{'SELECCIONE UN TIPO DE USUARIO'| translate}}...</option>
+            <option>{{'PROFESOR'| translate}}</option>
+            <option>{{'ADMINISTRATIVO'| translate}}</option>
             
           </select>
 
@@ -33,6 +33,6 @@
 
       </div>
       
-      <button  (click)="Guardar()" class="btn btn-primary btn-md">Registrar usuario</button>
+      <button  (click)="Guardar()" class="btn btn-primary btn-md">{{'REGISTRAR USUARIO'| translate}}</button>
     </div>
   </ion-content>

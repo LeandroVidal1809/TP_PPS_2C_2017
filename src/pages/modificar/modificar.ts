@@ -5,6 +5,7 @@ import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 import { AlertController ,LoadingController, Loading} from 'ionic-angular';
 import { HomePage } from '../home/home';	
 
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 
 import { LoginPage } from '../login/login';
@@ -35,13 +36,16 @@ export class Modificar {
   listadoU:Array<any>;
   perfil = {name : '',profilePicture: '',email: '',tipo:''};
   
-  constructor(public navCtrl: NavController,
+  constructor(public translate: TranslateService,public navCtrl: NavController,
                public navParams: NavParams,
                public alertCtrl: AlertController,
                public af: AngularFireDatabase,
                public spiner:LoadingController,
                 private view: ViewController,
                 private _auth:AngularFireAuth) {
+                  this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+                  console.log('Language changed to ' + this.translate.currentLang);
+                });
                //  this.tienePermisos();
                   this.lista= af.list('/Usuarios/');
                   console.log(navParams);

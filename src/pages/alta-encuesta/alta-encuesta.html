@@ -5,16 +5,16 @@
 <ion-header>
   <ion-navbar>
     
-La encuesta Durará:
+    {{'LA ENCUESTA DURARÁ'| translate}}:
     <select [(ngModel)]="tiempo" style="margin-left: -72px;width: 265px;font-size:22px"  (click)="cargar()"  style="color:black;" >
-      <option>Duracion de la Encuesta</option>
+      <option>{{'DURACION DE LA ENCUESTA'| translate}}</option>
       <!-- <option>CheckBox</option> -->
       <option>1 min</option>
       <option>10 min</option>
       <option>45 min</option>
     </select>
     <ion-buttons end>
-        <button ion-button (click)="closeModal()" >Cerrar </button>   
+        <button ion-button (click)="closeModal()" >{{'CERRAR'| translate}} </button>   
       </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -26,30 +26,30 @@ La encuesta Durará:
   <section>  -->
     <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10">
       <div id="login-access" class="tab-pane fade active in" >
-        <h2  style="margin-left: 0px;width: 263px;font-size:22px"><i class="glyphicon glyphicon-log-in"></i>Generador de encuestas</h2>			
-        <h1 style="margin-left: 0px;width: 265px;font-size:22px">Su Pregunta</h1>			
+        <h2  style="margin-left: 0px;width: 263px;font-size:22px"><i class="glyphicon glyphicon-log-in"></i>{{'GENERADOR DE ENCUESTAS'| translate}}</h2>			
+        <h1 style="margin-left: 0px;width: 265px;font-size:22px">{{'SU PREGUNTA'| translate}} </h1>			
         <br>  
-        <input style="margin-left: 0px;width: 265px;font-size:22px" type="text" id="c" name="c" [(ngModel)]="pregunta" placeholder="Ingrese su pregunta">
+        <input style="margin-left: 0px;width: 265px;font-size:22px" type="text" id="c" name="c" [(ngModel)]="pregunta" placeholder="{{'Ingrese su pregunta'| translate}}">
      <!--<input type="text" id="a" name="a" [(ngModel)]="nombre" placeholder="Ingrese su nombre">-->
   <br><br>
         <select [(ngModel)]="tipoSelect" style="margin-left: 0px;width: 265px;font-size:30px"  (click)="cargar()" >
-            <option>Seleccione un tipo de respuesta..</option>
+            <option>  {{'SELECCIONE UN TIPO DE RESPUESTA'| translate}}..</option>
             <!-- <option>CheckBox</option> -->
-            <option>Menu de Seleccion</option>
-            <option>Botones opcion</option>
+            <option>{{'MENU DE SELECCION'| translate}}</option>
+            <option>{{'BOTONES OPCION'| translate}}</option>
             <!-- <option>Respuesta Texto</option> -->
           </select>
       </div><br><br>  
    <!-- <button    class="btn btn-primary btn-md">Cargar Respuestas</button> -->
     
           <div >
-              <input  style="margin-left: 0px;width: 265px;font-size:22px" type="text" id="c" name="c" [(ngModel)]="respuesta1" placeholder="Respuesta 1...">
+              <input  style="margin-left: 0px;width: 265px;font-size:22px" type="text" id="c" name="c" [(ngModel)]="respuesta1" placeholder="{{'RESPUESTA'| translate}} 1...">
               <br><br>
-              <input  style="margin-left: 0px;width: 265px;font-size:22px" type="text" id="c" name="c" [(ngModel)]="respuesta2" placeholder="Respuesta 2...">
+              <input  style="margin-left: 0px;width: 265px;font-size:22px" type="text" id="c" name="c" [(ngModel)]="respuesta2" placeholder="{{'RESPUESTA'| translate}} 2...">
               <br><br>
-              <input style="margin-left: 0px;width: 265px;font-size:22px" type="text" id="c" name="c" [(ngModel)]="respuesta3" placeholder="Respuesta 3...">
+              <input style="margin-left: 0px;width: 265px;font-size:22px" type="text" id="c" name="c" [(ngModel)]="respuesta3" placeholder="{{'RESPUESTA'| translate}} 3...">
               <br><br>
-                  <button  (click)="Guardar()" class="btn btn-primary btn-md">Registrar Encuesta</button>
+                  <button  (click)="Guardar()" class="btn btn-primary btn-md">{{'REGISTRAR ENCUESTA'| translate}}</button>
             
             </div>
              

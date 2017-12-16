@@ -5,32 +5,32 @@
 <ion-header>
   <ion-navbar>
    
-    <ion-title>Asistencias</ion-title>
+    <ion-title>{{'Asistencia'| translate}}</ion-title>
    <ion-buttons end>
-  <button ion-button (click)="closeModal()" >Cerrar </button>   
+  <button ion-button (click)="closeModal()" >{{'CERRAR'| translate}} </button>   
 </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content padding align="center">
-    <h2><i class="glyphicon glyphicon-log-in"></i> Filtros para asistencia</h2>	
+    <h2><i class="glyphicon glyphicon-log-in"></i> {{'Filtros para asistencia'| translate}}</h2>	
   <div [hidden]="OpcionesAvanzadas">
     <div class="funkyradio">
           <div class="funkyradio-danger">
               <input type="radio" (click)="Traigo('Materias')" name="radio" id="radio6" />
-              <label for="radio6">MATERIAS</label>
+              <label for="radio6">{{'Materia'| translate}}</label>
           </div>
     </div>
       <div class="Lista" [hidden]="!MuestraMaterias" *ngFor="let item of miListaMaterias">
-        <a (click)="SetListaMateria(item.Nombre,item.Aula)">{{item.Nombre}}(Aula {{item.Aula}})</a>
+        <a (click)="SetListaMateria(item.Nombre,item.Aula)">{{item.Nombre}}({{'Aula'| translate}} {{item.Aula}})</a>
       </div>
     <div class="funkyradio">
       <div class="funkyradio-danger">
         <input type="radio" (click)="Traigo('Aula')" name="radio" id="radio7" />
-        <label for="radio7">AULAS</label>
+        <label for="radio7">{{'Aula'| translate}}</label>
       </div>
     </div>
     <div class="Lista" [hidden]="!MuestraAulas" *ngFor="let item of miListaMaterias">
-        <a (click)="SetListaMateria(item.Nombre,item.Aula)">Aula {{item.Aula}}</a>
+        <a (click)="SetListaMateria(item.Nombre,item.Aula)">{{'Aula'| translate}} {{item.Aula}}</a>
       </div>
   </div>
  
@@ -45,38 +45,38 @@
     <div class="funkyradio">
         <div class="funkyradio-danger">
             <input type="radio" (click)="setOpcion(6)" name="radio" id="radio5" />
-            <label for="radio5">Aula-Materia</label>
+            <label for="radio5">{{'Aula'| translate}}-{{'Materia'| translate}}</label>
           </div>
       <div class="funkyradio-danger">
         <input type="radio" (click)="setOpcion(0)" name="radio" id="radio4" />
-        <label for="radio4">Aula</label>
+        <label for="radio4">{{'Aula'| translate}}</label>
       </div>
       <div class="funkyradio-danger">
             <input type="radio" (click)="setOpcion(1)" name="radio" id="radio1" />
-            <label for="radio1">Materia</label>
+            <label for="radio1">{{'Materia'| translate}}</label>
         </div>
   
         <div class="funkyradio-danger">
             <input type="radio" (click)="setOpcion(3)" name="radio" id="radio3" />
-            <label for="radio3">Alumno</label>
+            <label for="radio3">{{'ALUMNOS'| translate}}</label>
         </div>
     </div>
 </div>
 <div class="col-md-8">  
         <select *ngIf="opcion==0" [(ngModel)]="AulaSelect" style="color:black;"   selected="selected">
-            <option>Aula...</option>
+            <option>{{'Aula'| translate}}...</option>
             <option>200</option>
             <option>201</option>
             <option>202</option>
           </select>
           <select [(ngModel)]="MateriaSelect"  style="color:black;"   selected="selected" *ngIf="opcion==1" >
-              <option>Materia...</option>
-              <option>Laboratorio 1</option>
-              <option>Programacion 1</option>
-              <option>Base de Datos</option>
+              <option>{{'Materia'| translate}}...</option>
+              <option>{{'Laboratorio'| translate}} 1</option>
+              <option>{{'Programacion'| translate}} 1</option>
+              <option>{{'Base de Datos'| translate}}</option>
             </select>
             <select [(ngModel)]="ProfesorSelect"  style="color:black;"   selected="selected" *ngIf="opcion==2" >
-              <option>Profesor...</option>
+              <option>{{'PROFESOR'| translate}}...</option>
               <option>Abaurre,Fernando</option>
               <option>Lopez,Gustavo</option>
               <option>Fernandez,Diego</option>
@@ -84,16 +84,16 @@
             <input *ngIf="opcion==3"  id="msg" placeholder="Inserta el Legajo..."  [(ngModel)]="AlumnoSelect"  type="text" class="selectpick" name="msg"> 
             <!-- <input *ngIf="opcion==4"  id="msg"  [(ngModel)]="Fecha"   type="text" class="selectpick" name="msg" placeholder="Fecha">  -->
             <select *ngIf="opcion==6" [(ngModel)]="AulaSelect" style="color:black;"   selected="selected">
-                <option>Aula...</option>
+                <option>{{'Aula'| translate}}...</option>
                 <option>200</option>
                 <option>201</option>
                 <option>202</option>
               </select>
               <select [(ngModel)]="MateriaSelect"  style="color:black;"   selected="selected" *ngIf="opcion==6" >
-                  <option>Materia...</option>
-                  <option>Laboratorio 1</option>
-                  <option>Programacion 1</option>
-                  <option>Base de Datos</option>
+                  <option>{{'Materia'| translate}}...</option>
+                  <option>{{'Laboratorio'| translate}} 1</option>
+                  <option>{{'Programacion'| translate}} 1</option>
+                  <option>{{'Base de Datos'| translate}}</option>
                 </select>	
       </div>
       </div>
@@ -101,8 +101,8 @@
     </div>
 
 </div>
-<button [hidden]="OpcionesAvanzadas" style="float:left" (click)="ChangeOpciones()" class="btn btn-primary btn-md" >Opciones Avanzadas +</button> 
-<button [hidden]="!OpcionesAvanzadas" style="float:left" (click)="ChangeOpciones()" class="btn btn-primary btn-md" >Opciones Avanzadas -</button> 
-<button [hidden]="!OpcionesAvanzadas" style="float:right"  (click)="tomarAsistencia()" class="btn btn-primary btn-md" >Ingresar al aula</button>
+<button [hidden]="OpcionesAvanzadas" style="float:left" (click)="ChangeOpciones()" class="btn btn-primary btn-md" >{{'Opciones Avanzadas'| translate}} +</button> 
+<button [hidden]="!OpcionesAvanzadas" style="float:left" (click)="ChangeOpciones()" class="btn btn-primary btn-md" >{{'Opciones Avanzadas'| translate}}Opciones Avanzadas -</button> 
+<button [hidden]="!OpcionesAvanzadas" style="float:right"  (click)="tomarAsistencia()" class="btn btn-primary btn-md" >{{'Ingresar al aula'| translate}}</button>
 
 </ion-content>

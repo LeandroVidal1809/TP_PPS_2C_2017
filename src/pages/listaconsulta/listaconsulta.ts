@@ -10,6 +10,8 @@ import * as papa from 'papaparse';
 import { File } from '@ionic-native/file';
 import { Http } from '@angular/http';
 import { Chart } from 'chart.js';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+
 /**
  * Generated class for the ListaconsultaPage page.
  *
@@ -41,8 +43,11 @@ export class ListaconsultaPage {
   Fechas:string;
   public myPhotosRefLindas: any;
   list: AngularFireList<any>;
-    constructor(public navCtrl: NavController,private eltRef:ElementRef,private file: File, private http: Http,private db:AngularFireDatabase,public navParams: NavParams, private view: ViewController,
-      private _auth:AngularFireAuth) {
+    constructor(public translate: TranslateService,public navCtrl: NavController,private eltRef:ElementRef,private file: File, private http: Http,private db:AngularFireDatabase,public navParams: NavParams, private view: ViewController,
+      private _auth:AngularFireAuth) {    
+        this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+        console.log('Language changed to ' + this.translate.currentLang);
+      });
         this.readCsvData();
      this.Fecha =  new Date();
      this.Presente=0;

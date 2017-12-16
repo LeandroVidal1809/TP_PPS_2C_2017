@@ -5,6 +5,7 @@ import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 import firebase from 'firebase';
 import { LoginPage } from '../login/login';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 /**
  * Generated class for the TomarFotoPage page.
@@ -24,13 +25,16 @@ export class TomarFotoPage {
   public myPhotosRefLindas: any;
   public myPhotoURL: any;
   list: AngularFireList<any>;
-  constructor(public navCtrl: NavController,
+  constructor(public translate: TranslateService,public navCtrl: NavController,
              public navParams: NavParams,
           
             db:AngularFireDatabase,
               private view: ViewController,
             private _auth:AngularFireAuth) 
   {
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+    console.log('Language changed to ' + this.translate.currentLang);
+  });
     this.myPhotosRefLindas = firebase.storage().ref('/Aulas/');
     this.list=db.list('/Aula');
     

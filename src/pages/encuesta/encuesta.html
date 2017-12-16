@@ -4,10 +4,10 @@
 <ion-header>
     <ion-navbar>
    
-      <h4> Esta encuesta finaliza {{("0000"+this.Tiempo).slice(-2)}}:{{("0000"+this.Minuto).slice(-2)}}  </h4>
+      <h4> {{'Esta encuesta finaliza'| translate}} {{("0000"+this.Tiempo).slice(-2)}}:{{("0000"+this.Minuto).slice(-2)}}  </h4>
 
       <ion-buttons end>
-          <button ion-button (click)="closeModal()" >Cerrar </button>   
+          <button ion-button (click)="closeModal()" >{{'CERRAR'| translate}} </button>   
         </ion-buttons>
     </ion-navbar>
   </ion-header>
@@ -17,7 +17,7 @@
  
     <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10">
       <div id="login-access" class="tab-pane fade active in">
-        <h2><i  align="center" class="glyphicon glyphicon-log-in"></i>Encuesta</h2>						
+        <h2><i  align="center" class="glyphicon glyphicon-log-in"></i>{{'Encuesta'| translate}}</h2>						
       
       <h2>{{pregunta}}</h2>
       <div *ngIf="checkbox">
@@ -55,7 +55,7 @@
           </div>
           <div *ngIf="select">
               <select [(ngModel)]="respSelect"  style="color:black;" >
-                  <option>Seleccione respuesta..</option>
+                  <option>  {{'SELECCIONE UN TIPO DE RESPUESTA'| translate}}..</option>
                   <option>{{resp1}} </option>
                   <option>{{resp2}} </option>
                   <option>{{resp3}} </option>
@@ -96,8 +96,8 @@
  -->
 
       </div>
-      <h2><i class="glyphicon glyphicon-log-in"></i>Gracias por participar</h2>	
-      <button  (click)="Guardar()" class="btn btn-primary btn-md">Guardar encuesta</button>
+      <h2><i class="glyphicon glyphicon-log-in"></i> {{'Gracias por participar'| translate}}</h2>	
+      <button  (click)="Guardar()" class="btn btn-primary btn-md">{{'Guardar encuesta'| translate}}</button>
     
     </div>
   </ion-content>

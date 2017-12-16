@@ -5,7 +5,7 @@ import * as papa from 'papaparse';
  import {AngularFireDatabase} from 'angularfire2/database';
  import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 // import { FileTransfer, FileUploadOptions, FileTransferObject } from  '@ionic-native/file-transfer';
- 
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
  import { LoginPage } from '../login/login';
 
 /**
@@ -36,7 +36,7 @@ export class ExcelPage {
   existe:boolean;
   miArray : any[] = [];
 
-  constructor(public navCtrl: NavController, 
+  constructor(public translate: TranslateService,public navCtrl: NavController, 
               public navParams: NavParams,
               private http: Http,
              // private fileTransfer: FileTransfer, 
@@ -45,6 +45,9 @@ export class ExcelPage {
               public alertCtrl: AlertController,
                private view: ViewController,
                private _auth:AngularFireAuth) {
+                this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+                  console.log('Language changed to ' + this.translate.currentLang);
+                });
                  this.tienePermisos();
                 this.lista= af.list('/Alumno/');
                 this.Importacion= af.list('/Importaciones/');
@@ -55,8 +58,21 @@ export class ExcelPage {
   tienePermisos()
   {
     if(sessionStorage.getItem("type")!="admin" && sessionStorage.getItem("type")!="administrativo")
-      {
-          this.showAlert("No tiene permisos para ingresar al ABM de Profesores y Administrativos","Lo sentimos");
+      {  
+        if(this.translate.currentLang=="es"){
+          this.showAlert("No tiene permisos para ingresar al ABM de Profesores y Administrativos","Lo sentimos");                  }
+    if(this.translate.currentLang=="ja"){
+      this.showAlert("教授と管理者のABMに入る権限がありません。","ごめんなさい");   }
+    if(this.translate.currentLang=="it"){
+      this.showAlert("Non hai il permesso di entrare nell'ABM di professori e amministratori","Siamo spiacenti");   }
+    if(this.translate.currentLang=="po"){
+      this.showAlert("Você não tem permissão para entrar na ABM de Professores e Administradores","Sentimos muito"); }
+    if(this.translate.currentLang=="en"){
+      this.showAlert("You do not have permission to enter the ABM of Professors and Administrators","We are sorry");   }
+    if(this.translate.currentLang=="fr"){
+      this.showAlert("Vous n'êtes pas autorisé à entrer dans le guichet automatique des professeurs et des administrateurs","Nous sommes désolés");
+    }
+         
           this.view.dismiss(); // this.navCtrl.setRoot(HomePage);    
       }
   }
