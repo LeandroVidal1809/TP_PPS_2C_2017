@@ -37,6 +37,8 @@ import { HttpModule } from '@angular/http';
 import { InfoProfesorPage } from '../pages/info-profesor/info-profesor';
 import { InfoAlumnoPage } from '../pages/info-alumno/info-alumno';
 
+
+import { ModalCustomPage } from '../pages/modal-custom/modal-custom';
 import { MenuEncuesta } from '../pages/menuEncuesta/menuEncuesta';
 
 export const firebaseConfig = {
@@ -67,6 +69,7 @@ export const firebaseConfig = {
     ConsultaPage,
     InfoAlumnoPage,
     EncuestaPage,
+    ModalCustomPage,
     ListaconsultaPage,AltaEncuesta,ModificarEnc,MenuEncuesta
     
   ],
@@ -103,7 +106,8 @@ export const firebaseConfig = {
     InfoAlumnoPage,
     AltaEncuesta,
     ModificarEnc,
-    MenuEncuesta
+    MenuEncuesta,
+    ModalCustomPage
 
   ],
   providers: [

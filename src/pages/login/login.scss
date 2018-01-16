@@ -80,7 +80,7 @@ page-login {
         background:#e64b3b;
         color:rgb(0, 0, 0);
         padding:10px 25px;
-        font-size:14px;
+      //  font-size:14px;
         margin-top:5px;
         }
         .sa-innate-form input[type=submit]:hover{
@@ -94,7 +94,7 @@ page-login {
       //  background:#e64b3b;
         color:rgb(0, 0, 0);
         padding:10px 25px;
-        font-size:14px;
+    //    font-size:14px;
         margin-top:5px;
         width: 100%;
         }
@@ -104,15 +104,41 @@ page-login {
         color:#000000;
         }
         .sa-innate-form p{
-            font-size:13px;
+       //     font-size:13px;
             padding-top:10px;
         }
-    
     
         .nav-tabs>li.active1>a, .nav-tabs>li.active1>a:hover, .nav-tabs>li.active1>a:focus {
             color: rgb(2, 2, 2);
             font-size: 12px;
             background-color:  #1abc9c;
+            border: none !important;
+            border-bottom-color: transparent;
+            border-radius:none !important;
+        }
+
+        .nav-tabs>li.activecustom1>a, .nav-tabs>li.activecustom1>a:hover, .nav-tabs>li.activecustom1>a:focus {
+            color: rgb(2, 2, 2);
+            font-size: 12px;
+            background-color:  red;
+            border: none !important;
+            border-bottom-color: transparent;
+            border-radius:none !important;
+        }
+
+        .nav-tabs>li.activecustom2>a, .nav-tabs>li.activecustom2>a:hover, .nav-tabs>li.activecustom2>a:focus {
+            color: rgb(2, 2, 2);
+            font-size: 12px;
+            background-color:  blue;
+            border: none !important;
+            border-bottom-color: transparent;
+            border-radius:none !important;
+        }
+
+        .nav-tabs>li.activecustom3>a, .nav-tabs>li.activecustom3>a:hover, .nav-tabs>li.activecustom3>a:focus {
+            color: rgb(2, 2, 2);
+            font-size: 12px;
+            background-color:  green;
             border: none !important;
             border-bottom-color: transparent;
             border-radius:none !important;

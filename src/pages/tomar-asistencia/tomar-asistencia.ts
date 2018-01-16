@@ -130,7 +130,7 @@ this.view.dismiss();
     var Observable = this.listaMateria.snapshotChanges(['child_added'])
     .subscribe(actions => {
     actions.forEach(action => { console.log(action.payload.val());
-      debugger;
+
       console.log(this.f.getDay());
       if(action.payload.val()["NumeroDia"]==+this.f.getDay() 
         && this.dateCompare(action.payload.val()["HorarioI"]+":00",this.f.getHours() +":"+this.f.getMinutes()+":"+this.f.getSeconds())==-1

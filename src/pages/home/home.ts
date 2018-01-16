@@ -162,6 +162,12 @@ ionViewDidLoad() {
 
   FotosMenu()
   {
+      this.fotoTomarAsistencia = "assets/imgs/fotoTomarAsistencia1.jpg";
+    //    alert(this.fotoConsultaAsistencia);
+        this.fotoConsultaAsistencia = "assets/imgs/fotoConsultaAsistencia1.png";
+        this.fotoImportarExel = "assets/imgs/fotoImportarExel1.jpg";
+        this.fotoLectorQR = "assets/imgs/fotoLectorQR1.jpg";
+        this.fotoCrearEncuesta = "assets/imgs/fotoCrearEncuesta1.jpg";
       switch (this.claseBoton) 
       {
         case 'miboton':
@@ -192,7 +198,31 @@ ionViewDidLoad() {
         this.fotoImportarExel = "assets/imgs/fotoImportarExel4.jpg";
         this.fotoLectorQR = "assets/imgs/fotoLectorQR4.jpg";
         this.fotoCrearEncuesta = "assets/imgs/fotoCrearEncuesta4.jpg";
-        break;  
+        break; 
+        case 'mibotonCustom1':
+        this.fotoTomarAsistencia = "assets/imgs/fotoTomarAsistencia1.jpg";
+    //    alert(this.fotoConsultaAsistencia);
+        this.fotoConsultaAsistencia = "assets/imgs/fotoConsultaAsistencia1.png";
+        this.fotoImportarExel = "assets/imgs/fotoImportarExel1.jpg";
+        this.fotoLectorQR = "assets/imgs/fotoLectorQR1.jpg";
+        this.fotoCrearEncuesta = "assets/imgs/fotoCrearEncuesta1.jpg";
+        break;
+        case 'mibotonCustom2':
+        this.fotoTomarAsistencia = "assets/imgs/fotoTomarAsistencia1.jpg";
+    //    alert(this.fotoConsultaAsistencia);
+        this.fotoConsultaAsistencia = "assets/imgs/fotoConsultaAsistencia1.png";
+        this.fotoImportarExel = "assets/imgs/fotoImportarExel1.jpg";
+        this.fotoLectorQR = "assets/imgs/fotoLectorQR1.jpg";
+        this.fotoCrearEncuesta = "assets/imgs/fotoCrearEncuesta1.jpg";
+        break;
+        case 'mibotonCustom3':
+        this.fotoTomarAsistencia = "assets/imgs/fotoTomarAsistencia1.jpg";
+    //    alert(this.fotoConsultaAsistencia);
+        this.fotoConsultaAsistencia = "assets/imgs/fotoConsultaAsistencia1.png";
+        this.fotoImportarExel = "assets/imgs/fotoImportarExel1.jpg";
+        this.fotoLectorQR = "assets/imgs/fotoLectorQR1.jpg";
+        this.fotoCrearEncuesta = "assets/imgs/fotoCrearEncuesta1.jpg";
+        break; 
 
     
 

@@ -43,7 +43,8 @@ $turquoise: #1abc9c;
   border-radius: 3em;
   border-color: $turquoise;
   color: #1abc9c;
-  font-family: Verdana;
+  //font-family: Verdana;
+ // font-size: 160%;
   background: {
     image: linear-gradient(to right, 
       transparentize($turquoise, 0.4),
@@ -217,7 +218,7 @@ $turquoise: #1abc9c;
 //  background:#e64b3b;
   color:rgb(0, 0, 0);
   padding:10px 25px;
-  font-size:14px;
+//  font-size:14px;
   margin-top:5px;
   width: 100%;
   }
@@ -256,7 +257,6 @@ $turquoise: #1abc9c;
     background-color: lightblue;
   }
 
-
   .textBox3{
     width: 100%;
     padding: 12px 20px;
@@ -265,7 +265,6 @@ $turquoise: #1abc9c;
     border: 2px solid #916b1b;
     border-radius: 4px;
   }
-
 
   .textBox4{
     width: 100%;
@@ -280,7 +279,747 @@ $turquoise: #1abc9c;
     background-color: lightpink;
   }
 
+/*********************/
 
+  .containerCustom1{
+    font-family: Verdana;
+    font-size: 50%;
+  }
+
+  .containerCustom2{
+   font-family: Verdana;
+    font-size: 100%;
+  }
+
+  .containerCustom3{
+    font-family: Verdana;
+    font-size: 150%;
+  }
+
+  .containerCustom4{
+    font-family: Georgia;
+    font-size: 50%;
+  }
+
+  .containerCustom5{
+   font-family: Georgia;
+    font-size: 100%;
+  }
+
+  .containerCustom6{
+    font-family: Georgia;
+    font-size: 150%;
+  }
+
+  .containerCustom7{
+    font-family: 'Open Sans';
+    font-size: 50%;
+  }
+
+  .containerCustom8{
+    font-family: 'Open Sans';
+    font-size: 100%;
+  }
+
+  .containerCustom9{
+    font-family: 'Open Sans';
+    font-size: 150%;
+  }
+
+/********************************************************************/
+  .textBoxCustom1{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 5px solid  red;
+    outline: none;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+  }
+
+  .textBoxCustom1:focus{
+    background-color: lightcoral;
+  }
+
+  .textBoxCustom2{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 5px solid  blue;
+    outline: none;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+  }
+
+  .textBoxCustom2:focus{
+    background-color: lightblue;
+  }
+
+  .textBoxCustom3{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 5px solid  green;
+    outline: none;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+  }
+
+  .textBoxCustom3:focus{
+    background-color: lightgreen;
+  }
+/*****************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  $turquoise:  red;
+  .mibotonCustom1A {
+    font-size: 50%;
+    border:1px solid#ccc;
+    outline:none;
+    width:100%;
+    margin:8px 0;
+    color: rgb(2, 2, 2);
+    padding: 11px 20px 11px 20px;
+    border-radius: 3em;
+    border-color: $turquoise;
+    background: {
+      image: linear-gradient(to right, 
+        transparentize($turquoise, 0.4),
+        transparentize($turquoise, 0.4) 5%,
+        $turquoise 5%, 
+        $turquoise 10%,
+        transparentize($turquoise, 0.4) 10%,
+        transparentize($turquoise, 0.4) 15%,
+        $turquoise 15%, 
+        $turquoise 20%,
+        transparentize($turquoise, 0.4) 20%,
+        transparentize($turquoise, 0.4) 25%,
+        $turquoise 25%, 
+        $turquoise 30%,
+        transparentize($turquoise, 0.4) 30%,
+        transparentize($turquoise, 0.4) 35%,
+        $turquoise 35%, 
+        $turquoise 40%,
+        transparentize($turquoise, 0.4) 40%,
+        transparentize($turquoise, 0.4) 45%,
+        $turquoise 45%, 
+        $turquoise 50%,
+        transparentize($turquoise, 0.4) 50%,
+        transparentize($turquoise, 0.4) 55%,
+        $turquoise 55%, 
+        $turquoise 60%,
+        transparentize($turquoise, 0.4) 60%,
+        transparentize($turquoise, 0.4) 65%,
+        $turquoise 65%, 
+        $turquoise 70%,
+        transparentize($turquoise, 0.4) 70%,
+        transparentize($turquoise, 0.4) 75%,
+        $turquoise 75%, 
+        $turquoise 80%,
+        transparentize($turquoise, 0.4) 80%,
+        transparentize($turquoise, 0.4) 85%,
+        $turquoise 85%, 
+        $turquoise 90%,
+        transparentize($turquoise, 0.4) 90%,
+        transparentize($turquoise, 0.4) 95%,
+        $turquoise 95%, 
+        $turquoise 100%);
+      position: 0 0;
+      size: 100%;
+    }
+    transition: background 300ms ease-in-out;
+    
+    &:hover {
+      background-position: 100px;
+    }
+  }
+
+
+  $turquoise:  red;
+  .mibotonCustom1B {
+    font-size: 100%;
+    border:1px solid#ccc;
+    outline:none;
+    width:100%;
+    margin:8px 0;
+    color: rgb(2, 2, 2);
+    padding: 11px 20px 11px 20px;
+    border-radius: 3em;
+    border-color: $turquoise;
+    background: {
+      image: linear-gradient(to right, 
+        transparentize($turquoise, 0.4),
+        transparentize($turquoise, 0.4) 5%,
+        $turquoise 5%, 
+        $turquoise 10%,
+        transparentize($turquoise, 0.4) 10%,
+        transparentize($turquoise, 0.4) 15%,
+        $turquoise 15%, 
+        $turquoise 20%,
+        transparentize($turquoise, 0.4) 20%,
+        transparentize($turquoise, 0.4) 25%,
+        $turquoise 25%, 
+        $turquoise 30%,
+        transparentize($turquoise, 0.4) 30%,
+        transparentize($turquoise, 0.4) 35%,
+        $turquoise 35%, 
+        $turquoise 40%,
+        transparentize($turquoise, 0.4) 40%,
+        transparentize($turquoise, 0.4) 45%,
+        $turquoise 45%, 
+        $turquoise 50%,
+        transparentize($turquoise, 0.4) 50%,
+        transparentize($turquoise, 0.4) 55%,
+        $turquoise 55%, 
+        $turquoise 60%,
+        transparentize($turquoise, 0.4) 60%,
+        transparentize($turquoise, 0.4) 65%,
+        $turquoise 65%, 
+        $turquoise 70%,
+        transparentize($turquoise, 0.4) 70%,
+        transparentize($turquoise, 0.4) 75%,
+        $turquoise 75%, 
+        $turquoise 80%,
+        transparentize($turquoise, 0.4) 80%,
+        transparentize($turquoise, 0.4) 85%,
+        $turquoise 85%, 
+        $turquoise 90%,
+        transparentize($turquoise, 0.4) 90%,
+        transparentize($turquoise, 0.4) 95%,
+        $turquoise 95%, 
+        $turquoise 100%);
+      position: 0 0;
+      size: 100%;
+    }
+    transition: background 300ms ease-in-out;
+    
+    &:hover {
+      background-position: 100px;
+    }
+  }
+
+  $turquoise:  red;
+  .mibotonCustom1C {
+    font-size: 150%;
+    border:1px solid#ccc;
+    outline:none;
+    width:100%;
+    margin:8px 0;
+    color: rgb(2, 2, 2);
+    padding: 11px 20px 11px 20px;
+    border-radius: 3em;
+    border-color: $turquoise;
+    background: {
+      image: linear-gradient(to right, 
+        transparentize($turquoise, 0.4),
+        transparentize($turquoise, 0.4) 5%,
+        $turquoise 5%, 
+        $turquoise 10%,
+        transparentize($turquoise, 0.4) 10%,
+        transparentize($turquoise, 0.4) 15%,
+        $turquoise 15%, 
+        $turquoise 20%,
+        transparentize($turquoise, 0.4) 20%,
+        transparentize($turquoise, 0.4) 25%,
+        $turquoise 25%, 
+        $turquoise 30%,
+        transparentize($turquoise, 0.4) 30%,
+        transparentize($turquoise, 0.4) 35%,
+        $turquoise 35%, 
+        $turquoise 40%,
+        transparentize($turquoise, 0.4) 40%,
+        transparentize($turquoise, 0.4) 45%,
+        $turquoise 45%, 
+        $turquoise 50%,
+        transparentize($turquoise, 0.4) 50%,
+        transparentize($turquoise, 0.4) 55%,
+        $turquoise 55%, 
+        $turquoise 60%,
+        transparentize($turquoise, 0.4) 60%,
+        transparentize($turquoise, 0.4) 65%,
+        $turquoise 65%, 
+        $turquoise 70%,
+        transparentize($turquoise, 0.4) 70%,
+        transparentize($turquoise, 0.4) 75%,
+        $turquoise 75%, 
+        $turquoise 80%,
+        transparentize($turquoise, 0.4) 80%,
+        transparentize($turquoise, 0.4) 85%,
+        $turquoise 85%, 
+        $turquoise 90%,
+        transparentize($turquoise, 0.4) 90%,
+        transparentize($turquoise, 0.4) 95%,
+        $turquoise 95%, 
+        $turquoise 100%);
+      position: 0 0;
+      size: 100%;
+    }
+    transition: background 300ms ease-in-out;
+    
+    &:hover {
+      background-position: 100px;
+    }
+  }
+/**************************************************************************************************/
+
+
+
+
+  $blue:  blue;
+  .mibotonCustom2A {
+    font-size: 50%;
+    border:1px solid#ccc;
+    outline:none;
+    width:100%;
+    margin:8px 0;
+    color: rgb(2, 2, 2); 
+    padding: 11px 20px 11px 20px;
+    border-radius: 3em;
+    border-color: $blue;
+    background: {
+      image: linear-gradient(to right, 
+        transparentize($blue, 0.4),
+        transparentize($blue, 0.4) 5%,
+        $blue 5%, 
+        $blue 10%,
+        transparentize($blue, 0.4) 10%,
+        transparentize($blue, 0.4) 15%,
+        $blue 15%, 
+        $blue 20%,
+        transparentize($blue, 0.4) 20%,
+        transparentize($blue, 0.4) 25%,
+        $blue 25%, 
+        $blue 30%,
+        transparentize($blue, 0.4) 30%,
+        transparentize($blue, 0.4) 35%,
+        $blue 35%, 
+        $blue 40%,
+        transparentize($blue, 0.4) 40%,
+        transparentize($blue, 0.4) 45%,
+        $blue 45%, 
+        $blue 50%,
+        transparentize($blue, 0.4) 50%,
+        transparentize($blue, 0.4) 55%,
+        $blue 55%, 
+        $blue 60%,
+        transparentize($blue, 0.4) 60%,
+        transparentize($blue, 0.4) 65%,
+        $blue 65%, 
+        $blue 70%,
+        transparentize($blue, 0.4) 70%,
+        transparentize($blue, 0.4) 75%,
+        $blue 75%, 
+        $blue 80%,
+        transparentize($blue, 0.4) 80%,
+        transparentize($blue, 0.4) 85%,
+        $blue 85%, 
+        $blue 90%,
+        transparentize($blue, 0.4) 90%,
+        transparentize($blue, 0.4) 95%,
+        $blue 95%, 
+        $blue 100%);
+      position: 0 0;
+      size: 100%;
+    }
+    transition: background 300ms ease-in-out;
+    
+    &:hover {
+      background-position: 100px;
+    }
+  }
+
+
+  $blue:  blue;
+  .mibotonCustom2B {
+    font-size: 100%;
+    border:1px solid#ccc;
+    outline:none;
+    width:100%;
+    margin:8px 0;
+    color: rgb(2, 2, 2); 
+    padding: 11px 20px 11px 20px;
+    border-radius: 3em;
+    border-color: $blue;
+    background: {
+      image: linear-gradient(to right, 
+        transparentize($blue, 0.4),
+        transparentize($blue, 0.4) 5%,
+        $blue 5%, 
+        $blue 10%,
+        transparentize($blue, 0.4) 10%,
+        transparentize($blue, 0.4) 15%,
+        $blue 15%, 
+        $blue 20%,
+        transparentize($blue, 0.4) 20%,
+        transparentize($blue, 0.4) 25%,
+        $blue 25%, 
+        $blue 30%,
+        transparentize($blue, 0.4) 30%,
+        transparentize($blue, 0.4) 35%,
+        $blue 35%, 
+        $blue 40%,
+        transparentize($blue, 0.4) 40%,
+        transparentize($blue, 0.4) 45%,
+        $blue 45%, 
+        $blue 50%,
+        transparentize($blue, 0.4) 50%,
+        transparentize($blue, 0.4) 55%,
+        $blue 55%, 
+        $blue 60%,
+        transparentize($blue, 0.4) 60%,
+        transparentize($blue, 0.4) 65%,
+        $blue 65%, 
+        $blue 70%,
+        transparentize($blue, 0.4) 70%,
+        transparentize($blue, 0.4) 75%,
+        $blue 75%, 
+        $blue 80%,
+        transparentize($blue, 0.4) 80%,
+        transparentize($blue, 0.4) 85%,
+        $blue 85%, 
+        $blue 90%,
+        transparentize($blue, 0.4) 90%,
+        transparentize($blue, 0.4) 95%,
+        $blue 95%, 
+        $blue 100%);
+      position: 0 0;
+      size: 100%;
+    }
+    transition: background 300ms ease-in-out;
+    
+    &:hover {
+      background-position: 100px;
+    }
+  }
+
+
+  $blue:  blue;
+  .mibotonCustom2C {
+    font-size: 150%;
+    border:1px solid#ccc;
+    outline:none;
+    width:100%;
+    margin:8px 0;
+    color: rgb(2, 2, 2); 
+    padding: 11px 20px 11px 20px;
+    border-radius: 3em;
+    border-color: $blue;
+    background: {
+      image: linear-gradient(to right, 
+        transparentize($blue, 0.4),
+        transparentize($blue, 0.4) 5%,
+        $blue 5%, 
+        $blue 10%,
+        transparentize($blue, 0.4) 10%,
+        transparentize($blue, 0.4) 15%,
+        $blue 15%, 
+        $blue 20%,
+        transparentize($blue, 0.4) 20%,
+        transparentize($blue, 0.4) 25%,
+        $blue 25%, 
+        $blue 30%,
+        transparentize($blue, 0.4) 30%,
+        transparentize($blue, 0.4) 35%,
+        $blue 35%, 
+        $blue 40%,
+        transparentize($blue, 0.4) 40%,
+        transparentize($blue, 0.4) 45%,
+        $blue 45%, 
+        $blue 50%,
+        transparentize($blue, 0.4) 50%,
+        transparentize($blue, 0.4) 55%,
+        $blue 55%, 
+        $blue 60%,
+        transparentize($blue, 0.4) 60%,
+        transparentize($blue, 0.4) 65%,
+        $blue 65%, 
+        $blue 70%,
+        transparentize($blue, 0.4) 70%,
+        transparentize($blue, 0.4) 75%,
+        $blue 75%, 
+        $blue 80%,
+        transparentize($blue, 0.4) 80%,
+        transparentize($blue, 0.4) 85%,
+        $blue 85%, 
+        $blue 90%,
+        transparentize($blue, 0.4) 90%,
+        transparentize($blue, 0.4) 95%,
+        $blue 95%, 
+        $blue 100%);
+      position: 0 0;
+      size: 100%;
+    }
+    transition: background 300ms ease-in-out;
+    
+    &:hover {
+      background-position: 100px;
+    }
+  }
+
+
+  /******************************************************************************************/
+
+
+
+
+
+
+  $green:  green;
+  .mibotonCustom3A {
+    font-size: 50%;
+    border:1px solid#ccc;
+    outline:none;
+    width:100%;
+    margin:8px 0;
+    color: rgb(2, 2, 2);
+    padding: 11px 20px 11px 20px;
+    border-radius: 3em;
+    border-color: $green;
+    color: #1abc9c;
+    background: {
+      image: linear-gradient(to right, 
+        transparentize($green, 0.4),
+        transparentize($green, 0.4) 5%,
+        $green 5%, 
+        $green 10%,
+        transparentize($green, 0.4) 10%,
+        transparentize($green, 0.4) 15%,
+        $green 15%, 
+        $green 20%,
+        transparentize($green, 0.4) 20%,
+        transparentize($green, 0.4) 25%,
+        $green 25%, 
+        $green 30%,
+        transparentize($green, 0.4) 30%,
+        transparentize($green, 0.4) 35%,
+        $green 35%, 
+        $green 40%,
+        transparentize($green, 0.4) 40%,
+        transparentize($green, 0.4) 45%,
+        $green 45%, 
+        $green 50%,
+        transparentize($green, 0.4) 50%,
+        transparentize($green, 0.4) 55%,
+        $green 55%, 
+        $green 60%,
+        transparentize($green, 0.4) 60%,
+        transparentize($green, 0.4) 65%,
+        $green 65%, 
+        $green 70%,
+        transparentize($green, 0.4) 70%,
+        transparentize($green, 0.4) 75%,
+        $green 75%, 
+        $green 80%,
+        transparentize($green, 0.4) 80%,
+        transparentize($green, 0.4) 85%,
+        $green 85%, 
+        $green 90%,
+        transparentize($green, 0.4) 90%,
+        transparentize($green, 0.4) 95%,
+        $green 95%, 
+        $green 100%);
+      position: 0 0;
+      size: 100%;
+    }
+    transition: background 300ms ease-in-out;
+    
+    &:hover {
+      background-position: 100px;
+    }
+  }
+
+
+  $green:  green;
+  .mibotonCustom3B {
+    font-size: 100%;
+    border:1px solid#ccc;
+    outline:none;
+    width:100%;
+    margin:8px 0;
+    color: rgb(2, 2, 2);
+    padding: 11px 20px 11px 20px;
+    border-radius: 3em;
+    border-color: $green;
+    color: #1abc9c;
+    background: {
+      image: linear-gradient(to right, 
+        transparentize($green, 0.4),
+        transparentize($green, 0.4) 5%,
+        $green 5%, 
+        $green 10%,
+        transparentize($green, 0.4) 10%,
+        transparentize($green, 0.4) 15%,
+        $green 15%, 
+        $green 20%,
+        transparentize($green, 0.4) 20%,
+        transparentize($green, 0.4) 25%,
+        $green 25%, 
+        $green 30%,
+        transparentize($green, 0.4) 30%,
+        transparentize($green, 0.4) 35%,
+        $green 35%, 
+        $green 40%,
+        transparentize($green, 0.4) 40%,
+        transparentize($green, 0.4) 45%,
+        $green 45%, 
+        $green 50%,
+        transparentize($green, 0.4) 50%,
+        transparentize($green, 0.4) 55%,
+        $green 55%, 
+        $green 60%,
+        transparentize($green, 0.4) 60%,
+        transparentize($green, 0.4) 65%,
+        $green 65%, 
+        $green 70%,
+        transparentize($green, 0.4) 70%,
+        transparentize($green, 0.4) 75%,
+        $green 75%, 
+        $green 80%,
+        transparentize($green, 0.4) 80%,
+        transparentize($green, 0.4) 85%,
+        $green 85%, 
+        $green 90%,
+        transparentize($green, 0.4) 90%,
+        transparentize($green, 0.4) 95%,
+        $green 95%, 
+        $green 100%);
+      position: 0 0;
+      size: 100%;
+    }
+    transition: background 300ms ease-in-out;
+    
+    &:hover {
+      background-position: 100px;
+    }
+  }
+
+
+
+  $green:  green;
+  .mibotonCustom3C {
+    font-size: 150%;
+    border:1px solid#ccc;
+    outline:none;
+    width:100%;
+    margin:8px 0;
+    color: rgb(2, 2, 2);
+    padding: 11px 20px 11px 20px;
+    border-radius: 3em;
+    border-color: $green;
+    color: #1abc9c;
+    background: {
+      image: linear-gradient(to right, 
+        transparentize($green, 0.4),
+        transparentize($green, 0.4) 5%,
+        $green 5%, 
+        $green 10%,
+        transparentize($green, 0.4) 10%,
+        transparentize($green, 0.4) 15%,
+        $green 15%, 
+        $green 20%,
+        transparentize($green, 0.4) 20%,
+        transparentize($green, 0.4) 25%,
+        $green 25%, 
+        $green 30%,
+        transparentize($green, 0.4) 30%,
+        transparentize($green, 0.4) 35%,
+        $green 35%, 
+        $green 40%,
+        transparentize($green, 0.4) 40%,
+        transparentize($green, 0.4) 45%,
+        $green 45%, 
+        $green 50%,
+        transparentize($green, 0.4) 50%,
+        transparentize($green, 0.4) 55%,
+        $green 55%, 
+        $green 60%,
+        transparentize($green, 0.4) 60%,
+        transparentize($green, 0.4) 65%,
+        $green 65%, 
+        $green 70%,
+        transparentize($green, 0.4) 70%,
+        transparentize($green, 0.4) 75%,
+        $green 75%, 
+        $green 80%,
+        transparentize($green, 0.4) 80%,
+        transparentize($green, 0.4) 85%,
+        $green 85%, 
+        $green 90%,
+        transparentize($green, 0.4) 90%,
+        transparentize($green, 0.4) 95%,
+        $green 95%, 
+        $green 100%);
+      position: 0 0;
+      size: 100%;
+    }
+    transition: background 300ms ease-in-out;
+    
+    &:hover {
+      background-position: 100px;
+    }
+  }
 
 
 

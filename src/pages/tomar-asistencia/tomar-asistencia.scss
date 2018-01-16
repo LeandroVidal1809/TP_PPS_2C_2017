@@ -454,6 +454,48 @@ page-tomar-asistencia{
       background-color:#1abc9c;
     }
 
+    .radioCustom1 input[type="radio"]:checked ~ label:before,
+    .radioCustom1 input[type="checkbox"]:checked ~ label:before {
+      content: '\2714';
+      text-indent: .9em;
+      color: #333;
+      background-color:red;
+    }
+    
+    .radioCustom1 input[type="radio"]:focus ~ label:before,
+    .radioCustom1 input[type="checkbox"]:focus ~ label:before {
+      box-shadow: 0 0 0 3px #999;
+      background-color:red;
+    }
+
+    .radioCustom2 input[type="radio"]:checked ~ label:before,
+    .radioCustom2 input[type="checkbox"]:checked ~ label:before {
+      content: '\2714';
+      text-indent: .9em;
+      color: #333;
+      background-color:blue;
+    }
+    
+    .radioCustom2 input[type="radio"]:focus ~ label:before,
+    .radioCustom2 input[type="checkbox"]:focus ~ label:before {
+      box-shadow: 0 0 0 3px #999;
+      background-color:blue;
+    }
+
+    .radioCustom3 input[type="radio"]:checked ~ label:before,
+    .radioCustom3 input[type="checkbox"]:checked ~ label:before {
+      content: '\2714';
+      text-indent: .9em;
+      color: #333;
+      background-color:green;
+    }
+    
+    .radioCustom3 input[type="radio"]:focus ~ label:before,
+    .radioCustom3 input[type="checkbox"]:focus ~ label:before {
+      box-shadow: 0 0 0 3px #999;
+      background-color:green;
+    }
+
 
     .radio2 input[type="radio"]:checked ~ label:before,
     .radio2 input[type="checkbox"]:checked ~ label:before {

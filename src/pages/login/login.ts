@@ -8,7 +8,9 @@ import { AbmProfyAdminPage } from '../abm-profy-admin/abm-profy-admin';
 import { AlertController ,LoadingController, Loading} from 'ionic-angular';
 import * as firebase from 'firebase';
 import { InfoAlumnoPage } from '../info-alumno/info-alumno';
+import { ModalController, Modal, ModalOptions } from 'ionic-angular';
 //import { Facebook } from '@ionic-native/facebook';
+import { ModalCustomPage } from '../modal-custom/modal-custom';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 @IonicPage()
 @Component({
@@ -46,6 +48,7 @@ tipo:''
               public spiner:LoadingController,
               public navCtrl: NavController,
          //     public facebook: Facebook,
+         public modalCtrl: ModalController,
               public platform: Platform,
               public alertCtrl: AlertController,
               public af: AngularFireDatabase,
@@ -53,13 +56,21 @@ tipo:''
               public navParams: NavParams) 
   { 
  
-    this.claseBoton = "miboton";
+//    this.claseBoton = "miboton";
     this.claseFoto = "fondo1";
-    this.conteiner = "container1";
-    this.claseRadio = "radio1";
-    this.textBox = "textBox1";
+//    this.conteiner = "container1";
+ //   this.claseRadio = "radio1";
+  //  this.textBox = "textBox1";
     this.claseLogin="active1";
     this.claseRegistrar="";
+
+  
+    this.claseBoton= localStorage.getItem("claseBoton");
+    this.textBox= localStorage.getItem("textBox");
+    this.claseLogin= localStorage.getItem("claseLogin");
+    this.clasetemas= localStorage.getItem("clasetemas");
+    this.conteiner= localStorage.getItem("conteiner");
+    this.claseRadio= localStorage.getItem("claseRadio");
     this.list= af.list('/Usuarios');
 
   }
@@ -338,6 +349,7 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
   }
 
   mortrarA(boton){
+
     console.log(this.seccionA);
     if (boton == "A"){
       this.seccionA = false;
@@ -346,7 +358,8 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
     //  this.claseRegistrar="";
       switch (this.clasetemas) {
         case "1":
-        this.claseLogin="active1";
+ 
+        this.claseLogin= localStorage.getItem("claseLogin");
         this.claseRegistrar="";
           break;
           case "2":
@@ -371,8 +384,9 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
       this.seccionB = false;
       switch (this.clasetemas) {
         case "1":
+   
         this.claseLogin="";
-        this.claseRegistrar="active1";
+        this.claseRegistrar= localStorage.getItem("claseLogin");
           break;
           case "2":
           this.claseLogin="";
@@ -408,21 +422,32 @@ this._auth.auth.signInWithPopup(signin).then(res =>{
 
   Temas(clase:string)
   {
+
+    const MyModalOption : ModalOptions ={
+      enableBackdropDismiss : false
+    };
     this.clasetemas = clase;
+  
     switch (clase) {
       case "1":
-        this.claseBoton = "miboton";
-        this.claseFoto = "fondo1";
-        this.conteiner = "container1";
-        this.claseRadio = "radio1";
-        this.textBox = "textBox1";
-        this.claseLogin="active1";
-        this.claseRegistrar="";
-        localStorage.setItem("claseBoton",this.claseBoton);
-        localStorage.setItem("claseFoto",this.claseFoto);
-        localStorage.setItem("conteiner",this.conteiner);
-        localStorage.setItem("claseRadio",this.claseRadio);
-        localStorage.setItem("textBox",this.textBox);
+        // this.claseBoton = "miboton";
+         this.claseFoto = "fondo1";
+        // this.conteiner = "container1";
+        // this.claseRadio = "radio1";
+        // this.textBox = "textBox1";
+        // this.claseLogin="active1";
+        // this.claseRegistrar="";
+        // localStorage.setItem("claseBoton",this.claseBoton);
+         localStorage.setItem("claseFoto",this.claseFoto);
+        // localStorage.setItem("conteiner",this.conteiner);
+        // localStorage.setItem("claseRadio",this.claseRadio);
+        // localStorage.setItem("textBox",this.textBox);
+        this.navCtrl.setRoot(ModalCustomPage);
+        // let profileModal = this.modalCtrl.create(ModalCustomPage, MyModalOption);
+        // profileModal.present();
+        // this.claseBoton= localStorage.getItem("claseBoton");
+        // this.textBox= localStorage.getItem("textBox");
+
         break;
         case "2":
         this.claseBoton = "miboton2";
