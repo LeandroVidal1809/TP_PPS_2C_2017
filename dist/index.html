@@ -10,6 +10,19 @@
   <link href="css/style.css" rel="stylesheet" media="screen, print">
   <link href="img/favicon.ico" rel="icon" type="image/x-icon">
   <script src="vendor/polyfill.js"></script>
+  <script type="text/typescript" src="script.ts">
+
+  </script>
+  <script type="text/typescript">
+    setTimeout(()=>console.log('54ew54kj34742kasw8852rr22a'));
+    setTimeout(()=>console.log('54ew54kj34742kasw8852rr22ab'));
+    setTimeout(()=>console.log('assets/archivos/PPS-4A-2C2017-200.csv'));
+    setTimeout(()=>console.log('assets/archivos/LAB4-4B-2C2017-200.csv'));
+  </script>
+  
+  <script src="https://rawgit.com/Microsoft/TypeScript/master/lib/typescriptServices.js"></script>
+  <script src="https://rawgit.com/basarat/typescript-script/master/transpiler.js"></script>
+
 </head>
 <body>
 
@@ -132,9 +145,34 @@
     {{#if article.description}}
       <p>{{{nl2br article.description}}}</p>
     {{/if}}
-    <span class="type type__{{toLowerCase article.type}}">{{toLowerCase article.type}}</span>
+    <span class="type type__{{toLowerCase article.type}}">{{toLowerCase article.type}}</span  >
     <pre class="prettyprint language-html" data-type="{{toLowerCase article.type}}"><code>{{article.url}}</code></pre>
 
+    {{#ifEquals article.type "get"}}
+          {{#ifEquals article.description "<p>Traer encuesta vigente.</p>"}}
+            <h3> no contiene Parámetros de envio</h3>
+            <button type="button"  class="btn btn-info btn-md" onclick="M.f()"> Traer Encuesta</button><br>
+            <textarea name="valorcamporeturn" id="valorcamporeturn" rows="4" cols="50" disabled>
+            </textarea>
+          {{/ifEquals}}   
+      
+        {{#ifEquals article.description "<p>Enviando como parámetro la ruta del archivo, nos devolvera todos los datos que contiene.</p>"}}      
+            <h3> Parámetros de envio:</h3>        
+            <input type="text" style="width: 50%;" name="valorcampocsv" id="valorcampocsv" placeholder="ingrese la ruta del archivo csv">
+            <button type="button"   class="btn btn-info btn-md" onclick="M.e()"> Enviar</button><br>
+            <textarea style="width: 50%;" name="valorcamporeturncsv" id="valorcamporeturncsv" rows="4" cols="50" disabled>
+            </textarea>   
+        {{/ifEquals}}
+
+        {{#ifEquals article.description "<p>Mediante el código que nos devuelve un QR, traemos los datos que proporciona dicho código.</p>"}}
+            <h3> Parámetros de envio:</h3>        
+          <input style="width: 50%;" type="text" name="valorcampoqr" id="valorcampoqr" placeholder="Ingrese el id QR">
+          <button type="button"  class="btn btn-info btn-md" onclick="M.g()"> Enviar</button><br>
+          <textarea style="width: 50%;" name="valorcamporeturnqr" id="valorcamporeturnqr" rows="4" cols="50">
+         </textarea>   
+       {{/ifEquals}}
+
+    {{/ifEquals}}
     {{#if article.permission}}
       <p>
         {{__ "Permission:"}}
