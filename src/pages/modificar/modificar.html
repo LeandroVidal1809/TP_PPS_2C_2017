@@ -17,12 +17,12 @@
     <div class="tab-content tabs-login col-lg-10 col-md-10 col-sm-10 cols-xs-10">
       <div id="login-access" class="tab-pane fade active in">
         <h2><i class="glyphicon glyphicon-log-in"></i>{{'Modificar Datos'| translate}}</h2>						
-
+        
         {{'NOMBRE'| translate}}:           
         <input type="text" id="a" name="a" [(ngModel)]="nombre" >
-        {{'TIPO'| translate}}:(No se puede modificar)
+        {{'TIPO'| translate}}:({{'No se puede modificar'| translate}})
         <input type="text" id="s" name="s" [(ngModel)]="tipo" disabled>
-        {{'CORREO'| translate}}:(No se puede modificar)
+        {{'CORREO'| translate}}:({{'No se puede modificar'| translate}})
         <input type="email" id="c" name="c" [(ngModel)]="email" disabled>
 
 

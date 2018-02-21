@@ -33,48 +33,6 @@ perfil = {name : '',profilePicture: '',email: '',tipo:''};
        this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
 
 
-        this.platform.ready().then(() => {
-          
-          this.gps.getCurrentPosition().then(resp =>{
-           /* 
-            alert(resp.coords.latitude);
-            alert(resp.coords.longitude); */
-             if(resp.coords.latitude> 13.83 && resp.coords.latitude< 53.48 && resp.coords.longitude<153.98 && resp.coords.longitude>50.44){
-               alert("Jampong");
-               this.translate.use('ja');
-             }
-             else if(resp.coords.latitude> 35.96 && resp.coords.latitude< 46.25 && resp.coords.longitude<18.45 && resp.coords.longitude>6.85){
-               alert("Con los Italianos");
-               this.translate.use('it');
-             }
-             else if(resp.coords.latitude> -17.85 && resp.coords.latitude< 12 && resp.coords.longitude<-32 && resp.coords.longitude>-83){
-               alert("Braziiiilia");
-               this.translate.use('po');
-             }
-             else if(resp.coords.latitude>12.38 && resp.coords.latitude< 68.46 && resp.coords.longitude<-60.82 && resp.coords.longitude>-140.97){
-               alert("NewYorkCityy");
-               this.translate.use('en');
-             }
-             else if(resp.coords.latitude> 42.35 && resp.coords.latitude< 51.01 && resp.coords.longitude<7.55 && resp.coords.longitude>-7.55){
-               alert("Estamos en Europa");
-               this.translate.use('fr');
-             }
-             else if(resp.coords.latitude> -54.87 && resp.coords.latitude< -18.45 && resp.coords.longitude<-53.78 && resp.coords.longitude>-80.15){
-               alert("Latinoamerica muchachos");
-               this.translate.use('es');
-             }else{
-               this.translate.use('en');
-          
-             }
-             this.showAlert("Localizacion Encontrada","Conexion exitosa!");
-          }).catch(error =>{ 
-            this.showAlert("GeoLocalitation no encontrada","Error");
-          
-          }) 
-            
-          
-          
-              });
 
 
       console.log('Language changed to ' + this.translate.currentLang);
@@ -136,7 +94,52 @@ perfil = {name : '',profilePicture: '',email: '',tipo:''};
       }
       this.perfil.profilePicture =  sessionStorage.getItem("foto");
   }
+actualizar(){
 
+  
+  this.platform.ready().then(() => {
+    
+    this.gps.getCurrentPosition().then(resp =>{
+     /* 
+      alert(resp.coords.latitude);
+      alert(resp.coords.longitude); */
+       if(resp.coords.latitude> 13.83 && resp.coords.latitude< 53.48 && resp.coords.longitude<153.98 && resp.coords.longitude>50.44){
+     //  alert("Jampong");
+         this.translate.use('ja');
+       }
+       else if(resp.coords.latitude> 35.96 && resp.coords.latitude< 46.25 && resp.coords.longitude<18.45 && resp.coords.longitude>6.85){
+      //   alert("Con los Italianos");
+         this.translate.use('it');
+       }
+       else if(resp.coords.latitude> -17.85 && resp.coords.latitude< 12 && resp.coords.longitude<-32 && resp.coords.longitude>-83){
+       //  alert("Braziiiilia");
+         this.translate.use('po');
+       }
+       else if(resp.coords.latitude>12.38 && resp.coords.latitude< 68.46 && resp.coords.longitude<-60.82 && resp.coords.longitude>-140.97){
+      //   alert("NewYorkCityy");
+         this.translate.use('en');
+       }
+       else if(resp.coords.latitude> 42.35 && resp.coords.latitude< 51.01 && resp.coords.longitude<7.55 && resp.coords.longitude>-7.55){
+        // alert("Estamos en Europa");
+         this.translate.use('fr');
+       }
+       else if(resp.coords.latitude> -54.87 && resp.coords.latitude< -18.45 && resp.coords.longitude<-53.78 && resp.coords.longitude>-80.15){
+      //   alert("Latinoamerica muchachos");
+         this.translate.use('es');
+       }else{
+         this.translate.use('en');
+    
+       }
+       this.showAlert("Localizacion Encontrada","Conexion exitosa!");
+    }).catch(error =>{ 
+      this.showAlert("GeoLocalitation no encontrada","Error");
+    
+    }) 
+      
+    
+    
+        });
+}
   logOut(){
     
          this.nativeAudio.play('Silbido')
