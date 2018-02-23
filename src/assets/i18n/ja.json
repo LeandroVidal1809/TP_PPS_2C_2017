@@ -83,7 +83,16 @@
   "No se puede modificar":"それは変更できません",
   "Consulta":"クエリ",
   "Excel":"エキサイティング",
-  "Encuestas":"アンケート"
+  "Encuestas":"アンケート",
+  
+    "Modificar":"変更",
+    "Graficos":"グラフィックス",
+    "Encuesta Activa":"アクティブサーベイ",
+    "Modificar Encuesta":"アンケートの変更",
+   "minutos":"分",
+   "Pregunta":"質問",
+   "Seleccione Nuevo":"新規を選択",
+   "Respuestas":"アンサー"
     
     
 

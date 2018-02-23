@@ -83,7 +83,16 @@
   "No se puede modificar":"Could not modify",
   "Consulta":"Query",
   "Excel":"Excel",
-  "Encuestas":"Surveys"
+  "Encuestas":"Surveys",
+
+  "Modificar":"Modify",
+  "Graficos":"Graphics",
+  "Encuesta Activa":"Active Survey",
+  "Modificar Encuesta":"Modify Survey",
+ "minutos":"minutes",
+ "Pregunta":"Question",
+ "Seleccione Nuevo":"Select New",
+ "Respuestas":"Answers"
     
     
 

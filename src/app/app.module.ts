@@ -31,11 +31,11 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 //import { Facebook } from '@ionic-native/facebook';
 import firebase from 'firebase';
 import { Toast } from '@ionic-native/toast';
-
+import { MenuEncuesta } from '../pages/menuEncuesta/menuEncuesta';
 import { InfoProfesorPage } from '../pages/info-profesor/info-profesor';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Http, HttpModule } from '@angular/http';
-
+import { ModificarEnc } from '../pages/modificarEnc/modificarEnc';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -69,7 +69,7 @@ export const firebaseConfig = {
     InfoProfesorPage,
     AbmAlumnosPage,
     AbmProfyAdminPage,
-    ConsultaPage,
+    ConsultaPage,MenuEncuesta,ModificarEnc,
     EncuestaPage,
     ListaconsultaPage,AltaEncuesta
     
@@ -111,7 +111,7 @@ export const firebaseConfig = {
     AbmProfyAdminPage,
     ConsultaPage,
     ListaconsultaPage,
-    AltaEncuesta
+    AltaEncuesta,MenuEncuesta,ModificarEnc
 
   ],
   providers: [

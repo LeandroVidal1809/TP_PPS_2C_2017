@@ -83,7 +83,18 @@
   "No se puede modificar":"No se puede modificar",
   "Consulta":"Consulta",
   "Excel":"Excel",
-  "Encuestas":"Encuestas"
+  "Encuestas":"Encuestas",
+
+  "Modificar":"Modificar",
+  "Graficos":"Graficos",
+  "Encuesta Activa":"Encuesta Activa",
+  "Modificar Encuesta":"Modificar Encuesta",
+ "minutos":"minutos",
+ "Pregunta":"Pregunta",
+ "Seleccione Nuevo":"Seleccione Nuevo",
+ "Respuestas":"Respuestas"
+
+
     
 
 }

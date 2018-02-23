@@ -83,7 +83,16 @@
   "No se puede modificar":"Non può essere modificatos",
   "Consulta":"Consultazione",
   "Excel":"Eccellere",
-  "Encuestas":"Sondaggi"
+  "Encuestas":"Sondaggi",
+  
+    "Modificar":"Cambiamento",
+    "Graficos":"Grafica",
+    "Encuesta Activa":"Sondaggio attivo",
+    "Modificar Encuesta":"Modifica sondaggio",
+   "minutos":"Verbale",
+   "Pregunta":"Domanda",
+   "Seleccione Nuevo":"Seleziona Nuovo",
+   "Respuestas":"Risposte"
     
     
 

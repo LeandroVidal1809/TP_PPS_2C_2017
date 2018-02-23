@@ -18,6 +18,7 @@ import {Platform} from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { IonicPage } from 'ionic-angular';
+import { MenuEncuesta } from '../menuEncuesta/menuEncuesta';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -232,7 +233,7 @@ actualizar(){
       //  this.navCtrl.push(TomarAsistenciaPage);
         break;
         case 'Encuesta':
-        profileModal = this.modalCtrl.create(AltaEncuesta, MyModalOption);
+        profileModal = this.modalCtrl.create(MenuEncuesta, MyModalOption);
         profileModal.present();
       //  this.navCtrl.push(TomarAsistenciaPage);
         break;  
