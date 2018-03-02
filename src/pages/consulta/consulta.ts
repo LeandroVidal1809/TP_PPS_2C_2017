@@ -1,5 +1,5 @@
 import { Component,Input } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController,ModalController, Modal, ModalOptions } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController,ModalController,AlertController, Modal, ModalOptions } from 'ionic-angular';
 import { ListaAsistenciaPage } from '../lista-asistencia/lista-asistencia';
 import { ListaconsultaPage } from '../listaconsulta/listaconsulta';
 import { AngularFireModule} from 'angularfire2';
@@ -35,7 +35,7 @@ export class ConsultaPage {
   opcion:number;
   dbCon: AngularFireDatabase;
   constructor(public translate: TranslateService,public modalCtrl: ModalController,db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,
-    private _auth:AngularFireAuth) {
+    private _auth:AngularFireAuth ,  public alertCtrl: AlertController    ) {
       this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
         console.log('Language changed to ' + this.translate.currentLang);
       });
@@ -84,13 +84,37 @@ export class ConsultaPage {
           if(this.miLista.length!=0)
           {
             this.navCtrl.setRoot(ListaconsultaPage);
-          }else{//alert("la consulta no trajo datos");
+          }else{//alert("");
+          if(this.translate.currentLang=="es"){
+            this.showAlert("Atencion","la consulta no trajo datos");           }
+    if(this.translate.currentLang=="ja"){
+      this.showAlert("注意","少なくとも1つの回答をアップロードする必要があります");   }
+    if(this.translate.currentLang=="it"){
+      this.showAlert("Attenzione","la query non ha portato dati");   }
+    if(this.translate.currentLang=="po"){
+      this.showAlert("Atenção","a consulta não trouxe dados"); }
+    if(this.translate.currentLang=="en"){
+      this.showAlert("Attention","the query did not bring data");   }
+    if(this.translate.currentLang=="fr"){
+      this.showAlert("Attention","la requête n'a pas apporté de données");
+    }
+
+
+
         }
         
         });
           
      }
-  
+     showAlert(mensaje:string,titulo:string) {
+      
+      let alert = this.alertCtrl.create({
+        title: titulo,
+        subTitle: mensaje,
+        buttons: ['OK']
+      });
+      alert.present();
+    }
 
 
     

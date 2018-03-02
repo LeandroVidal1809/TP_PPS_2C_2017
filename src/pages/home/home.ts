@@ -131,10 +131,34 @@ actualizar(){
          this.translate.use('en');
     
        }
-       this.showAlert("Localizacion Encontrada","Conexion exitosa!");
+   
+       if(this.translate.currentLang=="es"){
+        this.showAlert("Localizacion Encontrada","Conexion exitosa!");                  }
+    if(this.translate.currentLang=="ja"){
+    this.showAlert("場所が見つかりました","接続に成功しました！");   }
+    if(this.translate.currentLang=="it"){
+    this.showAlert("Posizione trovata","Connessione riuscita!");   }
+    if(this.translate.currentLang=="po"){
+    this.showAlert("Localização encontrada","Conexão bem-sucedida!"); }
+    if(this.translate.currentLang=="en"){
+    this.showAlert("Location Found","Successful connection!");   }
+    if(this.translate.currentLang=="fr"){
+    this.showAlert("Localisation trouvée","Connexion réussie!");
+    }
     }).catch(error =>{ 
-      this.showAlert("GeoLocalitation no encontrada","Error");
-    
+ 
+      if(this.translate.currentLang=="es"){
+        this.showAlert("GeoLocalitation no encontrada","Error!");                  }
+    if(this.translate.currentLang=="ja"){
+    this.showAlert("場所が見つかりました","接続に成功しました！");   }
+    if(this.translate.currentLang=="it"){
+    this.showAlert("Posizione non trouvata","Connessione riuscita!");   }
+    if(this.translate.currentLang=="po"){
+    this.showAlert("Localização nou encontrada","Conexão bem-sucedida!"); }
+    if(this.translate.currentLang=="en"){
+    this.showAlert("Location Not Found","Successful connection!");   }
+    if(this.translate.currentLang=="fr"){
+    this.showAlert("Localisation non trouvata","Connexion réussie!");}
     }) 
       
     

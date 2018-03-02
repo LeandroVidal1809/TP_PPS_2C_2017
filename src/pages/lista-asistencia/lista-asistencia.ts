@@ -162,7 +162,20 @@ AgregarLista()
         clearInterval(this.repetidor);      }
   }, 1000);
 
-   this.showAlert("La lista de asistencia se ha cargado correctamente","Proceso finalizado")
+  
+   if(this.translate.currentLang=="es"){
+    this.showAlert("La lista de asistencia se ha cargado correctamente","Proceso finalizado");                  }
+if(this.translate.currentLang=="ja"){
+this.showAlert("生徒は正しく保存されました","成功");   }
+if(this.translate.currentLang=="it"){
+this.showAlert("L'elenco delle presenze è stato caricato correttamente","Processo completato");   }
+if(this.translate.currentLang=="po"){
+this.showAlert("A lista de atendimento foi carregada corretamente","Processo concluído"); }
+if(this.translate.currentLang=="en"){
+this.showAlert("The attendance list has been loaded correctly","Ended process");   }
+if(this.translate.currentLang=="fr"){
+this.showAlert("La liste de présence a été correctement chargée","Processus terminé");
+}
    sessionStorage.clear();
    this.navCtrl.setRoot(TomarAsistenciaPage);
    }

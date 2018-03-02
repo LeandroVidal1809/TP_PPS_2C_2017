@@ -122,10 +122,10 @@ cargar()
           }
           switch(this.tipoSelect)
           {
-            case 'Menu de Seleccion':
+            case 'Select':
             this.tipoSelect="Selector";
             break;
-            case 'Botones opcion':
+            case 'Button':
             this.tipoSelect="RadioButton";
             break;
             case 'Respuesta Texto':
@@ -150,8 +150,20 @@ cargar()
       this.respuesta3 = "";
     
 
-      this.showAlert("Proceso finalizado","Se cargo correctamente")
 
+      if(this.translate.currentLang=="es"){
+        this.showAlert("Proceso finalizado","Se cargo correctamente");           }
+if(this.translate.currentLang=="ja"){
+  this.showAlert("プロセスが完了しました","少なくとも1つの回答をアップロードする必要があります");   }
+if(this.translate.currentLang=="it"){
+  this.showAlert("Processus terminé","E 'stato correttamente addebitato");   }
+if(this.translate.currentLang=="po"){
+  this.showAlert("Processo concluído","Foi carregado corretamente"); }
+if(this.translate.currentLang=="en"){
+  this.showAlert("Ended process","It was correctly charged");   }
+if(this.translate.currentLang=="fr"){
+  this.showAlert("Processo completato","Il a été correctement chargé");
+}
     
    
       }

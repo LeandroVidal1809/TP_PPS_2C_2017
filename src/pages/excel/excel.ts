@@ -101,8 +101,20 @@ export class ExcelPage {
   public elegirArchivos()
   {
     let alert = this.alertCtrl.create();
-    alert.setTitle('Elegir archivo');
-  
+   
+    if(this.translate.currentLang=="es"){
+      alert.setTitle('Elegir archivo');               }
+  if(this.translate.currentLang=="ja"){
+    alert.setTitle('ファイルを選択');     }
+  if(this.translate.currentLang=="it"){
+    alert.setTitle('Scegli il file');      }
+  if(this.translate.currentLang=="po"){
+    alert.setTitle('Escolha o arquivo');    }
+  if(this.translate.currentLang=="en"){
+    alert.setTitle('Choose file');      }
+  if(this.translate.currentLang=="fr"){
+    alert.setTitle('Choisissez le fichier');   
+  }
     alert.addInput({
       type: 'radio',
       label: 'PPS-4A-2c2017-200',
@@ -116,7 +128,20 @@ export class ExcelPage {
       value: 'PPS-4b-2c2017-201'
     });
   
-    alert.addButton('Cancel');
+
+    if(this.translate.currentLang=="es"){
+      alert.addButton('Cancelar');               }
+  if(this.translate.currentLang=="ja"){
+    alert.addButton('ファイルを選択');     }
+  if(this.translate.currentLang=="it"){
+    alert.addButton('Annullare');      }
+  if(this.translate.currentLang=="po"){
+    alert.addButton('Cancelar');    }
+  if(this.translate.currentLang=="en"){
+    alert.addButton('Cancel');      }
+  if(this.translate.currentLang=="fr"){
+    alert.addButton('Annuler');   
+  }
     alert.addButton({
       text: 'Ok',
       handler: data => {
@@ -181,7 +206,7 @@ public verificarLista()
    actions.forEach(action => {
      if(action.payload.val()["Titulo"]==this.archivo && this.existe==false)
      {
-     this.AlertMensaje("Esta lista ya fue importada el dia " + action.payload.val()["Fecha"],"Lista duplicada");
+    // this.AlertMensaje("Esta lista ya fue importada el dia " + action.payload.val()["Fecha"],"Lista duplicada");
      this.existe=true;
      return;
      }
@@ -234,7 +259,20 @@ public verificarLista()
                 });  
             }
             this.existe=false;
-            this.AlertMensaje("La lista fue agregada exitosamente!","Proceso finalizado");
+        
+            if(this.translate.currentLang=="es"){
+              this.AlertMensaje("La lista fue agregada exitosamente!","Proceso finalizado");                  }
+          if(this.translate.currentLang=="ja"){
+          this.AlertMensaje("継続時間を選択する","ごめんなさい");   }
+          if(this.translate.currentLang=="it"){
+          this.AlertMensaje("La lista è stata aggiunta con successo!","Processo completato");   }
+          if(this.translate.currentLang=="po"){
+          this.AlertMensaje("A lista foi adicionada com sucesso!","Processo concluído"); }
+          if(this.translate.currentLang=="en"){
+          this.AlertMensaje("The list was added successfully!","Ended process");   }
+          if(this.translate.currentLang=="fr"){
+          this.AlertMensaje("La liste a été ajoutée avec succès!","Processus terminé");
+          }
   }
 
 
@@ -246,7 +284,7 @@ public verificarLista()
       message: mens,
       buttons:[
         {
-          text: "Aceptar",
+          text: "OK",
           handler: data => {
             console.log('Mensaje de Alerta');
             }

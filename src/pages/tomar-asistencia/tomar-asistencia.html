@@ -81,7 +81,7 @@
               <option>Lopez,Gustavo</option>
               <option>Fernandez,Diego</option>
             </select>
-            <input *ngIf="opcion==3"  id="msg" placeholder="Inserta el Legajo..."  [(ngModel)]="AlumnoSelect"  type="text" class="selectpick" name="msg"> 
+            <input *ngIf="opcion==3"  id="msg" placeholder="{{'Inserta el Legajo'| translate}}..."  [(ngModel)]="AlumnoSelect"  type="text" class="selectpick" name="msg"> 
             <!-- <input *ngIf="opcion==4"  id="msg"  [(ngModel)]="Fecha"   type="text" class="selectpick" name="msg" placeholder="Fecha">  -->
             <select *ngIf="opcion==6" [(ngModel)]="AulaSelect" style="color:black;"   selected="selected">
                 <option>{{'Aula'| translate}}...</option>

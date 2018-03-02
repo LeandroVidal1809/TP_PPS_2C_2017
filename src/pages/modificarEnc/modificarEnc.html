@@ -6,7 +6,7 @@
    
       <ion-title>{{'Modificar Encuesta'| translate}}</ion-title>
       <ion-buttons end>
-          <button ion-button (click)="Borrar()" >{{'BORRAR'| translate}} </button>   <button ion-button (click)="closeModal()" >Cerrar </button>   
+          <button ion-button (click)="Borrar()" >{{'BORRAR'| translate}} </button>   <button ion-button (click)="closeModal()" >{{'CERRAR'| translate}} </button>   
         </ion-buttons>
     </ion-navbar>
   </ion-header>
@@ -21,9 +21,9 @@
         <select [(ngModel)]="tiempomodif" style="margin-left: -72px;width: 265px;font-size:22px"   style="color:black;" >
           <option>{{'DURACION DE LA ENCUESTA'| translate}}</option>
           <!-- <option>CheckBox</option> -->
-          <option>1 {{'minutos'| translate}}</option>
-          <option>10 {{'minutos'| translate}}</option>
-          <option>45 {{'minutos'| translate}}</option>
+          <option>1 min</option>
+          <option>10 min</option>
+          <option>45 min</option>
         </select><br>
         {{'Pregunta'| translate}}:           
         <input type="text" id="a" name="a" [(ngModel)]="pregunta" ><br>

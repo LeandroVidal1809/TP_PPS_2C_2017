@@ -379,9 +379,11 @@ this.showAlert("Il n'y a pas de liste chargée pour votre demande");
   showAlert(mensaje:string) {
     
     let alert = this.alertCtrl.create({
- 
+   
       subTitle: mensaje,
-      buttons: ['OK']
+      
+      
+        buttons: ['OK']
     });
     alert.present();
   }

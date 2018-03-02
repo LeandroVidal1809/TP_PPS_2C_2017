@@ -77,7 +77,20 @@ export class Modificar {
   {
     if(sessionStorage.getItem("type")!="admin" && sessionStorage.getItem("type")!="administrativo")
       {
-          this.showAlert("No tiene permisos para ingresar al ABM de Profesores y Administrativos","Lo sentimos");
+          
+          if(this.translate.currentLang=="es"){
+            this.showAlert("No tiene permisos para ingresar como Profesores y Administrativos","Lo sentimos");                  }
+      if(this.translate.currentLang=="ja"){
+        this.showAlert("教授と管理者のABMに入る権限がありません。","ごめんなさい");   }
+      if(this.translate.currentLang=="it"){
+        this.showAlert("Non hai il permesso di entrare nell'ABM di professori e amministratori","Siamo spiacenti");   }
+      if(this.translate.currentLang=="po"){
+        this.showAlert("Você não tem permissão para entrar na ABM de Professores e Administradores","Sentimos muito"); }
+      if(this.translate.currentLang=="en"){
+        this.showAlert("You do not have permission to enter the ABM of Professors and Administrators","We are sorry");   }
+      if(this.translate.currentLang=="fr"){
+        this.showAlert("Vous n'êtes pas autorisé à entrer dans le guichet automatique des professeurs et des administrateurs","Nous sommes désolés");
+      }
           this.view.dismiss(); // this.navCtrl.setRoot(HomePage);    
       }
   }
@@ -120,68 +133,95 @@ Guardar2(foto: string){
             Nombre: this.nombre,
             Foto:this.foto
          })
-         this.showAlert("Se guardo correctamente el alumno","Exito");
+    
+         if(this.translate.currentLang=="es"){
+          this.showAlert("Se guardo correctamente el alumno","Exito");                  }
+    if(this.translate.currentLang=="ja"){
+      this.showAlert("生徒は正しく保存されました","成功");   }
+    if(this.translate.currentLang=="it"){
+      this.showAlert("Lo studente è stato correttamente salvato","Súkses");   }
+    if(this.translate.currentLang=="po"){
+      this.showAlert("O aluno foi salvo corretamente","Sucesso"); }
+    if(this.translate.currentLang=="en"){
+      this.showAlert("The student was correctly saved","Success");   }
+    if(this.translate.currentLang=="fr"){
+      this.showAlert("L'étudiant a été correctement enregistré","Succès");
+    }
 
 
   }
   else
   {
-    this.showAlert("Complite todos los campos","Lo Sentimos");
+
+    if(this.translate.currentLang=="es"){
+      this.showAlert("Complete todos los campos","Lo Sentimos");                  }
+if(this.translate.currentLang=="ja"){
+  this.showAlert("生徒は正しく保存されました","成功");   }
+if(this.translate.currentLang=="it"){
+  this.showAlert("Completa tutti i campi","Siamo spiacenti");   }
+if(this.translate.currentLang=="po"){
+  this.showAlert("Complete todos os campos","Sentimos muito"); }
+if(this.translate.currentLang=="en"){
+  this.showAlert("Complete all fields","We are sorry");   }
+if(this.translate.currentLang=="fr"){
+  this.showAlert("Complétez tous les champs","Nous sommes désolés");
+}
+
   }
 
 }
   
 
-Registrar():Boolean
-{
-  if(this.password.length>5){
-    if(this.password==this.passwordconfirm)
-    try{
-      let espera = this.MiSpiner();
-      espera.present();    
-        const result =  this._auth.auth.createUserWithEmailAndPassword(this.email,this.password);
+// Registrar():Boolean
+// {
+//   if(this.password.length>5){
+//     if(this.password==this.passwordconfirm)
+//     try{
+//       let espera = this.MiSpiner();
+//       espera.present();    
+//         const result =  this._auth.auth.createUserWithEmailAndPassword(this.email,this.password);
   
-      this.showAlert(this.email + " Fue ingresado Exitosamente!","Proceso finalizado");      
-    return true;  
-    }
-      catch(e)
-      {
+//       this.showAlert(this.email + " Fue ingresado Exitosamente!","Proceso finalizado");      
+//     return true;  
+//     }
+//       catch(e)
+//       {
      
-        console.error(e);
-        this.showAlertRegistrar(e,"error al registrarse");
-      }
-    else
-      {this.showAlertRegistrar("las claves no coinciden , intente nuevamente","error al registrarse")}
-  }
-  else
-    {
+//         console.error(e);
+//         this.showAlertRegistrar(e,"error al registrarse");
+//       }
+//     else
+//       {this.showAlertRegistrar("las claves no coinciden , intente nuevamente","error al registrarse")}
+//   }
+//   else
+//     {
 
-      this.showAlertRegistrar("la clave debe contener por lo menos 6 caracteres","error al registrarse")
-    }
-return false;
-  }
+//       this.showAlertRegistrar("la clave debe contener por lo menos 6 caracteres","error al registrarse")
+//     }
+// return false;
+//   }
 
-  showAlertRegistrar(mensaje:string,titulo:string) {
+//   showAlertRegistrar(mensaje:string,titulo:string) {
     
-        switch(mensaje)
-        {
+//         switch(mensaje)
+//         {
           
-          case "The email address is badly formatted.":
-          {
+//           case "The email address is badly formatted.":
+//           {
     
-            mensaje="El email no contiene un formato correcto";
-            break;
-          }
+//             mensaje="El email no contiene un formato correcto";
+//             break;
+//           }
          
     
-        }
-        let alert = this.alertCtrl.create({
-          title: titulo,
-          subTitle: mensaje,
-          buttons: ['OK']
-        });
-        alert.present();
-      }  
+//         }
+//         let alert = this.alertCtrl.create({
+//           title: titulo,
+//           subTitle: mensaje,
+//           buttons: ['OK']
+//         });
+//         alert.present();
+//       }  
 
 
       MiSpiner():Loading
